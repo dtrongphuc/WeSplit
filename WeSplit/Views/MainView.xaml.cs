@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace WeSplit.Views
 {
     /// <summary>
-    /// Interaction logic for HistoryView.xaml
+    /// Interaction logic for HomeView.xaml
     /// </summary>
-    public partial class HistoryView : UserControl
+    public partial class MainView : Window
     {
-        public HistoryView()
+        public MainView()
         {
             InitializeComponent();
         }
