@@ -4,14 +4,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WeSplit.UserControls;
+using WeSplit.Views;
+
 
 namespace WeSplit.ViewModels
 {
-    class HomeViewModel:Screen
+    public class HomeViewModel : Conductor<IScreen>.Collection.OneActive
     {
-        public void Navbar()
+        public HomeViewModel()
         {
+            ShowNavBar();
+        }
+        public void ShowNavBar()
+        {
+            ActivateItem(new NavBarViewModel());
         }
     }
 }

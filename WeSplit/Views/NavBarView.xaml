@@ -1,0 +1,112 @@
+﻿<UserControl
+    x:Class="WeSplit.Views.NavBarView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WeSplit.Views"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="520"
+    d:DesignWidth="100"
+    mc:Ignorable="d">
+    <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth3" materialDesign:ShadowAssist.ShadowEdges="Right">
+        <Grid Background="#0E988C">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100" />
+                <RowDefinition Height="80" />
+                <RowDefinition Height="80" />
+                <RowDefinition Height="80" />
+                <RowDefinition Height="80" />
+            </Grid.RowDefinitions>
+            <Ellipse
+                Grid.Row="0"
+                Width="40"
+                Height="40"
+                Margin="0,20,0,0"
+                VerticalAlignment="Top"
+                Cursor="Hand">
+                <Ellipse.Fill>
+                    <SolidColorBrush Color="Black" />
+                </Ellipse.Fill>
+            </Ellipse>
+            <Grid
+                Grid.Row="1"
+                Background="#AC224441"
+                Cursor="Hand">
+                <materialDesign:PackIcon
+                    Width="40"
+                    Height="40"
+                    Margin="0,16,0,0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    DockPanel.Dock="Top"
+                    Foreground="#fff"
+                    Kind="Home" />
+                <!--<Border
+                    VerticalAlignment="Bottom"
+                    BorderBrush="#fff"
+                    BorderThickness="1"
+                    DockPanel.Dock="Bottom" />-->
+            </Grid>
+            <Grid
+                Grid.Row="2"
+                Background="Transparent"
+                Cursor="Hand">
+                <materialDesign:PackIcon
+                    Width="40"
+                    Height="40"
+                    Margin="0,16,0,0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    DockPanel.Dock="Top"
+                    Foreground="#fff"
+                    Kind="Magnify" />
+                <!--<Border
+                    VerticalAlignment="Bottom"
+                    BorderBrush="#fff"
+                    BorderThickness="1"
+                    DockPanel.Dock="Bottom" />-->
+            </Grid>
+            <Grid
+                Grid.Row="3"
+                Background="Transparent"
+                Cursor="Hand">
+                <materialDesign:PackIcon
+                    Width="40"
+                    Height="40"
+                    Margin="0,16,0,0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    DockPanel.Dock="Top"
+                    Foreground="#fff"
+                    Kind="PlusCircleOutline" />
+
+                <!--<Border
+                    VerticalAlignment="Bottom"
+                    BorderBrush="#fff"
+                    BorderThickness="1"
+                    DockPanel.Dock="Bottom" />-->
+            </Grid>
+            <Grid
+                Grid.Row="4"
+                Background="Transparent"
+                Cursor="Hand">
+                <materialDesign:PackIcon
+                    Width="40"
+                    Height="40"
+                    Margin="0,16,0,0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    DockPanel.Dock="Top"
+                    Foreground="#fff"
+                    Kind="FileDocumentEditOutline" />
+                <Border
+                    VerticalAlignment="Bottom"
+                    BorderBrush="#fff"
+                    BorderThickness="1"
+                    DockPanel.Dock="Bottom"
+                    Visibility="Hidden" />
+            </Grid>
+        </Grid>
+    </materialDesign:Card>
+</UserControl>

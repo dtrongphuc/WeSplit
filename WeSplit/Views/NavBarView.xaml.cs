@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WeSplit.UserControls
+namespace WeSplit.Views
 {
     /// <summary>
-    /// Interaction logic for NavBarUserControl.xaml
+    /// Interaction logic for NavBarView.xaml
     /// </summary>
-    public partial class NavBarUserControl : UserControl
+    public partial class NavBarView : UserControl
     {
-        public NavBarUserControl()
+        public NavBarView()
         {
             InitializeComponent();
         }
