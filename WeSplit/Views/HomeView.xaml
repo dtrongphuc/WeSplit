@@ -9,5 +9,9 @@
     Width="960"
     Height="520"
     mc:Ignorable="d">
-    <Grid />
+    <Grid>
+        <StackPanel Orientation="Horizontal">
+            <Grid x:Name="Navbar" />
+        </StackPanel>
+    </Grid>
 </Window>
