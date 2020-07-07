@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace WeSplit.Views
 {
     /// <summary>
-    /// Interaction logic for NavBarView.xaml
+    /// Interaction logic for HistoryView.xaml
     /// </summary>
-    public partial class NavBarView : UserControl
+    public partial class HistoryView : UserControl
     {
-        public NavBarView()
+        public HistoryView()
         {
             InitializeComponent();
         }
