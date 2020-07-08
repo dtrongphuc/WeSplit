@@ -18,8 +18,14 @@
             <ColumnDefinition Width="74" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth3" materialDesign:ShadowAssist.ShadowEdges="Right">
-            <Grid Grid.Column="0" Background="#0E988C">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <materialDesign:Card
+            Grid.Row="0"
+            materialDesign:ShadowAssist.ShadowDepth="Depth3"
+            materialDesign:ShadowAssist.ShadowEdges="Right">
+            <Grid Grid.Column="0" Background="#17191D">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="100" />
                     <RowDefinition Height="80" />
@@ -35,13 +41,16 @@
                     VerticalAlignment="Top"
                     Cursor="Hand">
                     <Ellipse.Fill>
-                        <SolidColorBrush Color="Black" />
+                        <SolidColorBrush Color="White" />
                     </Ellipse.Fill>
                 </Ellipse>
-                <Grid
-                    Grid.Row="1"
-                    Background="#AC224441"
-                    Cursor="Hand">
+                <Grid Grid.Row="1" Cursor="Hand">
+                    <Grid.Background>
+                        <LinearGradientBrush MappingMode="RelativeToBoundingBox" StartPoint="0.5,0" EndPoint="0.5,1">
+                            <GradientStop Color="#FF1D222B" />
+                            <GradientStop Offset="1" Color="#6197EC" />
+                        </LinearGradientBrush>
+                    </Grid.Background>
                     <materialDesign:PackIcon
                         Width="40"
                         Height="40"
@@ -118,6 +127,10 @@
                 </Grid>
             </Grid>
         </materialDesign:Card>
-        <ContentControl x:Name="ActiveItem" Grid.Column="1" />
+        <ContentControl
+            x:Name="ActiveItem"
+            Grid.Row="0"
+            Grid.Column="1"
+            Content="    " />
     </Grid>
 </Window>
