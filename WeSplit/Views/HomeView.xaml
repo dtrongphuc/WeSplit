@@ -4,11 +4,78 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:WeSplit.Views"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="520"
     d:DesignWidth="886"
     mc:Ignorable="d">
     <Grid Background="#F9F9FF">
-        <StackPanel />
+        <StackPanel Orientation="Horizontal">
+            <Border BorderBrush="#D8C1C1C1" BorderThickness="0,0,1,0">
+                <StackPanel Width="280">
+                    <Label
+                        Padding="0,12"
+                        HorizontalContentAlignment="Center"
+                        Content="Lịch sử chuyến đi"
+                        FontSize="24" />
+                    <Separator Margin="10,0" Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+                    <DockPanel
+                        Height="80"
+                        Background="Transparent"
+                        Cursor="Hand">
+                        <Image
+                            Width="52"
+                            Height="52"
+                            Margin="10,0,0,0"
+                            DockPanel.Dock="Left"
+                            Source="/Resource/Images/trip.jpg"
+                            Stretch="UniformToFill" />
+                        <TextBlock
+                            Height="40"
+                            Margin="8,14,10,0"
+                            DockPanel.Dock="Top"
+                            FontSize="14"
+                            Text="Tên chuyến đi Tên chuyến đi Tên chuyến đi Tên chuyến đi Tên chuyến đi"
+                            TextTrimming="WordEllipsis"
+                            TextWrapping="Wrap" />
+                        <StackPanel
+                            Margin="0,0,10,0"
+                            HorizontalAlignment="Right"
+                            DockPanel.Dock="Bottom"
+                            Orientation="Horizontal">
+                            <TextBlock
+                                Margin="0,0,8,0"
+                                Foreground="#FF5B5B5B"
+                                Text="300" />
+                            <TextBlock Foreground="#FF5B5B5B" Text="Km" />
+                        </StackPanel>
+                    </DockPanel>
+                </StackPanel>
+            </Border>
+            <Grid
+                Width="32"
+                Height="32"
+                Margin="-16,0,0,0"
+                VerticalAlignment="Center">
+                <Ellipse
+                    Cursor="Hand"
+                    Fill="#fff"
+                    Stroke="#E67E7E7E"
+                    StrokeThickness="0.5" />
+                <materialDesign:PackIcon
+                    Width="24"
+                    Height="24"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Foreground="#FF323232"
+                    Kind="ChevronRight" />
+                <!--<Image
+                        Width="24"
+                        Height="24"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Source="/Resource/Icons/right-chevron.png" />-->
+            </Grid>
+        </StackPanel>
     </Grid>
 </UserControl>
