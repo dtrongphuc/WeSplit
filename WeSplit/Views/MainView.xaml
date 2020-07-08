@@ -25,7 +25,7 @@
             Grid.Row="0"
             materialDesign:ShadowAssist.ShadowDepth="Depth3"
             materialDesign:ShadowAssist.ShadowEdges="Right">
-            <Grid Grid.Column="0" Background="#17191D">
+            <Grid Grid.Column="0" Background="#FF252F42">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="100" />
                     <RowDefinition Height="80" />
@@ -47,8 +47,8 @@
                 <Grid Grid.Row="1" Cursor="Hand">
                     <Grid.Background>
                         <LinearGradientBrush MappingMode="RelativeToBoundingBox" StartPoint="0.5,0" EndPoint="0.5,1">
-                            <GradientStop Color="#FF1D222B" />
-                            <GradientStop Offset="1" Color="#6197EC" />
+                            <GradientStop Color="#FF172947" />
+                            <GradientStop Color="#FF2B60B4" Offset="1" />
                         </LinearGradientBrush>
                     </Grid.Background>
                     <materialDesign:PackIcon
