@@ -4,12 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
 
 namespace WeSplit.ViewModels
 {
-    public class HomeViewModel:Screen
+    public class HistoryViewModel:Screen
     {
         private int _historywidth = 280;
         private int _canvasheight = 520;
@@ -40,9 +38,10 @@ namespace WeSplit.ViewModels
             }
         }
 
-        public HomeViewModel()
+        public void ShowDetail()
         {
-
+            var parentConductor = (Conductor<IScreen>.Collection.OneActive)(this.Parent);
+            parentConductor.ActivateItem(new DetailViewModel());
         }
     }
 }

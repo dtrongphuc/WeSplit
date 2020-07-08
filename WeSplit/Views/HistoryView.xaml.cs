@@ -15,15 +15,14 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WeSplit.ViewModels;
 
-
 namespace WeSplit.Views
 {
     /// <summary>
-    /// Interaction logic for HomeView.xaml
+    /// Interaction logic for HistoryView.xaml
     /// </summary>
-    public partial class HomeView : UserControl
+    public partial class HistoryView : UserControl
     {
-        public HomeView()
+        public HistoryView()
         {
             InitializeComponent();
         }
@@ -39,18 +38,23 @@ namespace WeSplit.Views
 
         private void BtnShowHistory(object sender, MouseButtonEventArgs e)
         {
-            var currentWindowWidth = this.ActualWidth;
-            if(InfoCanvas.ActualWidth < currentWindowWidth * 0.6)
+            if (InfoCanvas.ActualWidth < 500)
             {
-                Animate(currentWindowWidth * 0.6);
+                Animate(500);
                 BtnShow.Visibility = Visibility.Hidden;
                 BtnHide.Visibility = Visibility.Visible;
-            } else
+            }
+            else
             {
                 Animate(280);
                 BtnHide.Visibility = Visibility.Hidden;
                 BtnShow.Visibility = Visibility.Visible;
             }
+        }
+
+        private void ShowDetail(object sender, RoutedEventArgs e)
+        {
+            Animate(-10);
         }
     }
 }

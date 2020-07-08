@@ -1,5 +1,5 @@
 ﻿<UserControl
-    x:Class="WeSplit.Views.HomeView"
+    x:Class="WeSplit.Views.HistoryView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:cal="http://www.caliburnproject.org"
@@ -7,9 +7,8 @@
     xmlns:local="clr-namespace:WeSplit.Views"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:sys="clr-namespace:System;assembly=mscorlib"
     d:DesignHeight="520"
-    d:DesignWidth="886"
+    d:DesignWidth="280"
     mc:Ignorable="d">
     <UserControl.Resources>
         <Storyboard x:Key="SbShowHistory">
@@ -22,12 +21,19 @@
                 </DoubleAnimation.EasingFunction>
             </DoubleAnimation>
         </Storyboard>
+
+        <Storyboard x:Key="SbHideHistory">
+            <DoubleAnimation
+                Storyboard.TargetName="InfoCanvas"
+                Storyboard.TargetProperty="Canvas.Right"
+                Duration="0:0:0.4">
+                <DoubleAnimation.EasingFunction>
+                    <CubicEase EasingMode="EaseOut" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
     </UserControl.Resources>
-    <Grid Background="#F9F9FF">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="280" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
+    <Grid HorizontalAlignment="Left">
         <Canvas
             x:Name="InfoCanvas"
             Grid.Column="0"
@@ -81,6 +87,7 @@
                             <TextBlock Foreground="#FF5B5B5B" Text="Km" />
                         </StackPanel>
                     </DockPanel>
+                    <Button cal:Message.Attach="[Event Click] = [ShowDetail]" Click="ShowDetail" />
                 </StackPanel>
             </Border>
             <Grid Width="{Binding ActualWidth, ElementName=InfoCanvas}" Height="{Binding ActualHeight, ElementName=InfoCanvas}">
@@ -89,7 +96,7 @@
                     Height="32"
                     Margin="0,0,-16,0"
                     HorizontalAlignment="Right"
-                    Panel.ZIndex="100"
+                    Panel.ZIndex="101"
                     MouseLeftButtonDown="BtnShowHistory">
                     <Ellipse
                         Cursor="Hand"
@@ -116,71 +123,5 @@
                 </Grid>
             </Grid>
         </Canvas>
-
-        <Grid Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="60" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-            <StackPanel Grid.Row="0">
-                <Label
-                    Padding="0,12"
-                    HorizontalContentAlignment="Center"
-                    VerticalContentAlignment="Center"
-                    Content="Đang di chuyển"
-                    FontSize="24"
-                    FontWeight="DemiBold" />
-                <Separator Margin="10,0" Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
-            </StackPanel>
-            <Grid Grid.Row="1" ClipToBounds="True">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.5*" />
-                    <ColumnDefinition Width="0.5*" />
-                </Grid.ColumnDefinitions>
-                <StackPanel
-                    Grid.Column="0"
-                    Margin="30,0,0,0"
-                    VerticalAlignment="Center">
-                    <StackPanel>
-                        <TextBlock
-                            FontSize="14"
-                            Foreground="#555a64"
-                            Text="{Binding Source={x:Static sys:DateTime.Now}, StringFormat='{}{0:dddd, MMMM d, yyyy}'}" />
-                    </StackPanel>
-                    <TextBlock
-                        Height="160"
-                        Margin="0,16,0,0"
-                        FontFamily="{StaticResource Nunito}"
-                        FontSize="26"
-                        FontWeight="DemiBold"
-                        Foreground="#2C3038"
-                        Text="Tên chuyến đi Tên chuyến đi Tên chuyến đi Tên chuyến đi Tên chuyến đi Tên chuyến đi Tên chuyến đi Tên chuyến đi"
-                        TextTrimming="CharacterEllipsis"
-                        TextWrapping="Wrap" />
-                    <StackPanel Margin="0,12,0,0" Orientation="Horizontal">
-                        <Image
-                            Width="32"
-                            Height="32"
-                            Source="/Resource/Icons/user.png" />
-                        <TextBlock
-                            Margin="8,0,0,0"
-                            VerticalAlignment="Center"
-                            FontSize="15"
-                            Foreground="#2c3038"
-                            Text="Tên nhóm trưởng" />
-                    </StackPanel>
-                </StackPanel>
-                <Border
-                    Grid.Column="1"
-                    Margin="0,10,-60,10"
-                    HorizontalAlignment="Stretch"
-                    CornerRadius="220 0 0 220"
-                    DockPanel.Dock="Right">
-                    <Border.Background>
-                        <ImageBrush ImageSource="/Resource/Images/test.jpg" />
-                    </Border.Background>
-                </Border>
-            </Grid>
-        </Grid>
     </Grid>
 </UserControl>
