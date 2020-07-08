@@ -12,6 +12,8 @@ namespace WeSplit.ViewModels
     public class HomeViewModel:Screen
     {
         private int _historywidth = 280;
+        private int _canvasheight = 520;
+
         public int HistoryWidth
         {
             get
@@ -24,15 +26,23 @@ namespace WeSplit.ViewModels
                 NotifyOfPropertyChange(() => HistoryWidth);
             }
         }
-     
+
+        public int CanvasHeight
+        {
+            get
+            {
+                return _canvasheight;
+            }
+            set
+            {
+                _canvasheight = value;
+                NotifyOfPropertyChange(() => CanvasHeight);
+            }
+        }
+
         public HomeViewModel()
         {
 
-        }
-
-        public void ShowToRight()
-        {
-            HistoryWidth = 400;
         }
     }
 }

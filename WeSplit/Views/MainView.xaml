@@ -48,7 +48,7 @@
                     <Grid.Background>
                         <LinearGradientBrush MappingMode="RelativeToBoundingBox" StartPoint="0.5,0" EndPoint="0.5,1">
                             <GradientStop Color="#FF172947" />
-                            <GradientStop Color="#FF2B60B4" Offset="1" />
+                            <GradientStop Offset="1" Color="#FF2B60B4" />
                         </LinearGradientBrush>
                     </Grid.Background>
                     <materialDesign:PackIcon
@@ -131,6 +131,6 @@
             x:Name="ActiveItem"
             Grid.Row="0"
             Grid.Column="1"
-            Content="    " />
+            Content="" />
     </Grid>
 </Window>

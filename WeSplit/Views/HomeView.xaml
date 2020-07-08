@@ -11,79 +11,112 @@
     d:DesignHeight="520"
     d:DesignWidth="886"
     mc:Ignorable="d">
-
+    <UserControl.Resources>
+        <Storyboard x:Key="SbShowHistory">
+            <DoubleAnimation
+                Storyboard.TargetName="InfoCanvas"
+                Storyboard.TargetProperty="Width"
+                Duration="0:0:0.4">
+                <DoubleAnimation.EasingFunction>
+                    <CubicEase EasingMode="EaseOut" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
+    </UserControl.Resources>
     <Grid Background="#F9F9FF">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="{Binding HistoryWidth}" />
+            <ColumnDefinition Width="280" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Border
+        <Canvas
+            x:Name="InfoCanvas"
             Grid.Column="0"
-            BorderBrush="#D8C1C1C1"
-            BorderThickness="0,0,1,0">
-            <StackPanel>
-                <Label
-                    Padding="0,12"
-                    HorizontalContentAlignment="Center"
-                    Content="Lịch sử chuyến đi"
-                    FontSize="24"
-                    FontWeight="DemiBold" />
-                <Separator Margin="10,0" Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
-                <DockPanel
-                    Height="80"
-                    Background="Transparent"
-                    Cursor="Hand">
-                    <Image
-                        Width="52"
-                        Height="52"
-                        Margin="10,0,0,0"
-                        DockPanel.Dock="Left"
-                        Source="/Resource/Images/trip.jpg"
-                        Stretch="UniformToFill" />
-                    <TextBlock
-                        Height="40"
-                        Margin="8,14,10,0"
-                        DockPanel.Dock="Top"
-                        FontSize="14"
-                        Text="Tên chuyến đi Tên chuyến đi Tên chuyến đi Tên chuyến đi Tên chuyến đi"
-                        TextTrimming="WordEllipsis"
-                        TextWrapping="Wrap" />
-                    <StackPanel
-                        Margin="0,0,10,0"
-                        HorizontalAlignment="Right"
-                        DockPanel.Dock="Bottom"
-                        Orientation="Horizontal">
-                        <TextBlock
-                            Margin="0,0,8,0"
-                            Foreground="#FF5B5B5B"
-                            Text="300" />
-                        <TextBlock Foreground="#FF5B5B5B" Text="Km" />
-                    </StackPanel>
-                </DockPanel>
-            </StackPanel>
-        </Border>
-        <Grid
-            Grid.Column="0"
-            Width="32"
-            Height="32"
-            Margin="0,0,-16,0"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Center"
+            Canvas.Left="0"
+            Canvas.Top="0"
+            Width="{Binding HistoryWidth}"
             Panel.ZIndex="100"
-            cal:Message.Attach="[Event MouseLeftButtonDown] = [Action ShowToRight()]">
-            <Ellipse
-                Cursor="Hand"
-                Fill="#fff"
-                Stroke="#E67E7E7E"
-                StrokeThickness="0.5" />
-            <materialDesign:PackIcon
-                Width="24"
-                Height="24"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Foreground="#FF323232"
-                Kind="ChevronRight" />
-        </Grid>
+            Background="#F9F9FF">
+            <Border
+                Canvas.Top="0"
+                Width="{Binding ActualWidth, ElementName=InfoCanvas}"
+                Height="{Binding ActualHeight, ElementName=InfoCanvas}"
+                BorderBrush="#D8C1C1C1"
+                BorderThickness="0,0,1,0">
+                <StackPanel>
+                    <Label
+                        Padding="0,12"
+                        HorizontalContentAlignment="Center"
+                        Content="Lịch sử chuyến đi"
+                        FontSize="24"
+                        FontWeight="DemiBold" />
+                    <Separator Margin="10,0" Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+                    <DockPanel
+                        Height="80"
+                        Background="Transparent"
+                        Cursor="Hand">
+                        <Image
+                            Width="52"
+                            Height="52"
+                            Margin="10,0,0,0"
+                            DockPanel.Dock="Left"
+                            Source="/Resource/Images/trip.jpg"
+                            Stretch="UniformToFill" />
+                        <TextBlock
+                            Height="40"
+                            Margin="8,14,10,0"
+                            DockPanel.Dock="Top"
+                            FontSize="14"
+                            Text="Tên chuyến đi Tên chuyến đi Tên chuyến đi Tên chuyến đi Tên chuyến đi"
+                            TextTrimming="WordEllipsis"
+                            TextWrapping="Wrap" />
+                        <StackPanel
+                            Margin="0,0,10,0"
+                            HorizontalAlignment="Right"
+                            DockPanel.Dock="Bottom"
+                            Orientation="Horizontal">
+                            <TextBlock
+                                Margin="0,0,8,0"
+                                Foreground="#FF5B5B5B"
+                                Text="300" />
+                            <TextBlock Foreground="#FF5B5B5B" Text="Km" />
+                        </StackPanel>
+                    </DockPanel>
+                </StackPanel>
+            </Border>
+            <Grid Width="{Binding ActualWidth, ElementName=InfoCanvas}" Height="{Binding ActualHeight, ElementName=InfoCanvas}">
+                <Grid
+                    Width="32"
+                    Height="32"
+                    Margin="0,0,-16,0"
+                    HorizontalAlignment="Right"
+                    Panel.ZIndex="100"
+                    MouseLeftButtonDown="BtnShowHistory">
+                    <Ellipse
+                        Cursor="Hand"
+                        Fill="#fff"
+                        Stroke="#E67E7E7E"
+                        StrokeThickness="0.5" />
+                    <materialDesign:PackIcon
+                        Name="BtnShow"
+                        Width="24"
+                        Height="24"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Foreground="#FF323232"
+                        Kind="ChevronRight" />
+                    <materialDesign:PackIcon
+                        Name="BtnHide"
+                        Width="24"
+                        Height="24"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Foreground="#FF323232"
+                        Kind="ChevronLeft"
+                        Visibility="Hidden" />
+                </Grid>
+            </Grid>
+        </Canvas>
+
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="60" />
@@ -106,7 +139,7 @@
                 </Grid.ColumnDefinitions>
                 <StackPanel
                     Grid.Column="0"
-                    Margin="20,0"
+                    Margin="30,0,0,0"
                     VerticalAlignment="Center">
                     <StackPanel>
                         <TextBlock
