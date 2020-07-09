@@ -15,8 +15,7 @@
             <ColumnDefinition Width="0.3*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.5*" />
-            <RowDefinition Height="0.5*" />
+            <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
 
         <materialDesign:Card
@@ -26,161 +25,58 @@
             materialDesign:ShadowAssist.ShadowDepth="Depth2">
             <StackPanel Margin="10,0">
                 <DockPanel Margin="0,8">
-                    <Image
-                        Width="32"
-                        Height="32"
-                        DockPanel.Dock="Left"
-                        Source="/Resource/Icons/user.png" />
-                    <TextBlock
-                        Margin="8,0,0,0"
-                        VerticalAlignment="Center"
-                        FontSize="13"
-                        Foreground="#2c3038"
-                        Text="Tên nhóm trưởng" />
+                    <Label
+                        Width="30"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        Content="1"
+                        DockPanel.Dock="Left" />
                     <materialDesign:PackIcon
-                        Width="16"
-                        Height="16"
+                        Width="20"
+                        Height="20"
                         Margin="0,0,8,0"
                         VerticalAlignment="Center"
                         DockPanel.Dock="Right"
                         Foreground="#FFFF6800"
                         Kind="AccountStarOutline" />
-                    <TextBlock />
+                    <StackPanel>
+                        <TextBlock
+                            Margin="8,0,0,0"
+                            VerticalAlignment="Center"
+                            FontSize="13"
+                            Foreground="#2c3038"
+                            Text="Tên nhóm trưởng"
+                            TextWrapping="Wrap" />
+                        <TextBlock
+                            Margin="8,0,0,0"
+                            VerticalAlignment="Center"
+                            FontSize="12"
+                            Foreground="#FF66686A"
+                            Text="0999999" />
+                    </StackPanel>
                 </DockPanel>
                 <DockPanel Margin="0,8">
-                    <Image
-                        Width="32"
-                        Height="32"
-                        DockPanel.Dock="Left"
-                        Source="/Resource/Icons/user.png" />
-                    <TextBlock
-                        Margin="8,0,0,0"
-                        VerticalAlignment="Center"
-                        FontSize="13"
-                        Foreground="#2c3038"
-                        Text="Tên thành viên"
-                        TextTrimming="CharacterEllipsis"
-                        TextWrapping="Wrap" />
-                </DockPanel>
-                <DockPanel Margin="0,8">
-                    <Image
-                        Width="32"
-                        Height="32"
-                        DockPanel.Dock="Left"
-                        Source="/Resource/Icons/user.png" />
-                    <TextBlock
-                        Margin="8,0,0,0"
-                        VerticalAlignment="Center"
-                        FontSize="13"
-                        Foreground="#2c3038"
-                        Text="Tên thành viên"
-                        TextTrimming="CharacterEllipsis"
-                        TextWrapping="Wrap" />
-                </DockPanel>
-                <DockPanel Margin="0,8">
-                    <Image
-                        Width="32"
-                        Height="32"
-                        DockPanel.Dock="Left"
-                        Source="/Resource/Icons/user.png" />
-                    <TextBlock
-                        Margin="8,0,0,0"
-                        VerticalAlignment="Center"
-                        FontSize="13"
-                        Foreground="#2c3038"
-                        Text="Tên thành viên"
-                        TextTrimming="CharacterEllipsis"
-                        TextWrapping="Wrap" />
-                </DockPanel>
-                <DockPanel Margin="0,8">
-                    <Image
-                        Width="32"
-                        Height="32"
-                        DockPanel.Dock="Left"
-                        Source="/Resource/Icons/user.png" />
-                    <TextBlock
-                        Margin="8,0,0,0"
-                        VerticalAlignment="Center"
-                        FontSize="13"
-                        Foreground="#2c3038"
-                        Text="Tên thành viên"
-                        TextTrimming="CharacterEllipsis"
-                        TextWrapping="Wrap" />
-                </DockPanel>
-                <DockPanel Margin="0,8">
-                    <Image
-                        Width="32"
-                        Height="32"
-                        DockPanel.Dock="Left"
-                        Source="/Resource/Icons/user.png" />
-                    <TextBlock
-                        Margin="8,0,0,0"
-                        VerticalAlignment="Center"
-                        FontSize="13"
-                        Foreground="#2c3038"
-                        Text="Tên thành viên"
-                        TextTrimming="CharacterEllipsis"
-                        TextWrapping="Wrap" />
-                </DockPanel>
-                <DockPanel Margin="0,8">
-                    <Image
-                        Width="32"
-                        Height="32"
-                        DockPanel.Dock="Left"
-                        Source="/Resource/Icons/user.png" />
-                    <TextBlock
-                        Margin="8,0,0,0"
-                        VerticalAlignment="Center"
-                        FontSize="13"
-                        Foreground="#2c3038"
-                        Text="Tên thành viên"
-                        TextTrimming="CharacterEllipsis"
-                        TextWrapping="Wrap" />
-                </DockPanel>
-                <DockPanel Margin="0,8">
-                    <Image
-                        Width="32"
-                        Height="32"
-                        DockPanel.Dock="Left"
-                        Source="/Resource/Icons/user.png" />
-                    <TextBlock
-                        Margin="8,0,0,0"
-                        VerticalAlignment="Center"
-                        FontSize="13"
-                        Foreground="#2c3038"
-                        Text="Tên thành viên"
-                        TextTrimming="CharacterEllipsis"
-                        TextWrapping="Wrap" />
-                </DockPanel>
-                <DockPanel Margin="0,8">
-                    <Image
-                        Width="32"
-                        Height="32"
-                        DockPanel.Dock="Left"
-                        Source="/Resource/Icons/user.png" />
-                    <TextBlock
-                        Margin="8,0,0,0"
-                        VerticalAlignment="Center"
-                        FontSize="13"
-                        Foreground="#2c3038"
-                        Text="Tên thành viên"
-                        TextTrimming="CharacterEllipsis"
-                        TextWrapping="Wrap" />
-                </DockPanel>
-                <DockPanel Margin="0,8">
-                    <Image
-                        Width="32"
-                        Height="32"
-                        DockPanel.Dock="Left"
-                        Source="/Resource/Icons/user.png" />
-                    <TextBlock
-                        Margin="8,0,0,0"
-                        VerticalAlignment="Center"
-                        FontSize="13"
-                        Foreground="#2c3038"
-                        Text="Tên thành viên"
-                        TextTrimming="CharacterEllipsis"
-                        TextWrapping="Wrap" />
+                    <Label
+                        Width="30"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        Content="2"
+                        DockPanel.Dock="Left" />
+                    <StackPanel>
+                        <TextBlock
+                            Margin="8,0,0,0"
+                            VerticalAlignment="Center"
+                            FontSize="13"
+                            Foreground="#2c3038"
+                            Text="Tên thành viên"
+                            TextWrapping="Wrap" />
+                        <TextBlock
+                            Margin="8,0,0,0"
+                            VerticalAlignment="Center"
+                            FontSize="12"
+                            Foreground="#FF66686A"
+                            Text="0999999" />
+                    </StackPanel>
                 </DockPanel>
             </StackPanel>
         </materialDesign:Card>
@@ -192,7 +88,7 @@
                 <StackPanel>
                     <Label
                         Margin="0,12,0,0"
-                        Content="Địa điểm đã đi qua"
+                        Content="Tên chuyến đi"
                         FontSize="16"
                         FontWeight="DemiBold" />
                     <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
