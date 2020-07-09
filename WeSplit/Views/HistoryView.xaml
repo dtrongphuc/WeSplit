@@ -58,8 +58,10 @@
                     <Separator Margin="10,0" Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
                     <DockPanel
                         Height="80"
+                        cal:Message.Attach="[Event MouseLeftButtonDown] = [ShowDetail]"
                         Background="Transparent"
-                        Cursor="Hand">
+                        Cursor="Hand"
+                        MouseLeftButtonDown="ShowDetail">
                         <Image
                             Width="52"
                             Height="52"
@@ -87,22 +89,24 @@
                             <TextBlock Foreground="#FF5B5B5B" Text="Km" />
                         </StackPanel>
                     </DockPanel>
-                    <Button cal:Message.Attach="[Event Click] = [ShowDetail]" Click="ShowDetail" />
                 </StackPanel>
             </Border>
             <Grid Width="{Binding ActualWidth, ElementName=InfoCanvas}" Height="{Binding ActualHeight, ElementName=InfoCanvas}">
                 <Grid
+                    x:Name="BtnExpander"
                     Width="32"
                     Height="32"
                     Margin="0,0,-16,0"
                     HorizontalAlignment="Right"
                     Panel.ZIndex="101"
+                    Cursor="Hand"
                     MouseLeftButtonDown="BtnShowHistory">
-                    <Ellipse
-                        Cursor="Hand"
-                        Fill="#fff"
-                        Stroke="#E67E7E7E"
-                        StrokeThickness="0.5" />
+                    <Border
+                        Name="BtnShowBorder"
+                        Background="#fff"
+                        BorderBrush="#C3979797"
+                        BorderThickness="0.5"
+                        CornerRadius="50" />
                     <materialDesign:PackIcon
                         Name="BtnShow"
                         Width="24"
