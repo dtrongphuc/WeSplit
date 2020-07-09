@@ -1,0 +1,58 @@
+﻿<Window x:Class="WeSplit.Views.SplashScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WeSplit.Views"
+        mc:Ignorable="d"
+        Title="SplashScreen" Height="288.03" Width="475.34" 
+        Loaded="Window_Loaded"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Border>
+            <Border.Background>
+                <ImageBrush
+                    ImageSource="/Resource/Images/SlashScreenAvatar.jpg"
+                    Opacity="1"
+                    RenderOptions.BitmapScalingMode="HighQuality"
+                    Stretch="UniformToFill" />
+
+            </Border.Background>
+
+            <StackPanel>
+                <TextBlock
+                    Name="ContentWellcome"
+                    Width="380"
+                    Height="100"
+                    Margin="0,80,0,0"
+                    VerticalAlignment="Center"
+                    FontSize="20"
+                    FontWeight="Medium"
+                    Foreground="White"
+                    Text="{Binding}"
+                    TextAlignment="Center"
+                    TextWrapping="Wrap" />
+                <CheckBox
+                    x:Name="checkboxdisplay"
+                    Height="24"
+                    Margin="110,0,110,0"
+                    HorizontalAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Foreground="#fff">
+                    <TextBlock
+                        Margin="0,-2,0,0"
+                        VerticalAlignment="Center"
+                        Text="Tắt hiển thị thông báo" />
+                </CheckBox>
+                <Button
+                    x:Name="OKButton"
+                    Width="83"
+                    Height="30"
+                    Margin="0,8,0,0"
+                    Click="OKButton_Click"
+                    Content="Close" />
+            </StackPanel>
+        </Border>
+
+    </Grid>
+</Window>
