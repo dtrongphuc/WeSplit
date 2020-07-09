@@ -46,14 +46,16 @@ namespace WeSplit.Views
             if (InfoCanvas.ActualWidth < MainWidth * 0.6 && !isLocatedDetail || InfoCanvas.ActualWidth < 10)
             {
                 Animate(MainWidth * 0.6);
+                BtnShow.HorizontalAlignment = HorizontalAlignment.Center;
+                BtnShowBorder.CornerRadius = new CornerRadius(50);
                 BtnShow.Visibility = Visibility.Hidden;
                 BtnHide.Visibility = Visibility.Visible;
-                BtnExpander.Margin = new Thickness(0, 0, -16, 0);
             }
             else if (isLocatedDetail)
             {
                 Animate(-14);
-                BtnExpander.Margin = new Thickness(0, 0, -30, 0);
+                BtnShow.HorizontalAlignment = HorizontalAlignment.Right;
+                BtnShowBorder.CornerRadius = new CornerRadius(0, 14, 14, 0);
                 BtnHide.Visibility = Visibility.Hidden;
                 BtnShow.Visibility = Visibility.Visible;
             }
