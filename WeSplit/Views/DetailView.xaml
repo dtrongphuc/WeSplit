@@ -91,9 +91,17 @@
                         Content="Tên chuyến đi"
                         FontSize="16"
                         FontWeight="DemiBold" />
-                    <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+                    <StackPanel Margin="0,12" Orientation="Horizontal">
+                        <TextBlock Text="Ngày đi: " />
+                        <TextBlock Text="09/07/2020" />
+                        <Border
+                            Margin="20,0"
+                            BorderBrush="#FF787878"
+                            BorderThickness="0,0,0.5,0" />
+                        <TextBlock Text="Ngày đến: " />
+                        <TextBlock Text="09/07/2020" />
+                    </StackPanel>
                 </StackPanel>
-                <StackPanel Margin="0,12" />
             </StackPanel>
         </materialDesign:Card>
     </Grid>
