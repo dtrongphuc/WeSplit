@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WeSplit.ViewModels;
 
+
 namespace WeSplit.Views
 {
     /// <summary>
@@ -36,7 +37,7 @@ namespace WeSplit.Views
             storyboard.Begin();
         }
 
-        private bool isLocatedDetail { get; set; } = false;
+        public static bool isLocatedDetail { get; set; } = false;
         private void BtnShowHistory(object sender, MouseButtonEventArgs e)
         {
             ContentControl control = (ContentControl) this.Parent;
@@ -69,7 +70,6 @@ namespace WeSplit.Views
 
         private void ShowDetail(object sender, MouseButtonEventArgs e)
         {
-            isLocatedDetail = true;
             BtnHide.Visibility = Visibility.Visible;
             BtnShow.Visibility = Visibility.Hidden;
         }

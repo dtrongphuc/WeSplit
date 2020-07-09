@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:cal="http://www.caliburnproject.org"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
     xmlns:local="clr-namespace:WeSplit.Views"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -93,7 +94,6 @@
             </Border>
             <Grid Width="{Binding ActualWidth, ElementName=InfoCanvas}" Height="{Binding ActualHeight, ElementName=InfoCanvas}">
                 <Grid
-                    x:Name="BtnExpander"
                     Width="32"
                     Height="32"
                     Margin="0,0,-16,0"

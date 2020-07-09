@@ -1,15 +1,16 @@
 ﻿using Caliburn.Micro;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WeSplit.Views;
-
+using static WeSplit.Views.HistoryView;
 
 namespace WeSplit.ViewModels
 {
-    public class MainViewModel : Conductor<IScreen>.Collection.OneActive
+    public class MainViewModel : Conductor<IScreen>.Collection.OneActive, INotifyPropertyChanged
     {
         public HistoryViewModel HistoryViewModel
         {
@@ -23,6 +24,19 @@ namespace WeSplit.ViewModels
 
         public MainViewModel()
         {
+            ShowHistoryView();
+            ShowWalkingView();
+        }
+
+        public void HomeClick()
+        {
+            if(ActiveItem == null)
+            {
+                return;
+            }
+            ActiveItem.TryClose();
+            isLocatedDetail = false;
+
             ShowHistoryView();
             ShowWalkingView();
         }

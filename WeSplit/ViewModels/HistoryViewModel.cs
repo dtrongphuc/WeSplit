@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WeSplit.Views;
+using static WeSplit.Views.HistoryView;
 
 namespace WeSplit.ViewModels
 {
@@ -40,6 +42,7 @@ namespace WeSplit.ViewModels
 
         public void ShowDetail()
         {
+            isLocatedDetail = true;
             var parentConductor = (Conductor<IScreen>.Collection.OneActive)(this.Parent);
             parentConductor.ActivateItem(new DetailViewModel());
         }
