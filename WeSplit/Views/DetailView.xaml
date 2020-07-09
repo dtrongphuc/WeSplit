@@ -84,12 +84,12 @@
             Grid.Row="1"
             Margin="32,10,10,10"
             materialDesign:ShadowAssist.ShadowDepth="Depth2">
-            <StackPanel Margin="8,0">
+            <StackPanel Margin="30,0">
                 <StackPanel>
                     <Label
                         Margin="0,12,0,0"
                         Content="Tên chuyến đi"
-                        FontSize="16"
+                        FontSize="26"
                         FontWeight="DemiBold" />
                     <StackPanel Margin="0,12" Orientation="Horizontal">
                         <TextBlock Text="Ngày đi: " />

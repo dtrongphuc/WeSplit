@@ -1,0 +1,9 @@
+D:\HK2-2\LT\LTW\WeSplit\WeSplit\obj\Release\Views\DetailView.g.cs
+D:\HK2-2\LT\LTW\WeSplit\WeSplit\obj\Release\Views\HistoryView.g.cs
+D:\HK2-2\LT\LTW\WeSplit\WeSplit\obj\Release\Views\MainView.g.cs
+D:\HK2-2\LT\LTW\WeSplit\WeSplit\obj\Release\Views\SplashScreen.g.cs
+D:\HK2-2\LT\LTW\WeSplit\WeSplit\obj\Release\Views\WalkingView.g.cs
+D:\HK2-2\LT\LTW\WeSplit\WeSplit\obj\Release\App.g.cs
+D:\HK2-2\LT\LTW\WeSplit\WeSplit\obj\Release\GeneratedInternalTypeHelper.g.cs
+D:\HK2-2\LT\LTW\WeSplit\WeSplit\obj\Release\WeSplit_MarkupCompile.cache
+D:\HK2-2\LT\LTW\WeSplit\WeSplit\obj\Release\WeSplit_MarkupCompile.lref
