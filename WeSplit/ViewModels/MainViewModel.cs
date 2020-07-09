@@ -41,11 +41,25 @@ namespace WeSplit.ViewModels
             ShowWalkingView();
         }
 
+        public void SearchClick()
+        {
+            CloseHomeView();
+            ActivateItem(new SearchViewModel());
+        }
+
         public void ShowHistoryView()
         {
             HistoryViewModel = new HistoryViewModel();
             HistoryViewModel.Parent = this;
             //ActivateItem(HistoryViewModel);
+        }
+
+        public void CloseHomeView()
+        {
+            if(Items.Count > 0)
+            {
+                DeactivateItem(Items[0], true);
+            }
         }
 
         public void ShowWalkingView()

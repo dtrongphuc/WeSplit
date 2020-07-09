@@ -49,10 +49,10 @@
                 </Ellipse>
                 <Grid
                     Grid.Row="1"
+                    MouseLeftButtonDown="OnHomeClick"
                     cal:Message.Attach="[Event MouseLeftButtonDown] = [Action HomeClick]"
                     Background="#253042"
                     Cursor="Hand">
-
                     <materialDesign:PackIcon
                         Width="40"
                         Height="40"
@@ -64,10 +64,11 @@
                         Kind="Home" />
                 </Grid>
                 <Grid
-                    x:Name="Search"
                     Grid.Row="2"
+                    cal:Message.Attach="[Event MouseLeftButtonDown] = [Action SearchClick]"
                     Background="Transparent"
-                    Cursor="Hand">
+                    Cursor="Hand"
+                    MouseLeftButtonDown="OnNotHomeClick">
                     <materialDesign:PackIcon
                         Width="40"
                         Height="40"

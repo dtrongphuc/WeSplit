@@ -36,5 +36,17 @@ namespace WeSplit.Views
                 screen.ShowDialog();
             }
         }
+
+
+
+        private void OnNotHomeClick(object sender, MouseButtonEventArgs e)
+        {
+            HistoryViewModel.Visibility = Visibility.Collapsed;
+        }
+
+        private void OnHomeClick(object sender, MouseButtonEventArgs e)
+        {
+            HistoryViewModel.Visibility = Visibility.Visible;
+        }
     }
 }
