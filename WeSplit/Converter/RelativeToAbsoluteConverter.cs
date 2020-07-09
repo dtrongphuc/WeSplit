@@ -8,7 +8,7 @@ using System.Windows.Data;
 
 namespace WeSplit.Converter
 {
-    public class RelativeToAbsoluteConverter : IValueConverter
+    class RelativeToAbsoluteConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
