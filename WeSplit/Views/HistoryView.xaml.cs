@@ -36,25 +36,40 @@ namespace WeSplit.Views
             storyboard.Begin();
         }
 
+        private bool isLocatedDetail { get; set; } = false;
         private void BtnShowHistory(object sender, MouseButtonEventArgs e)
         {
-            if (InfoCanvas.ActualWidth < 500)
+            ContentControl control = (ContentControl) this.Parent;
+            Grid Main = (Grid)control.Parent;
+            var MainWidth = Main.ActualWidth;
+            
+            if (InfoCanvas.ActualWidth < MainWidth * 0.6 && !isLocatedDetail || InfoCanvas.ActualWidth < 10)
             {
-                Animate(500);
+                Animate(MainWidth * 0.6);
                 BtnShow.Visibility = Visibility.Hidden;
                 BtnHide.Visibility = Visibility.Visible;
+                BtnExpander.Margin = new Thickness(0, 0, -16, 0);
+            }
+            else if (isLocatedDetail)
+            {
+                Animate(-14);
+                BtnExpander.Margin = new Thickness(0, 0, -30, 0);
+                BtnHide.Visibility = Visibility.Hidden;
+                BtnShow.Visibility = Visibility.Visible;
             }
             else
-            {
+            { 
                 Animate(280);
                 BtnHide.Visibility = Visibility.Hidden;
                 BtnShow.Visibility = Visibility.Visible;
             }
         }
 
-        private void ShowDetail(object sender, RoutedEventArgs e)
+        private void ShowDetail(object sender, MouseButtonEventArgs e)
         {
-            Animate(-10);
+            isLocatedDetail = true;
+            BtnHide.Visibility = Visibility.Visible;
+            BtnShow.Visibility = Visibility.Hidden;
         }
     }
 }
