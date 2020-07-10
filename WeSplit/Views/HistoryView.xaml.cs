@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WeSplit.ViewModels;
 
+
 namespace WeSplit.Views
 {
     /// <summary>
@@ -36,7 +37,7 @@ namespace WeSplit.Views
             storyboard.Begin();
         }
 
-        private bool isLocatedDetail { get; set; } = false;
+        public static bool isLocatedDetail { get; set; } = false;
         private void BtnShowHistory(object sender, MouseButtonEventArgs e)
         {
             ContentControl control = (ContentControl) this.Parent;
@@ -46,14 +47,16 @@ namespace WeSplit.Views
             if (InfoCanvas.ActualWidth < MainWidth * 0.6 && !isLocatedDetail || InfoCanvas.ActualWidth < 10)
             {
                 Animate(MainWidth * 0.6);
+                BtnShow.HorizontalAlignment = HorizontalAlignment.Center;
+                BtnShowBorder.CornerRadius = new CornerRadius(50);
                 BtnShow.Visibility = Visibility.Hidden;
                 BtnHide.Visibility = Visibility.Visible;
-                BtnExpander.Margin = new Thickness(0, 0, -16, 0);
             }
             else if (isLocatedDetail)
             {
                 Animate(-14);
-                BtnExpander.Margin = new Thickness(0, 0, -30, 0);
+                BtnShow.HorizontalAlignment = HorizontalAlignment.Right;
+                BtnShowBorder.CornerRadius = new CornerRadius(0, 14, 14, 0);
                 BtnHide.Visibility = Visibility.Hidden;
                 BtnShow.Visibility = Visibility.Visible;
             }
@@ -67,7 +70,6 @@ namespace WeSplit.Views
 
         private void ShowDetail(object sender, MouseButtonEventArgs e)
         {
-            isLocatedDetail = true;
             BtnHide.Visibility = Visibility.Visible;
             BtnShow.Visibility = Visibility.Hidden;
         }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +27,25 @@ namespace WeSplit.Views
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            this.Show();
+            var config = ConfigurationManager.AppSettings["ShowSplash"];
+            if (config.ToLower() == "true")
+            {
+                var screen = new Views.SplashScreen();
+                screen.ShowDialog();
+            }
+        }
+
+
+
+        private void OnNotHomeClick(object sender, MouseButtonEventArgs e)
+        {
+            HistoryViewModel.Visibility = Visibility.Collapsed;
+        }
+
+        private void OnHomeClick(object sender, MouseButtonEventArgs e)
+        {
+            HistoryViewModel.Visibility = Visibility.Visible;
         }
     }
 }
