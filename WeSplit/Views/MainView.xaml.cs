@@ -28,7 +28,6 @@ namespace WeSplit.Views
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             this.Show();
-
             var config = ConfigurationManager.AppSettings["ShowSplash"];
             if (config.ToLower() == "true")
             {
