@@ -5,6 +5,7 @@
     xmlns:cv="clr-namespace:WeSplit.Converter"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:WeSplit.Views"
+    xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="520"
@@ -186,7 +187,7 @@
                         <materialDesign:PackIcon Kind="ChevronRight" />
                     </Button>
                 </DockPanel>
-                <StackPanel Margin="0,30,0,0">
+                <!--<StackPanel Margin="0,30,0,0">
                     <StackPanel Margin="0,20,0,0" Orientation="Horizontal">
                         <TextBlock
                             FontSize="16"
@@ -229,7 +230,30 @@
                             FontWeight="DemiBold"
                             Text="Nha Trang" />
                     </StackPanel>
-                </StackPanel>
+                </StackPanel>-->
+
+                <Grid Height="250">
+                    <lvc:PieChart LegendLocation="Bottom">
+                        <lvc:PieChart.Series>
+                            <lvc:PieSeries
+                                Title="Khoản thu 1"
+                                DataLabels="True"
+                                Values="10" />
+                            <lvc:PieSeries
+                                Title="Khoản thu 2"
+                                DataLabels="True"
+                                Values="4" />
+                            <lvc:PieSeries
+                                Title="Khoản thu 3"
+                                DataLabels="True"
+                                Values="6" />
+                            <lvc:PieSeries
+                                Title="Khoản thu 4"
+                                DataLabels="True"
+                                Values="2" />
+                        </lvc:PieChart.Series>
+                    </lvc:PieChart>
+                </Grid>
             </StackPanel>
         </materialDesign:Card>
     </Grid>

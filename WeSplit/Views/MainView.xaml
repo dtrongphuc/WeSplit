@@ -27,7 +27,8 @@
         <materialDesign:Card
             Grid.Row="0"
             materialDesign:ShadowAssist.ShadowDepth="Depth3"
-            materialDesign:ShadowAssist.ShadowEdges="Right">
+            materialDesign:ShadowAssist.ShadowEdges="Right"
+            UniformCornerRadius="0">
             <Grid Grid.Column="0" Background="#333E50">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="100" />
@@ -49,10 +50,10 @@
                 </Ellipse>
                 <Grid
                     Grid.Row="1"
-                    MouseLeftButtonDown="OnHomeClick"
                     cal:Message.Attach="[Event MouseLeftButtonDown] = [Action HomeClick]"
                     Background="#253042"
-                    Cursor="Hand">
+                    Cursor="Hand"
+                    MouseLeftButtonDown="OnHomeClick">
                     <materialDesign:PackIcon
                         Width="40"
                         Height="40"
@@ -81,8 +82,10 @@
                 </Grid>
                 <Grid
                     Grid.Row="3"
+                    cal:Message.Attach="[Event MouseLeftButtonDown] = [Action AddClick]"
                     Background="Transparent"
-                    Cursor="Hand">
+                    Cursor="Hand"
+                    MouseLeftButtonDown="OnNotHomeClick">
                     <materialDesign:PackIcon
                         Width="40"
                         Height="40"
@@ -95,8 +98,10 @@
                 </Grid>
                 <Grid
                     Grid.Row="4"
+                    cal:Message.Attach="[Event MouseLeftButtonDown] = [Action UpdateClick]"
                     Background="Transparent"
-                    Cursor="Hand">
+                    Cursor="Hand"
+                    MouseLeftButtonDown="OnNotHomeClick">
                     <materialDesign:PackIcon
                         Width="40"
                         Height="40"

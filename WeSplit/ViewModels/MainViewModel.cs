@@ -43,18 +43,29 @@ namespace WeSplit.ViewModels
 
         public void SearchClick()
         {
-            CloseHomeView();
+            CloseCurrentView();
             ActivateItem(new SearchViewModel());
+        }
+
+        public void AddClick()
+        {
+            CloseCurrentView();
+            ActivateItem(new AddJourneyViewModel());
+        }
+
+        public void UpdateClick()
+        {
+            CloseCurrentView();
+            ActivateItem(new UpdateJourneyViewModel());
         }
 
         public void ShowHistoryView()
         {
             HistoryViewModel = new HistoryViewModel();
             HistoryViewModel.Parent = this;
-            //ActivateItem(HistoryViewModel);
         }
 
-        public void CloseHomeView()
+        public void CloseCurrentView()
         {
             if(Items.Count > 0)
             {
@@ -66,7 +77,6 @@ namespace WeSplit.ViewModels
         {
             WalkingViewModel = new WalkingViewModel();
             WalkingViewModel.Parent = this;
-            //ActivateItem(WalkingViewModel);
         }
     }
 }
