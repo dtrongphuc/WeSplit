@@ -24,5 +24,20 @@ namespace WeSplit.Views
         {
             InitializeComponent();
         }
+
+        private void Modal_Click(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void BtnProduct_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnSearch_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
