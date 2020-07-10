@@ -49,10 +49,10 @@
                 </Ellipse>
                 <Grid
                     Grid.Row="1"
-                    MouseLeftButtonDown="OnHomeClick"
                     cal:Message.Attach="[Event MouseLeftButtonDown] = [Action HomeClick]"
                     Background="#253042"
-                    Cursor="Hand">
+                    Cursor="Hand"
+                    MouseLeftButtonDown="OnHomeClick">
                     <materialDesign:PackIcon
                         Width="40"
                         Height="40"
@@ -81,8 +81,10 @@
                 </Grid>
                 <Grid
                     Grid.Row="3"
+                    cal:Message.Attach="[Event MouseLeftButtonDown] = [Action AddClick]"
                     Background="Transparent"
-                    Cursor="Hand">
+                    Cursor="Hand"
+                    MouseLeftButtonDown="OnNotHomeClick">
                     <materialDesign:PackIcon
                         Width="40"
                         Height="40"
@@ -95,8 +97,10 @@
                 </Grid>
                 <Grid
                     Grid.Row="4"
+                    cal:Message.Attach="[Event MouseLeftButtonDown] = [Action UpdateClick]"
                     Background="Transparent"
-                    Cursor="Hand">
+                    Cursor="Hand"
+                    MouseLeftButtonDown="OnNotHomeClick">
                     <materialDesign:PackIcon
                         Width="40"
                         Height="40"
