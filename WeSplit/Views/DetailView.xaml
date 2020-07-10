@@ -186,6 +186,50 @@
                         <materialDesign:PackIcon Kind="ChevronRight" />
                     </Button>
                 </DockPanel>
+                <StackPanel Margin="0,30,0,0">
+                    <StackPanel Margin="0,20,0,0" Orientation="Horizontal">
+                        <TextBlock
+                            FontSize="16"
+                            FontWeight="DemiBold"
+                            Text="1" />
+                        <TextBlock
+                            FontSize="16"
+                            FontWeight="DemiBold"
+                            Text=". " />
+                        <TextBlock
+                            FontSize="16"
+                            FontWeight="DemiBold"
+                            Text="Nha Trang" />
+                    </StackPanel>
+                    <StackPanel Margin="0,20,0,0" Orientation="Horizontal">
+                        <TextBlock
+                            FontSize="16"
+                            FontWeight="DemiBold"
+                            Text="1" />
+                        <TextBlock
+                            FontSize="16"
+                            FontWeight="DemiBold"
+                            Text=". " />
+                        <TextBlock
+                            FontSize="16"
+                            FontWeight="DemiBold"
+                            Text="Nha Trang" />
+                    </StackPanel>
+                    <StackPanel Margin="0,20,0,0" Orientation="Horizontal">
+                        <TextBlock
+                            FontSize="16"
+                            FontWeight="DemiBold"
+                            Text="1" />
+                        <TextBlock
+                            FontSize="16"
+                            FontWeight="DemiBold"
+                            Text=". " />
+                        <TextBlock
+                            FontSize="16"
+                            FontWeight="DemiBold"
+                            Text="Nha Trang" />
+                    </StackPanel>
+                </StackPanel>
             </StackPanel>
         </materialDesign:Card>
     </Grid>
