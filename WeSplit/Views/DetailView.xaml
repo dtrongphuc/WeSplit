@@ -43,83 +43,70 @@
             <ColumnDefinition Width="0.3*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*" />
+            <RowDefinition Height="0.5*" />
+            <RowDefinition Height="0.5*" />
         </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="1">
+            <materialDesign:Card
+                Margin="12"
+                Padding="0,16"
+                HorizontalAlignment="Stretch"
+                materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                Background="#fff"
+                UniformCornerRadius="4">
+                <ScrollViewer ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                    <StackPanel Margin="16,0" />
+                </ScrollViewer>
+            </materialDesign:Card>
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="1">
+            <materialDesign:Card
+                Margin="12"
+                Padding="0,16"
+                materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                Background="#fff"
+                UniformCornerRadius="4">
+                <Grid>
+                    <lvc:PieChart LegendLocation="Bottom">
+                        <lvc:PieChart.Series>
+                            <lvc:PieSeries
+                                Title="Khoản thu 1"
+                                DataLabels="True"
+                                Values="10" />
+                            <lvc:PieSeries
+                                Title="Khoản thu 2"
+                                DataLabels="True"
+                                Values="4" />
+                            <lvc:PieSeries
+                                Title="Khoản thu 3"
+                                DataLabels="True"
+                                Values="6" />
+                            <lvc:PieSeries
+                                Title="Khoản thu 4"
+                                DataLabels="True"
+                                Values="2" />
+                        </lvc:PieChart.Series>
+                    </lvc:PieChart>
+                </Grid>
+            </materialDesign:Card>
+        </Grid>
 
         <materialDesign:Card
             Grid.RowSpan="2"
-            Grid.Column="1"
-            Margin="12"
-            materialDesign:ShadowAssist.ShadowDepth="Depth2">
-            <StackPanel Margin="10,0">
-                <DockPanel Margin="0,8">
-                    <Label
-                        Width="30"
-                        HorizontalContentAlignment="Center"
-                        VerticalContentAlignment="Center"
-                        Content="1"
-                        DockPanel.Dock="Left" />
-                    <materialDesign:PackIcon
-                        Width="20"
-                        Height="20"
-                        Margin="0,0,8,0"
-                        VerticalAlignment="Center"
-                        DockPanel.Dock="Right"
-                        Foreground="#FFFF6800"
-                        Kind="AccountStarOutline" />
-                    <StackPanel>
-                        <TextBlock
-                            Margin="8,0,0,0"
-                            VerticalAlignment="Center"
-                            FontSize="13"
-                            Foreground="#2c3038"
-                            Text="Tên nhóm trưởng"
-                            TextWrapping="Wrap" />
-                        <TextBlock
-                            Margin="8,0,0,0"
-                            VerticalAlignment="Center"
-                            FontSize="12"
-                            Foreground="#FF66686A"
-                            Text="0999999" />
-                    </StackPanel>
-                </DockPanel>
-                <DockPanel Margin="0,8">
-                    <Label
-                        Width="30"
-                        HorizontalContentAlignment="Center"
-                        VerticalContentAlignment="Center"
-                        Content="2"
-                        DockPanel.Dock="Left" />
-                    <StackPanel>
-                        <TextBlock
-                            Margin="8,0,0,0"
-                            VerticalAlignment="Center"
-                            FontSize="13"
-                            Foreground="#2c3038"
-                            Text="Tên thành viên"
-                            TextWrapping="Wrap" />
-                        <TextBlock
-                            Margin="8,0,0,0"
-                            VerticalAlignment="Center"
-                            FontSize="12"
-                            Foreground="#FF66686A"
-                            Text="0999999" />
-                    </StackPanel>
-                </DockPanel>
-            </StackPanel>
-        </materialDesign:Card>
-        <materialDesign:Card
-            Grid.Row="1"
+            Grid.Column="0"
             Margin="32,10,10,10"
             materialDesign:ShadowAssist.ShadowDepth="Depth2">
             <StackPanel Margin="30,0">
                 <StackPanel>
                     <Label
                         Margin="0,12,0,0"
+                        HorizontalContentAlignment="Left"
                         Content="Tên chuyến đi"
                         FontSize="26"
                         FontWeight="DemiBold" />
-                    <StackPanel Margin="0,12" Orientation="Horizontal">
+                    <StackPanel Margin="4,12,0,12" Orientation="Horizontal">
                         <TextBlock Text="Ngày đi: " />
                         <TextBlock Text="09/07/2020" />
                         <Border
@@ -130,7 +117,7 @@
                         <TextBlock Text="09/07/2020" />
                     </StackPanel>
                 </StackPanel>
-                <DockPanel Margin="24,30,24,0" HorizontalAlignment="Center">
+                <!--<DockPanel Margin="24,30,24,0" HorizontalAlignment="Center">
                     <Button
                         Margin="0,0,-58,0"
                         Panel.ZIndex="10"
@@ -186,7 +173,7 @@
                         Style="{StaticResource MaterialDesignIconForegroundButton}">
                         <materialDesign:PackIcon Kind="ChevronRight" />
                     </Button>
-                </DockPanel>
+                </DockPanel>-->
                 <!--<StackPanel Margin="0,30,0,0">
                     <StackPanel Margin="0,20,0,0" Orientation="Horizontal">
                         <TextBlock
@@ -232,28 +219,7 @@
                     </StackPanel>
                 </StackPanel>-->
 
-                <Grid Height="250">
-                    <lvc:PieChart LegendLocation="Bottom">
-                        <lvc:PieChart.Series>
-                            <lvc:PieSeries
-                                Title="Khoản thu 1"
-                                DataLabels="True"
-                                Values="10" />
-                            <lvc:PieSeries
-                                Title="Khoản thu 2"
-                                DataLabels="True"
-                                Values="4" />
-                            <lvc:PieSeries
-                                Title="Khoản thu 3"
-                                DataLabels="True"
-                                Values="6" />
-                            <lvc:PieSeries
-                                Title="Khoản thu 4"
-                                DataLabels="True"
-                                Values="2" />
-                        </lvc:PieChart.Series>
-                    </lvc:PieChart>
-                </Grid>
+                <Grid Height="250" />
             </StackPanel>
         </materialDesign:Card>
     </Grid>
