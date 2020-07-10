@@ -4,15 +4,230 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:WeSplit.Views"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <Grid Background="Gray">
-        <Label
-            HorizontalContentAlignment="Center"
-            Content="Day la trang Search"
-            FontSize="30"
-            Foreground="#fff" />
+    <Grid >
+        <Grid
+            x:Name="Modal"
+            Panel.ZIndex="90"
+            Background="#7F000000"
+            Visibility="Hidden" MouseLeftButtonDown="Modal_Click"/>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60" />
+                <RowDefinition Height="50" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <DockPanel
+                Grid.Row="0"
+                Margin="0,0,-0.4,0"
+                Background="#333E50"
+                LastChildFill="True">
+                <Grid DockPanel.Dock="Right">
+                    <Button
+                        Width="56"
+                        Height="38"
+                        Margin="0,0,26,0"
+                        materialDesign:ButtonAssist.CornerRadius="4"
+                        Background="#fff"
+                        BorderBrush="#000"
+                        BorderThickness="1"
+                        Click="BtnSearch_Click"
+                        Foreground="#000"
+                        IsDefault="True"
+                        Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                        ToolTip="Search">
+                        <materialDesign:PackIcon Kind="Magnify">
+                            <materialDesign:PackIcon.LayoutTransform>
+                                <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="1.4" ScaleY="1.4" />
+                            </materialDesign:PackIcon.LayoutTransform>
+                        </materialDesign:PackIcon>
+                    </Button>
+                </Grid>
+
+                <TextBox
+                    x:Name="SearchBox"
+                    Height="38"
+                    Margin="16,0,16,0"
+                    Padding="0,-2,0,0"
+                    VerticalContentAlignment="Bottom"
+                    materialDesign:HintAssist.Background="#fff"
+                    materialDesign:HintAssist.Foreground="#000"
+                    materialDesign:HintAssist.Hint="Search"
+                    materialDesign:TextFieldAssist.TextFieldCornerRadius="16"
+                    materialDesign:TextFieldAssist.UnderlineBrush="#000"
+                    Background="#fff"
+                    FontSize="14"
+                    Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" />
+            </DockPanel>
+
+            <materialDesign:Card
+                Grid.Row="1"
+                Padding="0,15,0,0"
+                Panel.ZIndex="10"
+                materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                materialDesign:ShadowAssist.ShadowEdges="Bottom"
+                Background="#dadfed">
+                <TextBlock
+                    Name="Quantity"
+                    FontSize="20"
+                    FontWeight="Medium"
+                    TextAlignment="center" 
+                    />
+            </materialDesign:Card>
+
+            <!--</ScrollViewer>-->
+            <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">
+                <Grid x:Name="GridMain" Margin="0,16,0,0">
+                    <materialDesign:Card
+                        Background="#dadfed"
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Margin="26,0,26,30"
+                        Padding="0,10"
+                        UniformCornerRadius="4">
+                        <!--<ListView
+                            Name="ProductsSearch"
+                            Grid.Row="1"
+                            HorizontalAlignment="Center"
+                            ScrollViewer.CanContentScroll="False"
+                            ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                            ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel />
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                            <ListView.Template>
+                                <ControlTemplate>
+                                    <ItemsPresenter />
+                                </ControlTemplate>
+                            </ListView.Template>
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="{x:Type ListViewItem}">
+                                    <Setter Property="Background" Value="Transparent" />
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                                <ContentPresenter />
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>-->
+                        <Button
+                                        x:Name="item"
+                                        Width="240"
+                                        Height="304"
+                                        Margin="246,10,245.2,10"
+                                        Padding="0"
+                                        Panel.ZIndex="99"
+                                        Background="Transparent"
+                                        BorderThickness="0"
+                                        Click="BtnProduct_Click"
+                                        ClipToBounds="True"
+                                        Style="{StaticResource MaterialDesignRaisedAccentButton}">
+                            <materialDesign:Card
+                                            Width="220"
+                                            Padding="-1,0"
+                                            materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                                            materialDesign:ShadowAssist.ShadowEdges="Bottom, Right, Left"
+                                            UniformCornerRadius="4" Height="304">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="220" />
+                                        <RowDefinition Height="52"/>
+                                        <RowDefinition Height="31.2" />
+
+                                    </Grid.RowDefinitions>
+                                    <Image
+                                                    HorizontalAlignment="Center"
+                                                    RenderOptions.BitmapScalingMode="HighQuality"
+                                                    RenderTransformOrigin="0.5 0.5"
+                                                    Source="/Resource/Images/dulichvietnam.jpg"
+                                                    Stretch="UniformToFill" Margin="-56,0,-56.4,51.8" Width="334" Grid.RowSpan="2" />
+
+                                    <StackPanel Grid.Row="1" Height="52" Margin="0,0.2,-0.4,0" VerticalAlignment="Top">
+                                        <TextBlock                                                    
+                                                    Width="222"                                                    
+                                                    Padding="8" 
+                                                    FontSize="15"
+                                                    FontWeight="Bold"
+                                                    Foreground="#FF3E3E3E"
+                                                    Text="Chuyến đi Đà Lạt 3N2"
+                                                    TextTrimming="CharacterEllipsis"
+                                                    TextWrapping="NoWrap" 
+                                                    Height="35" 
+                                                    Margin="0,0,-0.4,0"                                                    
+                                                   />
+
+                                        <TextBlock                                                    
+                                                    Width="222" 
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Center"
+                                                    FontSize="9"
+                                                    Padding="8,0,0,0"
+                                                    Foreground="#a3a3a3"
+                                                    Text="Chi tiêt ngắn chuyến đi hoặc cảm nghĩ ........." 
+                                                    Height="16" 
+                                                    TextWrapping="NoWrap"
+                                                    Margin="0,0,-0.4,0"
+                                                    />
+
+                                    </StackPanel>
+                                    <Grid Grid.Row="2" Margin="0,0.2,-0.4,2">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition Width="74.4"></ColumnDefinition>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackPanel Orientation="Horizontal" Margin="5,0,0,0">
+                                            <Image
+                                                Source="/Resource/Icons/team.png"
+                                                Width="15"/>
+                                            <TextBlock 
+                                                Text="Số người"
+                                                FontSize="10"
+                                                Padding="5,0,0,0"
+                                                VerticalAlignment="Center"/>
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Horizontal" Margin="5,0,0,0" Grid.Column="1">
+                                            <Image
+                                                Source="/Resource/Icons/kilometer.png"
+                                                Width="15"/>
+                                            <TextBlock 
+                                                Text="Số Km"
+                                                FontSize="10"
+                                                Padding="5,0,0,0"
+                                                VerticalAlignment="Center"/>
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Horizontal" Margin="5,0,0,0" Grid.Column="2">
+                                            <Image
+                                                Source="/Resource/Icons/route.png"
+                                                Width="15"/>
+                                            <TextBlock 
+                                                Text="Đích đến"
+                                                FontSize="10"
+                                                Padding="5,0,0,0"
+                                                VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </Grid>
+                                </Grid>
+                            </materialDesign:Card>
+                        </Button>
+                        <!--</DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>-->
+                    </materialDesign:Card>
+                </Grid>
+            </ScrollViewer>
+        </Grid>
     </Grid>
 </UserControl>
