@@ -12,9 +12,15 @@ namespace WeSplit.ViewModels
 {
     public class MainViewModel : Conductor<IScreen>.Collection.OneActive, INotifyPropertyChanged
     {
+        private HistoryViewModel _historyViewModel;
         public HistoryViewModel HistoryViewModel
         {
-            get; set;
+            get { return _historyViewModel; }
+            set
+            {
+                _historyViewModel = value;
+                NotifyOfPropertyChange(() => HistoryViewModel);
+            }
         }
 
         public WalkingViewModel WalkingViewModel
@@ -47,7 +53,6 @@ namespace WeSplit.ViewModels
                 return;
             }
             ActiveItem.TryClose();
-            isLocatedDetail = false;
             WhoActived = "Home";
             ShowHistoryView();
             ShowWalkingView();
@@ -77,6 +82,7 @@ namespace WeSplit.ViewModels
         public void ShowHistoryView()
         {
             HistoryViewModel = new HistoryViewModel();
+            HistoryViewModel.Refresh();
             HistoryViewModel.Parent = this;
         }
 

@@ -11,8 +11,9 @@ namespace WeSplit.ViewModels
 {
     public class HistoryViewModel:Screen
     {
-        private int _historywidth = 280;
+        private int _historywidth = 0;
         private int _canvasheight = 520;
+        private bool _isLocatedDetail = false;
 
         public int HistoryWidth
         {
@@ -40,9 +41,29 @@ namespace WeSplit.ViewModels
             }
         }
 
+        public bool IsLocatedDetail
+        {
+            get { return _isLocatedDetail; }
+            set
+            {
+                _isLocatedDetail = value;
+                NotifyOfPropertyChange(() => IsLocatedDetail);
+            }
+        }
+
+        public HistoryViewModel()
+        {
+        }
+
+        public override void Refresh()
+        {
+            base.Refresh();
+        }
+
         public void ShowDetail()
         {
-            isLocatedDetail = true;
+            IsLocatedDetail = true;
+            isLocatedDetail = IsLocatedDetail;
             var parentConductor = (Conductor<IScreen>.Collection.OneActive)(this.Parent);
             parentConductor.ActivateItem(new DetailViewModel());
         }

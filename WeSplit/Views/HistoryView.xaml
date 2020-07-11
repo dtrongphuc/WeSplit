@@ -34,6 +34,24 @@
             </DoubleAnimation>
         </Storyboard>
     </UserControl.Resources>
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="UserControl.Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation
+                        Storyboard.TargetName="InfoCanvas"
+                        Storyboard.TargetProperty="Width"
+                        From="0"
+                        To="280"
+                        Duration="0:0:0.3">
+                        <DoubleAnimation.EasingFunction>
+                            <CubicEase EasingMode="EaseOut" />
+                        </DoubleAnimation.EasingFunction>
+                    </DoubleAnimation>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </UserControl.Triggers>
     <Grid HorizontalAlignment="Left">
         <Canvas
             x:Name="InfoCanvas"
@@ -43,6 +61,15 @@
             Width="{Binding HistoryWidth}"
             Panel.ZIndex="100"
             Background="#F9F9FF">
+            <Canvas.Style>
+                <Style TargetType="Canvas">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsLocatedDetail}" Value="False">
+                            <Setter Property="Width" Value="{Binding HistoryWidth}" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Canvas.Style>
             <Border
                 Canvas.Top="0"
                 Width="{Binding ActualWidth, ElementName=InfoCanvas}"

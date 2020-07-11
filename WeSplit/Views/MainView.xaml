@@ -231,7 +231,7 @@
             Grid.Row="0"
             Grid.Column="1"
             Panel.ZIndex="100"
-            Content="   " />
+            cal:Bind.Model="{Binding HistoryView}" />
         <ContentControl
             x:Name="WalkingViewModel"
             Grid.Row="0"

@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WeSplit.ViewModels;
+using static WeSplit.ViewModels.HistoryViewModel;
 
 
 namespace WeSplit.Views
@@ -28,10 +29,13 @@ namespace WeSplit.Views
             InitializeComponent();
         }
 
-        private void Animate(double unit)
+        public static Storyboard storyboard;
+        public static DoubleAnimation animation;
+
+        public void Animate(double unit)
         {
-            Storyboard storyboard = (this.Resources["SbShowHistory"] as Storyboard);
-            DoubleAnimation animation = storyboard.Children.First() as DoubleAnimation;
+            storyboard = (this.Resources["SbShowHistory"] as Storyboard);
+            animation = storyboard.Children.First() as DoubleAnimation;
             Storyboard.SetTarget(animation, InfoCanvas);
             animation.To = unit;
             storyboard.Begin();
@@ -67,6 +71,12 @@ namespace WeSplit.Views
                 BtnShow.Visibility = Visibility.Visible;
             }
         }
+
+        //public static void ResetStoryboard(double unit)
+        //{
+        //    animation.To = unit;
+        //    storyboard.Begin();
+        //}
 
         private void ShowDetail(object sender, MouseButtonEventArgs e)
         {
