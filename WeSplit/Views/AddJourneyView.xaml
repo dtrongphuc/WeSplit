@@ -5,14 +5,318 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:WeSplit.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:e="clr-namespace:WeSplit.Converter"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <Grid Background="Gray">
-        <Label
-            HorizontalContentAlignment="Center"
-            Content="Day la trang Add"
-            FontSize="30"
-            Foreground="#fff" />
+    <UserControl.Resources>
+        <e:RelativeToAbsoluteConverter x:Key="pathConverter" />
+        <Style
+            x:Key="ingredientBox"
+            BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}"
+            TargetType="TextBox">
+            <Setter Property="Height" Value="60" />
+            <Setter Property="Padding" Value="10,0,0,0" />
+            <Setter Property="Margin" Value="9,12,0,12" />
+            <Setter Property="Background" Value="#d4d4d4" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="FontWeight" Value="Regular" />
+            <Setter Property="Foreground" Value="#FF3A3A3A" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="materialDesign:HintAssist.Foreground" Value="#F75C03" />
+            <Setter Property="materialDesign:HintAssist.Hint" Value="Bạn dùng nguyên liệu gì?" />
+            <Setter Property="materialDesign:TextFieldAssist.UnderlineBrush" Value="#F75C03" />
+        </Style>
+        <Style
+            x:Key="stepBox"
+            BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}"
+            TargetType="TextBox">
+            <Setter Property="Height" Value="60" />
+            <Setter Property="Padding" Value="10,0,0,0" />
+            <Setter Property="Margin" Value="9,12,0,12" />
+            <Setter Property="Background" Value="#d4d4d4" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="FontWeight" Value="Regular" />
+            <Setter Property="AcceptsReturn" Value="True" />
+            <Setter Property="Foreground" Value="#FF3A3A3A" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="materialDesign:HintAssist.Foreground" Value="#F75C03" />
+            <Setter Property="materialDesign:HintAssist.Hint" Value="Bạn đã làm các bước như thế nào?" />
+            <Setter Property="materialDesign:TextFieldAssist.UnderlineBrush" Value="#F75C03" />
+        </Style>
+        <Style x:Key="leftCount" TargetType="Grid">
+            <Setter Property="Margin" Value="4,24,8,0" />
+            <Setter Property="DockPanel.Dock" Value="Left" />
+        </Style>
+        <Style x:Key="circleIcon" TargetType="Ellipse">
+            <Setter Property="Width" Value="35" />
+            <Setter Property="Height" Value="35" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="Fill" Value="Black" />
+            <Setter Property="StrokeThickness" Value="0" />
+        </Style>
+        <Style x:Key="countNumber" TargetType="Label">
+            <Setter Property="Margin" Value="0,-2,0,0" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+        <Style x:Key="imageAddStep" TargetType="Border">
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Height" Value="100" />
+            <Setter Property="BorderBrush" Value="#FF767676" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="CornerRadius" Value="8" />
+            <Setter Property="Margin" Value="8,10" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Background">
+                <Setter.Value>
+                    <ImageBrush ImageSource="/Resource/Icons/camera.png" Stretch="UniformToFill" />
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid>
+        <ScrollViewer Background="#dadfed">
+            <StackPanel Width="806" Margin="0,20,0,20">
+                <!--<Label
+                    Margin="0,20"
+                    HorizontalAlignment="Center"
+                    Content="THÊM CÔNG THỨC NẤU ĂN MỚI"
+                    FontSize="30"
+                    FontWeight="DemiBold" 
+                    Foreground="Black"/>
+                <Button
+                    Width="400"
+                    Height="265"
+                    Padding="0"
+                    Background="#333E50"
+                    BorderThickness="0"
+                    Click="BtnAddAvatar">
+                    <Border Padding="40,50">
+                        <Border.Background>
+                            <ImageBrush
+                                x:Name="AddAvatar"
+                                RenderOptions.BitmapScalingMode="HighQuality"
+                                Stretch="Fill" />
+                        </Border.Background>
+                        <StackPanel Height="169">
+                            <Image
+                                x:Name="AvatarImage"
+                                Width="70"
+                                Source="/Resource/Icons/camera.png" />
+                            <TextBlock
+                                x:Name="Header"
+                                Margin="0,20,0,0"
+                                FontSize="20"
+                                FontWeight="Heavy"
+                                Foreground="Black"
+                                Text="Bạn đã đăng hình món mình nấu ở đây chưa?"
+                                TextWrapping="Wrap" />
+                        </StackPanel>
+                    </Border>
+                </Button>-->
+
+                <!--<Button
+                    Height="44"
+                    Margin="18,10,624.4,0"
+                    Background="Snow"
+                    BorderThickness="0"
+                    Click="BtnAddIngredientsField_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Width="15" Source="/Resource/Icons/camera.png" />
+                        <TextBlock
+                            Padding="15,0,0,0"
+                            FontSize="18"
+                            Text="Tên Chuyến đi" />
+
+                    </StackPanel>
+                </Button>-->
+
+                <TextBlock
+                    Margin="0,20,0,0"
+                    FontSize="35"
+                    FontWeight="Bold"
+                    Text="Tên chuyến đi" 
+                    HorizontalAlignment="Center"/>
+
+                <TextBox
+                    x:Name="ProductName"
+                    Height="60"
+                    Margin="90,0,90,0"
+                    Padding="10,0,0,0"
+                    VerticalAlignment="Center"
+                    materialDesign:HintAssist.Foreground="#333E50"
+                    materialDesign:HintAssist.Hint="Tên chuyến đi của bạn"
+                    materialDesign:TextFieldAssist.UnderlineBrush="#333E50"
+                    Background="#333E50"
+                    BorderThickness="0"
+                    FontSize="18"
+                    FontWeight="Regular"
+                    Foreground="Black"
+                />
+
+                <!--danh sach thanh vien-->
+                <StackPanel 
+                    Orientation="Horizontal"
+                    VerticalAlignment="Center"
+                    >
+                    <StackPanel Margin="110,0,0,0">
+                        <TextBlock
+                            Margin="20,20,0,0"
+                            FontSize="20"
+                            Text="Tên thành viên"
+                            TextAlignment="Center"/>
+                        <TextBox 
+                            x:Name="UserName"
+                            Height="38"
+                            Margin="20,5,0,0"
+                            materialDesign:HintAssist.Foreground="#F75C03"
+                            materialDesign:HintAssist.Hint="Tên thành viên"
+                            materialDesign:TextFieldAssist.UnderlineBrush="#F75C03"
+                            Background="#333E50"
+                            BorderThickness="0"
+                            FontSize="18"
+                            FontWeight="Regular"
+                            Foreground="Black" Width="178"/>
+                    </StackPanel>
+
+                    <StackPanel>
+                        <TextBlock
+                            Margin="20,20,0,0"
+                            FontSize="20"
+                            Text="Số điện thoại"
+                            TextAlignment="Center"/>
+                        <TextBox 
+                            x:Name="Tel"
+                            Height="38"
+                            Margin="20,5,0,0"
+                            VerticalAlignment="Center"
+                            materialDesign:HintAssist.Foreground="#F75C03"
+                            materialDesign:HintAssist.Hint="Tên thành viên"
+                            materialDesign:TextFieldAssist.UnderlineBrush="#F75C03"
+                            Background="#333E50"
+                            BorderThickness="0"
+                            FontSize="18"
+                            FontWeight="Regular"
+                            Foreground="Black" Width="165"/>
+                    </StackPanel>
+
+                    <StackPanel>
+                        <TextBlock
+                            Margin="20,20,0,0"
+                            FontSize="20"
+                            Text="Số điện thoại"
+                            TextAlignment="Center"/>
+                        <TextBox 
+                            x:Name="money"
+                            Height="38"
+                            Margin="20,5,0,0"
+                            VerticalAlignment="Center"
+                            materialDesign:HintAssist.Foreground="#F75C03"
+                            materialDesign:HintAssist.Hint="Tên thành viên"
+                            materialDesign:TextFieldAssist.UnderlineBrush="#F75C03"
+                            Background="#333E50"
+                            BorderThickness="0"
+                            FontSize="18"
+                            FontWeight="Regular"
+                            Foreground="Black" Width="165"/>
+                    </StackPanel>
+                </StackPanel>
+                <Button
+                    Height="44"
+                    Margin="132,15,460.4,0"
+                    Background="Snow"
+                    BorderThickness="0"
+                    Click="BtnAddIngredientsField_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Width="25" Source="/Resource/Icons/add.png" />
+                        <TextBlock
+                            Padding="15,0,0,0"
+                            FontSize="18"
+                            Text="Thêm thành viên" 
+                            Foreground="Black"/>
+
+                    </StackPanel>
+                </Button>
+                <!--//dah sách các khoản chi-->
+                <StackPanel 
+                    Orientation="Horizontal"
+                    VerticalAlignment="Center"
+                    >
+                    <StackPanel Margin="110,0,0,0">
+                        <TextBlock
+                            Margin="20,20,0,0"
+                            FontSize="20"
+                            Text="Tên khoản chi"
+                            TextAlignment="Center"/>
+                        <TextBox 
+                            x:Name="ExpensesName"
+                            Height="38"
+                            Margin="20,5,0,0"
+                            materialDesign:HintAssist.Foreground="#F75C03"
+                            materialDesign:HintAssist.Hint="Tên thành viên"
+                            materialDesign:TextFieldAssist.UnderlineBrush="#F75C03"
+                            Background="#333E50"
+                            BorderThickness="0"
+                            FontSize="18"
+                            FontWeight="Regular"
+                            Foreground="Black" Width="178"/>
+                    </StackPanel>
+
+                    <StackPanel>
+                        <TextBlock
+                            Margin="20,20,0,0"
+                            FontSize="20"
+                            Text="Số tiền"
+                            TextAlignment="Center"/>
+                        <TextBox 
+                            x:Name="Expenses" 
+                            Height="38"
+                            Margin="20,5,0,0"
+                            VerticalAlignment="Center"
+                            materialDesign:HintAssist.Foreground="#F75C03"
+                            materialDesign:HintAssist.Hint="Tên thành viên"
+                            materialDesign:TextFieldAssist.UnderlineBrush="#F75C03"
+                            Background="#333E50"
+                            BorderThickness="0"
+                            FontSize="18"
+                            FontWeight="Regular"
+                            Foreground="Black" Width="165"/>
+                    </StackPanel>
+                    
+                </StackPanel>
+                <Button
+                    Height="44"
+                    Margin="132,15,460.4,0"
+                    Background="Snow"
+                    BorderThickness="0"
+                    Click="BtnAddIngredientsField_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Width="25" Source="/Resource/Icons/add.png" />
+                        <TextBlock
+                            Padding="15,0,0,0"
+                            FontSize="18"
+                            Text="Thêm khoản chi" 
+                            Foreground="Black"/>
+
+                    </StackPanel>
+                </Button>
+                <!--</StackPanel>-->
+                <Button
+                    x:Name="Submit"
+                    Width="140"
+                    Height="40"
+                    Margin="0,30"
+                    Background="#F75C03"
+                    Click="Add_Click"
+                    Content="Hoàn thành" />
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </UserControl>
