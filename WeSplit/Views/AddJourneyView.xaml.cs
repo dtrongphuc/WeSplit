@@ -37,7 +37,7 @@ namespace WeSplit.Views
             Style style = this.FindResource("UserNameBox") as Style;
             var newTextbox = new TextBox();
             newTextbox.Style = style;
-            Ingredients.Children.Add(newTextbox);
+            Members.Children.Add(newTextbox);
         }
 
         private void BtnAddStepField_Click(object sender, RoutedEventArgs e)

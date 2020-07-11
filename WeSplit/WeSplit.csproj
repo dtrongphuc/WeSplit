@@ -283,6 +283,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resource\Images\Background.jpg" />
+    <Resource Include="Resource\Images\AddBackground.jpg" />
     <Content Include="SQL\QLChuyenDi.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
