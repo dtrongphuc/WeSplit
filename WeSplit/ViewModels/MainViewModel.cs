@@ -53,6 +53,7 @@ namespace WeSplit.ViewModels
                 return;
             }
             ActiveItem.TryClose();
+            isLocatedDetail = false;
             WhoActived = "Home";
             ShowHistoryView();
             ShowWalkingView();
