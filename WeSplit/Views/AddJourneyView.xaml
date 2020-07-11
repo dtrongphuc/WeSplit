@@ -139,35 +139,43 @@
             <Setter Property="materialDesign:TextFieldAssist.UnderlineBrush" Value="#FF32AEAC" />
         </Style>
         <Style
-            x:Key="TitleBox"
+            x:Key="BoxTrigger"
             BasedOn="{StaticResource CommonBox}"
+            TargetType="TextBox">
+            <Setter Property="Margin" Value="0,16" />
+        </Style>
+        <Style
+            x:Key="TitleBox"
+            BasedOn="{StaticResource BoxTrigger}"
             TargetType="TextBox">
             <Setter Property="materialDesign:HintAssist.Hint" Value="Tên chuyến đi của bạn" />
         </Style>
         <Style
             x:Key="MemberNameBox"
-            BasedOn="{StaticResource CommonBox}"
+            BasedOn="{StaticResource BoxTrigger}"
             TargetType="TextBox">
             <Setter Property="materialDesign:HintAssist.Hint" Value="Tên thành viên" />
         </Style>
 
         <Style
             x:Key="TelBox"
-            BasedOn="{StaticResource CommonBox}"
+            BasedOn="{StaticResource BoxTrigger}"
             TargetType="TextBox">
             <Setter Property="materialDesign:HintAssist.Hint" Value="Số điện thoại" />
         </Style>
+
         <Style
-            x:Key="ExpendituresName"
-            BasedOn="{StaticResource CommonBox}"
-            TargetType="TextBox">
-            <Setter Property="materialDesign:HintAssist.Hint" Value="Tên khoản chi" />
-        </Style>
-        <Style
-            x:Key="ExpendituresNumber"
-            BasedOn="{StaticResource CommonBox}"
+            x:Key="MoneyBox"
+            BasedOn="{StaticResource BoxTrigger}"
             TargetType="TextBox">
             <Setter Property="materialDesign:HintAssist.Hint" Value="Số tiền" />
+        </Style>
+
+        <Style
+            x:Key="ExpendituresName"
+            BasedOn="{StaticResource BoxTrigger}"
+            TargetType="TextBox">
+            <Setter Property="materialDesign:HintAssist.Hint" Value="Tên khoản chi" />
         </Style>
 
         <!--<Style
@@ -323,26 +331,24 @@
                     </DockPanel>
                 </Grid>
                 <!--  danh sach thanh vien  -->
-                <StackPanel x:Name="Members" Margin="90,30,90,0">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="4*" />
-                            <ColumnDefinition Width="1*" />
-                            <ColumnDefinition Width="4*" />
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="60" />
-                        </Grid.RowDefinitions>
-                        <TextBox
-                            Grid.Row="0"
-                            Grid.Column="0"
-                            Style="{StaticResource MemberNameBox}" />
-                        <TextBox
-                            Grid.Row="0"
-                            Grid.Column="2"
-                            Style="{StaticResource TelBox}" />
-                    </Grid>
-                </StackPanel>
+                <Grid x:Name="Members" Margin="90,30,90,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*" />
+                        <ColumnDefinition Width="0.25*" />
+                        <ColumnDefinition Width="3*" />
+                        <ColumnDefinition Width="0.25*" />
+                        <ColumnDefinition Width="3*" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel x:Name="MemberNameStack" Grid.Column="0">
+                        <TextBox Style="{StaticResource MemberNameBox}" />
+                    </StackPanel>
+                    <StackPanel x:Name="TelStack" Grid.Column="2">
+                        <TextBox Style="{StaticResource TelBox}" />
+                    </StackPanel>
+                    <StackPanel x:Name="MoneyStack" Grid.Column="4">
+                        <TextBox Style="{StaticResource MoneyBox}" />
+                    </StackPanel>
+                </Grid>
                 <Button
                     Width="240"
                     Height="44"
@@ -361,26 +367,19 @@
                     </StackPanel>
                 </Button>
                 <!--  //dah sách các khoản chi  -->
-                <StackPanel x:Name="Expenditures" Margin="90,30,90,0">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="6*" />
-                            <ColumnDefinition Width="1*" />
-                            <ColumnDefinition Width="3*" />
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="60" />
-                        </Grid.RowDefinitions>
-                        <TextBox
-                            Grid.Row="0"
-                            Grid.Column="0"
-                            Style="{StaticResource ExpendituresName}" />
-                        <TextBox
-                            Grid.Row="0"
-                            Grid.Column="2"
-                            Style="{StaticResource ExpendituresNumber}" />
-                    </Grid>
-                </StackPanel>
+                <Grid x:Name="Expenditures" Margin="90,30,90,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="6*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="3*" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel x:Name="ExpendituresNameStack" Grid.Column="0">
+                        <TextBox Style="{StaticResource ExpendituresName}" />
+                    </StackPanel>
+                    <StackPanel x:Name="ExpendituresMoneyStack" Grid.Column="2">
+                        <TextBox Style="{StaticResource MoneyBox}" />
+                    </StackPanel>
+                </Grid>
 
                 <Button
                     Width="240"

@@ -34,21 +34,21 @@ namespace WeSplit.Views
 
         private void BtnAddListInfoUser_Click(object sender, RoutedEventArgs e)
         {
-            Style style_user = this.FindResource("UserNameBox") as Style;
+            Style style_user = this.FindResource("MemberNameBox") as Style;
             Style style_tel = this.FindResource("TelBox") as Style;
             Style style_money = this.FindResource("MoneyBox") as Style;
 
             var newTextbox = new TextBox();
             newTextbox.Style = style_user;
-            Username.Children.Add(newTextbox);
+            MemberNameStack.Children.Add(newTextbox);
 
             var newTextbox_tel = new TextBox();
             newTextbox_tel.Style = style_tel;
-            Telnum.Children.Add(newTextbox_tel);
+            TelStack.Children.Add(newTextbox_tel);
             
             var newTextbox_money = new TextBox();
             newTextbox_money.Style = style_money;
-            Money.Children.Add(newTextbox_money);
+            MoneyStack.Children.Add(newTextbox_money);
         }
 
         private void BtnAddStepField_Click(object sender, RoutedEventArgs e)
@@ -63,16 +63,16 @@ namespace WeSplit.Views
 
         private void BtnAddInfoExpenses_Click(object sender, RoutedEventArgs e)
         {
-            Style style_expensesname = this.FindResource("ExpensesBox") as Style;
-            Style style_expensesmoney = this.FindResource("ExpensesMoneyBox") as Style;
+            Style style_expensesname = this.FindResource("ExpendituresName") as Style;
+            Style style_expensesmoney = this.FindResource("MoneyBox") as Style;
 
             var newExpensesbox = new TextBox();
             newExpensesbox.Style = style_expensesname;
-            Expensesname.Children.Add(newExpensesbox);
+            ExpendituresNameStack.Children.Add(newExpensesbox);
 
             var newExpensesmoneybox = new TextBox();
             newExpensesmoneybox.Style = style_expensesmoney;
-            Expensesmoney.Children.Add(newExpensesmoneybox);
+            ExpendituresMoneyStack.Children.Add(newExpensesmoneybox);
         }
     }
 }
