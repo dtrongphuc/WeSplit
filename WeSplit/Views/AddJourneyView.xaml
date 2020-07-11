@@ -350,7 +350,7 @@
                     HorizontalAlignment="Left"
                     Background="#d6e1ff"
                     BorderThickness="0"
-                    Click="BtnAddIngredientsField_Click">
+                    Click="BtnAddListInfoUser_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image Width="25" Source="/Resource/Icons/add.png" />
                         <TextBlock
@@ -389,7 +389,7 @@
                     HorizontalAlignment="Left"
                     Background="#d6e1ff"
                     BorderThickness="0"
-                    Click="BtnAddIngredientsField_Click">
+                    Click="BtnAddInfoExpenses_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image Width="25" Source="/Resource/Icons/add.png" />
                         <TextBlock

@@ -32,12 +32,23 @@ namespace WeSplit.Views
 
         }
 
-        private void BtnAddIngredientsField_Click(object sender, RoutedEventArgs e)
+        private void BtnAddListInfoUser_Click(object sender, RoutedEventArgs e)
         {
-            Style style = this.FindResource("UserNameBox") as Style;
+            Style style_user = this.FindResource("UserNameBox") as Style;
+            Style style_tel = this.FindResource("TelBox") as Style;
+            Style style_money = this.FindResource("MoneyBox") as Style;
+
             var newTextbox = new TextBox();
-            newTextbox.Style = style;
-            Members.Children.Add(newTextbox);
+            newTextbox.Style = style_user;
+            Username.Children.Add(newTextbox);
+
+            var newTextbox_tel = new TextBox();
+            newTextbox_tel.Style = style_tel;
+            Telnum.Children.Add(newTextbox_tel);
+            
+            var newTextbox_money = new TextBox();
+            newTextbox_money.Style = style_money;
+            Money.Children.Add(newTextbox_money);
         }
 
         private void BtnAddStepField_Click(object sender, RoutedEventArgs e)
@@ -48,6 +59,20 @@ namespace WeSplit.Views
         private void Add_Click(object sender, RoutedEventArgs e)
         {
             
+        }
+
+        private void BtnAddInfoExpenses_Click(object sender, RoutedEventArgs e)
+        {
+            Style style_expensesname = this.FindResource("ExpensesBox") as Style;
+            Style style_expensesmoney = this.FindResource("ExpensesMoneyBox") as Style;
+
+            var newExpensesbox = new TextBox();
+            newExpensesbox.Style = style_expensesname;
+            Expensesname.Children.Add(newExpensesbox);
+
+            var newExpensesmoneybox = new TextBox();
+            newExpensesmoneybox.Style = style_expensesmoney;
+            Expensesmoney.Children.Add(newExpensesmoneybox);
         }
     }
 }

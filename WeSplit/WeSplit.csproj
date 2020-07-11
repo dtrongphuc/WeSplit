@@ -130,6 +130,8 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Converter\RelativeToAbsoluteConverter.cs" />
+    <Compile Include="Models\Connection.cs" />
+    <Compile Include="Models\Trip.cs" />
     <Compile Include="ViewModels\AddJourneyViewModel.cs" />
     <Compile Include="ViewModels\DetailViewModel.cs" />
     <Compile Include="ViewModels\HistoryViewModel.cs" />
@@ -204,9 +206,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Page Include="Views\AddJourneyView.xaml">
       <SubType>Designer</SubType>
