@@ -110,7 +110,78 @@
                     FontWeight="Regular"
                     Foreground="White"
                 />
-
+                <StackPanel Orientation="Horizontal" Margin="70,10,0,0">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock
+                            Margin="20,5,0,0"
+                            FontSize="15"
+                            Text="Ngày đi"
+                            TextAlignment="Center"
+                            VerticalAlignment="Bottom"/>
+                        <!--<TextBox 
+                            x:Name="StartDay"
+                            Height="29"
+                            Margin="20,5,0,0"
+                            materialDesign:HintAssist.Foreground="#F75C03"
+                            materialDesign:HintAssist.Hint="dd/mm/yyyy"
+                            materialDesign:TextFieldAssist.UnderlineBrush="#F75C03"
+                            Background="#333E50"
+                            BorderThickness="0"
+                            FontSize="15"
+                            FontWeight="Regular"
+                            Foreground="White" Width="161"
+                            Padding="5,0,0,0"   />-->
+                        <DatePicker 
+                            Name="StartDay" 
+                            Height="25" 
+                            Margin="10,5,00,0"
+                            HorizontalAlignment="Left"                             
+                            VerticalAlignment="Top" 
+                            Width="139" 
+                            FontSize="14"
+                            Padding="10,0,0,0"
+                            />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock
+                            Margin="20,5,0,0"
+                            FontSize="15"
+                            Text="Ngày về"
+                            TextAlignment="Center"
+                             VerticalAlignment="Bottom"/>
+                        <DatePicker 
+                            Name="EndDay" 
+                            Height="25" 
+                            Margin="10,5,00,0"
+                            HorizontalAlignment="Left"                             
+                            VerticalAlignment="Top" 
+                            Width="139" 
+                            FontSize="14"
+                            Padding="10,0,0,0"
+                            />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="50,0,0,0">
+                        <TextBlock
+                            Margin="20,5,0,0"
+                            FontSize="15"
+                            Text="Số KM"
+                            TextAlignment="Center"
+                            VerticalAlignment="Bottom"/>
+                        <TextBox 
+                            x:Name="Kilometer"
+                            Height="29"
+                            Margin="20,5,0,0"
+                            materialDesign:HintAssist.Foreground="#F75C03"
+                            materialDesign:HintAssist.Hint="(km)"
+                            materialDesign:TextFieldAssist.UnderlineBrush="#F75C03"
+                            Background="#333E50"
+                            BorderThickness="0"
+                            FontSize="15"
+                            FontWeight="Regular"
+                            Foreground="White" Width="85"
+                            Padding="5,0,0,0"   />
+                    </StackPanel>
+                </StackPanel>
                 <!--danh sach thanh vien-->
                 <StackPanel 
                     Orientation="Horizontal"
