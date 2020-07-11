@@ -3,112 +3,188 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:e="clr-namespace:WeSplit.Converter"
     xmlns:local="clr-namespace:WeSplit.Views"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:e="clr-namespace:WeSplit.Converter"
-    d:DesignHeight="450"
+    d:DesignHeight="520"
     d:DesignWidth="886"
     mc:Ignorable="d">
     <UserControl.Resources>
         <e:RelativeToAbsoluteConverter x:Key="pathConverter" />
-        
-        <!--TÊN THÀNH VIÊN-->
-        <Style
-            x:Key="UserNameBox"
-            BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}"
-            TargetType="TextBox">
-            <Setter Property="Height" Value="38" />
-            <Setter Property="Margin" Value="26,15,12,0"/>
-            <Setter Property="Width" Value="265"/>
-            <Setter Property="Background" Value="#333E50"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="FontSize" Value="18"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="Padding" Value="7,2,7,0"></Setter>
-            <Setter Property="materialDesign:HintAssist.Foreground" Value="#F75C03" />
-            <Setter Property="materialDesign:HintAssist.Hint" Value="số điện thoại" />
-            <Setter Property="materialDesign:TextFieldAssist.UnderlineBrush" Value="#F75C03" />
+
+        <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}">
+            <Setter Property="Stylus.IsFlicksEnabled" Value="false" />
+            <Setter Property="Foreground" Value="#333E50" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Width" Value="10" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ScrollBar}">
+                        <Grid
+                            x:Name="GridRoot"
+                            Width="10"
+                            Background="{TemplateBinding Background}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.00001*" />
+                            </Grid.RowDefinitions>
+
+                            <Track
+                                x:Name="PART_Track"
+                                Grid.Row="0"
+                                Focusable="false"
+                                IsDirectionReversed="true">
+                                <Track.Thumb>
+                                    <Thumb
+                                        x:Name="Thumb"
+                                        Background="{TemplateBinding Foreground}"
+                                        Style="{DynamicResource ScrollThumbs}" />
+                                </Track.Thumb>
+                                <Track.IncreaseRepeatButton>
+                                    <RepeatButton
+                                        x:Name="PageUp"
+                                        Command="ScrollBar.PageDownCommand"
+                                        Focusable="false"
+                                        Opacity="0" />
+                                </Track.IncreaseRepeatButton>
+                                <Track.DecreaseRepeatButton>
+                                    <RepeatButton
+                                        x:Name="PageDown"
+                                        Command="ScrollBar.PageUpCommand"
+                                        Focusable="false"
+                                        Opacity="0" />
+                                </Track.DecreaseRepeatButton>
+                            </Track>
+                        </Grid>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger SourceName="Thumb" Property="IsMouseOver" Value="true">
+                                <Setter TargetName="Thumb" Property="Background" Value="{DynamicResource ButtonSelectBrush}" />
+                            </Trigger>
+                            <Trigger SourceName="Thumb" Property="IsDragging" Value="true">
+                                <Setter TargetName="Thumb" Property="Background" Value="{DynamicResource DarkBrush}" />
+                            </Trigger>
+
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter TargetName="Thumb" Property="Visibility" Value="Collapsed" />
+                            </Trigger>
+                            <Trigger Property="Orientation" Value="Horizontal">
+                                <Setter TargetName="GridRoot" Property="LayoutTransform">
+                                    <Setter.Value>
+                                        <RotateTransform Angle="-90" />
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter TargetName="PART_Track" Property="LayoutTransform">
+                                    <Setter.Value>
+                                        <RotateTransform Angle="-90" />
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="Width" Value="Auto" />
+                                <Setter Property="Height" Value="12" />
+                                <Setter TargetName="Thumb" Property="Tag" Value="Horizontal" />
+                                <Setter TargetName="PageDown" Property="Command" Value="ScrollBar.PageLeftCommand" />
+                                <Setter TargetName="PageUp" Property="Command" Value="ScrollBar.PageRightCommand" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
 
-        <!--//số điện thoại-->
+        <Style x:Key="ScrollThumbs" TargetType="{x:Type Thumb}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Thumb}">
+                        <Grid x:Name="Grid">
+                            <Rectangle
+                                Width="Auto"
+                                Height="Auto"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                Fill="Transparent" />
+                            <Border
+                                x:Name="Rectangle1"
+                                Width="Auto"
+                                Height="Auto"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="8" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Tag" Value="Horizontal">
+                                <Setter TargetName="Rectangle1" Property="Width" Value="Auto" />
+                                <Setter TargetName="Rectangle1" Property="Height" Value="7" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style
+            x:Key="CommonBox"
+            BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}"
+            TargetType="TextBox">
+            <Setter Property="Background" Value="#333E50" />
+            <Setter Property="Padding" Value="6,0" />
+            <Setter Property="Height" Value="60" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="FontWeight" Value="Regular" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="materialDesign:HintAssist.Foreground" Value="#FF32AEAC" />
+            <Setter Property="materialDesign:TextFieldAssist.TextFieldCornerRadius" Value="4" />
+            <Setter Property="materialDesign:TextFieldAssist.UnderlineBrush" Value="#FF32AEAC" />
+        </Style>
+        <Style
+            x:Key="BoxTrigger"
+            BasedOn="{StaticResource CommonBox}"
+            TargetType="TextBox">
+            <Setter Property="Margin" Value="0,16" />
+        </Style>
+        <Style
+            x:Key="TitleBox"
+            BasedOn="{StaticResource BoxTrigger}"
+            TargetType="TextBox">
+            <Setter Property="materialDesign:HintAssist.Hint" Value="Tên chuyến đi của bạn" />
+        </Style>
+        <Style
+            x:Key="MemberNameBox"
+            BasedOn="{StaticResource BoxTrigger}"
+            TargetType="TextBox">
+            <Setter Property="materialDesign:HintAssist.Hint" Value="Tên thành viên" />
+        </Style>
+
         <Style
             x:Key="TelBox"
-            BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}"
+            BasedOn="{StaticResource BoxTrigger}"
             TargetType="TextBox">
-            <Setter Property="Height" Value="38" />
-            <Setter Property="Margin" Value="10,15,22.4,0"   />
-            <Setter Property="Background" Value="#333E50" />
-            <Setter Property="BorderThickness" Value="0" />
-            <Setter Property="FontSize" Value="18" />
-            <Setter Property="FontWeight" Value="Regular" />
-            <Setter Property="Foreground" Value="White" />
-            <Setter Property="Width" Value="215"/>
-            <Setter Property="Padding" Value="5,0,0,0" />
-            <Setter Property="materialDesign:HintAssist.Foreground" Value="#F75C03" />
-            <Setter Property="materialDesign:HintAssist.Hint" Value="số điện thoại" />
-            <Setter Property="materialDesign:TextFieldAssist.UnderlineBrush" Value="#F75C03" />
+            <Setter Property="materialDesign:HintAssist.Hint" Value="Số điện thoại" />
         </Style>
 
-        <!--số tiền của thành viên-->
         <Style
             x:Key="MoneyBox"
-            BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}"
+            BasedOn="{StaticResource BoxTrigger}"
             TargetType="TextBox">
-            <Setter Property="Height" Value="38" />
-            <Setter Property="Margin" Value="18,15,85.4,0"   />
-            <Setter Property="Background" Value="#333E50" />
-            <Setter Property="BorderThickness" Value="0" />
-            <Setter Property="FontSize" Value="18" />
-            <Setter Property="FontWeight" Value="Regular" />
-            <Setter Property="Foreground" Value="White" />
-            <Setter Property="Width" Value="215"/>
-            <Setter Property="Padding" Value="5,0,0,0" />
-            <Setter Property="materialDesign:HintAssist.Foreground" Value="#F75C03" />
             <Setter Property="materialDesign:HintAssist.Hint" Value="Số tiền" />
-            <Setter Property="materialDesign:TextFieldAssist.UnderlineBrush" Value="#F75C03" />
-        </Style>
-
-        <!--tên khoản chi--> 
-        <Style 
-            x:Key="ExpensesBox"
-            BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}"
-            TargetType="TextBox">
-            <Setter Property="Height" Value="38"/>
-            <Setter Property="Margin" Value="0,15,0,00"/>
-            <Setter Property="Background" Value="#333E50"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="FontSize" Value="18"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="Padding" Value="5,0,0,0"/>
-            <Setter Property="materialDesign:HintAssist.Foreground" Value="#F75C03"/>
-            <Setter Property="materialDesign:HintAssist.Hint" Value="Tên khoản chi"/>
-            <Setter Property="materialDesign:TextFieldAssist.UnderlineBrush" Value="#F75C03"/>
-        </Style>
-        
-        <!--tiền của khoản chi--> 
-        <Style 
-            x:Key="ExpensesMoneyBox"
-            BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}"
-            TargetType="TextBox">
-            <Setter Property="Height" Value="38"/>
-            <Setter Property="Background" Value="#333E50"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="FontSize" Value="18"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="Margin" Value="45,15,0.2,0"/>
-            <Setter Property="Padding" Value="5,0,0,0"/>
-            <Setter Property="materialDesign:HintAssist.Foreground" Value="#F75C03"/>
-            <Setter Property="materialDesign:HintAssist.Hint" Value="Tiền chi"/>
-            <Setter Property="materialDesign:TextFieldAssist.UnderlineBrush" Value="#F75C03"/>
         </Style>
 
         <Style
+            x:Key="ExpendituresName"
+            BasedOn="{StaticResource BoxTrigger}"
+            TargetType="TextBox">
+            <Setter Property="materialDesign:HintAssist.Hint" Value="Tên khoản chi" />
+        </Style>
+
+        <!--<Style
             x:Key="stepBox"
             BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}"
             TargetType="TextBox">
             <Setter Property="Height" Value="60" />
             <Setter Property="Padding" Value="10,0,0,0" />
-            <Setter Property="Margin" Value="39,5.6,81.4,-0.4" />
+            <Setter Property="Margin" Value="9,12,0,12" />
             <Setter Property="Background" Value="#d4d4d4" />
             <Setter Property="BorderThickness" Value="0" />
             <Setter Property="FontSize" Value="18" />
@@ -119,26 +195,26 @@
             <Setter Property="materialDesign:HintAssist.Foreground" Value="#F75C03" />
             <Setter Property="materialDesign:HintAssist.Hint" Value="Bạn đã làm các bước như thế nào?" />
             <Setter Property="materialDesign:TextFieldAssist.UnderlineBrush" Value="#F75C03" />
-        </Style>
-        <Style x:Key="leftCount" TargetType="Grid">
+        </Style>-->
+        <!--<Style x:Key="leftCount" TargetType="Grid">
             <Setter Property="Margin" Value="4,24,8,0" />
             <Setter Property="DockPanel.Dock" Value="Left" />
-        </Style>
-        <Style x:Key="circleIcon" TargetType="Ellipse">
+        </Style>-->
+        <!--<Style x:Key="circleIcon" TargetType="Ellipse">
             <Setter Property="Width" Value="35" />
             <Setter Property="Height" Value="35" />
             <Setter Property="VerticalAlignment" Value="Top" />
             <Setter Property="Fill" Value="Black" />
             <Setter Property="StrokeThickness" Value="0" />
-        </Style>
-        <Style x:Key="countNumber" TargetType="Label">
+        </Style>-->
+        <!--<Style x:Key="countNumber" TargetType="Label">
             <Setter Property="Margin" Value="0,-2,0,0" />
             <Setter Property="VerticalAlignment" Value="Top" />
             <Setter Property="HorizontalContentAlignment" Value="Center" />
             <Setter Property="FontSize" Value="20" />
             <Setter Property="Foreground" Value="White" />
-        </Style>
-        <Style x:Key="imageAddStep" TargetType="Border">
+        </Style>-->
+        <!--<Style x:Key="imageAddStep" TargetType="Border">
             <Setter Property="Width" Value="100" />
             <Setter Property="Height" Value="100" />
             <Setter Property="BorderBrush" Value="#FF767676" />
@@ -152,159 +228,132 @@
                     <ImageBrush ImageSource="/Resource/Icons/camera.png" Stretch="UniformToFill" />
                 </Setter.Value>
             </Setter>
-        </Style>
+        </Style>-->
     </UserControl.Resources>
 
     <Grid>
-        <ScrollViewer Background="#dadfed">
-
-            <StackPanel Width="887" Margin="0">
+        <ScrollViewer
+            Background="#dadfed"
+            ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+            ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <StackPanel>
                 <StackPanel.Background>
-                    <ImageBrush ImageSource="/Resource/Images/Background.jpg" />
+                    <ImageBrush
+                        ImageSource="/Resource/Images/AddBackground.jpg"
+                        Opacity="0.945"
+                        Stretch="UniformToFill" />
                 </StackPanel.Background>
                 <TextBlock
                     Margin="0,20,0,0"
+                    HorizontalAlignment="Center"
                     FontSize="35"
                     FontWeight="Bold"
-                    Text="Tên chuyến đi" 
-                    HorizontalAlignment="Center"/>
+                    Text="Tạo chuyến đi" />
 
                 <TextBox
-                    x:Name="ProductName"
-                    Height="60"
+                    x:Name="JourneyName"
                     Margin="90,10,90,0"
-                    Padding="10,6,0,0"
-                    VerticalAlignment="Center"
-                    materialDesign:HintAssist.Foreground="#333E50"
-                    materialDesign:HintAssist.Hint="Tên chuyến đi của bạn"
-                    materialDesign:TextFieldAssist.UnderlineBrush="#333E50"
-                    Background="#333E50"
-                    BorderThickness="0"
-                    FontSize="18"
-                    FontWeight="Regular"
-                    Foreground="White"
-                />
-                <StackPanel Orientation="Horizontal" Margin="70,10,0,0">
-                    <StackPanel Orientation="Horizontal">
+                    Style="{StaticResource TitleBox}" />
+                <Grid Margin="90,10,90,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*" />
+                        <ColumnDefinition Width="3*" />
+                        <ColumnDefinition Width="3*" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" Orientation="Horizontal">
                         <TextBlock
-                            Margin="20,5,0,0"
-                            FontSize="15"
+                            VerticalAlignment="Bottom"
+                            FontSize="20"
+                            Foreground="#000"
                             Text="Ngày đi"
-                            TextAlignment="Center"
-                            VerticalAlignment="Bottom"/>
-
-                        <DatePicker 
-                            Name="StartDay" 
-                            Height="25" 
-                            Margin="10,5,00,0"
-                            HorizontalAlignment="Left"                             
-                            VerticalAlignment="Top" 
-                            Width="139" 
-                            FontSize="14"
-                            Padding="10,0,0,0"
-                            />
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock
-                            Margin="20,5,0,0"
-                            FontSize="15"
-                            Text="Ngày về"
-                            TextAlignment="Center"
-                             VerticalAlignment="Bottom"/>
-                        <DatePicker 
-                            Name="EndDay" 
-                            Height="25" 
-                            Margin="10,5,00,0"
-                            HorizontalAlignment="Left"                             
-                            VerticalAlignment="Top" 
-                            Width="139" 
-                            FontSize="14"
-                            Padding="10,0,0,0"
-                            />
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" Margin="50,0,0,0">
-                        <TextBlock
-                            Margin="20,5,0,0"
-                            FontSize="15"
-                            Text="Số KM"
-                            TextAlignment="Center"
-                            VerticalAlignment="Bottom"/>
-                        <TextBox 
-                            x:Name="Kilometer"
+                            TextAlignment="Center" />
+                        <!--<TextBox
+                            x:Name="StartDay"
                             Height="29"
                             Margin="20,5,0,0"
                             materialDesign:HintAssist.Foreground="#F75C03"
-                            materialDesign:HintAssist.Hint="(km)"
+                            materialDesign:HintAssist.Hint="dd/mm/yyyy"
                             materialDesign:TextFieldAssist.UnderlineBrush="#F75C03"
                             Background="#333E50"
                             BorderThickness="0"
                             FontSize="15"
                             FontWeight="Regular"
-                            Foreground="White" Width="85"
-                            Padding="5,0,0,0"   />
+                            Foreground="White" Width="161"
+                            Padding="5,0,0,0"   />-->
+                        <DatePicker
+                            Name="StartDay"
+                            Width="140"
+                            Height="30"
+                            Margin="10,5,00,0"
+                            Padding="10,0,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Bottom"
+                            VerticalContentAlignment="Bottom"
+                            FontSize="16"
+                            Foreground="#000" />
                     </StackPanel>
-                </StackPanel>
-                <!--danh sach thanh vien-->
-                <Label >
-                    <Grid Width="877">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="1.5*"/>
-                            <ColumnDefinition Width="1*"/>
-                            <ColumnDefinition Width="1*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="1*"/>
-                            <RowDefinition Height="1*"/>
-                        </Grid.RowDefinitions>
-
+                    <StackPanel Grid.Column="1" Orientation="Horizontal">
                         <TextBlock
-                            Grid.Column="0"
-                            Margin="92,20,24,0.2"
+                            VerticalAlignment="Bottom"
                             FontSize="20"
-                            Text="Tên thành viên"
-                            TextAlignment="Center"/>
+                            Foreground="#000"
+                            Text="Ngày về"
+                            TextAlignment="Center" />
+                        <DatePicker
+                            Name="EndDay"
+                            Width="140"
+                            Height="30"
+                            Margin="10,5,00,0"
+                            Padding="10,0,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Bottom"
+                            VerticalContentAlignment="Bottom"
+                            FontSize="16" />
+                    </StackPanel>
+                    <DockPanel
+                        Grid.Column="2"
+                        Margin="50,0,0,0"
+                        LastChildFill="True">
                         <TextBlock
-                            Grid.Column="1"
-                            Margin="10,20,23.4,0.2"
+                            Margin="0,5,0,0"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Bottom"
                             FontSize="20"
-                            Text="Số điện thoại"
-                            TextAlignment="Center"/>
-                        <TextBlock
-                            Grid.Column="2"
-                            Margin="9.6,20,86.8,0.4"
-                            FontSize="20"
-                            Text="Tiền thu"
-                            TextAlignment="Center"/>
-
-                        <StackPanel
-                            x:Name="Username"
-                            Margin="60,0,0,0"
-                            Grid.Row="1"
-                            Grid.Column="0">
-                            <TextBox Style="{StaticResource UserNameBox}" />
-                        </StackPanel>
-
-                        <StackPanel  
-                            x:Name="Telnum"
-                            Margin="00,0,0,0"
-                            Grid.Row="1"
-                            Grid.Column="1">
-                            <TextBox Style="{StaticResource TelBox}"/>
-                        </StackPanel>
-                        <StackPanel  
-                            x:Name="Money"
-                            Margin="00,0,0,0"
-                            Grid.Row="1"
-                            Grid.Column="2">
-                            <TextBox Style="{StaticResource MoneyBox}" />
-                        </StackPanel>
-
-                    </Grid>
-
-                </Label>
+                            Text="Số KM"
+                            TextAlignment="Center" />
+                        <TextBox
+                            x:Name="Kilometer"
+                            Height="44"
+                            Margin="20,5,0,0"
+                            materialDesign:HintAssist.Hint="Km"
+                            FontSize="14"
+                            Style="{StaticResource CommonBox}" />
+                    </DockPanel>
+                </Grid>
+                <!--  danh sach thanh vien  -->
+                <Grid x:Name="Members" Margin="90,30,90,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*" />
+                        <ColumnDefinition Width="0.25*" />
+                        <ColumnDefinition Width="3*" />
+                        <ColumnDefinition Width="0.25*" />
+                        <ColumnDefinition Width="3*" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel x:Name="MemberNameStack" Grid.Column="0">
+                        <TextBox Style="{StaticResource MemberNameBox}" />
+                    </StackPanel>
+                    <StackPanel x:Name="TelStack" Grid.Column="2">
+                        <TextBox Style="{StaticResource TelBox}" />
+                    </StackPanel>
+                    <StackPanel x:Name="MoneyStack" Grid.Column="4">
+                        <TextBox Style="{StaticResource MoneyBox}" />
+                    </StackPanel>
+                </Grid>
                 <Button
+                    Width="240"
                     Height="44"
-                    Margin="90,15,578.2,0"
+                    Margin="90,20,90,0"
+                    HorizontalAlignment="Left"
                     Background="#d6e1ff"
                     BorderThickness="0"
                     Click="BtnAddListInfoUser_Click">
@@ -313,40 +362,30 @@
                         <TextBlock
                             Padding="15,0,0,0"
                             FontSize="18"
-                            Text="Thêm thành viên" 
-                            Foreground="Black"/>
-
+                            Foreground="Black"
+                            Text="Thêm thành viên" />
                     </StackPanel>
                 </Button>
-                <!--//dah sách các khoản chi-->
-                <Label Margin="90,10,90.2,0">
-                    <Grid Width="707">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="508*"/>
-                            <ColumnDefinition Width="199*"/>
-                        </Grid.ColumnDefinitions>
+                <!--  //dah sách các khoản chi  -->
+                <Grid x:Name="Expenditures" Margin="90,30,90,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="6*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="3*" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel x:Name="ExpendituresNameStack" Grid.Column="0">
+                        <TextBox Style="{StaticResource ExpendituresName}" />
+                    </StackPanel>
+                    <StackPanel x:Name="ExpendituresMoneyStack" Grid.Column="2">
+                        <TextBox Style="{StaticResource MoneyBox}" />
+                    </StackPanel>
+                </Grid>
 
-                        <StackPanel x:Name="Expensesname">
-                            <TextBlock                            
-                            FontSize="20"
-                            Text="Tên khoản chi"/>
-                            <TextBox Style="{StaticResource ExpensesBox}" />
-                        </StackPanel>
-                        <StackPanel 
-                            x:Name="Expensesmoney"
-                            Grid.Column="1">
-                            <TextBlock
-                            FontSize="20"
-                            Text="Số tiền"
-                            TextAlignment="Center"/>
-                            <TextBox Style="{StaticResource ExpensesMoneyBox}" />
-                        </StackPanel>
-                    </Grid>
-                    
-                </Label>
                 <Button
+                    Width="240"
                     Height="44"
-                    Margin="90,15,578.2,0"
+                    Margin="90,20,90,0"
+                    HorizontalAlignment="Left"
                     Background="#d6e1ff"
                     BorderThickness="0"
                     Click="BtnAddInfoExpenses_Click">
@@ -355,19 +394,19 @@
                         <TextBlock
                             Padding="15,0,0,0"
                             FontSize="18"
-                            Text="Thêm khoản chi" 
-                            Foreground="Black"/>
+                            Foreground="Black"
+                            Text="Thêm khoản chi" />
 
                     </StackPanel>
                 </Button>
-                
                 <!--</StackPanel>-->
                 <Button
                     x:Name="Submit"
                     Width="140"
                     Height="40"
                     Margin="0,30"
-                    Background="#F75C03"
+                    Background="#333E50"
+                    BorderThickness="0"
                     Click="Add_Click"
                     Content="Hoàn thành" />
             </StackPanel>
