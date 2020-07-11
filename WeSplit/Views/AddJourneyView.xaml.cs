@@ -23,6 +23,31 @@ namespace WeSplit.Views
         public AddJourneyView()
         {
             InitializeComponent();
+            StartDay.SelectedDate = DateTime.Today;
+            EndDay.SelectedDate = DateTime.Now.AddDays(1);
+        }
+
+        private void BtnAddAvatar(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnAddIngredientsField_Click(object sender, RoutedEventArgs e)
+        {
+            Style style = this.FindResource("UserNameBox") as Style;
+            var newTextbox = new TextBox();
+            newTextbox.Style = style;
+            Ingredients.Children.Add(newTextbox);
+        }
+
+        private void BtnAddStepField_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Add_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

@@ -14,7 +14,76 @@
     Loaded="Window_Loaded"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
+    <Window.Resources>
+        <Style x:Key="HomeStyleControl" TargetType="Grid">
+            <Setter Property="Background" Value="Transparent" />
+            <Style.Triggers>
 
+                <!--<EventTrigger RoutedEvent="MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetProperty="(Grid.Background).(SolidColorBrush.Color)" To="#253042" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>-->
+
+                <DataTrigger Binding="{Binding WhoActived}" Value="Home">
+                    <Setter Property="Background" Value="#253042" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="SearchStyleControl" TargetType="Grid">
+            <Setter Property="Background" Value="Transparent" />
+            <Style.Triggers>
+
+                <!--<EventTrigger RoutedEvent="MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetProperty="(Grid.Background).(SolidColorBrush.Color)" To="#253042" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>-->
+
+                <DataTrigger Binding="{Binding WhoActived}" Value="Search">
+                    <Setter Property="Background" Value="#253042" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="AddStyleControl" TargetType="Grid">
+            <Setter Property="Background" Value="Transparent" />
+            <Style.Triggers>
+
+                <!--<EventTrigger RoutedEvent="MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetProperty="(Grid.Background).(SolidColorBrush.Color)" To="#253042" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>-->
+
+                <DataTrigger Binding="{Binding WhoActived}" Value="Add">
+                    <Setter Property="Background" Value="#253042" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="UpdateStyleControl" TargetType="Grid">
+            <Setter Property="Background" Value="Transparent" />
+            <Style.Triggers>
+
+                <!--<EventTrigger RoutedEvent="MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetProperty="(Grid.Background).(SolidColorBrush.Color)" To="#253042" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>-->
+
+                <DataTrigger Binding="{Binding WhoActived}" Value="Update">
+                    <Setter Property="Background" Value="#253042" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
     <Grid x:Name="Main">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="74" />
@@ -49,27 +118,37 @@
                     </Ellipse.Fill>
                 </Ellipse>
                 <Grid
+                    x:Name="Home"
                     Grid.Row="1"
                     cal:Message.Attach="[Event MouseLeftButtonDown] = [Action HomeClick]"
-                    Background="#253042"
                     Cursor="Hand"
-                    MouseLeftButtonDown="OnHomeClick">
+                    MouseLeftButtonDown="OnHomeClick"
+                    Style="{StaticResource HomeStyleControl}">
                     <materialDesign:PackIcon
                         Width="40"
                         Height="40"
-                        Margin="0,16,0,0"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        DockPanel.Dock="Top"
-                        Foreground="#2C6665"
-                        Kind="Home" />
+                        Kind="Home">
+                        <materialDesign:PackIcon.Style>
+                            <Style TargetType="materialDesign:PackIcon">
+                                <Setter Property="Foreground" Value="#8195B8" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding WhoActived}" Value="Home">
+                                        <Setter Property="Foreground" Value="#2C6665" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </materialDesign:PackIcon.Style>
+                    </materialDesign:PackIcon>
                 </Grid>
                 <Grid
+                    x:Name="Search"
                     Grid.Row="2"
                     cal:Message.Attach="[Event MouseLeftButtonDown] = [Action SearchClick]"
-                    Background="Transparent"
                     Cursor="Hand"
-                    MouseLeftButtonDown="OnNotHomeClick">
+                    MouseLeftButtonDown="OnNotHomeClick"
+                    Style="{StaticResource SearchStyleControl}">
                     <materialDesign:PackIcon
                         Width="40"
                         Height="40"
@@ -77,15 +156,26 @@
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         DockPanel.Dock="Top"
-                        Foreground="#8195B8"
-                        Kind="Magnify" />
+                        Kind="Magnify">
+                        <materialDesign:PackIcon.Style>
+                            <Style TargetType="materialDesign:PackIcon">
+                                <Setter Property="Foreground" Value="#8195B8" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding WhoActived}" Value="Search">
+                                        <Setter Property="Foreground" Value="#2C6665" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </materialDesign:PackIcon.Style>
+                    </materialDesign:PackIcon>
                 </Grid>
                 <Grid
+                    x:Name="Add"
                     Grid.Row="3"
                     cal:Message.Attach="[Event MouseLeftButtonDown] = [Action AddClick]"
-                    Background="Transparent"
                     Cursor="Hand"
-                    MouseLeftButtonDown="OnNotHomeClick">
+                    MouseLeftButtonDown="OnNotHomeClick"
+                    Style="{StaticResource AddStyleControl}">
                     <materialDesign:PackIcon
                         Width="40"
                         Height="40"
@@ -93,15 +183,26 @@
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         DockPanel.Dock="Top"
-                        Foreground="#8195B8"
-                        Kind="PlusCircleOutline" />
+                        Kind="PlusCircleOutline">
+                        <materialDesign:PackIcon.Style>
+                            <Style TargetType="materialDesign:PackIcon">
+                                <Setter Property="Foreground" Value="#8195B8" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding WhoActived}" Value="Add">
+                                        <Setter Property="Foreground" Value="#2C6665" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </materialDesign:PackIcon.Style>
+                    </materialDesign:PackIcon>
                 </Grid>
                 <Grid
+                    x:Name="Update"
                     Grid.Row="4"
                     cal:Message.Attach="[Event MouseLeftButtonDown] = [Action UpdateClick]"
-                    Background="Transparent"
                     Cursor="Hand"
-                    MouseLeftButtonDown="OnNotHomeClick">
+                    MouseLeftButtonDown="OnNotHomeClick"
+                    Style="{StaticResource UpdateStyleControl}">
                     <materialDesign:PackIcon
                         Width="40"
                         Height="40"
@@ -109,14 +210,19 @@
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         DockPanel.Dock="Top"
-                        Foreground="#8195B8"
-                        Kind="FileDocumentEditOutline" />
-                    <Border
-                        VerticalAlignment="Bottom"
-                        BorderBrush="#fff"
-                        BorderThickness="1"
-                        DockPanel.Dock="Bottom"
-                        Visibility="Hidden" />
+                        Kind="FileDocumentEditOutline">
+                        <materialDesign:PackIcon.Style>
+                            <Style TargetType="materialDesign:PackIcon">
+                                <Setter Property="Foreground" Value="#8195B8" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding WhoActived}" Value="Update">
+                                        <Setter Property="Foreground" Value="#2C6665" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </materialDesign:PackIcon.Style>
+                    </materialDesign:PackIcon>
+
                 </Grid>
             </Grid>
         </materialDesign:Card>
@@ -124,7 +230,8 @@
             x:Name="HistoryViewModel"
             Grid.Row="0"
             Grid.Column="1"
-            Panel.ZIndex="100" />
+            Panel.ZIndex="100"
+            Content="   " />
         <ContentControl
             x:Name="WalkingViewModel"
             Grid.Row="0"
