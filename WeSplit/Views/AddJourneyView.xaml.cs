@@ -24,5 +24,25 @@ namespace WeSplit.Views
         {
             InitializeComponent();
         }
+
+        private void BtnAddAvatar(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnAddIngredientsField_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnAddStepField_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Add_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }
