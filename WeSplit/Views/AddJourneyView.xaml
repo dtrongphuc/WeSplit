@@ -116,7 +116,7 @@
                     Orientation="Horizontal"
                     VerticalAlignment="Center"
                     >
-                    <StackPanel Margin="110,0,0,0">
+                    <StackPanel Margin="70,0,0,0">
                         <TextBlock
                             Margin="20,20,0,0"
                             FontSize="20"
@@ -133,7 +133,7 @@
                             BorderThickness="0"
                             FontSize="18"
                             FontWeight="Regular"
-                            Foreground="White" Width="178"
+                            Foreground="White" Width="225"
                             Padding="5,0,0,0"   />
                     </StackPanel>
 
@@ -149,7 +149,7 @@
                             Margin="20,5,0,0"
                             VerticalAlignment="Center"
                             materialDesign:HintAssist.Foreground="#F75C03"
-                            materialDesign:HintAssist.Hint="Tên thành viên"
+                            materialDesign:HintAssist.Hint="Số điện thoại"
                             materialDesign:TextFieldAssist.UnderlineBrush="#F75C03"
                             Background="#333E50"
                             BorderThickness="0"
@@ -157,7 +157,7 @@
                             FontWeight="Regular"
                             Foreground="White" 
                             Padding="5,0,0,0"  
-                            Width="165"/>
+                            Width="225"/>
                     </StackPanel>
 
                     <StackPanel>
@@ -180,12 +180,12 @@
                             FontWeight="Regular"
                             Foreground="White" 
                             Padding="5,0,0,0"   
-                            Width="165"/>
+                            Width="215"/>
                     </StackPanel>
                 </StackPanel>
                 <Button
                     Height="44"
-                    Margin="132,15,544.2,0"
+                    Margin="90,15,578.2,0"
                     Background="#d6e1ff"
                     BorderThickness="0"
                     Click="BtnAddIngredientsField_Click">
@@ -204,7 +204,7 @@
                     Orientation="Horizontal"
                     VerticalAlignment="Center"
                     >
-                    <StackPanel Margin="110,0,0,0">
+                    <StackPanel Margin="67,0,0,0">
                         <TextBlock
                             Margin="20,20,0,0"
                             FontSize="20"
@@ -215,7 +215,7 @@
                             Height="38"
                             Margin="20,5,0,0"
                             materialDesign:HintAssist.Foreground="#F75C03"
-                            materialDesign:HintAssist.Hint="Tên thành viên"
+                            materialDesign:HintAssist.Hint="Tên khoản chi"
                             materialDesign:TextFieldAssist.UnderlineBrush="#F75C03"
                             Background="#333E50"
                             BorderThickness="0"
@@ -223,7 +223,7 @@
                             FontWeight="Regular"
                             Foreground="White"
                             Padding="5,0,0,0"   
-                            Width="178"/>
+                            Width="496"/>
                     </StackPanel>
 
                     <StackPanel>
@@ -238,7 +238,7 @@
                             Margin="20,5,0,0"
                             VerticalAlignment="Center"
                             materialDesign:HintAssist.Foreground="#F75C03"
-                            materialDesign:HintAssist.Hint="Tên thành viên"
+                            materialDesign:HintAssist.Hint="Tiền chi"
                             materialDesign:TextFieldAssist.UnderlineBrush="#F75C03"
                             Background="#333E50"
                             BorderThickness="0"
@@ -246,13 +246,13 @@
                             FontWeight="Regular"
                             Foreground="White"
                             Padding="5,0,0,0"   
-                            Width="165"/>
+                            Width="190"/>
                     </StackPanel>
                     
                 </StackPanel>
                 <Button
                     Height="44"
-                    Margin="132,15,544.2,0"
+                    Margin="90,15,578.2,0"
                     Background="#d6e1ff"
                     BorderThickness="0"
                     Click="BtnAddIngredientsField_Click">
