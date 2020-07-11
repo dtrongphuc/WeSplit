@@ -131,6 +131,10 @@
     </Compile>
     <Compile Include="Converter\RelativeToAbsoluteConverter.cs" />
     <Compile Include="Models\Connection.cs" />
+    <Compile Include="Models\Images.cs" />
+    <Compile Include="Models\Location.cs" />
+    <Compile Include="Models\Member.cs" />
+    <Compile Include="Models\ReceiptsAndExpenses.cs" />
     <Compile Include="Models\Trip.cs" />
     <Compile Include="ViewModels\AddJourneyViewModel.cs" />
     <Compile Include="ViewModels\DetailViewModel.cs" />
