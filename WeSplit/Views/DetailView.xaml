@@ -36,6 +36,114 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}">
+            <Setter Property="Stylus.IsFlicksEnabled" Value="false" />
+            <Setter Property="Foreground" Value="LightGray" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Width" Value="10" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ScrollBar}">
+                        <Grid
+                            x:Name="GridRoot"
+                            Width="4"
+                            Background="{TemplateBinding Background}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.00001*" />
+                            </Grid.RowDefinitions>
+
+                            <Track
+                                x:Name="PART_Track"
+                                Grid.Row="0"
+                                Focusable="false"
+                                IsDirectionReversed="true">
+                                <Track.Thumb>
+                                    <Thumb
+                                        x:Name="Thumb"
+                                        Background="{TemplateBinding Foreground}"
+                                        Style="{DynamicResource ScrollThumbs}" />
+                                </Track.Thumb>
+                                <Track.IncreaseRepeatButton>
+                                    <RepeatButton
+                                        x:Name="PageUp"
+                                        Command="ScrollBar.PageDownCommand"
+                                        Focusable="false"
+                                        Opacity="0" />
+                                </Track.IncreaseRepeatButton>
+                                <Track.DecreaseRepeatButton>
+                                    <RepeatButton
+                                        x:Name="PageDown"
+                                        Command="ScrollBar.PageUpCommand"
+                                        Focusable="false"
+                                        Opacity="0" />
+                                </Track.DecreaseRepeatButton>
+                            </Track>
+                        </Grid>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger SourceName="Thumb" Property="IsMouseOver" Value="true">
+                                <Setter TargetName="Thumb" Property="Background" Value="{DynamicResource ButtonSelectBrush}" />
+                            </Trigger>
+                            <Trigger SourceName="Thumb" Property="IsDragging" Value="true">
+                                <Setter TargetName="Thumb" Property="Background" Value="{DynamicResource DarkBrush}" />
+                            </Trigger>
+
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter TargetName="Thumb" Property="Visibility" Value="Collapsed" />
+                            </Trigger>
+                            <Trigger Property="Orientation" Value="Horizontal">
+                                <Setter TargetName="GridRoot" Property="LayoutTransform">
+                                    <Setter.Value>
+                                        <RotateTransform Angle="-90" />
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter TargetName="PART_Track" Property="LayoutTransform">
+                                    <Setter.Value>
+                                        <RotateTransform Angle="-90" />
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="Width" Value="Auto" />
+                                <Setter Property="Height" Value="12" />
+                                <Setter TargetName="Thumb" Property="Tag" Value="Horizontal" />
+                                <Setter TargetName="PageDown" Property="Command" Value="ScrollBar.PageLeftCommand" />
+                                <Setter TargetName="PageUp" Property="Command" Value="ScrollBar.PageRightCommand" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="ScrollThumbs" TargetType="{x:Type Thumb}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Thumb}">
+                        <Grid x:Name="Grid">
+                            <Rectangle
+                                Width="Auto"
+                                Height="Auto"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                Fill="Transparent" />
+                            <Border
+                                x:Name="Rectangle1"
+                                Width="Auto"
+                                Height="Auto"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="8" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Tag" Value="Horizontal">
+                                <Setter TargetName="Rectangle1" Property="Width" Value="Auto" />
+                                <Setter TargetName="Rectangle1" Property="Height" Value="7" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </UserControl.Resources>
     <Grid Background="#F9F9FF">
         <Grid.ColumnDefinitions>
@@ -43,83 +151,125 @@
             <ColumnDefinition Width="0.3*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*" />
+            <RowDefinition Height="0.5*" />
+            <RowDefinition Height="0.5*" />
         </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="1">
+            <materialDesign:Card
+                Margin="12"
+                Padding="0,12"
+                HorizontalAlignment="Stretch"
+                materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                Background="#fff"
+                UniformCornerRadius="6">
+                <DockPanel LastChildFill="True">
+                    <Label
+                        Margin="12,0,0,0"
+                        Content="Địa điểm"
+                        DockPanel.Dock="Top"
+                        FontSize="16"
+                        FontWeight="DemiBold" />
+                    <ScrollViewer ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                        <StackPanel Margin="16,0">
+                            <StackPanel Margin="0,6" Orientation="Horizontal">
+                                <TextBlock FontSize="16" Text="1" />
+                                <TextBlock FontSize="16" Text=". " />
+                                <TextBlock FontSize="16" Text="Nha Trang" />
+                            </StackPanel>
+                            <StackPanel Margin="0,6" Orientation="Horizontal">
+                                <TextBlock FontSize="16" Text="1" />
+                                <TextBlock FontSize="16" Text=". " />
+                                <TextBlock FontSize="16" Text="Nha Trang" />
+                            </StackPanel>
+                            <StackPanel Margin="0,6" Orientation="Horizontal">
+                                <TextBlock FontSize="16" Text="1" />
+                                <TextBlock FontSize="16" Text=". " />
+                                <TextBlock FontSize="16" Text="Nha Trang" />
+                            </StackPanel>
+                            <StackPanel Margin="0,6" Orientation="Horizontal">
+                                <TextBlock FontSize="16" Text="1" />
+                                <TextBlock FontSize="16" Text=". " />
+                                <TextBlock FontSize="16" Text="Nha Trang" />
+                            </StackPanel>
+                            <StackPanel Margin="0,6" Orientation="Horizontal">
+                                <TextBlock FontSize="16" Text="1" />
+                                <TextBlock FontSize="16" Text=". " />
+                                <TextBlock FontSize="16" Text="Nha Trang" />
+                            </StackPanel>
+                            <StackPanel Margin="0,6" Orientation="Horizontal">
+                                <TextBlock FontSize="16" Text="1" />
+                                <TextBlock FontSize="16" Text=". " />
+                                <TextBlock FontSize="16" Text="Nha Trang" />
+                            </StackPanel>
+                            <StackPanel Margin="0,6" Orientation="Horizontal">
+                                <TextBlock FontSize="16" Text="1" />
+                                <TextBlock FontSize="16" Text=". " />
+                                <TextBlock FontSize="16" Text="Nha Trang" />
+                            </StackPanel>
+                            <StackPanel Margin="0,6" Orientation="Horizontal">
+                                <TextBlock FontSize="16" Text="1" />
+                                <TextBlock FontSize="16" Text=". " />
+                                <TextBlock FontSize="16" Text="Nha Trang" />
+                            </StackPanel>
+                        </StackPanel>
+                    </ScrollViewer>
+                </DockPanel>
+            </materialDesign:Card>
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="1">
+            <materialDesign:Card
+                Margin="12"
+                Padding="0,2,0,8"
+                materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                Background="#fff"
+                UniformCornerRadius="6">
+                <DockPanel LastChildFill="True">
+                    <Label
+                        Margin="16,0,0,0"
+                        Content="Biểu đồ"
+                        DockPanel.Dock="Top"
+                        FontSize="16"
+                        FontWeight="DemiBold" />
+                    <lvc:PieChart LegendLocation="Bottom">
+                        <lvc:PieChart.Series>
+                            <lvc:PieSeries
+                                Title="Khoản thu 1"
+                                DataLabels="True"
+                                Values="10" />
+                            <lvc:PieSeries
+                                Title="Khoản thu 2"
+                                DataLabels="True"
+                                Values="4" />
+                            <lvc:PieSeries
+                                Title="Khoản thu 3"
+                                DataLabels="True"
+                                Values="6" />
+                            <lvc:PieSeries
+                                Title="Khoản thu 4"
+                                DataLabels="True"
+                                Values="2" />
+                        </lvc:PieChart.Series>
+                    </lvc:PieChart>
+                </DockPanel>
+            </materialDesign:Card>
+        </Grid>
 
         <materialDesign:Card
             Grid.RowSpan="2"
-            Grid.Column="1"
-            Margin="12"
-            materialDesign:ShadowAssist.ShadowDepth="Depth2">
-            <StackPanel Margin="10,0">
-                <DockPanel Margin="0,8">
-                    <Label
-                        Width="30"
-                        HorizontalContentAlignment="Center"
-                        VerticalContentAlignment="Center"
-                        Content="1"
-                        DockPanel.Dock="Left" />
-                    <materialDesign:PackIcon
-                        Width="20"
-                        Height="20"
-                        Margin="0,0,8,0"
-                        VerticalAlignment="Center"
-                        DockPanel.Dock="Right"
-                        Foreground="#FFFF6800"
-                        Kind="AccountStarOutline" />
-                    <StackPanel>
-                        <TextBlock
-                            Margin="8,0,0,0"
-                            VerticalAlignment="Center"
-                            FontSize="13"
-                            Foreground="#2c3038"
-                            Text="Tên nhóm trưởng"
-                            TextWrapping="Wrap" />
-                        <TextBlock
-                            Margin="8,0,0,0"
-                            VerticalAlignment="Center"
-                            FontSize="12"
-                            Foreground="#FF66686A"
-                            Text="0999999" />
-                    </StackPanel>
-                </DockPanel>
-                <DockPanel Margin="0,8">
-                    <Label
-                        Width="30"
-                        HorizontalContentAlignment="Center"
-                        VerticalContentAlignment="Center"
-                        Content="2"
-                        DockPanel.Dock="Left" />
-                    <StackPanel>
-                        <TextBlock
-                            Margin="8,0,0,0"
-                            VerticalAlignment="Center"
-                            FontSize="13"
-                            Foreground="#2c3038"
-                            Text="Tên thành viên"
-                            TextWrapping="Wrap" />
-                        <TextBlock
-                            Margin="8,0,0,0"
-                            VerticalAlignment="Center"
-                            FontSize="12"
-                            Foreground="#FF66686A"
-                            Text="0999999" />
-                    </StackPanel>
-                </DockPanel>
-            </StackPanel>
-        </materialDesign:Card>
-        <materialDesign:Card
-            Grid.Row="1"
+            Grid.Column="0"
             Margin="32,10,10,10"
             materialDesign:ShadowAssist.ShadowDepth="Depth2">
             <StackPanel Margin="30,0">
                 <StackPanel>
                     <Label
                         Margin="0,12,0,0"
+                        HorizontalContentAlignment="Left"
                         Content="Tên chuyến đi"
                         FontSize="26"
                         FontWeight="DemiBold" />
-                    <StackPanel Margin="0,12" Orientation="Horizontal">
+                    <StackPanel Margin="4,12,0,12" Orientation="Horizontal">
                         <TextBlock Text="Ngày đi: " />
                         <TextBlock Text="09/07/2020" />
                         <Border
@@ -130,7 +280,7 @@
                         <TextBlock Text="09/07/2020" />
                     </StackPanel>
                 </StackPanel>
-                <DockPanel Margin="24,30,24,0" HorizontalAlignment="Center">
+                <!--<DockPanel Margin="24,30,24,0" HorizontalAlignment="Center">
                     <Button
                         Margin="0,0,-58,0"
                         Panel.ZIndex="10"
@@ -186,74 +336,13 @@
                         Style="{StaticResource MaterialDesignIconForegroundButton}">
                         <materialDesign:PackIcon Kind="ChevronRight" />
                     </Button>
-                </DockPanel>
-                <!--<StackPanel Margin="0,30,0,0">
-                    <StackPanel Margin="0,20,0,0" Orientation="Horizontal">
-                        <TextBlock
-                            FontSize="16"
-                            FontWeight="DemiBold"
-                            Text="1" />
-                        <TextBlock
-                            FontSize="16"
-                            FontWeight="DemiBold"
-                            Text=". " />
-                        <TextBlock
-                            FontSize="16"
-                            FontWeight="DemiBold"
-                            Text="Nha Trang" />
-                    </StackPanel>
-                    <StackPanel Margin="0,20,0,0" Orientation="Horizontal">
-                        <TextBlock
-                            FontSize="16"
-                            FontWeight="DemiBold"
-                            Text="1" />
-                        <TextBlock
-                            FontSize="16"
-                            FontWeight="DemiBold"
-                            Text=". " />
-                        <TextBlock
-                            FontSize="16"
-                            FontWeight="DemiBold"
-                            Text="Nha Trang" />
-                    </StackPanel>
-                    <StackPanel Margin="0,20,0,0" Orientation="Horizontal">
-                        <TextBlock
-                            FontSize="16"
-                            FontWeight="DemiBold"
-                            Text="1" />
-                        <TextBlock
-                            FontSize="16"
-                            FontWeight="DemiBold"
-                            Text=". " />
-                        <TextBlock
-                            FontSize="16"
-                            FontWeight="DemiBold"
-                            Text="Nha Trang" />
-                    </StackPanel>
-                </StackPanel>-->
-
-                <Grid Height="250">
-                    <lvc:PieChart LegendLocation="Bottom">
-                        <lvc:PieChart.Series>
-                            <lvc:PieSeries
-                                Title="Khoản thu 1"
-                                DataLabels="True"
-                                Values="10" />
-                            <lvc:PieSeries
-                                Title="Khoản thu 2"
-                                DataLabels="True"
-                                Values="4" />
-                            <lvc:PieSeries
-                                Title="Khoản thu 3"
-                                DataLabels="True"
-                                Values="6" />
-                            <lvc:PieSeries
-                                Title="Khoản thu 4"
-                                DataLabels="True"
-                                Values="2" />
-                        </lvc:PieChart.Series>
-                    </lvc:PieChart>
-                </Grid>
+                </DockPanel>-->
+                <DataGrid
+                    x:Name="MemberDataGrid"
+                    Grid.Column="0"
+                    Height="400"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Top" />
             </StackPanel>
         </materialDesign:Card>
     </Grid>
