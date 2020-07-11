@@ -14,7 +14,9 @@
     Loaded="Window_Loaded"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
-
+    <Window.Resources>
+        <Style x:Key="IsSelected" TargetType="Grid" />
+    </Window.Resources>
     <Grid x:Name="Main">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="74" />
