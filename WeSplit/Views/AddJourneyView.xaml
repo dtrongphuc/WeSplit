@@ -11,29 +11,32 @@
     mc:Ignorable="d">
     <UserControl.Resources>
         <e:RelativeToAbsoluteConverter x:Key="pathConverter" />
+        
+        <!--TÊN THÀNH VIÊN-->
         <Style
-             x:Key="UserNameBox"
+            x:Key="UserNameBox"
             BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}"
             TargetType="TextBox">
             <Setter Property="Height" Value="38" />
-            <Setter Property="Margin" Value="25,5,0,0"/>
-            <Setter Property="Width" Value="215"/>
+            <Setter Property="Margin" Value="26,15,12,0"/>
+            <Setter Property="Width" Value="265"/>
             <Setter Property="Background" Value="#333E50"/>
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="FontSize" Value="18"/>
-            <Setter Property="FontWeight" Value="Regular"/>
             <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Padding" Value="7,2,7,0"></Setter>
             <Setter Property="materialDesign:HintAssist.Foreground" Value="#F75C03" />
             <Setter Property="materialDesign:HintAssist.Hint" Value="số điện thoại" />
             <Setter Property="materialDesign:TextFieldAssist.UnderlineBrush" Value="#F75C03" />
         </Style>
-       
+
+        <!--//số điện thoại-->
         <Style
             x:Key="TelBox"
             BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}"
             TargetType="TextBox">
             <Setter Property="Height" Value="38" />
-            <Setter Property="Margin" Value="20,5,0,0" />
+            <Setter Property="Margin" Value="10,15,22.4,0"   />
             <Setter Property="Background" Value="#333E50" />
             <Setter Property="BorderThickness" Value="0" />
             <Setter Property="FontSize" Value="18" />
@@ -46,13 +49,66 @@
             <Setter Property="materialDesign:TextFieldAssist.UnderlineBrush" Value="#F75C03" />
         </Style>
 
+        <!--số tiền của thành viên-->
+        <Style
+            x:Key="MoneyBox"
+            BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}"
+            TargetType="TextBox">
+            <Setter Property="Height" Value="38" />
+            <Setter Property="Margin" Value="18,15,85.4,0"   />
+            <Setter Property="Background" Value="#333E50" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="FontWeight" Value="Regular" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Width" Value="215"/>
+            <Setter Property="Padding" Value="5,0,0,0" />
+            <Setter Property="materialDesign:HintAssist.Foreground" Value="#F75C03" />
+            <Setter Property="materialDesign:HintAssist.Hint" Value="Số tiền" />
+            <Setter Property="materialDesign:TextFieldAssist.UnderlineBrush" Value="#F75C03" />
+        </Style>
+
+        <!--tên khoản chi--> 
+        <Style 
+            x:Key="ExpensesBox"
+            BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}"
+            TargetType="TextBox">
+            <Setter Property="Height" Value="38"/>
+            <Setter Property="Margin" Value="0,15,0,00"/>
+            <Setter Property="Background" Value="#333E50"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Padding" Value="5,0,0,0"/>
+            <Setter Property="materialDesign:HintAssist.Foreground" Value="#F75C03"/>
+            <Setter Property="materialDesign:HintAssist.Hint" Value="Tên khoản chi"/>
+            <Setter Property="materialDesign:TextFieldAssist.UnderlineBrush" Value="#F75C03"/>
+        </Style>
+        
+        <!--tiền của khoản chi--> 
+        <Style 
+            x:Key="ExpensesMoneyBox"
+            BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}"
+            TargetType="TextBox">
+            <Setter Property="Height" Value="38"/>
+            <Setter Property="Background" Value="#333E50"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Margin" Value="45,15,0.2,0"/>
+            <Setter Property="Padding" Value="5,0,0,0"/>
+            <Setter Property="materialDesign:HintAssist.Foreground" Value="#F75C03"/>
+            <Setter Property="materialDesign:HintAssist.Hint" Value="Tiền chi"/>
+            <Setter Property="materialDesign:TextFieldAssist.UnderlineBrush" Value="#F75C03"/>
+        </Style>
+
         <Style
             x:Key="stepBox"
             BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}"
             TargetType="TextBox">
             <Setter Property="Height" Value="60" />
             <Setter Property="Padding" Value="10,0,0,0" />
-            <Setter Property="Margin" Value="9,12,0,12" />
+            <Setter Property="Margin" Value="39,5.6,81.4,-0.4" />
             <Setter Property="Background" Value="#d4d4d4" />
             <Setter Property="BorderThickness" Value="0" />
             <Setter Property="FontSize" Value="18" />
@@ -101,7 +157,7 @@
 
     <Grid>
         <ScrollViewer Background="#dadfed">
-            
+
             <StackPanel Width="887" Margin="0">
                 <StackPanel.Background>
                     <ImageBrush ImageSource="/Resource/Images/Background.jpg" />
@@ -136,19 +192,7 @@
                             Text="Ngày đi"
                             TextAlignment="Center"
                             VerticalAlignment="Bottom"/>
-                        <!--<TextBox 
-                            x:Name="StartDay"
-                            Height="29"
-                            Margin="20,5,0,0"
-                            materialDesign:HintAssist.Foreground="#F75C03"
-                            materialDesign:HintAssist.Hint="dd/mm/yyyy"
-                            materialDesign:TextFieldAssist.UnderlineBrush="#F75C03"
-                            Background="#333E50"
-                            BorderThickness="0"
-                            FontSize="15"
-                            FontWeight="Regular"
-                            Foreground="White" Width="161"
-                            Padding="5,0,0,0"   />-->
+
                         <DatePicker 
                             Name="StartDay" 
                             Height="25" 
@@ -201,54 +245,69 @@
                     </StackPanel>
                 </StackPanel>
                 <!--danh sach thanh vien-->
-                <StackPanel 
-                    x:Name="Ingredients"
-                    Orientation="Horizontal"
-                    VerticalAlignment="Center">
-                    <StackPanel Margin="70,0,0,0" Height="86">
+                <Label >
+                    <Grid Width="877">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+
                         <TextBlock
-                            Margin="20,20,0,0"
+                            Grid.Column="0"
+                            Margin="92,20,24,0.2"
                             FontSize="20"
                             Text="Tên thành viên"
                             TextAlignment="Center"/>
-                        <TextBox Style="{StaticResource UserNameBox}" />
-                    </StackPanel>
-
-                    <StackPanel>
                         <TextBlock
-                            Margin="20,20,0,0"
+                            Grid.Column="1"
+                            Margin="10,20,23.4,0.2"
                             FontSize="20"
                             Text="Số điện thoại"
                             TextAlignment="Center"/>
-                        <TextBox Style="{StaticResource TelBox}"/>
-                    </StackPanel>
-
-                    <StackPanel>
                         <TextBlock
-                            Margin="20,20,0,0"
+                            Grid.Column="2"
+                            Margin="9.6,20,86.8,0.4"
                             FontSize="20"
-                            Text="Số điện thoại"
+                            Text="Tiền thu"
                             TextAlignment="Center"/>
-                        <TextBox 
-                            x:Name="money"
-                            Height="38"
-                            Margin="20,5,0,0"
-                            VerticalAlignment="Center"
-                            materialDesign:HintAssist.Hint="Tên thành viên"
-                            Background="#333E50"
-                            BorderThickness="0"
-                            FontSize="18"
-                            Foreground="White" 
-                            Padding="5,0,0,0"   
-                            Width="215"/>
-                    </StackPanel>
-                </StackPanel>
+
+                        <StackPanel
+                            x:Name="Username"
+                            Margin="60,0,0,0"
+                            Grid.Row="1"
+                            Grid.Column="0">
+                            <TextBox Style="{StaticResource UserNameBox}" />
+                        </StackPanel>
+
+                        <StackPanel  
+                            x:Name="Telnum"
+                            Margin="00,0,0,0"
+                            Grid.Row="1"
+                            Grid.Column="1">
+                            <TextBox Style="{StaticResource TelBox}"/>
+                        </StackPanel>
+                        <StackPanel  
+                            x:Name="Money"
+                            Margin="00,0,0,0"
+                            Grid.Row="1"
+                            Grid.Column="2">
+                            <TextBox Style="{StaticResource MoneyBox}" />
+                        </StackPanel>
+
+                    </Grid>
+
+                </Label>
                 <Button
                     Height="44"
                     Margin="90,15,578.2,0"
                     Background="#d6e1ff"
                     BorderThickness="0"
-                    Click="BtnAddIngredientsField_Click">
+                    Click="BtnAddListInfoUser_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image Width="25" Source="/Resource/Icons/add.png" />
                         <TextBlock
@@ -260,62 +319,37 @@
                     </StackPanel>
                 </Button>
                 <!--//dah sách các khoản chi-->
-                <StackPanel 
-                    Orientation="Horizontal"
-                    VerticalAlignment="Center"
-                    >
-                    <StackPanel Margin="67,0,0,0">
-                        <TextBlock
-                            Margin="20,20,0,0"
-                            FontSize="20"
-                            Text="Tên khoản chi"
-                            TextAlignment="Center"/>
-                        <TextBox 
-                            x:Name="ExpensesName"
-                            Height="38"
-                            Margin="20,5,0,0"
-                            materialDesign:HintAssist.Foreground="#F75C03"
-                            materialDesign:HintAssist.Hint="Tên khoản chi"
-                            materialDesign:TextFieldAssist.UnderlineBrush="#F75C03"
-                            Background="#333E50"
-                            BorderThickness="0"
-                            FontSize="18"
-                            FontWeight="Regular"
-                            Foreground="White"
-                            Padding="5,0,0,0"   
-                            Width="496"/>
-                    </StackPanel>
+                <Label Margin="90,10,90.2,0">
+                    <Grid Width="707">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="508*"/>
+                            <ColumnDefinition Width="199*"/>
+                        </Grid.ColumnDefinitions>
 
-                    <StackPanel>
-                        <TextBlock
-                            Margin="20,20,0,0"
+                        <StackPanel x:Name="Expensesname">
+                            <TextBlock                            
+                            FontSize="20"
+                            Text="Tên khoản chi"/>
+                            <TextBox Style="{StaticResource ExpensesBox}" />
+                        </StackPanel>
+                        <StackPanel 
+                            x:Name="Expensesmoney"
+                            Grid.Column="1">
+                            <TextBlock
                             FontSize="20"
                             Text="Số tiền"
                             TextAlignment="Center"/>
-                        <TextBox 
-                            x:Name="Expenses" 
-                            Height="38"
-                            Margin="20,5,0,0"
-                            VerticalAlignment="Center"
-                            materialDesign:HintAssist.Foreground="#F75C03"
-                            materialDesign:HintAssist.Hint="Tiền chi"
-                            materialDesign:TextFieldAssist.UnderlineBrush="#F75C03"
-                            Background="#333E50"
-                            BorderThickness="0"
-                            FontSize="18"
-                            FontWeight="Regular"
-                            Foreground="White"
-                            Padding="5,0,0,0"   
-                            Width="190"/>
-                    </StackPanel>
+                            <TextBox Style="{StaticResource ExpensesMoneyBox}" />
+                        </StackPanel>
+                    </Grid>
                     
-                </StackPanel>
+                </Label>
                 <Button
                     Height="44"
                     Margin="90,15,578.2,0"
                     Background="#d6e1ff"
                     BorderThickness="0"
-                    Click="BtnAddIngredientsField_Click">
+                    Click="BtnAddInfoExpenses_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image Width="25" Source="/Resource/Icons/add.png" />
                         <TextBlock
@@ -326,6 +360,7 @@
 
                     </StackPanel>
                 </Button>
+                
                 <!--</StackPanel>-->
                 <Button
                     x:Name="Submit"
