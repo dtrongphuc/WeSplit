@@ -23,6 +23,8 @@ namespace WeSplit.Views
         public AddJourneyView()
         {
             InitializeComponent();
+            StartDay.SelectedDate = DateTime.Today;
+            EndDay.SelectedDate = DateTime.Now.AddDays(1);
         }
 
         private void BtnAddAvatar(object sender, RoutedEventArgs e)
