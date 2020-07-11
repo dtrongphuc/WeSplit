@@ -34,7 +34,10 @@ namespace WeSplit.Views
 
         private void BtnAddIngredientsField_Click(object sender, RoutedEventArgs e)
         {
-
+            Style style = this.FindResource("UserNameBox") as Style;
+            var newTextbox = new TextBox();
+            newTextbox.Style = style;
+            Ingredients.Children.Add(newTextbox);
         }
 
         private void BtnAddStepField_Click(object sender, RoutedEventArgs e)
