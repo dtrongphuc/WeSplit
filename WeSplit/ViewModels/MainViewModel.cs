@@ -22,8 +22,20 @@ namespace WeSplit.ViewModels
             get; set;
         }
 
+        private string _whoActived;
+        public string WhoActived
+        {
+            get { return _whoActived; }
+            set
+            {
+                _whoActived = value;
+                NotifyOfPropertyChange(() => WhoActived);
+            }
+        }
+
         public MainViewModel()
         {
+            WhoActived = "Home";
             ShowHistoryView();
             ShowWalkingView();
         }
@@ -36,25 +48,28 @@ namespace WeSplit.ViewModels
             }
             ActiveItem.TryClose();
             isLocatedDetail = false;
-
+            WhoActived = "Home";
             ShowHistoryView();
             ShowWalkingView();
         }
 
         public void SearchClick()
         {
+            WhoActived = "Search";
             CloseCurrentView();
             ActivateItem(new SearchViewModel());
         }
 
         public void AddClick()
         {
+            WhoActived = "Add";
             CloseCurrentView();
             ActivateItem(new AddJourneyViewModel());
         }
 
         public void UpdateClick()
         {
+            WhoActived = "Update";
             CloseCurrentView();
             ActivateItem(new UpdateJourneyViewModel());
         }
