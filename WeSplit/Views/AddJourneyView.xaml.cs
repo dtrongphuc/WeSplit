@@ -27,16 +27,15 @@ namespace WeSplit.Views
             EndDay.SelectedDate = DateTime.Now.AddDays(1);
         }
 
-        private void BtnAddAvatar(object sender, RoutedEventArgs e)
-        {
-
-        }
-
+        //tăng số thứ tự
+        private int _memberCount = 1; 
+        private int _expenseCount = 1;
         private void BtnAddListInfoUser_Click(object sender, RoutedEventArgs e)
         {
             Style style_user = this.FindResource("MemberNameBox") as Style;
             Style style_tel = this.FindResource("TelBox") as Style;
-            Style style_money = this.FindResource("MoneyBox") as Style;
+            Style style_ellipse = this.FindResource("EllipseNumber") as Style;
+            Style style_Ordinalnum = this.FindResource("NumberTextBlock") as Style;
 
             var newTextbox = new TextBox();
             newTextbox.Style = style_user;
@@ -45,26 +44,30 @@ namespace WeSplit.Views
             var newTextbox_tel = new TextBox();
             newTextbox_tel.Style = style_tel;
             TelStack.Children.Add(newTextbox_tel);
-            
-            var newTextbox_money = new TextBox();
-            newTextbox_money.Style = style_money;
-            MoneyStack.Children.Add(newTextbox_money);
-        }
 
-        private void BtnAddStepField_Click(object sender, RoutedEventArgs e)
-        {
+            //Count
+            var newCountStack = new StackPanel();
+            newCountStack.Height = 60;
+            newCountStack.Margin = new Thickness(0, 16, 0, 16);
 
-        }
+            var newTextbox_ellipse = new Ellipse();
+            newTextbox_ellipse.Style = style_ellipse;
+            newCountStack.Children.Add(newTextbox_ellipse);
 
-        private void Add_Click(object sender, RoutedEventArgs e)
-        {
-            
+            var newTextbox_Ordinalnum = new TextBlock();
+            newTextbox_Ordinalnum.Style = style_Ordinalnum;
+            newTextbox_Ordinalnum.Text = (++_memberCount).ToString();
+            newCountStack.Children.Add(newTextbox_Ordinalnum);
+
+            MemberCount.Children.Add(newCountStack);
         }
 
         private void BtnAddInfoExpenses_Click(object sender, RoutedEventArgs e)
         {
             Style style_expensesname = this.FindResource("ExpendituresName") as Style;
             Style style_expensesmoney = this.FindResource("MoneyBox") as Style;
+            Style style_ellipse = this.FindResource("EllipseNumber") as Style;
+            Style style_Ordinalnum = this.FindResource("NumberTextBlock") as Style;
 
             var newExpensesbox = new TextBox();
             newExpensesbox.Style = style_expensesname;
@@ -73,6 +76,22 @@ namespace WeSplit.Views
             var newExpensesmoneybox = new TextBox();
             newExpensesmoneybox.Style = style_expensesmoney;
             ExpendituresMoneyStack.Children.Add(newExpensesmoneybox);
+
+            //Count
+            var newCountStack = new StackPanel();
+            newCountStack.Height = 60;
+            newCountStack.Margin = new Thickness(0, 16, 0, 16);
+
+            var newTextbox_ellipse = new Ellipse();
+            newTextbox_ellipse.Style = style_ellipse;
+            newCountStack.Children.Add(newTextbox_ellipse);
+
+            var newTextbox_Ordinalnum = new TextBlock();
+            newTextbox_Ordinalnum.Style = style_Ordinalnum;
+            newTextbox_Ordinalnum.Text = (++_expenseCount).ToString();
+            newCountStack.Children.Add(newTextbox_Ordinalnum);
+
+            ExpendituresCount.Children.Add(newCountStack);
         }
     }
 }

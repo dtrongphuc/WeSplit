@@ -11,7 +11,7 @@
     d:DesignWidth="886"
     mc:Ignorable="d">
     <UserControl.Resources>
-        <e:RelativeToAbsoluteConverter x:Key="pathConverter" />
+        <!--<e:RelativeToAbsoluteConverter x:Key="pathConverter" />-->
 
         <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}">
             <Setter Property="Stylus.IsFlicksEnabled" Value="false" />
@@ -122,6 +122,21 @@
             </Setter>
         </Style>
 
+        <Style x:Key="ButtonRoundedCorner" TargetType="Button">
+            <Setter Property="Background" Value="Silver"/>
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="25" Background="{TemplateBinding Background}" BorderThickness="0">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+                            </ContentPresenter>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
         <Style
             x:Key="CommonBox"
             BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}"
@@ -177,6 +192,13 @@
             TargetType="TextBox">
             <Setter Property="materialDesign:HintAssist.Hint" Value="Tên khoản chi" />
         </Style>
+        <Style
+            x:Key="RouteBox"
+            BasedOn="{StaticResource BoxTrigger}"
+            TargetType="TextBox">
+            <Setter Property="materialDesign:HintAssist.Hint" Value="Tên địa điểm" />
+        </Style>
+
     </UserControl.Resources>
     <Grid>
         <ScrollViewer
@@ -184,122 +206,106 @@
             ScrollViewer.HorizontalScrollBarVisibility="Disabled"
             ScrollViewer.VerticalScrollBarVisibility="Auto">
             <StackPanel>
-                <TextBlock
-                    Margin="0,20,0,0"
-                    HorizontalAlignment="Center"
-                    FontSize="35"
-                    FontWeight="Bold"
-                    Text="Cập nhật chuyến đi" />
-                <TextBox
-                    x:Name="JourneyName"
-                    Margin="90,10,90,0"
-                    Style="{StaticResource TitleBox}" />
-                <Grid Margin="90,10,90,0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="3*" />
-                        <ColumnDefinition Width="3*" />
-                        <ColumnDefinition Width="3*" />
-                    </Grid.ColumnDefinitions>
-                    <StackPanel Grid.Column="0" Orientation="Horizontal">
-                        <TextBlock
-                            VerticalAlignment="Bottom"
-                            FontSize="20"
-                            Foreground="#000"
-                            Text="Ngày đi"
-                            TextAlignment="Center" />
-                        <!--<TextBox
-                            x:Name="StartDay"
-                            Height="29"
-                            Margin="20,5,0,0"
-                            materialDesign:HintAssist.Foreground="#F75C03"
-                            materialDesign:HintAssist.Hint="dd/mm/yyyy"
-                            materialDesign:TextFieldAssist.UnderlineBrush="#F75C03"
-                            Background="#333E50"
-                            BorderThickness="0"
-                            FontSize="15"
-                            FontWeight="Regular"
-                            Foreground="White" Width="161"
-                            Padding="5,0,0,0"   />-->
-                        <DatePicker
-                            Name="StartDay"
-                            Width="140"
-                            Height="30"
-                            Margin="10,5,00,0"
-                            Padding="10,0,0,0"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Bottom"
-                            VerticalContentAlignment="Bottom"
-                            FontSize="16"
-                            Foreground="#000" />
-                    </StackPanel>
-                    <StackPanel Grid.Column="1" Orientation="Horizontal">
-                        <TextBlock
-                            VerticalAlignment="Bottom"
-                            FontSize="20"
-                            Foreground="#000"
-                            Text="Ngày về"
-                            TextAlignment="Center" />
-                        <DatePicker
-                            Name="EndDay"
-                            Width="140"
-                            Height="30"
-                            Margin="10,5,00,0"
-                            Padding="10,0,0,0"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Bottom"
-                            VerticalContentAlignment="Bottom"
-                            FontSize="16" />
-                    </StackPanel>
-                    <DockPanel
-                        Grid.Column="2"
-                        Margin="50,0,0,0"
-                        LastChildFill="True">
-                        <TextBlock
-                            Margin="0,5,0,0"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Bottom"
-                            FontSize="20"
-                            Text="Số KM"
-                            TextAlignment="Center" />
-                        <TextBox
-                            x:Name="Kilometer"
-                            Height="44"
-                            Margin="20,5,0,0"
-                            materialDesign:HintAssist.Hint="Km"
-                            FontSize="14"
-                            Style="{StaticResource CommonBox}" />
-                    </DockPanel>
-                </Grid>
-                <Grid x:Name="Members" Margin="90,30,90,0">
+                <Grid Margin="90,20,90,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="4*" />
-                        <ColumnDefinition Width="0.5*" />
                         <ColumnDefinition Width="4*" />
                     </Grid.ColumnDefinitions>
-                    <StackPanel x:Name="MemberNameStack" Grid.Column="0">
-                        <TextBox Style="{StaticResource MemberNameBox}" />
-                    </StackPanel>
-                    <StackPanel x:Name="TelStack" Grid.Column="2">
-                        <TextBox Style="{StaticResource TelBox}" />
-                    </StackPanel>
+                    <ListBox Grid.Column="0" MaxHeight="200">
+                        <StackPanel Margin="0,6" Orientation="Horizontal">
+                            <TextBlock FontSize="16" Text="1" />
+                            <TextBlock FontSize="16" Text=". " />
+                            <TextBlock FontSize="16" Text="Nha Trang" />
+                        </StackPanel>
+                        <StackPanel Margin="0,6" Orientation="Horizontal">
+                            <TextBlock FontSize="16" Text="1" />
+                            <TextBlock FontSize="16" Text=". " />
+                            <TextBlock FontSize="16" Text="Nha Trang" />
+                        </StackPanel>
+                        <StackPanel Margin="0,6" Orientation="Horizontal">
+                            <TextBlock FontSize="16" Text="1" />
+                            <TextBlock FontSize="16" Text=". " />
+                            <TextBlock FontSize="16" Text="Nha Trang" />
+                        </StackPanel>
+                        <StackPanel Margin="0,6" Orientation="Horizontal">
+                            <TextBlock FontSize="16" Text="1" />
+                            <TextBlock FontSize="16" Text=". " />
+                            <TextBlock FontSize="16" Text="Nha Trang" />
+                        </StackPanel>
+                        <StackPanel Margin="0,6" Orientation="Horizontal">
+                            <TextBlock FontSize="16" Text="1" />
+                            <TextBlock FontSize="16" Text=". " />
+                            <TextBlock FontSize="16" Text="Nha Trang" />
+                        </StackPanel>
+                        <StackPanel Margin="0,6" Orientation="Horizontal">
+                            <TextBlock FontSize="16" Text="1" />
+                            <TextBlock FontSize="16" Text=". " />
+                            <TextBlock FontSize="16" Text="Nha Trang" />
+                        </StackPanel>
+                        <StackPanel Margin="0,6" Orientation="Horizontal">
+                            <TextBlock FontSize="16" Text="1" />
+                            <TextBlock FontSize="16" Text=". " />
+                            <TextBlock FontSize="16" Text="Nha Trang" />
+                        </StackPanel>
+                        <StackPanel Margin="0,6" Orientation="Horizontal">
+                            <TextBlock FontSize="16" Text="1" />
+                            <TextBlock FontSize="16" Text=". " />
+                            <TextBlock FontSize="16" Text="Nha Trang" />
+                        </StackPanel>
+                    </ListBox>
+                    <TextBox
+                        Grid.Column="1"
+                        Margin="12,0"
+                        VerticalAlignment="Top"
+                        Style="{StaticResource RouteBox}" />
+                    <Button
+                        Grid.Column="1"
+                        Width="80"
+                        Height="40"
+                        Margin="12,0"
+                        HorizontalAlignment="Right"
+                        Background="#333E50"
+                        BorderThickness="0"
+                        Content="Add" />
                 </Grid>
+                <!--  Cho nay add hinh  -->
+
+                <Grid Height="230" Margin="0,25,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="4.5*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button 
+                        Grid.Column="1" 
+                        Height="Auto" 
+                        Margin="0.4,0,0,0"
+                        Background="#333E50">
+                        <StackPanel>
+                            <Image 
+                                Source="/Resource/Icons/camera.png" 
+                                Height="64" Width="84"
+                                />
+                            <TextBlock 
+                                Text="Nhấp chọn ảnh"
+                                Margin="0,20,0,0"
+                                Foreground="#9c9c9c"/>
+                        </StackPanel>
+                    </Button>
+                </Grid>
+
+
+                <!--  Cho nay add hinh  -->
                 <Button
-                    Width="240"
-                    Height="44"
-                    Margin="90,20,90,0"
-                    HorizontalAlignment="Left"
-                    Background="#d6e1ff"
+                    x:Name="Submit"
+                    Width="140"
+                    Height="40"
+                    Margin="0,30"
+                    HorizontalAlignment="Center"
+                    Background="#333E50"
                     BorderThickness="0"
-                    Click="BtnAddListInfoUser_Click">
-                    <StackPanel Orientation="Horizontal">
-                        <Image Width="25" Source="/Resource/Icons/add.png" />
-                        <TextBlock
-                            Padding="15,0,0,0"
-                            FontSize="18"
-                            Foreground="Black"
-                            Text="Thêm thành viên" />
-                    </StackPanel>
-                </Button>
+                    Content="Hoàn thành" />
             </StackPanel>
         </ScrollViewer>
     </Grid>
