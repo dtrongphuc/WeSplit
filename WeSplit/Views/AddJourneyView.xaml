@@ -9,8 +9,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="520"
     d:DesignWidth="886"
-    mc:Ignorable="d" 
-    Loaded="UserControl_Loaded">
+    mc:Ignorable="d">
     <UserControl.Resources>
         <!--<e:RelativeToAbsoluteConverter x:Key="pathConverter" />-->
 
@@ -124,25 +123,21 @@
         </Style>
 
         <Style
-            x:Key="NumTextBlock"
-            
-            TargetType="TextBlock"
-            BasedOn="{StaticResource MaterialDesignBody1TextBlock}">
-            <Setter Property="FontSize" Value="18"/>
-           
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="TextAlignment" Value="Center"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="Text" Value="1"/>
+            x:Key="NumberTextBlock"
+            BasedOn="{StaticResource MaterialDesignBody1TextBlock}"
+            TargetType="TextBlock">
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="TextAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="0,-40,0,0" />
         </Style>
 
-        <Style
-            x:Key="EllipseNumber" 
-            TargetType="Ellipse" >
-            <Setter Property="Height" Value="40"/>
-            <Setter Property="Width" Value="40"/>
-            <Setter Property="Fill" Value="#333E50"/>
-
+        <Style x:Key="EllipseNumber" TargetType="Ellipse">
+            <Setter Property="Height" Value="40" />
+            <Setter Property="Width" Value="40" />
+            <Setter Property="Fill" Value="#333E50" />
+            <Setter Property="Margin" Value="0,10,0,0" />
         </Style>
 
         <Style
@@ -162,34 +157,6 @@
             <Setter Property="materialDesign:TextFieldAssist.UnderlineBrush" Value="#FF32AEAC" />
         </Style>
 
-        <Style 
-            x:Key="EllipseNumberMember"
-            BasedOn="{StaticResource EllipseNumber}"
-            TargetType="Ellipse">
-            <Setter Property="Margin" Value="0,30,0,0"/>
-        </Style>
-
-        <Style 
-            x:Key="EllipseExpenMember"
-            BasedOn="{StaticResource EllipseNumber}"
-            TargetType="Ellipse">
-            <Setter Property="Margin" Value="0,30,0,0"/>
-        </Style>
-        
-        <Style
-            x:Key="NumMemberTextBlock"
-            BasedOn="{StaticResource NumTextBlock}"
-            TargetType="TextBlock">
-            <Setter Property="Margin" Value="13,34,13.6,0"/>
-        </Style>
-
-        <Style
-            x:Key="NumExpenTextBlock"
-            BasedOn="{StaticResource NumTextBlock}"
-            TargetType="TextBlock">
-            <Setter Property="Margin" Value="13,34,13.6,0"/>
-        </Style>
-        
         <Style
             x:Key="BoxTrigger"
             BasedOn="{StaticResource CommonBox}"
@@ -319,7 +286,7 @@
                             Style="{StaticResource CommonBox}" />
                     </DockPanel>
                 </Grid>
-                <!--  danh sach thanh vien  -->
+                <!--  Members  -->
                 <Grid x:Name="Members" Margin="90,30,90,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="0.5*" />
@@ -328,14 +295,12 @@
                         <ColumnDefinition Width="0.25*" />
                         <ColumnDefinition Width="3*" />
                     </Grid.ColumnDefinitions>
-                    <StackPanel x:Name="ElippseMemberStack">
-                        <Ellipse Style="{StaticResource EllipseNumberMember}"  />
 
-                    </StackPanel>
-
-                    <StackPanel x:Name="OrdinalMemberStack">
-                        <TextBlock Style="{StaticResource NumMemberTextBlock}"/>
-
+                    <StackPanel x:Name="MemberCount" Grid.Column="0">
+                        <StackPanel Height="60" Margin="0,16">
+                            <Ellipse Style="{StaticResource EllipseNumber}" />
+                            <TextBlock Style="{StaticResource NumberTextBlock}" Text="1" />
+                        </StackPanel>
                     </StackPanel>
 
                     <StackPanel x:Name="MemberNameStack" Grid.Column="2">
@@ -372,13 +337,11 @@
                         <ColumnDefinition Width="1.5*" />
                     </Grid.ColumnDefinitions>
 
-                    <StackPanel x:Name="ElippseExpenStack">
-                        <Ellipse Style="{StaticResource EllipseExpenMember}"  />
-
-                    </StackPanel>
-
-                    <StackPanel x:Name="OrdinalExpenStack">
-                        <TextBlock Style="{StaticResource NumExpenTextBlock}"/>
+                    <StackPanel x:Name="ExpendituresCount" Grid.Column="0">
+                        <StackPanel Height="60" Margin="0,16">
+                            <Ellipse Style="{StaticResource EllipseNumber}" />
+                            <TextBlock Style="{StaticResource NumberTextBlock}" Text="1" />
+                        </StackPanel>
                     </StackPanel>
                     <StackPanel x:Name="ExpendituresNameStack" Grid.Column="2">
                         <TextBox Style="{StaticResource ExpendituresName}" />
@@ -414,7 +377,6 @@
                     Margin="0,30"
                     Background="#333E50"
                     BorderThickness="0"
-                    Click="Add_Click"
                     Content="Hoàn thành" />
             </StackPanel>
         </ScrollViewer>
