@@ -119,5 +119,7 @@ namespace WeSplit.Models
                 trip.EndDate = row["NGAYKT"].ToString();
             }
         }
+
+      
     }
 }

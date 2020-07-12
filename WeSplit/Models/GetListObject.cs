@@ -180,5 +180,7 @@ namespace WeSplit.Models
             return _ListReceAndExpen;
         }
 
+
+
     }
 }

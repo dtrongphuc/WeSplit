@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -116,5 +117,23 @@ namespace WeSplit.Models
             sql = $"DELETE FROM THANHVIEN WHERE MATV ={_MemberID} ";
             Connection.Execute_SQL(sql);
         }
+
+        public void Leader(string id)
+        {
+            sql = $"SELECT * FROM THANHVIEN WHERE MACD={id} AND TRANGTHAI=1";
+            DataTable dt = Connection.GetALL_Data(sql);
+            foreach(DataRow row in dt.Rows)
+            {
+                _MemberID = row["MATV"].ToString();
+                _TripID = row["MACD"].ToString();
+                _MemberName = row["HOTEN"].ToString();
+                _Diary = row["NHATKY"].ToString();
+                _Telephone = row["SDT"].ToString();
+                _Status = (int)row["TRANGTHAI"];
+                _Contributie = row["DONGGOP"].ToString();
+            }
+        }
+
+        
     }
 }
