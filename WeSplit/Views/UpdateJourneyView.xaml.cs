@@ -44,12 +44,6 @@ namespace WeSplit.Views
             
         }
 
-        private void BtnAddImage_Click(object sender, RoutedEventArgs e)
-        {
-            Style style_img = this.FindResource("ButtonAddImg") as Style;
-            var newAddImgButton = new Button();
-            newAddImgButton.Style = style_img;
-            ImgsStack.Children.Add(newAddImgButton);
-        }
+       
     }
 }
