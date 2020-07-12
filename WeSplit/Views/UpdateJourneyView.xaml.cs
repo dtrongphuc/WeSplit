@@ -27,30 +27,29 @@ namespace WeSplit.Views
 
         private void BtnAddListInfoUser_Click(object sender, RoutedEventArgs e)
         {
-            Style style_user = this.FindResource("MemberNameBox") as Style;
-            Style style_tel = this.FindResource("TelBox") as Style;
+            //Style style_user = this.FindResource("MemberNameBox") as Style;
+            //Style style_tel = this.FindResource("TelBox") as Style;
 
-            var newTextbox = new TextBox();
-            newTextbox.Style = style_user;
-            MemberNameStack.Children.Add(newTextbox);
+            //var newTextbox = new TextBox();
+            //newTextbox.Style = style_user;
+            //membername.Children.Add(newTextbox);
 
-            var newTextbox_tel = new TextBox();
-            newTextbox_tel.Style = style_tel;
-            TelStack.Children.Add(newTextbox_tel);
+            //var newTextbox_tel = new TextBox();
+            //newTextbox_tel.Style = style_tel;
+            //TelStack.Children.Add(newTextbox_tel);
         }
 
         private void BtnAddInfoExpenses_Click(object sender, RoutedEventArgs e)
         {
-            Style style_expensesname = this.FindResource("ExpendituresName") as Style;
-            Style style_expensesmoney = this.FindResource("MoneyBox") as Style;
+            
+        }
 
-            var newExpensesbox = new TextBox();
-            newExpensesbox.Style = style_expensesname;
-            ExpendituresNameStack.Children.Add(newExpensesbox);
-
-            var newExpensesmoneybox = new TextBox();
-            newExpensesmoneybox.Style = style_expensesmoney;
-            ExpendituresMoneyStack.Children.Add(newExpensesmoneybox);
+        private void BtnAddImage_Click(object sender, RoutedEventArgs e)
+        {
+            Style style_img = this.FindResource("ButtonAddImg") as Style;
+            var newAddImgButton = new Button();
+            newAddImgButton.Style = style_img;
+            ImgsStack.Children.Add(newAddImgButton);
         }
     }
 }
