@@ -342,7 +342,7 @@
 
                     </StackPanel>
                 </Button>
-                <!--</StackPanel>-->
+
                 <Button
                     x:Name="Submit"
                     Width="140"

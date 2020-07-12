@@ -207,19 +207,6 @@
                             Foreground="#000"
                             Text="Ngày đi"
                             TextAlignment="Center" />
-                        <!--<TextBox
-                            x:Name="StartDay"
-                            Height="29"
-                            Margin="20,5,0,0"
-                            materialDesign:HintAssist.Foreground="#F75C03"
-                            materialDesign:HintAssist.Hint="dd/mm/yyyy"
-                            materialDesign:TextFieldAssist.UnderlineBrush="#F75C03"
-                            Background="#333E50"
-                            BorderThickness="0"
-                            FontSize="15"
-                            FontWeight="Regular"
-                            Foreground="White" Width="161"
-                            Padding="5,0,0,0"   />-->
                         <DatePicker
                             Name="StartDay"
                             Width="140"
@@ -289,8 +276,7 @@
                     Margin="90,20,90,0"
                     HorizontalAlignment="Left"
                     Background="#d6e1ff"
-                    BorderThickness="0"
-                    Click="BtnAddListInfoUser_Click">
+                    BorderThickness="0">
                     <StackPanel Orientation="Horizontal">
                         <Image Width="25" Source="/Resource/Icons/add.png" />
                         <TextBlock
@@ -300,6 +286,109 @@
                             Text="Thêm thành viên" />
                     </StackPanel>
                 </Button>
+                <StackPanel
+                    Margin="90,20,90,0"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal">
+                    <Image
+                        Width="24"
+                        Height="24"
+                        Margin="0,0,8,0"
+                        VerticalAlignment="Center"
+                        Source="/Resource/Icons/edit.png" />
+                    <TextBlock
+                        HorizontalAlignment="Left"
+                        FontSize="20"
+                        FontWeight="DemiBold"
+                        Text="Cập nhật khoản thu chi" />
+                </StackPanel>
+
+                <Grid x:Name="Expenditures" Margin="90,10,90,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="6*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="3*" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel x:Name="ExpendituresNameStack" Grid.Column="0">
+                        <TextBox Style="{StaticResource ExpendituresName}" />
+                    </StackPanel>
+                    <StackPanel x:Name="ExpendituresMoneyStack" Grid.Column="2">
+                        <TextBox Style="{StaticResource MoneyBox}" />
+                    </StackPanel>
+                </Grid>
+                <Button
+                    Width="240"
+                    Height="44"
+                    Margin="90,20,90,0"
+                    HorizontalAlignment="Left"
+                    Background="#d6e1ff"
+                    BorderThickness="0">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Width="25" Source="/Resource/Icons/add.png" />
+                        <TextBlock
+                            Padding="15,0,0,0"
+                            FontSize="18"
+                            Foreground="Black"
+                            Text="Thêm khoản chi" />
+                    </StackPanel>
+                </Button>
+                <StackPanel
+                    Margin="90,20,90,0"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal">
+                    <Image
+                        Width="24"
+                        Height="24"
+                        Margin="0,0,8,0"
+                        VerticalAlignment="Center"
+                        Source="/Resource/Icons/edit.png" />
+                    <TextBlock
+                        HorizontalAlignment="Left"
+                        FontSize="20"
+                        FontWeight="DemiBold"
+                        Text="Thành viên ứng trước" />
+                </StackPanel>
+                <Grid Margin="90,20,90,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="4*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="4*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100" />
+                        <RowDefinition Height="100" />
+                    </Grid.RowDefinitions>
+                    <ComboBox
+                        x:Name="MemberComboBox"
+                        Grid.Row="0"
+                        Height="60"
+                        materialDesign:HintAssist.Hint="Thành viên"
+                        Background="#333E50"
+                        FontSize="16"
+                        Foreground="#fff"
+                        Style="{StaticResource MaterialDesignFilledComboBox}">
+                        <ComboBoxItem Content="Thành viên 1" Foreground="#000" />
+                        <ComboBoxItem Content="Thành viên 2" Foreground="#000" />
+                        <ComboBoxItem Content="Thành viên 3" Foreground="#000" />
+                    </ComboBox>
+                    <TextBox
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        Style="{StaticResource ExpendituresName}" />
+                    <TextBox
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Style="{StaticResource MoneyBox}" />
+                    <Button
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        Width="120"
+                        Height="60"
+                        HorizontalAlignment="Left"
+                        Background="#333E50"
+                        BorderThickness="0"
+                        Content="OK" />
+                </Grid>
             </StackPanel>
         </ScrollViewer>
     </Grid>

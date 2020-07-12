@@ -36,7 +36,6 @@ namespace WeSplit.Views
         {
             Style style_user = this.FindResource("MemberNameBox") as Style;
             Style style_tel = this.FindResource("TelBox") as Style;
-            Style style_money = this.FindResource("MoneyBox") as Style;
 
             var newTextbox = new TextBox();
             newTextbox.Style = style_user;
@@ -45,10 +44,6 @@ namespace WeSplit.Views
             var newTextbox_tel = new TextBox();
             newTextbox_tel.Style = style_tel;
             TelStack.Children.Add(newTextbox_tel);
-            
-            var newTextbox_money = new TextBox();
-            newTextbox_money.Style = style_money;
-            MoneyStack.Children.Add(newTextbox_money);
         }
 
         private void BtnAddStepField_Click(object sender, RoutedEventArgs e)
