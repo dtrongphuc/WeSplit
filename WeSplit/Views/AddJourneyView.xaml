@@ -344,7 +344,6 @@
                     <StackPanel x:Name="TelStack" Grid.Column="4">
                         <TextBox Style="{StaticResource TelBox}" />
                     </StackPanel>
-
                 </Grid>
                 <Button
                     Width="240"
