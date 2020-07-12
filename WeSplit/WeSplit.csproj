@@ -131,6 +131,7 @@
     </Compile>
     <Compile Include="Converter\RelativeToAbsoluteConverter.cs" />
     <Compile Include="Models\Connection.cs" />
+    <Compile Include="Models\GetListObject.cs" />
     <Compile Include="Models\Images.cs" />
     <Compile Include="Models\Location.cs" />
     <Compile Include="Models\Member.cs" />

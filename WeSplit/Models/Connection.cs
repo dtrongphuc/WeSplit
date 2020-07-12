@@ -11,12 +11,12 @@ namespace WeSplit.Models
     public static class Connection
     {
 
-        public static string cn_string= @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DaTaDirectory|\SQL\QLChuyenDi.mdf;Integrated Security=True";
+        static string cn_string= @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DaTaDirectory|\SQL\QLChuyenDi.mdf;Integrated Security=True";
         /// <summary>
         /// tạo kết nối với database
         /// </summary>
         /// <returns></returns>
-        public static SqlConnection Get_Connection()
+        static  SqlConnection Get_Connection()
         {
 
             SqlConnection cn_connection = new SqlConnection(cn_string);
@@ -28,7 +28,7 @@ namespace WeSplit.Models
         /// <summary>
         /// đóng kết nối với database
         /// </summary>
-        public static void Close_Connection()
+        static void Close_Connection()
         {
             SqlConnection cn_connection = new SqlConnection(cn_string);
             if (cn_connection.State != ConnectionState.Closed)

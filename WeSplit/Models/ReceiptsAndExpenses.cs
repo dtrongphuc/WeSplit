@@ -68,5 +68,12 @@ namespace WeSplit.Models
             sql = $"DELETE FROM DIADIEM WHERE MACD ={_TripID} AND TENKHOANCHI=N'{_ExpensesName}'";
             Connection.Execute_SQL(sql);
         }
+
+        public int SumRAE()
+        {
+            sql = $"SELECT SUM(*) AS 'TONG' FROM THUCHI WHERE MACD ={_TripID}";
+
+            return Connection.GetCount_Data(sql);
+        }
     }
 }

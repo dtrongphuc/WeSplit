@@ -36,7 +36,7 @@ namespace WeSplit.Models
         public Images()
         {
             _TripID = "";
-            _Image = "Resource/Images/trip.jpg";
+            _Image = "/Resource/Images/trip.jpg";
         }
 
         string sql;

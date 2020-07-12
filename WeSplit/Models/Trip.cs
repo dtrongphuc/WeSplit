@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -88,17 +89,35 @@ namespace WeSplit.Models
             this._EndDate = "";
         }
 
+        string sql;
         public void Add()
         {
-            string sql;
+            sql = $"UPDATE CHUYENDI SET TRANGTHAI = 0 ";
+            Connection.Execute_SQL(sql);
             sql = $"INSERT INTO CHUYENDI VALUES ({_TripID}, N'{_TripName}', {_Status}, N'{_StartDate}', N'{_EndDate}', {_Lenght})";
             Connection.Execute_SQL(sql);
         }
 
         public void Edit()
         {
-            string sql = $"UPDATE CHUYENDI SET  TENCD =N'{_TripName}', TRANGTHAI ={_Status}, NGAYDI=N'{_StartDate}', NGAYKT=N'{_EndDate}', DODAI={_Lenght} WHERE MACD ={_TripID} ";
+          sql = $"UPDATE CHUYENDI SET  TENCD =N'{_TripName}', TRANGTHAI ={_Status}, NGAYDI=N'{_StartDate}', NGAYKT=N'{_EndDate}', DODAI={_Lenght} WHERE MACD ={_TripID} ";
             Connection.Execute_SQL(sql);
+        }
+
+        public void TripIsGoing()
+        {
+            sql = $"SELECT * FROM CHUYENDI WHERE MACD=1";
+            DataTable dt = Connection.GetALL_Data(sql);
+            foreach (DataRow row in dt.Rows)
+            {
+                Trip trip = new Trip();
+                trip.TripID = row["MACD"].ToString();
+                trip.TripName = row["TENCD"].ToString();
+                trip.Status = (int)row["TRANGTHAI"];
+                trip.Lenght = row["DODAI"].ToString();
+                trip.StartDate = row["NGAYDI"].ToString();
+                trip.EndDate = row["NGAYKT"].ToString();
+            }
         }
     }
 }
