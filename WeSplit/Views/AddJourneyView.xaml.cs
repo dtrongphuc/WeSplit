@@ -27,11 +27,6 @@ namespace WeSplit.Views
             EndDay.SelectedDate = DateTime.Now.AddDays(1);
         }
 
-        private void BtnAddAvatar(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         //tăng số thứ tự
         private int _memberCount = 1; 
         private int _expenseCount = 1;

@@ -177,6 +177,13 @@
             TargetType="TextBox">
             <Setter Property="materialDesign:HintAssist.Hint" Value="Tên khoản chi" />
         </Style>
+        <Style
+            x:Key="RouteBox"
+            BasedOn="{StaticResource BoxTrigger}"
+            TargetType="TextBox">
+            <Setter Property="materialDesign:HintAssist.Hint" Value="Tên địa điểm" />
+        </Style>
+
     </UserControl.Resources>
     <Grid>
         <ScrollViewer
@@ -184,7 +191,7 @@
             ScrollViewer.HorizontalScrollBarVisibility="Disabled"
             ScrollViewer.VerticalScrollBarVisibility="Auto">
             <StackPanel>
-                <TextBlock
+                <!--<TextBlock
                     Margin="0,20,0,0"
                     HorizontalAlignment="Center"
                     FontSize="35"
@@ -276,7 +283,8 @@
                     Margin="90,20,90,0"
                     HorizontalAlignment="Left"
                     Background="#d6e1ff"
-                    BorderThickness="0">
+                    BorderThickness="0"
+                    Click="BtnAddListInfoUser_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image Width="25" Source="/Resource/Icons/add.png" />
                         <TextBlock
@@ -322,7 +330,8 @@
                     Margin="90,20,90,0"
                     HorizontalAlignment="Left"
                     Background="#d6e1ff"
-                    BorderThickness="0">
+                    BorderThickness="0"
+                    Click="BtnAddInfoExpenses_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image Width="25" Source="/Resource/Icons/add.png" />
                         <TextBlock
@@ -389,6 +398,98 @@
                         BorderThickness="0"
                         Content="OK" />
                 </Grid>
+                <StackPanel
+                    Margin="90,20,90,0"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal">
+                    <Image
+                        Width="24"
+                        Height="24"
+                        Margin="0,0,8,0"
+                        VerticalAlignment="Center"
+                        Source="/Resource/Icons/edit.png" />
+                    <TextBlock
+                        HorizontalAlignment="Left"
+                        FontSize="20"
+                        FontWeight="DemiBold"
+                        Text="Lộ trình" />
+                </StackPanel>-->
+                <Grid Margin="90,20,90,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="4*" />
+                        <ColumnDefinition Width="4*" />
+                    </Grid.ColumnDefinitions>
+                    <ListBox Grid.Column="0" MaxHeight="200">
+                        <StackPanel Margin="0,6" Orientation="Horizontal">
+                            <TextBlock FontSize="16" Text="1" />
+                            <TextBlock FontSize="16" Text=". " />
+                            <TextBlock FontSize="16" Text="Nha Trang" />
+                        </StackPanel>
+                        <StackPanel Margin="0,6" Orientation="Horizontal">
+                            <TextBlock FontSize="16" Text="1" />
+                            <TextBlock FontSize="16" Text=". " />
+                            <TextBlock FontSize="16" Text="Nha Trang" />
+                        </StackPanel>
+                        <StackPanel Margin="0,6" Orientation="Horizontal">
+                            <TextBlock FontSize="16" Text="1" />
+                            <TextBlock FontSize="16" Text=". " />
+                            <TextBlock FontSize="16" Text="Nha Trang" />
+                        </StackPanel>
+                        <StackPanel Margin="0,6" Orientation="Horizontal">
+                            <TextBlock FontSize="16" Text="1" />
+                            <TextBlock FontSize="16" Text=". " />
+                            <TextBlock FontSize="16" Text="Nha Trang" />
+                        </StackPanel>
+                        <StackPanel Margin="0,6" Orientation="Horizontal">
+                            <TextBlock FontSize="16" Text="1" />
+                            <TextBlock FontSize="16" Text=". " />
+                            <TextBlock FontSize="16" Text="Nha Trang" />
+                        </StackPanel>
+                        <StackPanel Margin="0,6" Orientation="Horizontal">
+                            <TextBlock FontSize="16" Text="1" />
+                            <TextBlock FontSize="16" Text=". " />
+                            <TextBlock FontSize="16" Text="Nha Trang" />
+                        </StackPanel>
+                        <StackPanel Margin="0,6" Orientation="Horizontal">
+                            <TextBlock FontSize="16" Text="1" />
+                            <TextBlock FontSize="16" Text=". " />
+                            <TextBlock FontSize="16" Text="Nha Trang" />
+                        </StackPanel>
+                        <StackPanel Margin="0,6" Orientation="Horizontal">
+                            <TextBlock FontSize="16" Text="1" />
+                            <TextBlock FontSize="16" Text=". " />
+                            <TextBlock FontSize="16" Text="Nha Trang" />
+                        </StackPanel>
+                    </ListBox>
+                    <TextBox
+                        Grid.Column="1"
+                        Margin="12,0"
+                        VerticalAlignment="Top"
+                        Style="{StaticResource RouteBox}" />
+                    <Button
+                        Grid.Column="1"
+                        Width="80"
+                        Height="40"
+                        Margin="12,0"
+                        HorizontalAlignment="Right"
+                        Background="#333E50"
+                        BorderThickness="0"
+                        Content="Add" />
+                </Grid>
+                <!--  Cho nay add hinh  -->
+
+
+
+                <!--  Cho nay add hinh  -->
+                <Button
+                    x:Name="Submit"
+                    Width="140"
+                    Height="40"
+                    Margin="0,30"
+                    HorizontalAlignment="Center"
+                    Background="#333E50"
+                    BorderThickness="0"
+                    Content="Hoàn thành" />
             </StackPanel>
         </ScrollViewer>
     </Grid>
