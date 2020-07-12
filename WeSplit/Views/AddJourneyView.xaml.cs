@@ -32,10 +32,16 @@ namespace WeSplit.Views
 
         }
 
+        //tăng số thứ tự
+        int OrdinalNumMember = 1;
+        int OrdinalNumExpense = 1;
+
         private void BtnAddListInfoUser_Click(object sender, RoutedEventArgs e)
         {
             Style style_user = this.FindResource("MemberNameBox") as Style;
             Style style_tel = this.FindResource("TelBox") as Style;
+            Style style_ellipse = this.FindResource("EllipseNumberMember") as Style;
+            Style style_Ordinalnum = this.FindResource("NumMemberTextBlock") as Style;
 
             var newTextbox = new TextBox();
             newTextbox.Style = style_user;
@@ -44,6 +50,14 @@ namespace WeSplit.Views
             var newTextbox_tel = new TextBox();
             newTextbox_tel.Style = style_tel;
             TelStack.Children.Add(newTextbox_tel);
+
+            var newTextbox_ellipse = new Ellipse();
+            newTextbox_ellipse.Style = style_ellipse;
+            ElippseMemberStack.Children.Add(newTextbox_ellipse);
+
+            var newTextbox_Ordinalnum = new TextBlock();
+            newTextbox_Ordinalnum.Style = style_Ordinalnum;
+            OrdinalMemberStack.Children.Add(newTextbox_Ordinalnum); 
         }
 
         private void BtnAddStepField_Click(object sender, RoutedEventArgs e)
@@ -60,6 +74,8 @@ namespace WeSplit.Views
         {
             Style style_expensesname = this.FindResource("ExpendituresName") as Style;
             Style style_expensesmoney = this.FindResource("MoneyBox") as Style;
+            Style style_ordinalexpensename = this.FindResource("EllipseExpenMember") as Style;
+            Style style_ordinalexpensemonet = this.FindResource("NumExpenTextBlock") as Style;
 
             var newExpensesbox = new TextBox();
             newExpensesbox.Style = style_expensesname;
@@ -68,6 +84,19 @@ namespace WeSplit.Views
             var newExpensesmoneybox = new TextBox();
             newExpensesmoneybox.Style = style_expensesmoney;
             ExpendituresMoneyStack.Children.Add(newExpensesmoneybox);
+
+            var newTextbox_ellipse = new Ellipse();
+            newTextbox_ellipse.Style = style_ordinalexpensename;
+            ElippseExpenStack.Children.Add(newTextbox_ellipse);
+
+            var newTextbox_Ordinalnum = new TextBlock();
+            newTextbox_Ordinalnum.Style = style_ordinalexpensemonet;
+            OrdinalExpenStack.Children.Add(newTextbox_Ordinalnum);         
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+           
         }
     }
 }
