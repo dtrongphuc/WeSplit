@@ -133,7 +133,5 @@ namespace WeSplit.Models
                 _Contributie = row["DONGGOP"].ToString();
             }
         }
-
-        
     }
 }
