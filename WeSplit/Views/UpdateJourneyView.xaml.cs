@@ -38,8 +38,7 @@ namespace WeSplit.Views
                 {
                     for (int run = i + 1; run < relative.Length; run++)
                         absolute += relative[run];
-                    break;
-                    
+                    break;                    
                 }
             }
         }
@@ -58,6 +57,7 @@ namespace WeSplit.Views
             //    AddAvatar.ImageSource = bitmap;
             //}
 
+            //lấy tên ảnh đưa vào list  ImagesNameList
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Multiselect = true;
             openFileDialog.Filter = "Images (*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF|" + "All files (*.*)|*.*";
@@ -71,6 +71,7 @@ namespace WeSplit.Views
                 }
             }
 
+            //đưa ảnh dô file bin
         }
     }
 }
