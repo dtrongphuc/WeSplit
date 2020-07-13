@@ -134,6 +134,15 @@ VALUES
 ),
 (
 	1, 4, N'Lăng Minh Mạng'
+),
+(
+	2, 1, N'Vĩnh Hy'
+),
+(
+	2, 2, N'Khánh Sơn'
+),
+(
+	2, 3, N'Tà Gụ'
 )
 GO
 
@@ -149,7 +158,17 @@ VALUES
 ( 1, '/Resource/Images/1_7.jpg' ),
 ( 1, '/Resource/Images/1_8.jpg' ),
 ( 1, '/Resource/Images/1_9.jpg' ),
-( 1, '/Resource/Images/1_10.png' )
+( 1, '/Resource/Images/1_10.png' ),
+( 2, '/Resource/Images/2_1.png' ),
+( 2, '/Resource/Images/2_2.jpg' ),
+( 2, '/Resource/Images/2_3.jpg' ),
+( 2, '/Resource/Images/2_4.jpg' ),
+( 2, '/Resource/Images/2_5.jpg' ),
+( 2, '/Resource/Images/2_6.jpg' ),
+( 2, '/Resource/Images/2_7.jpg' ),
+( 2, '/Resource/Images/2_8.jpg' ),
+( 2, '/Resource/Images/2_9.jpg' ),
+( 2, '/Resource/Images/2_10.png' )
 GO
 
 -- THU CHI
@@ -169,5 +188,11 @@ VALUES
 ),
 (
 	4, 1, N'Thuê Homestay', 2000000
-)
+),
+(7, 2, N'Áo mưa', 400000),
+(7, 2, N'Ăn sáng', 320000),
+(7, 2, N'Ăn trưa', 480000),
+(7, 2, N'Ăn tối', 270000),
+(3, 2, N'Uống cafe', 300000),
+(6, 2, N'Thuê xe', 240000)
 GO
