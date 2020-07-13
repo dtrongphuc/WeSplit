@@ -104,13 +104,13 @@ namespace WeSplit.Models
             Connection.Execute_SQL(sql);
         }
 
-        public Trip TripIsGoing()
+        public void TripIsGoing()
         {
             sql = $"SELECT * FROM CHUYENDI WHERE MACD=1";
             DataTable dt = Connection.GetALL_Data(sql);
-            Trip trip = new Trip();
             foreach (DataRow row in dt.Rows)
             {
+                Trip trip = new Trip();
                 trip.TripID = row["MACD"].ToString();
                 trip.TripName = row["TENCD"].ToString();
                 trip.Status = (int)row["TRANGTHAI"];
@@ -118,7 +118,6 @@ namespace WeSplit.Models
                 trip.StartDate = row["NGAYDI"].ToString();
                 trip.EndDate = row["NGAYKT"].ToString();
             }
-            return trip;
         }
     }
 }
