@@ -26,13 +26,10 @@ namespace WeSplit.Views
             InitializeComponent();
         }
 
-       
-
-        private void WalkingView_Loaded(object sender, RoutedEventArgs e)
-        {
-            Trip trip = new Trip();
-            trip.TripIsGoing();
-            this.Content = trip;
-        }
+        //private void UserControl_Initialized(object sender, EventArgs e)
+        //{
+        //    Trip a = new Trip { TripName = "sdaaaaaaaaaa" };
+        //    JourneyInfo.DataContext = a;
+        //}
     }
 }
