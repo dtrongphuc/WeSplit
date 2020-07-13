@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,25 +26,18 @@ namespace WeSplit.Views
             InitializeComponent();
         }
 
-        private void BtnAddListInfoUser_Click(object sender, RoutedEventArgs e)
+        string _fileAvatar;
+        private void AddImgButton_Click(object sender, RoutedEventArgs e)
         {
-            //Style style_user = this.FindResource("MemberNameBox") as Style;
-            //Style style_tel = this.FindResource("TelBox") as Style;
-
-            //var newTextbox = new TextBox();
-            //newTextbox.Style = style_user;
-            //membername.Children.Add(newTextbox);
-
-            //var newTextbox_tel = new TextBox();
-            //newTextbox_tel.Style = style_tel;
-            //TelStack.Children.Add(newTextbox_tel);
+            var screen = new OpenFileDialog();
+            if (screen.ShowDialog() == true)
+            {
+                _fileAvatar = screen.FileName;
+                var bitmap = new BitmapImage(new Uri(_fileAvatar, UriKind.Absolute));
+                AvatarImage.Visibility = Visibility.Hidden;
+                ContentImg.Visibility = Visibility.Hidden;
+                AddAvatar.ImageSource = bitmap;
+            }
         }
-
-        private void BtnAddInfoExpenses_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-       
     }
 }
