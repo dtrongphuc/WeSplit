@@ -76,7 +76,18 @@ namespace WeSplit.Models
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lenght"));
                 }
             }
-            public event PropertyChangedEventHandler PropertyChanged;
+
+        private string _MemberName;
+        public string MemberName
+        {
+            get { return _MemberName; }
+            set
+            {
+                _MemberName = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("MemberName"));
+            }
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
 
             
         public Trip()
@@ -87,6 +98,7 @@ namespace WeSplit.Models
             this._StartDate = "";
             this._Lenght = "";
             this._EndDate = "";
+            _MemberName = "";
         }
 
         string sql;
@@ -106,7 +118,7 @@ namespace WeSplit.Models
 
         public void TripIsGoing()
         {
-            sql = $"SELECT * FROM CHUYENDI WHERE MACD=1";
+            sql = $"SELECT CD.*,TV.HOTEN FROM CHUYENDI AS CD JOIN THANHVIEN AS TV ON CD.MACD = TV.MACD WHERE CD.TRANGTHAI=1 AND TV.TRANGTHAI=1";
             DataTable dt = Connection.GetALL_Data(sql);
             foreach (DataRow row in dt.Rows)
             {
@@ -117,6 +129,8 @@ namespace WeSplit.Models
                 trip.Lenght = row["DODAI"].ToString();
                 trip.StartDate = row["NGAYDI"].ToString();
                 trip.EndDate = row["NGAYKT"].ToString();
+                trip.MemberName = row["HOTEN"].ToString();
+
             }
         }
     }

@@ -76,16 +76,7 @@ namespace WeSplit.Models
             }
         }
 
-        private string _Contributie;
-        public string Contributie
-        {
-            get { return _Contributie; }
-            set
-            {
-                _Contributie = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Contributie"));
-            }
-        }
+      
         public event PropertyChangedEventHandler PropertyChanged;
 
         public Member()
@@ -96,19 +87,18 @@ namespace WeSplit.Models
             this._MemberName = "";
             this._MemberID = "";
             this._Diary = "";
-            this._Contributie = "";
         }
 
         string sql;
         public void Add()
         {
-             sql = $"INSERT INTO THANHVIEN VALUES (MATV ={_MemberID}, MACD = {_TripID}, HOTEN =N'{_MemberName}', NHATKY =N'{_Diary}', SDT='{_Telephone}', TRANGTHAI={_Status}, DONGGOP ={_Contributie})";
+             sql = $"INSERT INTO THANHVIEN VALUES (MATV ={_MemberID}, MACD = {_TripID}, HOTEN =N'{_MemberName}', NHATKY =N'{_Diary}', SDT='{_Telephone}', TRANGTHAI={_Status})";
             Connection.Execute_SQL(sql);
         }
 
         public void Edit()
         {
-             sql = $"UPDATE THANHVIEN  SET MACD = {_TripID}, HOTEN =N'{_MemberName}',  NHATKY =N'{_Diary}', SDT='{_Telephone}', TRANGTHAI={_Status}, DONGGOP ={_Contributie}  WHERE MATV ={_MemberID}";
+             sql = $"UPDATE THANHVIEN  SET MACD = {_TripID}, HOTEN =N'{_MemberName}',  NHATKY =N'{_Diary}', SDT='{_Telephone}', TRANGTHAI={_Status}  WHERE MATV ={_MemberID}";
             Connection.Execute_SQL(sql);
         }
 
@@ -130,7 +120,7 @@ namespace WeSplit.Models
                 _Diary = row["NHATKY"].ToString();
                 _Telephone = row["SDT"].ToString();
                 _Status = (int)row["TRANGTHAI"];
-                _Contributie = row["DONGGOP"].ToString();
+              
             }
         }
     }

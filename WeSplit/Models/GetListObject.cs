@@ -74,7 +74,7 @@ namespace WeSplit.Models
         public BindingList<Trip> Get_AllTripWasGone()
         {
             ListTripWasGone.Clear();
-            sql = $"SELECT * FROM CHUYENDI WHERE TRANGTHAI = 0";
+            sql = $"SELECT CD.*,TV.HOTEN FROM CHUYENDI AS CD JOIN THANHVIEN AS TV ON CD.MACD = TV.MACD WHERE CD.TRANGTHAI=0 AND TV.TRANGTHAI=1 ";
             DataTable dt = Connection.GetALL_Data(sql);
             foreach(DataRow row in dt.Rows)
             {
@@ -85,6 +85,7 @@ namespace WeSplit.Models
                 trip.Lenght = row["DODAI"].ToString();
                 trip.StartDate = row["NGAYDI"].ToString();
                 trip.EndDate = row["NGAYKT"].ToString();
+                trip.MemberName = row["HOTEN"].ToString();
                 _ListTripWasGone.Add(trip);
             }
             return ListTripWasGone;
@@ -138,7 +139,7 @@ namespace WeSplit.Models
                 member.Diary = row["NHATKY"].ToString();
                 member.Telephone = row["SDT"].ToString();
                 member.Status = (int)row["TRANGTHAI"];
-                member.Contributie = row["DONGGOP"].ToString();
+              
                 _ListMemberTrip.Add(member);
             }
             return _ListMemberTrip;
@@ -158,7 +159,7 @@ namespace WeSplit.Models
                 member.Diary = row["NHATKY"].ToString();
                 member.Telephone = row["SDT"].ToString();
                 member.Status = (int)row["TRANGTHAI"];
-                member.Contributie = row["DONGGOP"].ToString();
+               
                 _ListMemberTrip.Add(member);
             }
             return _ListMemberTrip;
@@ -167,7 +168,7 @@ namespace WeSplit.Models
         public BindingList<ReceiptsAndExpenses> Get_AllReceAndExpenTrip(string ID)
         {
             _ListReceAndExpen.Clear();
-            sql = $"SELECT * FROM THUCHI WHERE MACD ={ID} ";
+            sql = $"SELECT TC.*,TV.HOTEN FROM THUCHI AS TC JOIN THANHVIEN AS TV ON TC.MATV = TV.MATV AND TC.MACD = TV.MACD WHERE MACD ={ID} ";
             DataTable dt = Connection.GetALL_Data(sql);
             foreach(DataRow row in dt.Rows)
             {
@@ -175,6 +176,8 @@ namespace WeSplit.Models
                 RAE.TripID = row["MACD"].ToString();
                 RAE.ExpensesName = row["TENKHOANCHI"].ToString();
                 RAE.Cost = row["TIEN"].ToString();
+                RAE.MemberID = row["MATV"].ToString();
+                RAE.MemberName = row["HOTEN"].ToString();
                 _ListReceAndExpen.Add(RAE);
             }
             return _ListReceAndExpen;
