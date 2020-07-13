@@ -18,7 +18,6 @@
         <Style x:Key="HomeStyleControl" TargetType="Grid">
             <Setter Property="Background" Value="Transparent" />
             <Style.Triggers>
-
                 <!--<EventTrigger RoutedEvent="MouseEnter">
                     <BeginStoryboard>
                         <Storyboard>
@@ -26,7 +25,6 @@
                         </Storyboard>
                     </BeginStoryboard>
                 </EventTrigger>-->
-
                 <DataTrigger Binding="{Binding WhoActived}" Value="Home">
                     <Setter Property="Background" Value="#253042" />
                 </DataTrigger>
@@ -216,7 +214,6 @@
                             </Style>
                         </materialDesign:PackIcon.Style>
                     </materialDesign:PackIcon>
-
                 </Grid>
             </Grid>
         </materialDesign:Card>
