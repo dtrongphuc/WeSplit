@@ -292,6 +292,16 @@
     <Resource Include="Resource\Images\AddBackground.jpg" />
     <Resource Include="Resource\Icons\edit.png" />
     <Resource Include="Resource\Icons\add_2.png" />
+    <Resource Include="Resource\Images\1_1.png" />
+    <Resource Include="Resource\Images\1_2.jpg" />
+    <Resource Include="Resource\Images\1_3.jpg" />
+    <Resource Include="Resource\Images\1_4.jpg" />
+    <Resource Include="Resource\Images\1_5.jpg" />
+    <Resource Include="Resource\Images\1_6.jpg" />
+    <Resource Include="Resource\Images\1_7.jpg" />
+    <Resource Include="Resource\Images\1_8.jpg" />
+    <Resource Include="Resource\Images\1_9.jpg" />
+    <Resource Include="Resource\Images\1_10.jpg" />
     <Content Include="SQL\QLChuyenDi.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

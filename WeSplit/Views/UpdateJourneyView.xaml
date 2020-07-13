@@ -123,14 +123,16 @@
         </Style>
 
         <Style x:Key="ButtonRoundedCorner" TargetType="Button">
-            <Setter Property="Background" Value="Silver"/>
+            <Setter Property="Background" Value="Silver" />
             <Setter Property="Foreground" Value="White" />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border CornerRadius="25" Background="{TemplateBinding Background}" BorderThickness="0">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
-                            </ContentPresenter>
+                        <Border
+                            Background="{TemplateBinding Background}"
+                            BorderThickness="0"
+                            CornerRadius="25">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
@@ -272,60 +274,59 @@
 
                 <Grid Height="230" Margin="0,25,0,0">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="4.5*"/>
-                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="4.5*" />
+                        <ColumnDefinition Width="1*" />
                     </Grid.ColumnDefinitions>
 
-                    <!--<Button 
-                        Grid.Column="1" 
-                        Height="Auto" 
+                    <!--<Button
+                        Grid.Column="1"
+                        Height="Auto"
                         Margin="0.4,0,0,0"
                         Background="#333E50"
                         Click="AddImgButton_Click">
                         <StackPanel>
-                            <Image 
+                            <Image
                                 x:Name="AvatarImage"
                                 RenderOptions.BitmapScalingMode="HighQuality"
-                                Source="/Resource/Icons/camera.png" 
+                                Source="/Resource/Icons/camera.png"
                                 Height="64" Width="84"
                                 />
-                            <TextBlock 
+                            <TextBlock
                                 x:Name="ContentImg"
                                 Text="Nhấp chọn ảnh"
                                 Margin="0,20,0,0"
                                 Foreground="#9c9c9c"/>
                         </StackPanel>
                     </Button>-->
-                    <Button 
+                    <Button
                         Grid.Column="1"
                         Height="265"
                         Padding="0"
                         Background="#333E50"
                         BorderThickness="0"
                         Click="AddImgButton_Click">
-                        <Border 
-                        Padding="40,50">
-                            <Border.Background >
-                                <ImageBrush 
-                                x:Name="AddAvatar"
-                                RenderOptions.BitmapScalingMode="HighQuality"
-                                Stretch="Fill" />
+                        <Border Padding="40,50">
+                            <Border.Background>
+                                <ImageBrush
+                                    x:Name="AddAvatar"
+                                    RenderOptions.BitmapScalingMode="HighQuality"
+                                    Stretch="Fill" />
                             </Border.Background>
                             <StackPanel Height="169">
                                 <Image
-                                x:Name="AvatarImage"
-                                Width="70"
-                                Source="/Resource/Icons/camera.png" />
+                                    x:Name="AvatarImage"
+                                    Width="70"
+                                    Source="/Resource/Icons/camera.png" />
                                 <TextBlock
-                                x:Name="ContentImg"
-                                Margin="0,20,0,0"
-                                FontSize="20"
-                                FontWeight="Heavy"
-                                Foreground="#8a8a8a"
-                                Text="Chọn ảnh chuyến đi"
-                                TextWrapping="Wrap" 
-                                TextAlignment="Center"/>
+                                    x:Name="ContentImg"
+                                    Margin="0,20,0,0"
+                                    FontSize="20"
+                                    FontWeight="Heavy"
+                                    Foreground="#8a8a8a"
+                                    Text="Chọn ảnh chuyến đi"
+                                    TextAlignment="Center"
+                                    TextWrapping="Wrap" />
                             </StackPanel>
                         </Border>
                     </Button>
