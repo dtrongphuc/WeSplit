@@ -41,6 +41,28 @@ namespace WeSplit.Models
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cost"));
             }
         }
+
+        private string _MemberID;
+        public string MemberID
+        {
+            get { return _MemberID; }
+            set
+            {
+                _MemberID = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("MemberID"));
+            }
+        }
+
+        private string _MemberName;
+        public string MemberName
+        {
+            get { return _MemberName; }
+            set
+            {
+                _MemberName = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("MemberName"));
+            }
+        }
         public event PropertyChangedEventHandler PropertyChanged;
 
         public ReceiptsAndExpenses()
@@ -48,18 +70,21 @@ namespace WeSplit.Models
             this._Cost = "";
             this._TripID = "";
             this._ExpensesName = "";
+            this.MemberName = "";
+            this.MemberID = "";
         }
 
         string sql;
         public void Add()
         {
-            sql = $"INSERT INTO THUCHI VALUES (MACD ={_TripID}, TENKHOANCHI=N'{_ExpensesName}', TIEN=N'{_Cost}')";
+
+            sql = $"INSERT INTO THUCHI VALUES (MACD ={_TripID}, TENKHOANCHI=N'{_ExpensesName}', TIEN=N'{_Cost}', MATV = {_MemberID})";
             Connection.Execute_SQL(sql);
         }
 
         public void Edit()
         {
-            sql = $"UPDATE THUCHI SET  TENKHOANCHI=N'{_ExpensesName}', TIEN=N'{_Cost}' WHERE MACD ={_TripID}";
+            sql = $"UPDATE THUCHI SET  TENKHOANCHI=N'{_ExpensesName}', TIEN=N'{_Cost}',  MATV = {_MemberID}  WHERE MACD ={_TripID}";
             Connection.Execute_SQL(sql);
         }
 

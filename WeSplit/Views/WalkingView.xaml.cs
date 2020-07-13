@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WeSplit.Models;
 
 namespace WeSplit.Views
 {
@@ -23,6 +24,15 @@ namespace WeSplit.Views
         public WalkingView()
         {
             InitializeComponent();
+        }
+
+       
+
+        private void WalkingView_Loaded(object sender, RoutedEventArgs e)
+        {
+            Trip trip = new Trip();
+            trip.TripIsGoing();
+            this.Content = trip;
         }
     }
 }
