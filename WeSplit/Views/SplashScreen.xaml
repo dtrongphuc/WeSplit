@@ -22,13 +22,12 @@
             <StackPanel>
                 <TextBlock
                     Name="ContentWellcome"
-                    Width="380"
-                    Height="100"
-                    Margin="0,80,0,0"
+                    Height="103"
+                    Margin="102,80,96.8,0"
                     VerticalAlignment="Center"
                     FontSize="20"
                     FontWeight="Medium"
-                    Foreground="White"
+                    Foreground="Black"
                     Text="{Binding}"
                     TextAlignment="Center"
                     TextWrapping="Wrap" />
