@@ -5,7 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WeSplit.Views;
+using WeSplit.Models;
 using static WeSplit.Views.HistoryView;
+using System.ComponentModel.Composition;
+using System.Windows.Data;
 
 namespace WeSplit.ViewModels
 {
@@ -14,6 +17,8 @@ namespace WeSplit.ViewModels
         private int _historywidth = 0;
         private int _canvasheight = 520;
         private bool _isLocatedDetail = false;
+
+        public BindableCollection<Trip> JourneyHistory { get; set; }
 
         public int HistoryWidth
         {
@@ -53,6 +58,12 @@ namespace WeSplit.ViewModels
 
         public HistoryViewModel()
         {
+            JourneyHistory = new BindableCollection<Trip>
+            {
+                new Trip { TripName = "Tên chuyến đi 1" },
+                new Trip { TripName = "Tên chuyến đi 2" },
+                new Trip { TripName = "Tên chuyến đi 3" },
+            };
         }
 
         public override void Refresh()
