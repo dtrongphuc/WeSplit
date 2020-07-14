@@ -227,38 +227,18 @@
                         DockPanel.Dock="Top"
                         FontSize="16"
                         FontWeight="DemiBold" />
-                    <lvc:PieChart LegendLocation="Bottom">
-                        <lvc:PieChart.Series>
-                            <lvc:PieSeries
-                                Title="Khoản thu 1"
-                                DataLabels="True"
-                                Values="10" />
-                            <lvc:PieSeries
-                                Title="Khoản thu 2"
-                                DataLabels="True"
-                                Values="4" />
-                            <lvc:PieSeries
-                                Title="Khoản thu 3"
-                                DataLabels="True"
-                                Values="6" />
-                            <lvc:PieSeries
-                                Title="Khoản thu 4"
-                                DataLabels="True"
-                                Values="2" />
-                        </lvc:PieChart.Series>
-                    </lvc:PieChart>
+                    <lvc:PieChart LegendLocation="Bottom" Series="{Binding ChartData}" />
                 </DockPanel>
             </materialDesign:Card>
         </Grid>
 
         <materialDesign:Card
+            x:Name="HistoryTrip"
             Grid.RowSpan="2"
             Grid.Column="0"
             Margin="32,10,10,10"
-            materialDesign:ShadowAssist.ShadowDepth="Depth2"
-            x:Name="HistoryTrip">
-            <StackPanel Margin="30,0"
-                        >
+            materialDesign:ShadowAssist.ShadowDepth="Depth2">
+            <StackPanel Margin="30,0">
                 <StackPanel>
                     <Label
                         Margin="0,12,0,0"
