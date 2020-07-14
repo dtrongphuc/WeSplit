@@ -294,6 +294,8 @@
                         <ColumnDefinition Width="3*" />
                         <ColumnDefinition Width="0.25*" />
                         <ColumnDefinition Width="3*" />
+                        <ColumnDefinition Width="0.25*" />
+                        <ColumnDefinition Width="1.6*" />
                     </Grid.ColumnDefinitions>
 
                     <StackPanel x:Name="MemberCount" Grid.Column="0">
@@ -308,6 +310,12 @@
                     </StackPanel>
                     <StackPanel x:Name="TelStack" Grid.Column="4">
                         <TextBox Style="{StaticResource TelBox}" />
+                    </StackPanel>
+                    <StackPanel
+                        x:Name="IsLeader"
+                        Grid.Column="6"
+                        VerticalAlignment="Center">
+                        <CheckBox Content="Trưởng nhóm" IsChecked="False" />
                     </StackPanel>
                 </Grid>
                 <Button

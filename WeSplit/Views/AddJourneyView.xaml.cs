@@ -60,6 +60,11 @@ namespace WeSplit.Views
             newTextbox_Ordinalnum.Text = (++_memberCount).ToString();
             newCountStack.Children.Add(newTextbox_Ordinalnum);
 
+            var newCheckBox = new CheckBox();
+            newCheckBox.Content = "Trưởng nhóm";
+            newCheckBox.IsChecked = false;
+            IsLeader.Children.Add(newCheckBox);
+
             MemberCount.Children.Add(newCountStack);
         }
 
@@ -122,12 +127,28 @@ namespace WeSplit.Views
             return list;
         }
 
+        private List<CheckBox> AllChildrenCheckBox(DependencyObject parent)
+        {
+            var list = new List<CheckBox> { };
+            for (int count = 0; count < VisualTreeHelper.GetChildrenCount(parent); count++)
+            {
+                var child = VisualTreeHelper.GetChild(parent, count);
+                if (child is TextBox)
+                {
+                    list.Add(child as CheckBox);
+                }
+                list.AddRange(AllChildrenCheckBox(child));
+            }
+            return list;
+        }
+
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
             List<TextBox> childrenOfMember = AllChildren(MemberNameStack);
             List<TextBox> childrenOfTel = AllChildren(TelStack);
             List<TextBox> childrenOfExpendituresName = AllChildren(ExpendituresNameStack);
             List<TextBox> childrenOfExpendituresMoney = AllChildren(ExpendituresMoneyStack);
+            List<CheckBox> childrenOfIsLeader = AllChildrenCheckBox(IsLeader);
 
             Trip trip = new Trip();
             Member member = new Member();
@@ -166,6 +187,14 @@ namespace WeSplit.Views
                     {
                         member.MemberName = childrenOfMember[i].Text;
                         member.Telephone = childrenOfTel[i].Text;
+                    }
+                }
+
+                for (int i = 0; i < childrenOfIsLeader.Count; i++)
+                {
+                    if(childrenOfIsLeader[i].IsChecked == true)
+                    {
+                        //member.Leader
                     }
                 }
 
