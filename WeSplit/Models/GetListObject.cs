@@ -27,8 +27,8 @@ namespace WeSplit.Models
             }
         }
 
-        private BindingList<Member> _ListMemberTrip { get; set; } = new BindingList<Member>();
-        public BindingList<Member> ListMemberTrip
+        private BindableCollection<Member> _ListMemberTrip { get; set; } = new BindableCollection<Member>();
+        public BindableCollection<Member> ListMemberTrip
         {
             get
             {
@@ -56,8 +56,8 @@ namespace WeSplit.Models
             }
         }
 
-        private BindingList<ReceiptsAndExpenses> _ListReceAndExpen { get; set; } = new BindingList<ReceiptsAndExpenses>();
-        public BindingList<ReceiptsAndExpenses> ListReceAndExpen
+        private BindableCollection<ReceiptsAndExpenses> _ListReceAndExpen { get; set; } = new BindableCollection<ReceiptsAndExpenses>();
+        public BindableCollection<ReceiptsAndExpenses> ListReceAndExpen
         {
             get
             {
@@ -126,7 +126,7 @@ namespace WeSplit.Models
             return _ListLocation;
         }
 
-        public BindingList<Member> Get_AllMemberTrip(string id)
+        public BindableCollection<Member> Get_AllMemberTrip(string id)
         {
             _ListMemberTrip.Clear();
             sql = $"SELECT * FROM THANHVIEN where MACD ={id}";
@@ -146,7 +146,7 @@ namespace WeSplit.Models
             return _ListMemberTrip;
         }
 
-        public BindingList<Member> Get_AllMember()
+        public BindableCollection<Member> Get_AllMember()
         {
             _ListMemberTrip.Clear();
             sql = $"SELECT * FROM THANHVIEN";
@@ -166,7 +166,7 @@ namespace WeSplit.Models
             return _ListMemberTrip;
         }
 
-        public BindingList<ReceiptsAndExpenses> Get_AllReceAndExpenTrip(string ID)
+        public BindableCollection<ReceiptsAndExpenses> Get_AllReceAndExpenTrip(string ID)
         {
             _ListReceAndExpen.Clear();
             sql = $"SELECT TC.*,TV.HOTEN FROM THUCHI AS TC JOIN THANHVIEN AS TV ON TC.MATV = TV.MATV AND TC.MACD = TV.MACD WHERE MACD ={ID} ";
