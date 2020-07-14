@@ -71,12 +71,12 @@ namespace WeSplit.ViewModels
             base.Refresh();
         }
 
-        public void ShowDetail()
+        public void ShowDetail(Trip tripSelected)
         {
             IsLocatedDetail = true;
             isLocatedDetail = IsLocatedDetail;
             var parentConductor = (Conductor<IScreen>.Collection.OneActive)(this.Parent);
-            parentConductor.ActivateItem(new DetailViewModel());
+            parentConductor.ActivateItem(new DetailViewModel(tripSelected));
         }
     }
 }

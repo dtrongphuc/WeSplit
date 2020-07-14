@@ -118,7 +118,7 @@
                                 <StackPanel>
                                     <DockPanel
                                         Height="80"
-                                        cal:Message.Attach="[Event MouseLeftButtonDown] = [ShowDetail]"
+                                        cal:Message.Attach="[Event MouseLeftButtonDown] = [ShowDetail($datacontext)]"
                                         Background="Transparent"
                                         Cursor="Hand"
                                         MouseLeftButtonDown="ShowDetail">
