@@ -324,13 +324,28 @@
                         Margin="0,20"
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Top"
+                        HorizontalContentAlignment="Center"
                         AutoGenerateColumns="False"
                         ItemsSource="{Binding MemberData}"
                         PreviewMouseWheel="ScrollViewer_PreviewMouseWheel"
                         ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding MemberName}" Header="Tên thành viên" />
-                            <DataGridTextColumn Binding="{Binding Telephone}" Header="Số điện thoại" />
+                            <DataGridTextColumn
+                                Binding="{Binding MemberName}"
+                                Header="Tên thành viên"
+                                IsReadOnly="True" />
+                            <DataGridTextColumn
+                                Binding="{Binding Telephone}"
+                                Header="Số điện thoại"
+                                IsReadOnly="True" />
+                            <DataGridTextColumn
+                                Binding="{Binding ExpensesName}"
+                                Header="Khoản chi"
+                                IsReadOnly="True" />
+                            <DataGridTextColumn
+                                Binding="{Binding Cost}"
+                                Header="Số tiền"
+                                IsReadOnly="True" />
                         </DataGrid.Columns>
                     </DataGrid>
                 </StackPanel>

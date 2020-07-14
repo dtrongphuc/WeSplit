@@ -18,7 +18,7 @@ namespace WeSplit.ViewModels
         public BindableCollection<ReceiptsAndExpenses> Expenditures { get; set; }
         public SeriesCollection ChartData { get; set; }
         public BindableCollection<Images> ImageCarousel { get; set; }
-        public BindableCollection<Member> MemberData { get; set; }
+        public BindableCollection<ReceiptsAndExpenses> MemberData { get; set; }
         GetListObject list = new GetListObject();
 
         public DetailViewModel(Trip trip)
@@ -48,7 +48,7 @@ namespace WeSplit.ViewModels
 
         public void GetListMemberData(string id)
         {
-            MemberData = list.Get_AllMemberTrip(id);
+            MemberData = list.Get_AllReceAndExpenTrip(id);
         }
     }
 }
