@@ -69,6 +69,20 @@ namespace WeSplit.Models
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ListReceAndExpen"));
             }
         }
+
+        private BindableCollection<Images> _ListImages { get; set; } = new BindableCollection<Images>();
+        public BindableCollection<Images> ListImages
+        {
+            get
+            {
+                return _ListImages;
+            }
+            set
+            {
+                _ListImages = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ListImages"));
+            }
+        }
         public event PropertyChangedEventHandler PropertyChanged;
 
 
@@ -184,7 +198,20 @@ namespace WeSplit.Models
             return _ListReceAndExpen;
         }
 
-
+        public BindableCollection<Images> Get_AllImagesTrip(string ID)
+        {
+            _ListImages.Clear();
+            sql=$"SELECT * FROM HINHANH WHERE MACD = {ID}";
+            DataTable dt = Connection.GetALL_Data(sql);
+            foreach(DataRow row in dt.Rows)
+            {
+                Images image = new Images();
+                image.TripID = row["MACD"].ToString();
+                image.Image = row["HINHANH"].ToString();
+                _ListImages.Add(image);
+            }
+            return _ListImages;
+        }
 
     }
 }
