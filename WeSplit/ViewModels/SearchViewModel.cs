@@ -9,6 +9,8 @@ namespace WeSplit.ViewModels
 {
     class SearchViewModel:Screen
     {
-        public SearchViewModel() { }
+        public SearchViewModel()
+        {
+        }
     }
 }

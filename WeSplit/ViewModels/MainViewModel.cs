@@ -41,6 +41,7 @@ namespace WeSplit.ViewModels
 
         public MainViewModel()
         {
+            DisplayName = "Trang chủ";
             WhoActived = "Home";
             ShowHistoryView();
             ShowWalkingView();
@@ -57,6 +58,7 @@ namespace WeSplit.ViewModels
             WhoActived = "Home";
             ShowHistoryView();
             ShowWalkingView();
+            DisplayName = "Trang chủ";
         }
 
         public void SearchClick()
@@ -64,6 +66,7 @@ namespace WeSplit.ViewModels
             WhoActived = "Search";
             CloseCurrentView();
             ActivateItem(new SearchViewModel());
+            DisplayName = "Tìm kiếm";
         }
 
         public void AddClick()
@@ -71,6 +74,7 @@ namespace WeSplit.ViewModels
             WhoActived = "Add";
             CloseCurrentView();
             ActivateItem(new AddJourneyViewModel());
+            DisplayName = "Tạo chuyến đi";
         }
 
         public void UpdateClick()
@@ -78,6 +82,7 @@ namespace WeSplit.ViewModels
             WhoActived = "Update";
             CloseCurrentView();
             ActivateItem(new UpdateJourneyViewModel());
+            DisplayName = "Cập nhật chuyến đi";
         }
 
         public void ShowHistoryView()

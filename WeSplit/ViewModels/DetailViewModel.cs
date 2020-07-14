@@ -10,7 +10,6 @@ namespace WeSplit.ViewModels
 {
     public class DetailViewModel:Screen
     {
-
         public DetailViewModel(Trip trip)
         {
 

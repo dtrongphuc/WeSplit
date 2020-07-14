@@ -9,6 +9,8 @@ namespace WeSplit.ViewModels
 {
     class AddJourneyViewModel:Screen
     {
-        public AddJourneyViewModel() { }
+        public AddJourneyViewModel() 
+        {
+        }
     }
 }

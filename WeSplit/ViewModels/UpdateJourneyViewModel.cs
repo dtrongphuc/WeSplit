@@ -9,6 +9,8 @@ namespace WeSplit.ViewModels
 {
     class UpdateJourneyViewModel:Screen
     {
-        public UpdateJourneyViewModel() { }
+        public UpdateJourneyViewModel() 
+        {
+        }
     }
 }
