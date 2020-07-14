@@ -18,6 +18,7 @@ namespace WeSplit.ViewModels
         public BindableCollection<ReceiptsAndExpenses> Expenditures { get; set; }
         public SeriesCollection ChartData { get; set; }
         public BindableCollection<Images> ImageCarousel { get; set; }
+        public BindableCollection<Member> MemberData { get; set; }
         GetListObject list = new GetListObject();
 
         public DetailViewModel(Trip trip)
@@ -42,6 +43,12 @@ namespace WeSplit.ViewModels
             }
             //hình ảnh của chuyển đi đó
             ImageCarousel = list.Get_AllImagesTrip(trip.TripID);
+            GetListMemberData(trip.TripID);
+        }
+
+        public void GetListMemberData(string id)
+        {
+            MemberData = list.Get_AllMemberTrip(id);
         }
     }
 }
