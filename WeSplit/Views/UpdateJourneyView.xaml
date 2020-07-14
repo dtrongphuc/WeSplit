@@ -208,6 +208,228 @@
             ScrollViewer.HorizontalScrollBarVisibility="Disabled"
             ScrollViewer.VerticalScrollBarVisibility="Auto">
             <StackPanel>
+                <TextBlock
+                    Margin="0,20,0,0"
+                    HorizontalAlignment="Center"
+                    FontSize="35"
+                    FontWeight="Bold"
+                    Text="Cập nhật chuyến đi" />
+                <TextBox
+                    x:Name="JourneyName"
+                    Margin="90,10,90,0"
+                    Style="{StaticResource TitleBox}" />
+                <Grid Margin="90,10,90,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*" />
+                        <ColumnDefinition Width="3*" />
+                        <ColumnDefinition Width="3*" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" Orientation="Horizontal">
+                        <TextBlock
+                            VerticalAlignment="Bottom"
+                            FontSize="20"
+                            Foreground="#000"
+                            Text="Ngày đi"
+                            TextAlignment="Center" />
+                        <DatePicker
+                            Name="StartDay"
+                            Width="140"
+                            Height="30"
+                            Margin="10,5,00,0"
+                            Padding="10,0,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Bottom"
+                            VerticalContentAlignment="Bottom"
+                            FontSize="16"
+                            Foreground="#000" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Orientation="Horizontal">
+                        <TextBlock
+                            VerticalAlignment="Bottom"
+                            FontSize="20"
+                            Foreground="#000"
+                            Text="Ngày về"
+                            TextAlignment="Center" />
+                        <DatePicker
+                            Name="EndDay"
+                            Width="140"
+                            Height="30"
+                            Margin="10,5,00,0"
+                            Padding="10,0,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Bottom"
+                            VerticalContentAlignment="Bottom"
+                            FontSize="16" />
+                    </StackPanel>
+                    <DockPanel
+                        Grid.Column="2"
+                        Margin="50,0,0,0"
+                        LastChildFill="True">
+                        <TextBlock
+                            Margin="0,5,0,0"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Bottom"
+                            FontSize="20"
+                            Text="Số KM"
+                            TextAlignment="Center" />
+                        <TextBox
+                            x:Name="Kilometer"
+                            Height="44"
+                            Margin="20,5,0,0"
+                            materialDesign:HintAssist.Hint="Km"
+                            FontSize="14"
+                            Style="{StaticResource CommonBox}" />
+                    </DockPanel>
+                </Grid>
+                <Grid x:Name="Members" Margin="90,30,90,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="4*" />
+                        <ColumnDefinition Width="0.5*" />
+                        <ColumnDefinition Width="4*" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel x:Name="MemberNameStack" Grid.Column="0">
+                        <TextBox Style="{StaticResource MemberNameBox}" />
+                    </StackPanel>
+                    <StackPanel x:Name="TelStack" Grid.Column="2">
+                        <TextBox Style="{StaticResource TelBox}" />
+                    </StackPanel>
+                </Grid>
+                <Button
+                    Width="240"
+                    Height="44"
+                    Margin="90,20,90,0"
+                    HorizontalAlignment="Left"
+                    Background="#d6e1ff"
+                    BorderThickness="0"
+                    Click="BtnAddListInfoUser_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Width="25" Source="/Resource/Icons/add.png" />
+                        <TextBlock
+                            Padding="15,0,0,0"
+                            FontSize="18"
+                            Foreground="Black"
+                            Text="Thêm thành viên" />
+                    </StackPanel>
+                </Button>
+                <StackPanel
+                    Margin="90,20,90,0"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal">
+                    <Image
+                        Width="24"
+                        Height="24"
+                        Margin="0,0,8,0"
+                        VerticalAlignment="Center"
+                        Source="/Resource/Icons/edit.png" />
+                    <TextBlock
+                        HorizontalAlignment="Left"
+                        FontSize="20"
+                        FontWeight="DemiBold"
+                        Text="Cập nhật khoản thu chi" />
+                </StackPanel>
+                <Grid x:Name="Expenditures" Margin="90,10,90,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="6*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="3*" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel x:Name="ExpendituresNameStack" Grid.Column="0">
+                        <TextBox Style="{StaticResource ExpendituresName}" />
+                    </StackPanel>
+                    <StackPanel x:Name="ExpendituresMoneyStack" Grid.Column="2">
+                        <TextBox Style="{StaticResource MoneyBox}" />
+                    </StackPanel>
+                </Grid>
+                <Button
+                    Width="240"
+                    Height="44"
+                    Margin="90,20,90,0"
+                    HorizontalAlignment="Left"
+                    Background="#d6e1ff"
+                    BorderThickness="0"
+                    Click="BtnAddInfoExpenses_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Width="25" Source="/Resource/Icons/add.png" />
+                        <TextBlock
+                            Padding="15,0,0,0"
+                            FontSize="18"
+                            Foreground="Black"
+                            Text="Thêm khoản chi" />
+                    </StackPanel>
+                </Button>
+                <StackPanel
+                    Margin="90,20,90,0"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal">
+                    <Image
+                        Width="24"
+                        Height="24"
+                        Margin="0,0,8,0"
+                        VerticalAlignment="Center"
+                        Source="/Resource/Icons/edit.png" />
+                    <TextBlock
+                        HorizontalAlignment="Left"
+                        FontSize="20"
+                        FontWeight="DemiBold"
+                        Text="Thành viên ứng trước" />
+                </StackPanel>
+                <Grid Margin="90,20,90,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="4*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="4*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100" />
+                        <RowDefinition Height="100" />
+                    </Grid.RowDefinitions>
+                    <ComboBox
+                        x:Name="MemberComboBox"
+                        Grid.Row="0"
+                        Height="60"
+                        materialDesign:HintAssist.Hint="Thành viên"
+                        Background="#333E50"
+                        FontSize="16"
+                        Foreground="#fff"
+                        Style="{StaticResource MaterialDesignFilledComboBox}">
+                        <ComboBoxItem Content="Thành viên 1" Foreground="#000" />
+                        <ComboBoxItem Content="Thành viên 2" Foreground="#000" />
+                        <ComboBoxItem Content="Thành viên 3" Foreground="#000" />
+                    </ComboBox>
+                    <TextBox
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        Style="{StaticResource ExpendituresName}" />
+                    <TextBox
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Style="{StaticResource MoneyBox}" />
+                    <Button
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        Width="120"
+                        Height="60"
+                        HorizontalAlignment="Left"
+                        Background="#333E50"
+                        BorderThickness="0"
+                        Content="OK" />
+                </Grid>
+                <StackPanel
+                    Margin="90,20,90,0"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal">
+                    <Image
+                        Width="24"
+                        Height="24"
+                        Margin="0,0,8,0"
+                        VerticalAlignment="Center"
+                        Source="/Resource/Icons/edit.png" />
+                    <TextBlock
+                        HorizontalAlignment="Left"
+                        FontSize="20"
+                        FontWeight="DemiBold"
+                        Text="Lộ trình" />
+                </StackPanel>
                 <Grid Margin="90,20,90,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="4*" />
