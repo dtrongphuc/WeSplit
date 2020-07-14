@@ -202,9 +202,9 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Margin="0,6" Orientation="Horizontal">
-                                    <TextBlock FontSize="16" Text="1" />
+                                    <TextBlock FontSize="16" Text="{Binding Number}" />
                                     <TextBlock FontSize="16" Text=". " />
-                                    <TextBlock FontSize="16" Text="Nha Trang" />
+                                    <TextBlock FontSize="16" Text="{Binding LocationName}" />
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -255,24 +255,26 @@
             Grid.RowSpan="2"
             Grid.Column="0"
             Margin="32,10,10,10"
-            materialDesign:ShadowAssist.ShadowDepth="Depth2">
-            <StackPanel Margin="30,0">
+            materialDesign:ShadowAssist.ShadowDepth="Depth2"
+            x:Name="HistoryTrip">
+            <StackPanel Margin="30,0"
+                        >
                 <StackPanel>
                     <Label
                         Margin="0,12,0,0"
                         HorizontalContentAlignment="Left"
-                        Content="Tên chuyến đi"
+                        Content="{Binding Path=HistoryTrip.MemberName}"
                         FontSize="26"
                         FontWeight="DemiBold" />
                     <StackPanel Margin="4,12,0,12" Orientation="Horizontal">
                         <TextBlock Text="Ngày đi: " />
-                        <TextBlock Text="09/07/2020" />
+                        <TextBlock Text="{Binding Path=HistoryTrip.StartDate}" />
                         <Border
                             Margin="20,0"
                             BorderBrush="#FF787878"
                             BorderThickness="0,0,0.5,0" />
-                        <TextBlock Text="Ngày đến: " />
-                        <TextBlock Text="09/07/2020" />
+                        <TextBlock Text="Ngày Kết Thúc: " />
+                        <TextBlock Text="{Binding Path=HistoryTrip.EndDate}" />
                     </StackPanel>
                 </StackPanel>
                 <!--<DockPanel Margin="24,30,24,0" HorizontalAlignment="Center">

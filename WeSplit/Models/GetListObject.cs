@@ -41,8 +41,8 @@ namespace WeSplit.Models
             }
         }
 
-        private BindingList<Location> _ListLocation { get; set; } = new BindingList<Location>();
-        public BindingList<Location> ListLocation
+        private BindableCollection<Location> _ListLocation { get; set; } = new BindableCollection<Location>();
+        public BindableCollection<Location> ListLocation
         {
             get
             {
@@ -92,7 +92,7 @@ namespace WeSplit.Models
             return ListTripWasGone;
         }
 
-        public BindingList<Location> Get_AllLocationTrip(string id)
+        public BindableCollection<Location> Get_AllLocationTrip(string id)
         {
             _ListLocation.Clear();
             sql = $"SELECT * FROM DIADIEM WHERE MACD = {id}";
@@ -109,7 +109,7 @@ namespace WeSplit.Models
             return _ListLocation;
         }
 
-        public  BindingList<Location> Get_AllLocation()
+        public BindableCollection<Location> Get_AllLocation()
         {
             _ListLocation.Clear();
             sql = $"SELECT * FROM DIADIEM";

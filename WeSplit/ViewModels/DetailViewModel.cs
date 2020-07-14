@@ -10,9 +10,14 @@ namespace WeSplit.ViewModels
 {
     public class DetailViewModel:Screen
     {
+        public Trip HistoryTrip { get; set; }
+        public BindableCollection<Location> Place { get; set; }
+        GetListObject list = new GetListObject();
         public DetailViewModel(Trip trip)
         {
-
+           
+            HistoryTrip = trip;
+            Place = list.Get_AllLocationTrip(trip.TripID);
         }
     }
 }
