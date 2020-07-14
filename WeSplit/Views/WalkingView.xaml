@@ -40,6 +40,7 @@
                     <ColumnDefinition Width="0.5*" />
                 </Grid.ColumnDefinitions>
                 <StackPanel
+                   
                     Grid.Column="0"
                     Margin="30,0,0,0"
                     VerticalAlignment="Center">
@@ -47,10 +48,9 @@
                         <TextBlock
                             FontSize="14"
                             Foreground="#555a64"
-                            Text="{Binding Path=JourneyInfo.StartDate}" />
+                            Text="{Binding NGAYDI}" />
                     </StackPanel>
                     <TextBlock
-                        x:Name="TripName"
                         Height="160"
                         Margin="0,16,0,0"
                         FontFamily="{StaticResource Nunito}"

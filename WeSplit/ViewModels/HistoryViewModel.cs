@@ -18,6 +18,8 @@ namespace WeSplit.ViewModels
         private int _canvasheight = 520;
         private bool _isLocatedDetail = false;
 
+        GetListObject list = new GetListObject();
+
         public BindableCollection<Trip> JourneyHistory { get; set; }
 
         public int HistoryWidth
@@ -58,12 +60,7 @@ namespace WeSplit.ViewModels
 
         public HistoryViewModel()
         {
-            JourneyHistory = new BindableCollection<Trip>
-            {
-                new Trip { TripName = "Tên chuyến đi 1" },
-                new Trip { TripName = "Tên chuyến đi 2" },
-                new Trip { TripName = "Tên chuyến đi 3" },
-            };
+            JourneyHistory = list.Get_AllTripWasGone();
         }
 
         public override void Refresh()

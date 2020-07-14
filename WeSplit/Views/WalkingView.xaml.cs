@@ -25,11 +25,5 @@ namespace WeSplit.Views
         {
             InitializeComponent();
         }
-
-        //private void UserControl_Initialized(object sender, EventArgs e)
-        //{
-        //    Trip a = new Trip { TripName = "sdaaaaaaaaaa" };
-        //    JourneyInfo.DataContext = a;
-        //}
     }
 }

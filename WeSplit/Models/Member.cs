@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace WeSplit.Models
 {
-    class Member : INotifyPropertyChanged
+    public class Member : INotifyPropertyChanged
     {
         private string _TripID;
         public string TripID

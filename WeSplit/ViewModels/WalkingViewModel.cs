@@ -14,10 +14,9 @@ namespace WeSplit.ViewModels
 
         public WalkingViewModel()
         {
-            JourneyInfo = new Trip
-            {
-                TripName = "Test"
-            };
+
+            JourneyInfo = new Trip();
+           JourneyInfo.TripIsGoing();
         }
     }
 }

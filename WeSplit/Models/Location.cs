@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WeSplit.Models
 {
-    class Location : INotifyPropertyChanged
+    public class Location : INotifyPropertyChanged
     {
         private string _LocationID;
         public string LocationID
