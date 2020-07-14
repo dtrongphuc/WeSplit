@@ -248,7 +248,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resource\Images\trip.jpg" />
+    <None Include="Resource\Images\trip.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resource\Icons\arrow.png" />
@@ -257,13 +259,17 @@
     <Resource Include="Resource\Icons\right-chevron.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resource\Images\test.jpg" />
+    <None Include="Resource\Images\test.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resource\Icons\user.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resource\Images\SlashScreenAvatar.jpg" />
+    <None Include="Resource\Images\SlashScreenAvatar.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resource\Icons\icon.ico" />
@@ -275,7 +281,9 @@
     <Resource Include="Resource\Icons\team.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resource\Images\dulichvietnam.jpg" />
+    <None Include="Resource\Images\dulichvietnam.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resource\Icons\kilometer.png" />
@@ -288,31 +296,77 @@
     <Resource Include="Resource\Icons\add.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resource\Images\Background.jpg" />
-    <Resource Include="Resource\Images\AddBackground.jpg" />
+    <None Include="Resource\Images\Background.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resource\Images\AddBackground.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <Resource Include="Resource\Icons\edit.png" />
     <Resource Include="Resource\Icons\add_2.png" />
-    <Resource Include="Resource\Images\1_1.png" />
-    <Resource Include="Resource\Images\1_2.jpg" />
-    <Resource Include="Resource\Images\1_3.jpg" />
-    <Resource Include="Resource\Images\1_4.jpg" />
-    <Resource Include="Resource\Images\1_5.jpg" />
-    <Resource Include="Resource\Images\1_6.jpg" />
-    <Resource Include="Resource\Images\1_7.jpg" />
-    <Resource Include="Resource\Images\1_8.jpg" />
-    <Resource Include="Resource\Images\1_9.jpg" />
-    <Resource Include="Resource\Images\1_10.jpg" />
-    <Resource Include="Resource\Images\2_1.jpg" />
-    <Resource Include="Resource\Images\2_10.jpg" />
-    <Resource Include="Resource\Images\2_11.jpg" />
-    <Resource Include="Resource\Images\2_2.jpg" />
-    <Resource Include="Resource\Images\2_3.jpg" />
-    <Resource Include="Resource\Images\2_4.jpg" />
-    <Resource Include="Resource\Images\2_5.jpg" />
-    <Resource Include="Resource\Images\2_6.jpg" />
-    <Resource Include="Resource\Images\2_7.jpg" />
-    <Resource Include="Resource\Images\2_8.jpg" />
-    <Resource Include="Resource\Images\2_9.jpg" />
+    <None Include="Resource\Images\1_1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resource\Images\1_2.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resource\Images\1_3.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resource\Images\1_4.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resource\Images\1_5.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resource\Images\1_6.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resource\Images\1_7.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resource\Images\1_8.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resource\Images\1_9.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resource\Images\1_10.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resource\Images\2_1.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resource\Images\2_10.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resource\Images\2_11.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resource\Images\2_2.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resource\Images\2_3.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resource\Images\2_4.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resource\Images\2_5.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resource\Images\2_6.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resource\Images\2_7.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resource\Images\2_8.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resource\Images\2_9.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <Content Include="SQL\QLChuyenDi.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

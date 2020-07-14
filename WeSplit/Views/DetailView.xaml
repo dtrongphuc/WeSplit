@@ -247,7 +247,7 @@
                         FontSize="26"
                         FontWeight="DemiBold" />
                     <StackPanel Margin="4,12,0,12" Orientation="Horizontal">
-                        <TextBlock Text="Ngày đi: " />
+                        <TextBlock Text="Ngày Bắt Đầu: " />
                         <TextBlock Text="{Binding Path=HistoryTrip.StartDate}" />
                         <Border
                             Margin="20,0"
@@ -257,7 +257,7 @@
                         <TextBlock Text="{Binding Path=HistoryTrip.EndDate}" />
                     </StackPanel>
                 </StackPanel>
-                <!--<DockPanel Margin="24,30,24,0" HorizontalAlignment="Center">
+                <DockPanel Margin="24,30,24,0" HorizontalAlignment="Center">
                     <Button
                         Margin="0,0,-58,0"
                         Panel.ZIndex="10"
@@ -296,7 +296,7 @@
                                     BorderThickness="0.5">
                                     <Border.Background>
                                         <ImageBrush
-                                            ImageSource="/Resource/Images/test.jpg"
+                                            ImageSource="{Binding Image, Converter={StaticResource pathConverter}}"
                                             RenderOptions.BitmapScalingMode="HighQuality"
                                             Stretch="Fill" />
                                     </Border.Background>
@@ -313,7 +313,7 @@
                         Style="{StaticResource MaterialDesignIconForegroundButton}">
                         <materialDesign:PackIcon Kind="ChevronRight" />
                     </Button>
-                </DockPanel>-->
+                </DockPanel>
                 <DataGrid
                     x:Name="MemberDataGrid"
                     Grid.Column="0"

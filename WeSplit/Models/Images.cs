@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WeSplit.Models
 {
-    class Images : INotifyPropertyChanged
+    public class Images : INotifyPropertyChanged
     {
         private string _TripID;
         public string TripID

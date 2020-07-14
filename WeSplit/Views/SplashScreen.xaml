@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WeSplit.Views"
         mc:Ignorable="d"
         Title="SplashScreen" Height="288.03" Width="475.34" 
-        
+        Loaded="Window_Loaded"
         WindowStartupLocation="CenterScreen">
     <Grid>
         <Border>
