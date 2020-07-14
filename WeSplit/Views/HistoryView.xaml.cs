@@ -72,12 +72,6 @@ namespace WeSplit.Views
             }
         }
 
-        //public static void ResetStoryboard(double unit)
-        //{
-        //    animation.To = unit;
-        //    storyboard.Begin();
-        //}
-
         private void ShowDetail(object sender, MouseButtonEventArgs e)
         {
             BtnHide.Visibility = Visibility.Visible;

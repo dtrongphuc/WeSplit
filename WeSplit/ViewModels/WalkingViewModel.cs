@@ -10,15 +10,14 @@ namespace WeSplit.ViewModels
 {
     public class WalkingViewModel:Screen
     {
-        public BindableCollection<Trip> JourneyInfo { get; set; }
+        public Trip JourneyInfo { get; set; }
+
         public WalkingViewModel()
         {
-            JourneyInfo = new BindableCollection<Trip>
+            JourneyInfo = new Trip
             {
-                new Trip {TripName = "test" }
+                TripName = "Test"
             };
-            // tripisgoing tra ve 1 mang
         }
     }
-
 }

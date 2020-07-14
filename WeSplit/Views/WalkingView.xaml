@@ -16,7 +16,6 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="60" />
@@ -32,7 +31,10 @@
                     FontWeight="DemiBold" />
                 <Separator Margin="10,0" Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
             </StackPanel>
-            <Grid Grid.Row="1" ClipToBounds="True">
+            <Grid
+                x:Name="JourneyInfo"
+                Grid.Row="1"
+                ClipToBounds="True">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="0.5*" />
                     <ColumnDefinition Width="0.5*" />
@@ -46,7 +48,7 @@
                         <TextBlock
                             FontSize="14"
                             Foreground="#555a64"
-                            Text="{Binding StartDate}" />
+                            Text="{Binding NGAYDI}" />
                     </StackPanel>
                     <TextBlock
                         Height="160"
@@ -55,7 +57,7 @@
                         FontSize="26"
                         FontWeight="DemiBold"
                         Foreground="#2C3038"
-                        Text="{Binding TripName}"
+                        Text="{Binding Path=JourneyInfo.TripName}"
                         TextTrimming="CharacterEllipsis"
                         TextWrapping="Wrap" />
                     <StackPanel Margin="0,12,0,0" Orientation="Horizontal">
@@ -68,7 +70,7 @@
                             VerticalAlignment="Center"
                             FontSize="15"
                             Foreground="#2c3038"
-                            Text="{Binding MemberName}" />
+                            Text="{Binding Path=JourneyInfo.MemberName}" />
                     </StackPanel>
                 </StackPanel>
                 <Border

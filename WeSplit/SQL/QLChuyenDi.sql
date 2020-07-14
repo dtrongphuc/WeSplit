@@ -1,7 +1,7 @@
 ﻿CREATE TABLE CHUYENDI
 (
 	MACD INT NOT NULL  IDENTITY,
-	TENCD NVARCHAR(50),
+	TENCD NVARCHAR(100),
 	TRANGTHAI BIT,
 	NGAYDI DATE,
 	NGAYKT DATE,
@@ -64,6 +64,7 @@ ALTER TABLE THUCHI ADD CONSTRAINT FK_THUCHI_CHUYENDI FOREIGN KEY (MACD) REFERENC
 
 ALTER TABLE THUCHI ADD CONSTRAINT FK_THUCHI_THANHVIEN FOREIGN KEY (MATV,MACD) REFERENCES THANHVIEN(MATV,MACD)
 
+--ALTER TABLE CHUYENDI ALTER COLUMN TENCD NVARCHAR(100)
 drop table THUCHI
 ALTER TABLE THUCHI DROP CONSTRAINT FK_THUCHI_CHUYENDI
 
@@ -72,6 +73,9 @@ INSERT INTO CHUYENDI
 VALUES
 (
 	N'Trong lòng Huế - Những ngày trước cách ly', 0, '02/24/2020', '02/28/2020', 930
+),
+(
+	N'Một cung đường tuyệt đẹp VĨNH HY - KHÁNH SƠN - TÀ GỤ', 1, '07/13/2020', NULL, 834
 )
 GO
 
@@ -93,6 +97,26 @@ VALUES
 	1, N'Phan Mạnh Thắng',
 	N'Ở Huế cần lưu ý một việc, người dân Huế ăn uống rất sớm nên các bạn muốn ăn ngon phải theo giờ ăn của người dân ở đây mới ăn ngon được.',
 	'0755514431',1
+),
+(
+	2, N'Vĩnh Nguyên Khang', '', '0955587770', 0
+),
+(
+	2, N'Bùi Ðức Cường', '', '0355549118', 0
+),
+(
+	2, N'Lý Gia Bình',
+	N'Mọi người đang đổ xô lên Đà Lạt , riêng nhóm mình cứ thẳng hướng Phan Thiết thôi ! Chào mọi người nhé .. Ha... ha , vậy mình đã may mắn khi lựa chọn quốc lộ 1A ...'
+	, '0355549118', 1
+),
+(
+	2, N'Lê Bảo Toàn', '', '0906559365', 0
+),
+(
+	2, N'Kiều Ý Lan', '0755594992', '0906559365', 0
+),
+(
+	2, N'Trần Hà Mi', '0355560855', '0355533264', 0
 )
 GO
 
@@ -110,6 +134,15 @@ VALUES
 ),
 (
 	1, 4, N'Lăng Minh Mạng'
+),
+(
+	2, 1, N'Vĩnh Hy'
+),
+(
+	2, 2, N'Khánh Sơn'
+),
+(
+	2, 3, N'Tà Gụ'
 )
 GO
 
@@ -125,7 +158,17 @@ VALUES
 ( 1, '/Resource/Images/1_7.jpg' ),
 ( 1, '/Resource/Images/1_8.jpg' ),
 ( 1, '/Resource/Images/1_9.jpg' ),
-( 1, '/Resource/Images/1_10.png' )
+( 1, '/Resource/Images/1_10.png' ),
+( 2, '/Resource/Images/2_1.png' ),
+( 2, '/Resource/Images/2_2.jpg' ),
+( 2, '/Resource/Images/2_3.jpg' ),
+( 2, '/Resource/Images/2_4.jpg' ),
+( 2, '/Resource/Images/2_5.jpg' ),
+( 2, '/Resource/Images/2_6.jpg' ),
+( 2, '/Resource/Images/2_7.jpg' ),
+( 2, '/Resource/Images/2_8.jpg' ),
+( 2, '/Resource/Images/2_9.jpg' ),
+( 2, '/Resource/Images/2_10.png' )
 GO
 
 -- THU CHI
@@ -145,5 +188,11 @@ VALUES
 ),
 (
 	4, 1, N'Thuê Homestay', 2000000
-)
+),
+(7, 2, N'Áo mưa', 400000),
+(7, 2, N'Ăn sáng', 320000),
+(7, 2, N'Ăn trưa', 480000),
+(7, 2, N'Ăn tối', 270000),
+(3, 2, N'Uống cafe', 300000),
+(6, 2, N'Thuê xe', 240000)
 GO
