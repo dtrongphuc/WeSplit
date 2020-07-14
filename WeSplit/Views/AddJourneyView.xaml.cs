@@ -127,10 +127,10 @@ namespace WeSplit.Views
             List<TextBox> childrenOfTel = AllChildren(TelStack);
             List<TextBox> childrenOfExpendituresName = AllChildren(ExpendituresNameStack);
             List<TextBox> childrenOfExpendituresMoney = AllChildren(ExpendituresMoneyStack);
-            
+
             //kiểm tra đã nhập đầy đủ thông tin 
             if (ConditionCheck(childrenOfMember, childrenOfTel, childrenOfExpendituresName, childrenOfExpendituresMoney))
-            {     
+            {
                 //tên chuyến đi
                 if (JourneyName.Text.Trim() != "")
                 {
@@ -159,45 +159,24 @@ namespace WeSplit.Views
                     //sp.NguyenLieu += element.Text + "\\n";
                 }
 
-                //danh sách tên thành viên
-                foreach (var element in childrenOfMember)
+                //danh sách tên và số điện thoại thành viên
+                for (int i = 0; i < childrenOfMember.Count; i++)
                 {
-                    if (element.Text.Trim() != "")
+                    if (childrenOfMember[i].Text.Trim() != "" && childrenOfTel[i].Text.Trim() != "")
                     {
-                        //them vào chuyến đi 
-                        //sp.NguyenLieu += element.Text + "\\n";
+                       
                     }
                 }
 
-                //danh sách số điện thoại thành viên
-                foreach (var element in childrenOfTel)
+                //danh sach tên và số tiền khoản chi 
+                for (int i = 0; i < childrenOfExpendituresMoney.Count; i++)
                 {
-                    if (element.Text.Trim() != "")
+                    if (childrenOfExpendituresMoney[i].Text.Trim() != "" && childrenOfExpendituresName[i].Text.Trim() != "")
                     {
-                        //them vào chuyến đi 
-                        //sp.NguyenLieu += element.Text + "\\n";
+                       
                     }
                 }
 
-                //danh sach ten khoản chi
-                foreach (var element in childrenOfExpendituresName)
-                {
-                    if (element.Text.Trim() != "")
-                    {
-                        //them vào chuyến đi 
-                        //sp.NguyenLieu += element.Text + "\\n";
-                    }
-                }
-
-                //danh sach số tiền khoản chi
-                foreach (var element in childrenOfExpendituresMoney)
-                {
-                    if (element.Text.Trim() != "")
-                    {
-                        //them vào chuyến đi 
-                        //sp.NguyenLieu += element.Text + "\\n";
-                    }
-                }
             }
         }
     }
