@@ -243,7 +243,7 @@
                     <Label
                         Margin="0,12,0,0"
                         HorizontalContentAlignment="Left"
-                        Content="{Binding Path=HistoryTrip.MemberName}"
+                        Content="{Binding Path=HistoryTrip.TripName}"
                         FontSize="26"
                         FontWeight="DemiBold" />
                     <StackPanel Margin="4,12,0,12" Orientation="Horizontal">
