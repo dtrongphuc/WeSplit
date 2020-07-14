@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WeSplit.Models;
 
 namespace WeSplit.Views
 {
@@ -128,35 +129,34 @@ namespace WeSplit.Views
             List<TextBox> childrenOfExpendituresName = AllChildren(ExpendituresNameStack);
             List<TextBox> childrenOfExpendituresMoney = AllChildren(ExpendituresMoneyStack);
 
+            Trip trip = new Trip();
+            Member member = new Member();
+            ReceiptsAndExpenses receandexpen = new ReceiptsAndExpenses();
             //kiểm tra đã nhập đầy đủ thông tin 
             if (ConditionCheck(childrenOfMember, childrenOfTel, childrenOfExpendituresName, childrenOfExpendituresMoney))
             {
                 //tên chuyến đi
                 if (JourneyName.Text.Trim() != "")
                 {
-                    //them vào chuyến đi 
-                    //sp.NguyenLieu += element.Text + "\\n";
+                    trip.TripName = JourneyName.Text;
                 }
 
                 //số km
                 if (Kilometer.Text.Trim() != "")
                 {
-                    //them vào chuyến đi 
-                    //sp.NguyenLieu += element.Text + "\\n";
+                    trip.Lenght = Kilometer.Text;
                 }
 
                 //ngày đi
                 if (StartDay.Text.Trim() != "")
                 {
-                    //them vào chuyến đi 
-                    //sp.NguyenLieu += element.Text + "\\n";
+                    trip.StartDate = StartDay.Text;
                 }
 
                 //ngày về
                 if (EndDay.Text.Trim() != "")
                 {
-                    //them vào chuyến đi 
-                    //sp.NguyenLieu += element.Text + "\\n";
+                    trip.EndDate = EndDay.Text;
                 }
 
                 //danh sách tên và số điện thoại thành viên
@@ -164,7 +164,8 @@ namespace WeSplit.Views
                 {
                     if (childrenOfMember[i].Text.Trim() != "" && childrenOfTel[i].Text.Trim() != "")
                     {
-                       
+                        member.MemberName = childrenOfMember[i].Text;
+                        member.Telephone = childrenOfTel[i].Text;
                     }
                 }
 
@@ -173,7 +174,8 @@ namespace WeSplit.Views
                 {
                     if (childrenOfExpendituresMoney[i].Text.Trim() != "" && childrenOfExpendituresName[i].Text.Trim() != "")
                     {
-                       
+                        receandexpen.ExpensesName = childrenOfExpendituresMoney[i].Text;
+                        receandexpen.Cost = childrenOfExpendituresName[i].Text;
                     }
                 }
 

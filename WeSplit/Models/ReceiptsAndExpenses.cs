@@ -63,6 +63,17 @@ namespace WeSplit.Models
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("MemberName"));
             }
         }
+
+        private string _telephone;
+        public string Telephone
+        {
+            get { return _telephone; }
+            set
+            {
+                _telephone = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Telephone"));
+            }
+        }
         public event PropertyChangedEventHandler PropertyChanged;
 
         public ReceiptsAndExpenses()
@@ -70,8 +81,9 @@ namespace WeSplit.Models
             this._Cost = "";
             this._TripID = "";
             this._ExpensesName = "";
-            this.MemberName = "";
-            this.MemberID = "";
+            this._MemberName = "";
+            this._MemberID = "";
+            this._telephone = "";
         }
 
         string sql;
