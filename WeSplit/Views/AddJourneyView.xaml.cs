@@ -28,7 +28,7 @@ namespace WeSplit.Views
         }
 
         //tăng số thứ tự
-        private int _memberCount = 1; 
+        private int _memberCount = 1;
         private int _expenseCount = 1;
         private void BtnAddListInfoUser_Click(object sender, RoutedEventArgs e)
         {
@@ -118,7 +118,36 @@ namespace WeSplit.Views
             //FileInfo info = null;
             //var folderfile = AppDomain.CurrentDomain.BaseDirectory;
             //var newname = "";
-            
+
+
+            //tên chuyến đi
+            if (JourneyName.Text.Trim() != "")
+            {
+                //them vào chuyến đi 
+                //sp.NguyenLieu += element.Text + "\\n";
+            }
+
+            //số km
+            if (Kilometer.Text.Trim() != "")
+            {
+                //them vào chuyến đi 
+                //sp.NguyenLieu += element.Text + "\\n";
+            }
+
+            //ngày đi
+            if (StartDay.Text.Trim() != "")
+            {
+                //them vào chuyến đi 
+                //sp.NguyenLieu += element.Text + "\\n";
+            }
+
+            //ngày về
+            if (EndDay.Text.Trim() != "")
+            {
+                //them vào chuyến đi 
+                //sp.NguyenLieu += element.Text + "\\n";
+            }
+
             //danh sách tên thành viên
             foreach (var element in childrenOfMember)
             {
@@ -138,7 +167,7 @@ namespace WeSplit.Views
                     //sp.NguyenLieu += element.Text + "\\n";
                 }
             }
-            
+
             //danh sach ten khoản chi
             foreach (var element in childrenOfExpendituresName)
             {
