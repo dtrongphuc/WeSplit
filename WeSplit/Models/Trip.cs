@@ -122,15 +122,14 @@ namespace WeSplit.Models
             DataTable dt = Connection.GetALL_Data(sql);
             foreach (DataRow row in dt.Rows)
             {
-                Trip trip = new Trip();
-                trip.TripID = row["MACD"].ToString();
-                trip.TripName = row["TENCD"].ToString();
-                trip.Status = (int)row["TRANGTHAI"];
-                trip.Lenght = row["DODAI"].ToString();
-                trip.StartDate = row["NGAYDI"].ToString();
-                trip.EndDate = row["NGAYKT"].ToString();
-                trip.MemberName = row["HOTEN"].ToString();
-
+               
+                this.TripID = row["MACD"].ToString();
+                this.TripName = row["TENCD"].ToString();
+                this.Status = (int)row["TRANGTHAI"];
+                this.Lenght = row["DODAI"].ToString();
+                this.StartDate = row["NGAYDI"].ToString();
+                this.EndDate = row["NGAYKT"].ToString();
+                this.MemberName = row["HOTEN"].ToString();  // phai dat la leadername chu, hiện tại lấy tên thụi có hàm tìm leader riêng
             }
         }
     }

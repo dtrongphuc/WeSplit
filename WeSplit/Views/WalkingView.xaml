@@ -10,8 +10,7 @@
     xmlns:sys="clr-namespace:System;assembly=mscorlib"
     d:DesignHeight="520"
     d:DesignWidth="886"
-    mc:Ignorable="d"
-    Loaded="WalkingView_Loaded">
+    mc:Ignorable="d">
     <Grid Background="#F9F9FF">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -39,6 +38,7 @@
                     <ColumnDefinition Width="0.5*" />
                 </Grid.ColumnDefinitions>
                 <StackPanel
+                    x:Name="JourneyInfo"
                     Grid.Column="0"
                     Margin="30,0,0,0"
                     VerticalAlignment="Center">
@@ -46,7 +46,7 @@
                         <TextBlock
                             FontSize="14"
                             Foreground="#555a64"
-                            Text="{Binding NGAYDI}" />
+                            Text="{Binding StartDate}" />
                     </StackPanel>
                     <TextBlock
                         Height="160"
@@ -55,7 +55,7 @@
                         FontSize="26"
                         FontWeight="DemiBold"
                         Foreground="#2C3038"
-                        Text="{Binding TENCD}"
+                        Text="{Binding TripName}"
                         TextTrimming="CharacterEllipsis"
                         TextWrapping="Wrap" />
                     <StackPanel Margin="0,12,0,0" Orientation="Horizontal">
@@ -68,7 +68,7 @@
                             VerticalAlignment="Center"
                             FontSize="15"
                             Foreground="#2c3038"
-                            Text="{Binding HOTEN}" />
+                            Text="{Binding MemberName}" />
                     </StackPanel>
                 </StackPanel>
                 <Border

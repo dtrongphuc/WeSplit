@@ -25,14 +25,5 @@ namespace WeSplit.Views
         {
             InitializeComponent();
         }
-
-       
-
-        private void WalkingView_Loaded(object sender, RoutedEventArgs e)
-        {
-            Trip trip = new Trip();
-            trip.TripIsGoing();
-            this.Content = trip;
-        }
     }
 }
