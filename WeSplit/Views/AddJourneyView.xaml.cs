@@ -93,5 +93,72 @@ namespace WeSplit.Views
 
             ExpendituresCount.Children.Add(newCountStack);
         }
+
+        private List<TextBox> AllChildren(DependencyObject parent)
+        {
+            var list = new List<TextBox> { };
+            for (int count = 0; count < VisualTreeHelper.GetChildrenCount(parent); count++)
+            {
+                var child = VisualTreeHelper.GetChild(parent, count);
+                if (child is TextBox)
+                {
+                    list.Add(child as TextBox);
+                }
+                list.AddRange(AllChildren(child));
+            }
+            return list;
+        }
+
+        private void Submit_Click(object sender, RoutedEventArgs e)
+        {
+            List<TextBox> childrenOfMember = AllChildren(MemberNameStack);
+            List<TextBox> childrenOfTel = AllChildren(TelStack);
+            List<TextBox> childrenOfExpendituresName = AllChildren(ExpendituresNameStack);
+            List<TextBox> childrenOfExpendituresMoney = AllChildren(ExpendituresMoneyStack);
+            //FileInfo info = null;
+            //var folderfile = AppDomain.CurrentDomain.BaseDirectory;
+            //var newname = "";
+            
+            //danh sách tên thành viên
+            foreach (var element in childrenOfMember)
+            {
+                if (element.Text.Trim() != "")
+                {
+                    //them vào chuyến đi 
+                    //sp.NguyenLieu += element.Text + "\\n";
+                }
+            }
+
+            //danh sách số điện thoại thành viên
+            foreach (var element in childrenOfTel)
+            {
+                if (element.Text.Trim() != "")
+                {
+                    //them vào chuyến đi 
+                    //sp.NguyenLieu += element.Text + "\\n";
+                }
+            }
+            
+            //danh sach ten khoản chi
+            foreach (var element in childrenOfExpendituresName)
+            {
+                if (element.Text.Trim() != "")
+                {
+                    //them vào chuyến đi 
+                    //sp.NguyenLieu += element.Text + "\\n";
+                }
+            }
+
+            //danh sach số tiền khoản chi
+            foreach (var element in childrenOfExpendituresMoney)
+            {
+                if (element.Text.Trim() != "")
+                {
+                    //them vào chuyến đi 
+                    //sp.NguyenLieu += element.Text + "\\n";
+                }
+            }
+
+        }
     }
 }
