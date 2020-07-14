@@ -182,8 +182,8 @@ namespace WeSplit.Models
 
         public BindableCollection<ReceiptsAndExpenses> Get_AllReceAndExpenTrip(string ID)
         {
-            _ListReceAndExpen.Clear();
-            sql = $"SELECT TC.*,TV.HOTEN FROM THUCHI AS TC JOIN THANHVIEN AS TV ON TC.MATV = TV.MATV AND TC.MACD = TV.MACD WHERE MACD ={ID} ";
+            ListReceAndExpen.Clear();
+            sql = $"SELECT TC.*,TV.HOTEN FROM THUCHI AS TC JOIN THANHVIEN AS TV ON TC.MATV = TV.MATV AND TC.MACD = TV.MACD WHERE TC.MACD ={ID} ";
             DataTable dt = Connection.GetALL_Data(sql);
             foreach(DataRow row in dt.Rows)
             {
@@ -193,9 +193,9 @@ namespace WeSplit.Models
                 RAE.Cost = row["TIEN"].ToString();
                 RAE.MemberID = row["MATV"].ToString();
                 RAE.MemberName = row["HOTEN"].ToString();
-                _ListReceAndExpen.Add(RAE);
+                ListReceAndExpen.Add(RAE);
             }
-            return _ListReceAndExpen;
+            return ListReceAndExpen;
         }
 
         public BindableCollection<Images> Get_AllImagesTrip(string ID)
