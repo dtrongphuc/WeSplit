@@ -133,7 +133,7 @@ namespace WeSplit.Views
             for (int count = 0; count < VisualTreeHelper.GetChildrenCount(parent); count++)
             {
                 var child = VisualTreeHelper.GetChild(parent, count);
-                if (child is TextBox)
+                if (child is CheckBox)
                 {
                     list.Add(child as CheckBox);
                 }
@@ -154,31 +154,31 @@ namespace WeSplit.Views
             int LeaderIndex = -1;
            
             //kiểm tra đã nhập đầy đủ thông tin 
-            if (ConditionCheck(childrenOfMember, childrenOfTel, childrenOfExpendituresName, childrenOfExpendituresMoney))
-            {
-                //tên chuyến đi
-                if (JourneyName.Text.Trim() != "")
-                {
-                    trip.TripName = JourneyName.Text;
-                }
+            //if (ConditionCheck(childrenOfMember, childrenOfTel, childrenOfExpendituresName, childrenOfExpendituresMoney))
+            //{
+            //    //tên chuyến đi
+            //    if (JourneyName.Text.Trim() != "")
+            //    {
+            //        trip.TripName = JourneyName.Text;
+            //    }
 
-                //số km
-                if (Kilometer.Text.Trim() != "")
-                {
-                    trip.Lenght = Kilometer.Text;
-                }
+            //    //số km
+            //    if (Kilometer.Text.Trim() != "")
+            //    {
+            //        trip.Lenght = Kilometer.Text;
+            //    }
 
-                //ngày đi
-                if (StartDay.Text.Trim() != "")
-                {
-                    trip.StartDate = StartDay.Text;
-                }
+            //    //ngày đi
+            //    if (StartDay.Text.Trim() != "")
+            //    {
+            //        trip.StartDate = StartDay.Text;
+            //    }
 
-                //ngày về
-                if (EndDay.Text.Trim() != "")
-                {
-                    trip.EndDate = EndDay.Text;
-                }
+            //    //ngày về
+            //    if (EndDay.Text.Trim() != "")
+            //    {
+            //        trip.EndDate = EndDay.Text;
+            //    }
 
                 for (int i = 0; i < childrenOfIsLeader.Count; i++)
                 {
@@ -223,7 +223,7 @@ namespace WeSplit.Views
                     }
                 }//ket thuc lấy danh sach tên và số tiền khoản chi
 
-            }//kết thúc thêm vào database
+            //}//kết thúc thêm vào database
         }//két thúc sự kiện click
 
         private List<CheckBox> AllChildrenCheckBox(object isLeader)
