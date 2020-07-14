@@ -151,7 +151,7 @@ namespace WeSplit.Views
             List<CheckBox> childrenOfIsLeader = AllChildrenCheckBox(IsLeader);
 
             Trip trip = new Trip();
-           
+            int LeaderIndex = -1;
            
             //kiểm tra đã nhập đầy đủ thông tin 
             if (ConditionCheck(childrenOfMember, childrenOfTel, childrenOfExpendituresName, childrenOfExpendituresMoney))
@@ -180,29 +180,36 @@ namespace WeSplit.Views
                     trip.EndDate = EndDay.Text;
                 }
 
+                for (int i = 0; i < childrenOfIsLeader.Count; i++)
+                {
+                    if (childrenOfIsLeader[i].IsChecked == true)
+                    {
+                        LeaderIndex = i;
+                        break;
+                    }
+                }
                 //them vào database về chuyến đi
-               // trip.Add();
+                // trip.Add();
                 //danh sách tên và số điện thoại thành viên
                 for (int i = 0; i < childrenOfMember.Count; i++)
                 {
                     if (childrenOfMember[i].Text.Trim() != "" && childrenOfTel[i].Text.Trim() != "")
                     {
                         Member member = new Member();
+                        
                         member.MemberName = childrenOfMember[i].Text;
                         member.Telephone = childrenOfTel[i].Text;
+                        if(LeaderIndex == i)
+                        {
+                            member.Status = 1;
+                        }
                         //thêm vào database
                        // member.Add();
                     }
                 }//kết thúc danh sách tên và số điện thoại thành viên
 
 
-                for (int i = 0; i < childrenOfIsLeader.Count; i++)
-                {
-                    if(childrenOfIsLeader[i].IsChecked == true)
-                    {
-                        //member.Leader
-                    }
-                }
+                
 
                 //danh sach tên và số tiền khoản chi 
                 for (int i = 0; i < childrenOfExpendituresMoney.Count; i++)
