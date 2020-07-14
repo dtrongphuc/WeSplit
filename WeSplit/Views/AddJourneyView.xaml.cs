@@ -94,6 +94,18 @@ namespace WeSplit.Views
             ExpendituresCount.Children.Add(newCountStack);
         }
 
+        //kiểm tra 
+        private bool ConditionCheck(List<TextBox> member, List<TextBox> tel, List<TextBox> expensesname, List<TextBox> expensesmoney)
+        {
+            if (JourneyName.Text.Trim() == "" | Kilometer.Text.Trim() == "" | StartDay.Text.Trim().Length <= 8 |
+              EndDay.Text.Trim().Length <= 8 | member.Count < 1 | tel.Count < 1 | expensesname.Count < 1 | expensesmoney.Count < 1)
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin cho món ăn!", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                return false;
+            }
+            return true;
+        }
+
         private List<TextBox> AllChildren(DependencyObject parent)
         {
             var list = new List<TextBox> { };
@@ -115,79 +127,78 @@ namespace WeSplit.Views
             List<TextBox> childrenOfTel = AllChildren(TelStack);
             List<TextBox> childrenOfExpendituresName = AllChildren(ExpendituresNameStack);
             List<TextBox> childrenOfExpendituresMoney = AllChildren(ExpendituresMoneyStack);
-            //FileInfo info = null;
-            //var folderfile = AppDomain.CurrentDomain.BaseDirectory;
-            //var newname = "";
-
-
-            //tên chuyến đi
-            if (JourneyName.Text.Trim() != "")
-            {
-                //them vào chuyến đi 
-                //sp.NguyenLieu += element.Text + "\\n";
-            }
-
-            //số km
-            if (Kilometer.Text.Trim() != "")
-            {
-                //them vào chuyến đi 
-                //sp.NguyenLieu += element.Text + "\\n";
-            }
-
-            //ngày đi
-            if (StartDay.Text.Trim() != "")
-            {
-                //them vào chuyến đi 
-                //sp.NguyenLieu += element.Text + "\\n";
-            }
-
-            //ngày về
-            if (EndDay.Text.Trim() != "")
-            {
-                //them vào chuyến đi 
-                //sp.NguyenLieu += element.Text + "\\n";
-            }
-
-            //danh sách tên thành viên
-            foreach (var element in childrenOfMember)
-            {
-                if (element.Text.Trim() != "")
+            
+            //kiểm tra đã nhập đầy đủ thông tin 
+            if (ConditionCheck(childrenOfMember, childrenOfTel, childrenOfExpendituresName, childrenOfExpendituresMoney))
+            {     
+                //tên chuyến đi
+                if (JourneyName.Text.Trim() != "")
                 {
                     //them vào chuyến đi 
                     //sp.NguyenLieu += element.Text + "\\n";
                 }
-            }
 
-            //danh sách số điện thoại thành viên
-            foreach (var element in childrenOfTel)
-            {
-                if (element.Text.Trim() != "")
+                //số km
+                if (Kilometer.Text.Trim() != "")
                 {
                     //them vào chuyến đi 
                     //sp.NguyenLieu += element.Text + "\\n";
                 }
-            }
 
-            //danh sach ten khoản chi
-            foreach (var element in childrenOfExpendituresName)
-            {
-                if (element.Text.Trim() != "")
+                //ngày đi
+                if (StartDay.Text.Trim() != "")
                 {
                     //them vào chuyến đi 
                     //sp.NguyenLieu += element.Text + "\\n";
                 }
-            }
 
-            //danh sach số tiền khoản chi
-            foreach (var element in childrenOfExpendituresMoney)
-            {
-                if (element.Text.Trim() != "")
+                //ngày về
+                if (EndDay.Text.Trim() != "")
                 {
                     //them vào chuyến đi 
                     //sp.NguyenLieu += element.Text + "\\n";
                 }
-            }
 
+                //danh sách tên thành viên
+                foreach (var element in childrenOfMember)
+                {
+                    if (element.Text.Trim() != "")
+                    {
+                        //them vào chuyến đi 
+                        //sp.NguyenLieu += element.Text + "\\n";
+                    }
+                }
+
+                //danh sách số điện thoại thành viên
+                foreach (var element in childrenOfTel)
+                {
+                    if (element.Text.Trim() != "")
+                    {
+                        //them vào chuyến đi 
+                        //sp.NguyenLieu += element.Text + "\\n";
+                    }
+                }
+
+                //danh sach ten khoản chi
+                foreach (var element in childrenOfExpendituresName)
+                {
+                    if (element.Text.Trim() != "")
+                    {
+                        //them vào chuyến đi 
+                        //sp.NguyenLieu += element.Text + "\\n";
+                    }
+                }
+
+                //danh sach số tiền khoản chi
+                foreach (var element in childrenOfExpendituresMoney)
+                {
+                    if (element.Text.Trim() != "")
+                    {
+                        //them vào chuyến đi 
+                        //sp.NguyenLieu += element.Text + "\\n";
+                    }
+                }
+            }
         }
     }
 }
