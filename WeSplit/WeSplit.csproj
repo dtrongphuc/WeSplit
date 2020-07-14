@@ -80,7 +80,9 @@
     <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.19\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.ConfigurationManager, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -248,9 +250,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resource\Images\trip.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <Resource Include="Resource\Images\trip.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resource\Icons\arrow.png" />
@@ -259,17 +259,13 @@
     <Resource Include="Resource\Icons\right-chevron.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resource\Images\test.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <Resource Include="Resource\Images\test.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resource\Icons\user.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resource\Images\SlashScreenAvatar.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <Resource Include="Resource\Images\SlashScreenAvatar.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resource\Icons\icon.ico" />
@@ -281,9 +277,7 @@
     <Resource Include="Resource\Icons\team.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resource\Images\dulichvietnam.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <Resource Include="Resource\Images\dulichvietnam.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resource\Icons\kilometer.png" />
@@ -296,12 +290,8 @@
     <Resource Include="Resource\Icons\add.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resource\Images\Background.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Resource\Images\AddBackground.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <Resource Include="Resource\Images\Background.jpg" />
+    <Resource Include="Resource\Images\AddBackground.jpg" />
     <Resource Include="Resource\Icons\edit.png" />
     <Resource Include="Resource\Icons\add_2.png" />
     <None Include="Resource\Images\1_1.png">
