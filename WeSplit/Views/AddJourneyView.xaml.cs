@@ -151,8 +151,8 @@ namespace WeSplit.Views
             List<CheckBox> childrenOfIsLeader = AllChildrenCheckBox(IsLeader);
 
             Trip trip = new Trip();
-            Member member = new Member();
-            ReceiptsAndExpenses receandexpen = new ReceiptsAndExpenses();
+           
+           
             //kiểm tra đã nhập đầy đủ thông tin 
             if (ConditionCheck(childrenOfMember, childrenOfTel, childrenOfExpendituresName, childrenOfExpendituresMoney))
             {
@@ -180,15 +180,21 @@ namespace WeSplit.Views
                     trip.EndDate = EndDay.Text;
                 }
 
+                //them vào database về chuyến đi
+               // trip.Add();
                 //danh sách tên và số điện thoại thành viên
                 for (int i = 0; i < childrenOfMember.Count; i++)
                 {
                     if (childrenOfMember[i].Text.Trim() != "" && childrenOfTel[i].Text.Trim() != "")
                     {
+                        Member member = new Member();
                         member.MemberName = childrenOfMember[i].Text;
                         member.Telephone = childrenOfTel[i].Text;
+                        //thêm vào database
+                       // member.Add();
                     }
-                }
+                }//kết thúc danh sách tên và số điện thoại thành viên
+
 
                 for (int i = 0; i < childrenOfIsLeader.Count; i++)
                 {
@@ -203,12 +209,14 @@ namespace WeSplit.Views
                 {
                     if (childrenOfExpendituresMoney[i].Text.Trim() != "" && childrenOfExpendituresName[i].Text.Trim() != "")
                     {
+                        ReceiptsAndExpenses receandexpen = new ReceiptsAndExpenses();
                         receandexpen.ExpensesName = childrenOfExpendituresMoney[i].Text;
                         receandexpen.Cost = childrenOfExpendituresName[i].Text;
+                        //receandexpen.Add();
                     }
-                }
+                }//ket thuc lấy danh sach tên và số tiền khoản chi
 
-            }
-        }
+            }//kết thúc thêm vào database
+        }//két thúc sự kiện click
     }
 }
