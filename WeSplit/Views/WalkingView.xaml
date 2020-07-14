@@ -40,7 +40,7 @@
                     <ColumnDefinition Width="0.5*" />
                 </Grid.ColumnDefinitions>
                 <StackPanel
-                    x:Name="JourneyInfo"
+                   
                     Grid.Column="0"
                     Margin="30,0,0,0"
                     VerticalAlignment="Center">

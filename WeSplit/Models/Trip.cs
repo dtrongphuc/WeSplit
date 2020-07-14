@@ -129,7 +129,7 @@ namespace WeSplit.Models
                 this.Lenght = row["DODAI"].ToString();
                 this.StartDate = row["NGAYDI"].ToString();
                 this.EndDate = row["NGAYKT"].ToString();
-                this.MemberName = row["HOTEN"].ToString();  // phai dat la leadername chu, hiện tại lấy tên thụi có hàm tìm leader riêng
+                this.MemberName = row["HOTEN"].ToString();  
             }
         }
     }

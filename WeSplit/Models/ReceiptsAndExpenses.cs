@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WeSplit.Models
 {
-    class ReceiptsAndExpenses : INotifyPropertyChanged
+    public class ReceiptsAndExpenses : INotifyPropertyChanged
     {
         private string _TripID;
         public string TripID

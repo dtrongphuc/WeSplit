@@ -1,4 +1,5 @@
 ﻿using System;
+using Caliburn.Micro;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace WeSplit.Models
 {
-    class GetListObject : INotifyPropertyChanged
+    public class GetListObject : INotifyPropertyChanged
     {
         private string sql;
-        private BindingList<Trip> _ListTripWasGone { get; set; } = new BindingList<Trip>();
-        public BindingList<Trip> ListTripWasGone
+        private BindableCollection<Trip> _ListTripWasGone { get; set; } = new BindableCollection<Trip>();
+        public BindableCollection<Trip> ListTripWasGone
         {
             get
             {
@@ -71,7 +72,7 @@ namespace WeSplit.Models
         public event PropertyChangedEventHandler PropertyChanged;
 
 
-        public BindingList<Trip> Get_AllTripWasGone()
+        public BindableCollection<Trip> Get_AllTripWasGone()
         {
             ListTripWasGone.Clear();
             sql = $"SELECT CD.*,TV.HOTEN FROM CHUYENDI AS CD JOIN THANHVIEN AS TV ON CD.MACD = TV.MACD WHERE CD.TRANGTHAI=0 AND TV.TRANGTHAI=1 ";
@@ -86,7 +87,7 @@ namespace WeSplit.Models
                 trip.StartDate = row["NGAYDI"].ToString();
                 trip.EndDate = row["NGAYKT"].ToString();
                 trip.MemberName = row["HOTEN"].ToString();
-                _ListTripWasGone.Add(trip);
+                ListTripWasGone.Add(trip);
             }
             return ListTripWasGone;
         }

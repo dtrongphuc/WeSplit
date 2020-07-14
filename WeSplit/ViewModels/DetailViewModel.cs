@@ -9,5 +9,6 @@ namespace WeSplit.ViewModels
 {
     public class DetailViewModel:Screen
     {
+
     }
 }
