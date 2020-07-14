@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WeSplit.Models;
 
 namespace WeSplit.Views
 {
@@ -127,36 +128,35 @@ namespace WeSplit.Views
             List<TextBox> childrenOfTel = AllChildren(TelStack);
             List<TextBox> childrenOfExpendituresName = AllChildren(ExpendituresNameStack);
             List<TextBox> childrenOfExpendituresMoney = AllChildren(ExpendituresMoneyStack);
-            
+
+            Trip trip = new Trip();
+            Member member = new Member();
+            ReceiptsAndExpenses receandexpen = new ReceiptsAndExpenses();
             //kiểm tra đã nhập đầy đủ thông tin 
             if (ConditionCheck(childrenOfMember, childrenOfTel, childrenOfExpendituresName, childrenOfExpendituresMoney))
             {     
                 //tên chuyến đi
                 if (JourneyName.Text.Trim() != "")
                 {
-                    //them vào chuyến đi 
-                    //sp.NguyenLieu += element.Text + "\\n";
+                    trip.TripName = JourneyName.Text;
                 }
 
                 //số km
                 if (Kilometer.Text.Trim() != "")
                 {
-                    //them vào chuyến đi 
-                    //sp.NguyenLieu += element.Text + "\\n";
+                    trip.Lenght = Kilometer.Text;
                 }
 
                 //ngày đi
                 if (StartDay.Text.Trim() != "")
                 {
-                    //them vào chuyến đi 
-                    //sp.NguyenLieu += element.Text + "\\n";
+                    trip.StartDate = StartDay.Text;
                 }
 
                 //ngày về
                 if (EndDay.Text.Trim() != "")
                 {
-                    //them vào chuyến đi 
-                    //sp.NguyenLieu += element.Text + "\\n";
+                    trip.EndDate = EndDay.Text;
                 }
 
                 //danh sách tên thành viên
@@ -164,8 +164,7 @@ namespace WeSplit.Views
                 {
                     if (element.Text.Trim() != "")
                     {
-                        //them vào chuyến đi 
-                        //sp.NguyenLieu += element.Text + "\\n";
+                        member.MemberName = element.Text;
                     }
                 }
 
@@ -184,8 +183,7 @@ namespace WeSplit.Views
                 {
                     if (element.Text.Trim() != "")
                     {
-                        //them vào chuyến đi 
-                        //sp.NguyenLieu += element.Text + "\\n";
+                        receandexpen.ExpensesName = element.Text;
                     }
                 }
 
