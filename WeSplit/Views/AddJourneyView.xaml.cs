@@ -164,7 +164,8 @@ namespace WeSplit.Views
                 {
                     if (childrenOfMember[i].Text.Trim() != "" && childrenOfTel[i].Text.Trim() != "")
                     {
-                       
+                        member.MemberName = childrenOfMember[i].Text;
+                        member.Telephone = childrenOfTel[i].Text;
                     }
                 }
 
@@ -173,7 +174,8 @@ namespace WeSplit.Views
                 {
                     if (childrenOfExpendituresMoney[i].Text.Trim() != "" && childrenOfExpendituresName[i].Text.Trim() != "")
                     {
-                       
+                        receandexpen.ExpensesName = childrenOfExpendituresMoney[i].Text;
+                        receandexpen.Cost = childrenOfExpendituresName[i].Text;
                     }
                 }
 
