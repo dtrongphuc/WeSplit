@@ -377,7 +377,8 @@
                     Margin="0,30"
                     Background="#333E50"
                     BorderThickness="0"
-                    Content="Hoàn thành" />
+                    Content="Hoàn thành" 
+                    Click="Submit_Add"/>
             </StackPanel>
         </ScrollViewer>
     </Grid>

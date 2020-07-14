@@ -93,5 +93,10 @@ namespace WeSplit.Views
 
             ExpendituresCount.Children.Add(newCountStack);
         }
+
+        private void Submit_Add(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
