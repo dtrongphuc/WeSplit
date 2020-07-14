@@ -92,7 +92,9 @@ namespace WeSplit.Models
         string sql;
         public void Add()
         {
-             sql = $"INSERT INTO THANHVIEN VALUES (MATV ={_MemberID}, MACD = {_TripID}, HOTEN =N'{_MemberName}', NHATKY =N'{_Diary}', SDT='{_Telephone}', TRANGTHAI={_Status})";
+            sql = $"SELECT IDENT_CURRENT('CHUYENDI') AS SOLUONG";
+            _TripID = Connection.GetCount_Data(sql).ToString();
+             sql = $"INSERT INTO THANHVIEN VALUES ( MACD = {_TripID}, HOTEN =N'{_MemberName}', NHATKY =N'{_Diary}', SDT='{_Telephone}', TRANGTHAI={_Status})";
             Connection.Execute_SQL(sql);
         }
 

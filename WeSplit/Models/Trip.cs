@@ -94,7 +94,7 @@ namespace WeSplit.Models
         {
             this._TripID = "";
             this._TripName = "";
-            this._Status = 0;
+            this._Status = 1;
             this._StartDate = "";
             this._Lenght = "";
             this._EndDate = "";
@@ -106,7 +106,7 @@ namespace WeSplit.Models
         {
             sql = $"UPDATE CHUYENDI SET TRANGTHAI = 0 ";
             Connection.Execute_SQL(sql);
-            sql = $"INSERT INTO CHUYENDI VALUES ({_TripID}, N'{_TripName}', {_Status}, N'{_StartDate}', N'{_EndDate}', {_Lenght})";
+            sql = $"INSERT INTO CHUYENDI VALUES ( N'{_TripName}', {_Status}, N'{_StartDate}', N'{_EndDate}', {_Lenght})";
             Connection.Execute_SQL(sql);
         }
 
