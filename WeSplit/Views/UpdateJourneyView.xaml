@@ -556,6 +556,7 @@
                         </StackPanel>
                     </ListBox>
                     <TextBox
+                        x:Name="RouteName"
                         Grid.Column="1"
                         Margin="12,0"
                         VerticalAlignment="Top"
