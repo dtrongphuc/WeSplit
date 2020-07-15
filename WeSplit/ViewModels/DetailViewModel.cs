@@ -15,12 +15,15 @@ namespace WeSplit.ViewModels
     public class DetailViewModel:Screen
     {
         public string CarouselItemCount { get; set; }
+        public int MemberCount { get; set; } = 0;
+        public double TotalRevenue { get; set; } = 0;
+
         public Trip HistoryTrip { get; set; }
         public BindableCollection<Location> Place { get; set; }
-        public BindableCollection<ReceiptsAndExpenses> Expenditures { get; set; }
         public SeriesCollection ChartData { get; set; }
         public BindableCollection<Images> ImageCarousel { get; set; }
         public BindableCollection<ReceiptsAndExpenses> MemberData { get; set; }
+
         GetListObject list = new GetListObject();
 
         public DetailViewModel(Trip trip)
@@ -29,10 +32,19 @@ namespace WeSplit.ViewModels
             HistoryTrip = trip;
             //các địa điểm của chuyến đi đó
             Place = list.Get_AllLocationTrip(trip.TripID);
-            Expenditures = list.Get_AllReceAndExpenTrip(trip.TripID);
+            //hình ảnh của chuyển đi đó
+            ImageCarousel = list.Get_AllImagesTrip(trip.TripID);
+            CarouselItemCount = ImageCarousel.Count.ToString();
+            MemberCount = list.Get_AllMemberTrip(trip.TripID).Count;
+            GetListMemberData(trip.TripID);
+        }
+
+        public void GetListMemberData(string id)
+        {
+            MemberData = list.Get_AllReceAndExpenTrip(id);
 
             ChartData = new SeriesCollection();
-            foreach(ReceiptsAndExpenses element in Expenditures)
+            foreach (ReceiptsAndExpenses element in MemberData)
             {
                 ChartValues<double> cost = new ChartValues<double>();
                 cost.Add(Convert.ToDouble(element.Cost));
@@ -43,15 +55,6 @@ namespace WeSplit.ViewModels
                 };
                 ChartData.Add(series);
             }
-            //hình ảnh của chuyển đi đó
-            ImageCarousel = list.Get_AllImagesTrip(trip.TripID);
-            CarouselItemCount = ImageCarousel.Count.ToString();
-            GetListMemberData(trip.TripID);
-        }
-
-        public void GetListMemberData(string id)
-        {
-            MemberData = list.Get_AllReceAndExpenTrip(id);
         }
     }
 }
