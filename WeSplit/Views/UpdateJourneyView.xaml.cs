@@ -196,8 +196,26 @@ namespace WeSplit.Views
                     }
                 }//ket thuc lấy danh sach tên và số tiền khoản chi
 
+                //lấy ra tên thành viên ứng tiền trước
+                if (MemberComboBox.Text.Trim() != "")
+                {
+
+                }
+
+                //lấy ra tên khoản chi ứng tiền
+                if (ExpenseNameOfMember.Text.Trim() != "")
+                {
+
+                }
+
+                //lấy ra số tiền ứng
+                if (ExpenseMoneyOfMember.Text.Trim() != "")
+                {
+
+                }
+
                 //lấy ra tên các lộ trình
-                if(RouteName.Text.Trim() != "")
+                if (RouteName.Text.Trim() != "")
                 {
 
                 }

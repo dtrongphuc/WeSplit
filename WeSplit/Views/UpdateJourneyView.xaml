@@ -215,7 +215,7 @@
                     FontWeight="Bold"
                     Foreground="#000"
                     Text="Cập nhật chuyến đi" />
-                <TextBox
+                <!--<TextBox
                     x:Name="JourneyName"
                     Margin="90,10,90,0"
                     Style="{StaticResource TitleBox}" />
@@ -360,7 +360,7 @@
                             Foreground="Black"
                             Text="Thêm khoản chi" />
                     </StackPanel>
-                </Button>
+                </Button>-->
                 <StackPanel
                     Margin="90,20,90,0"
                     VerticalAlignment="Center"
@@ -402,10 +402,12 @@
                         <ComboBoxItem Content="Thành viên 3" Foreground="#000" />
                     </ComboBox>
                     <TextBox
+                        x:Name="ExpenseNameOfMember"
                         Grid.Row="0"
                         Grid.Column="2"
                         Style="{StaticResource ExpendituresName}" />
                     <TextBox
+                        x:Name="ExpenseMoneyOfMember"
                         Grid.Row="1"
                         Grid.Column="0"
                         Style="{StaticResource MoneyBox}" />
@@ -456,7 +458,7 @@
                                 Foreground="#000"
                                 Text="Nha Trang" />
                         </StackPanel>
-                        <StackPanel Margin="0,6" Orientation="Horizontal">
+                        <!--<StackPanel Margin="0,6" Orientation="Horizontal">
                             <TextBlock
                                 FontSize="16"
                                 Foreground="#000"
@@ -553,7 +555,7 @@
                                 FontSize="16"
                                 Foreground="#000"
                                 Text="Nha Trang" />
-                        </StackPanel>
+                        </StackPanel>-->
                     </ListBox>
                     <TextBox
                         x:Name="RouteName"
