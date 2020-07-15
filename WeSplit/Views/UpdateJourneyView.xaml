@@ -213,6 +213,7 @@
                     HorizontalAlignment="Center"
                     FontSize="35"
                     FontWeight="Bold"
+                    Foreground="#000"
                     Text="Cập nhật chuyến đi" />
                 <TextBox
                     x:Name="JourneyName"
@@ -259,7 +260,8 @@
                             HorizontalAlignment="Left"
                             VerticalAlignment="Bottom"
                             VerticalContentAlignment="Bottom"
-                            FontSize="16" />
+                            FontSize="16"
+                            Foreground="#000" />
                     </StackPanel>
                     <DockPanel
                         Grid.Column="2"
@@ -270,6 +272,7 @@
                             HorizontalAlignment="Right"
                             VerticalAlignment="Bottom"
                             FontSize="20"
+                            Foreground="#000"
                             Text="Số KM"
                             TextAlignment="Center" />
                         <TextBox
@@ -325,6 +328,7 @@
                         HorizontalAlignment="Left"
                         FontSize="20"
                         FontWeight="DemiBold"
+                        Foreground="#000"
                         Text="Cập nhật khoản thu chi" />
                 </StackPanel>
                 <Grid x:Name="Expenditures" Margin="90,10,90,0">
@@ -371,6 +375,7 @@
                         HorizontalAlignment="Left"
                         FontSize="20"
                         FontWeight="DemiBold"
+                        Foreground="#000"
                         Text="Thành viên ứng trước" />
                 </StackPanel>
                 <Grid Margin="90,20,90,0">
@@ -428,6 +433,7 @@
                         HorizontalAlignment="Left"
                         FontSize="20"
                         FontWeight="DemiBold"
+                        Foreground="#000"
                         Text="Lộ trình" />
                 </StackPanel>
                 <Grid Margin="90,20,90,0">
@@ -437,44 +443,116 @@
                     </Grid.ColumnDefinitions>
                     <ListBox Grid.Column="0" MaxHeight="200">
                         <StackPanel Margin="0,6" Orientation="Horizontal">
-                            <TextBlock FontSize="16" Text="1" />
-                            <TextBlock FontSize="16" Text=". " />
-                            <TextBlock FontSize="16" Text="Nha Trang" />
+                            <TextBlock
+                                FontSize="16"
+                                Foreground="#000"
+                                Text="1" />
+                            <TextBlock
+                                FontSize="16"
+                                Foreground="#000"
+                                Text=". " />
+                            <TextBlock
+                                FontSize="16"
+                                Foreground="#000"
+                                Text="Nha Trang" />
                         </StackPanel>
                         <StackPanel Margin="0,6" Orientation="Horizontal">
-                            <TextBlock FontSize="16" Text="1" />
-                            <TextBlock FontSize="16" Text=". " />
-                            <TextBlock FontSize="16" Text="Nha Trang" />
+                            <TextBlock
+                                FontSize="16"
+                                Foreground="#000"
+                                Text="1" />
+                            <TextBlock
+                                FontSize="16"
+                                Foreground="#000"
+                                Text=". " />
+                            <TextBlock
+                                FontSize="16"
+                                Foreground="#000"
+                                Text="Nha Trang" />
                         </StackPanel>
                         <StackPanel Margin="0,6" Orientation="Horizontal">
-                            <TextBlock FontSize="16" Text="1" />
-                            <TextBlock FontSize="16" Text=". " />
-                            <TextBlock FontSize="16" Text="Nha Trang" />
+                            <TextBlock
+                                FontSize="16"
+                                Foreground="#000"
+                                Text="1" />
+                            <TextBlock
+                                FontSize="16"
+                                Foreground="#000"
+                                Text=". " />
+                            <TextBlock
+                                FontSize="16"
+                                Foreground="#000"
+                                Text="Nha Trang" />
                         </StackPanel>
                         <StackPanel Margin="0,6" Orientation="Horizontal">
-                            <TextBlock FontSize="16" Text="1" />
-                            <TextBlock FontSize="16" Text=". " />
-                            <TextBlock FontSize="16" Text="Nha Trang" />
+                            <TextBlock
+                                FontSize="16"
+                                Foreground="#000"
+                                Text="1" />
+                            <TextBlock
+                                FontSize="16"
+                                Foreground="#000"
+                                Text=". " />
+                            <TextBlock
+                                FontSize="16"
+                                Foreground="#000"
+                                Text="Nha Trang" />
                         </StackPanel>
                         <StackPanel Margin="0,6" Orientation="Horizontal">
-                            <TextBlock FontSize="16" Text="1" />
-                            <TextBlock FontSize="16" Text=". " />
-                            <TextBlock FontSize="16" Text="Nha Trang" />
+                            <TextBlock
+                                FontSize="16"
+                                Foreground="#000"
+                                Text="1" />
+                            <TextBlock
+                                FontSize="16"
+                                Foreground="#000"
+                                Text=". " />
+                            <TextBlock
+                                FontSize="16"
+                                Foreground="#000"
+                                Text="Nha Trang" />
                         </StackPanel>
                         <StackPanel Margin="0,6" Orientation="Horizontal">
-                            <TextBlock FontSize="16" Text="1" />
-                            <TextBlock FontSize="16" Text=". " />
-                            <TextBlock FontSize="16" Text="Nha Trang" />
+                            <TextBlock
+                                FontSize="16"
+                                Foreground="#000"
+                                Text="1" />
+                            <TextBlock
+                                FontSize="16"
+                                Foreground="#000"
+                                Text=". " />
+                            <TextBlock
+                                FontSize="16"
+                                Foreground="#000"
+                                Text="Nha Trang" />
                         </StackPanel>
                         <StackPanel Margin="0,6" Orientation="Horizontal">
-                            <TextBlock FontSize="16" Text="1" />
-                            <TextBlock FontSize="16" Text=". " />
-                            <TextBlock FontSize="16" Text="Nha Trang" />
+                            <TextBlock
+                                FontSize="16"
+                                Foreground="#000"
+                                Text="1" />
+                            <TextBlock
+                                FontSize="16"
+                                Foreground="#000"
+                                Text=". " />
+                            <TextBlock
+                                FontSize="16"
+                                Foreground="#000"
+                                Text="Nha Trang" />
                         </StackPanel>
                         <StackPanel Margin="0,6" Orientation="Horizontal">
-                            <TextBlock FontSize="16" Text="1" />
-                            <TextBlock FontSize="16" Text=". " />
-                            <TextBlock FontSize="16" Text="Nha Trang" />
+                            <TextBlock
+                                FontSize="16"
+                                Foreground="#000"
+                                Text="1" />
+                            <TextBlock
+                                FontSize="16"
+                                Foreground="#000"
+                                Text=". " />
+                            <TextBlock
+                                FontSize="16"
+                                Foreground="#000"
+                                Text="Nha Trang" />
                         </StackPanel>
                     </ListBox>
                     <TextBox
