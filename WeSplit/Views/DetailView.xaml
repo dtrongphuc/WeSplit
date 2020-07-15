@@ -173,7 +173,7 @@
                     <ListView
                         Name="Place"
                         Grid.Row="1"
-                        HorizontalAlignment="Center"
+                        HorizontalAlignment="Stretch"
                         ScrollViewer.CanContentScroll="False"
                         ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                         ScrollViewer.VerticalScrollBarVisibility="Auto">
@@ -226,8 +226,12 @@
                         Content="Biểu đồ"
                         DockPanel.Dock="Top"
                         FontSize="16"
-                        FontWeight="DemiBold" />
-                    <lvc:PieChart LegendLocation="Bottom" Series="{Binding ChartData}" />
+                        FontWeight="DemiBold"
+                        Foreground="#000" />
+                    <lvc:PieChart
+                        Foreground="#000"
+                        LegendLocation="Bottom"
+                        Series="{Binding ChartData}" />
                 </DockPanel>
             </materialDesign:Card>
         </Grid>
@@ -248,17 +252,18 @@
                             HorizontalAlignment="Left"
                             FontSize="24"
                             FontWeight="DemiBold"
+                            Foreground="#000"
                             Text="{Binding Path=HistoryTrip.TripName}"
                             TextWrapping="Wrap" />
                         <StackPanel Margin="4,12,0,12" Orientation="Horizontal">
-                            <TextBlock Text="Ngày Bắt Đầu: " />
-                            <TextBlock Text="{Binding Path=HistoryTrip.StartDate}" />
+                            <TextBlock Foreground="#000" Text="Ngày Bắt Đầu: " />
+                            <TextBlock Foreground="#000" Text="{Binding Path=HistoryTrip.StartDate}" />
                             <Border
                                 Margin="20,0"
                                 BorderBrush="#FF787878"
                                 BorderThickness="0,0,0.5,0" />
-                            <TextBlock Text="Ngày Kết Thúc: " />
-                            <TextBlock Text="{Binding Path=HistoryTrip.EndDate}" />
+                            <TextBlock Foreground="#000" Text="Ngày Kết Thúc: " />
+                            <TextBlock Foreground="#000" Text="{Binding Path=HistoryTrip.EndDate}" />
                         </StackPanel>
                     </StackPanel>
                     <DockPanel Margin="24,30,24,0" HorizontalAlignment="Center">
@@ -326,23 +331,30 @@
                         VerticalAlignment="Top"
                         HorizontalContentAlignment="Center"
                         AutoGenerateColumns="False"
+                        CanUserAddRows="False"
                         ItemsSource="{Binding MemberData}"
                         PreviewMouseWheel="ScrollViewer_PreviewMouseWheel"
-                        ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                        ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                        SelectionMode="Extended"
+                        SelectionUnit="Cell">
                         <DataGrid.Columns>
                             <DataGridTextColumn
+                                Width="*"
                                 Binding="{Binding MemberName}"
                                 Header="Tên thành viên"
                                 IsReadOnly="True" />
                             <DataGridTextColumn
+                                Width="*"
                                 Binding="{Binding Telephone}"
                                 Header="Số điện thoại"
                                 IsReadOnly="True" />
                             <DataGridTextColumn
+                                Width="*"
                                 Binding="{Binding ExpensesName}"
                                 Header="Khoản chi"
                                 IsReadOnly="True" />
                             <DataGridTextColumn
+                                Width="*"
                                 Binding="{Binding Cost}"
                                 Header="Số tiền"
                                 IsReadOnly="True" />
