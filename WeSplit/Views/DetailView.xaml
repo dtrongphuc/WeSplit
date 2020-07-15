@@ -402,7 +402,7 @@
                             </DataGridTextColumn>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <StackPanel>
+                    <StackPanel Margin="0,20">
                         <TextBlock
                             Margin="12,0,0,0"
                             FontSize="20"
@@ -415,13 +415,13 @@
                         </StackPanel>
                         <StackPanel Margin="12,8,0,0" Orientation="Horizontal">
                             <TextBlock Style="{StaticResource StyleForText}" Text="Tổng thu chi: " />
-                            <TextBlock Style="{StaticResource StyleForText}" Text="{Binding}" />
+                            <TextBlock Style="{StaticResource StyleForText}" Text="{Binding TotalRevenue, StringFormat={}{0:#.#}}" />
                         </StackPanel>
                         <StackPanel Margin="12,8,0,0" Orientation="Horizontal">
                             <TextBlock Style="{StaticResource StyleForText}" Text="Số tiền 1 thành viên phải trả: " />
-                            <TextBlock Style="{StaticResource StyleForText}" Text="{Binding}" />
+                            <TextBlock Style="{StaticResource StyleForText}" Text="{Binding TotalRevenueOfMember, StringFormat={}{0:#.#}}" />
                         </StackPanel>
-                        <!--<DataGrid
+                        <DataGrid
                             x:Name="MoneyrDataGrid"
                             Grid.Column="0"
                             Margin="0,20"
@@ -430,7 +430,7 @@
                             HorizontalContentAlignment="Center"
                             AutoGenerateColumns="False"
                             CanUserAddRows="False"
-                            ItemsSource="{Binding}"
+                            ItemsSource="{Binding MoneySplit}"
                             PreviewMouseWheel="MemberDataGrid_PreviewMouseWheel"
                             ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                             ScrollViewer.VerticalScrollBarVisibility="Disabled"
@@ -451,7 +451,7 @@
                                 </DataGridTextColumn>
                                 <DataGridTextColumn
                                     Width="*"
-                                    Binding="{Binding Cost}"
+                                    Binding="{Binding Cost, StringFormat={}{0:#.#}}"
                                     Header="Số tiền"
                                     IsReadOnly="True">
                                     <DataGridTextColumn.ElementStyle>
@@ -462,7 +462,7 @@
                                     </DataGridTextColumn.ElementStyle>
                                 </DataGridTextColumn>
                             </DataGrid.Columns>
-                        </DataGrid>-->
+                        </DataGrid>
                     </StackPanel>
                 </StackPanel>
             </materialDesign:Card>
