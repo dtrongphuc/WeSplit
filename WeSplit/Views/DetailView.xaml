@@ -10,6 +10,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="520"
     d:DesignWidth="886"
+    Loaded="UserControl_Loaded"
     mc:Ignorable="d">
     <UserControl.Resources>
         <cv:RelativeToAbsoluteConverter x:Key="pathConverter" />
@@ -271,6 +272,7 @@
                             Margin="0,0,-58,0"
                             Panel.ZIndex="10"
                             Background="#6C515151"
+                            Click="BtnLeftClick"
                             DockPanel.Dock="Left"
                             Foreground="White"
                             Style="{StaticResource MaterialDesignIconForegroundButton}">
@@ -282,7 +284,7 @@
                             BorderThickness="0"
                             PreviewMouseWheel="ScrollViewer_PreviewMouseWheel"
                             ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                            ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                            ScrollViewer.VerticalScrollBarVisibility="Auto"
                             Style="{StaticResource ListViewStyle}">
                             <ListView.ItemContainerStyle>
                                 <Style TargetType="{x:Type ListViewItem}">
@@ -317,11 +319,17 @@
                             Margin="-58,0,0,0"
                             Panel.ZIndex="10"
                             Background="#6C515151"
+                            Click="BtnRightClick"
                             DockPanel.Dock="Right"
                             Foreground="White"
                             Style="{StaticResource MaterialDesignIconForegroundButton}">
                             <materialDesign:PackIcon Kind="ChevronRight" />
                         </Button>
+                        <TextBlock
+                            x:Name="CarouselCount"
+                            DockPanel.Dock="Bottom"
+                            Text="{Binding CarouselItemCount}"
+                            Visibility="Hidden" />
                     </DockPanel>
                     <DataGrid
                         x:Name="MemberDataGrid"
@@ -333,8 +341,9 @@
                         AutoGenerateColumns="False"
                         CanUserAddRows="False"
                         ItemsSource="{Binding MemberData}"
-                        PreviewMouseWheel="ScrollViewer_PreviewMouseWheel"
+                        PreviewMouseWheel="MemberDataGrid_PreviewMouseWheel"
                         ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                        ScrollViewer.VerticalScrollBarVisibility="Disabled"
                         SelectionMode="Extended"
                         SelectionUnit="Cell">
                         <DataGrid.Columns>
@@ -342,22 +351,50 @@
                                 Width="*"
                                 Binding="{Binding MemberName}"
                                 Header="Tên thành viên"
-                                IsReadOnly="True" />
+                                IsReadOnly="True">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style>
+                                        <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                        <Setter Property="TextBlock.TextAlignment" Value="Left" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
                             <DataGridTextColumn
                                 Width="*"
                                 Binding="{Binding Telephone}"
                                 Header="Số điện thoại"
-                                IsReadOnly="True" />
+                                IsReadOnly="True">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style>
+                                        <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                        <Setter Property="TextBlock.TextAlignment" Value="Left" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
                             <DataGridTextColumn
                                 Width="*"
                                 Binding="{Binding ExpensesName}"
                                 Header="Khoản chi"
-                                IsReadOnly="True" />
+                                IsReadOnly="True">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style>
+                                        <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                        <Setter Property="TextBlock.TextAlignment" Value="Left" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
                             <DataGridTextColumn
                                 Width="*"
                                 Binding="{Binding Cost}"
                                 Header="Số tiền"
-                                IsReadOnly="True" />
+                                IsReadOnly="True">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style>
+                                        <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                        <Setter Property="TextBlock.TextAlignment" Value="Left" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
                         </DataGrid.Columns>
                     </DataGrid>
                 </StackPanel>

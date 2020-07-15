@@ -314,10 +314,7 @@
                     <StackPanel x:Name="TelStack" Grid.Column="4">
                         <TextBox Style="{StaticResource TelBox}" />
                     </StackPanel>
-                    <StackPanel
-                        x:Name="IsLeader"
-                        Grid.Column="6"
-                        VerticalAlignment="Center">
+                    <StackPanel x:Name="IsLeader" Grid.Column="6">
                         <CheckBox
                             Content="Trưởng nhóm"
                             Foreground="#000"

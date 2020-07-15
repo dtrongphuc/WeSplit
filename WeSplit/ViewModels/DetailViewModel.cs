@@ -14,6 +14,7 @@ namespace WeSplit.ViewModels
 {
     public class DetailViewModel:Screen
     {
+        public string CarouselItemCount { get; set; }
         public Trip HistoryTrip { get; set; }
         public BindableCollection<Location> Place { get; set; }
         public BindableCollection<ReceiptsAndExpenses> Expenditures { get; set; }
@@ -44,6 +45,7 @@ namespace WeSplit.ViewModels
             }
             //hình ảnh của chuyển đi đó
             ImageCarousel = list.Get_AllImagesTrip(trip.TripID);
+            CarouselItemCount = ImageCarousel.Count.ToString();
             GetListMemberData(trip.TripID);
         }
 

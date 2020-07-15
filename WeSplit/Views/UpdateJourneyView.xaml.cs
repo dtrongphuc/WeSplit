@@ -87,19 +87,5 @@ namespace WeSplit.Views
             newTextbox_tel.Style = style_tel;
             TelStack.Children.Add(newTextbox_tel);
         }
-
-        private void BtnAddInfoExpenses_Click(object sender, RoutedEventArgs e)
-        {
-            Style style_expensesname = this.FindResource("ExpendituresName") as Style;
-            Style style_expensesmoney = this.FindResource("MoneyBox") as Style;
-
-            var newExpensesbox = new TextBox();
-            newExpensesbox.Style = style_expensesname;
-            ExpendituresNameStack.Children.Add(newExpensesbox);
-
-            var newExpensesmoneybox = new TextBox();
-            newExpensesmoneybox.Style = style_expensesmoney;
-            ExpendituresMoneyStack.Children.Add(newExpensesmoneybox);
-        }
     }
 }
