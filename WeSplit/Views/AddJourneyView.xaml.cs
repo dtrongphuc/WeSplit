@@ -225,5 +225,7 @@ namespace WeSplit.Views
 
             }//kết thúc thêm vào database
         }//két thúc sự kiện click
+
+       
     }
 }

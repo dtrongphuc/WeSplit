@@ -216,6 +216,7 @@
                     HorizontalAlignment="Center"
                     FontSize="35"
                     FontWeight="Bold"
+                    Foreground="#000"
                     Text="Tạo chuyến đi" />
 
                 <TextBox
@@ -264,7 +265,8 @@
                             HorizontalAlignment="Left"
                             VerticalAlignment="Bottom"
                             VerticalContentAlignment="Bottom"
-                            FontSize="16" />
+                            FontSize="16"
+                            Foreground="#000" />
                     </StackPanel>
                     <DockPanel
                         Grid.Column="2"
@@ -275,6 +277,7 @@
                             HorizontalAlignment="Right"
                             VerticalAlignment="Bottom"
                             FontSize="20"
+                            Foreground="#000"
                             Text="Số KM"
                             TextAlignment="Center" />
                         <TextBox
@@ -315,7 +318,10 @@
                         x:Name="IsLeader"
                         Grid.Column="6"
                         VerticalAlignment="Center">
-                        <CheckBox Content="Trưởng nhóm" IsChecked="False" />
+                        <CheckBox
+                            Content="Trưởng nhóm"
+                            Foreground="#000"
+                            IsChecked="False" />
                     </StackPanel>
                 </Grid>
                 <Button
