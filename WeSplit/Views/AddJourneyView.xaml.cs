@@ -226,9 +226,6 @@ namespace WeSplit.Views
             //}//kết thúc thêm vào database
         }//két thúc sự kiện click
 
-        private List<CheckBox> AllChildrenCheckBox(object isLeader)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }
