@@ -217,8 +217,8 @@ namespace WeSplit.Views
                     if (childrenOfExpendituresMoney[i].Text.Trim() != "" && childrenOfExpendituresName[i].Text.Trim() != "")
                     {
                         ReceiptsAndExpenses receandexpen = new ReceiptsAndExpenses();
-                        receandexpen.ExpensesName = childrenOfExpendituresMoney[i].Text;
-                        receandexpen.Cost = childrenOfExpendituresName[i].Text;
+                        receandexpen.Cost = childrenOfExpendituresMoney[i].Text;
+                        receandexpen.ExpensesName = childrenOfExpendituresName[i].Text;
                         receandexpen.Add();
                     }
                 }//ket thuc lấy danh sach tên và số tiền khoản chi

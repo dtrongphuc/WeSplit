@@ -78,12 +78,12 @@ namespace WeSplit.Models
 
         public ReceiptsAndExpenses()
         {
-            this._Cost = "";
-            this._TripID = "";
-            this._ExpensesName = "";
-            this._MemberName = "";
-            this._MemberID = "";
-            this._telephone = "";
+            this._Cost = "NULL";
+            this._TripID = "NULL";
+            this._ExpensesName = "NULL";
+            this._MemberName = "NULL";
+            this._MemberID = "NULL";
+            this._telephone = "NULL";
         }
 
         string sql;
@@ -91,7 +91,7 @@ namespace WeSplit.Models
         {
             sql = $"SELECT IDENT_CURRENT('CHUYENDI') AS SOLUONG";
             _TripID = Connection.GetCount_Data(sql).ToString();
-            sql = $"INSERT INTO THUCHI VALUES (MACD ={_TripID}, TENKHOANCHI=N'{_ExpensesName}', TIEN=N'{_Cost}', MATV = {_MemberID})";
+            sql = $"INSERT INTO THUCHI VALUES ( {_MemberID} ,{_TripID},  N'{_ExpensesName}',  {_Cost})";
             Connection.Execute_SQL(sql);
         }
 
@@ -107,7 +107,7 @@ namespace WeSplit.Models
             Connection.Execute_SQL(sql);
         }
 
-        public int SumRAE()
+        public string SumRAE()
         {
             sql = $"SELECT SUM(*) AS 'TONG' FROM THUCHI WHERE MACD ={_TripID}";
 

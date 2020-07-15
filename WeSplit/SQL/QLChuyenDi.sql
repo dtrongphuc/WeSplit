@@ -174,21 +174,21 @@ GO
 -- THU CHI
 INSERT INTO THUCHI
 VALUES
-(
-	4, 1, N'Ăn sáng', 80000
-),
-(
-	4, 1, N'Ăn trưa', 80000
-),
-(
-	4, 1, N'Ăn tối', 120000
-),
-(
-	1, 1, N'Đặt xe', 40000
-),
-(
-	4, 1, N'Thuê Homestay', 2000000
-),
+--(
+--	4, 1, N'Ăn sáng', 80000
+--),
+--(
+--	4, 1, N'Ăn trưa', 80000
+--),
+--(
+--	4, 1, N'Ăn tối', 120000
+--),
+--(
+--	1, 1, N'Đặt xe', 40000
+--),
+--(
+--	4, 1, N'Thuê Homestay', 2000000
+--),
 (7, 2, N'Áo mưa', 400000),
 (7, 2, N'Ăn sáng', 320000),
 (7, 2, N'Ăn trưa', 480000),
@@ -198,8 +198,10 @@ VALUES
 GO
 SELECT*FROM THUCHI
 
+DELETE FROM THUCHI WHERE MACD =2
 select* from chuyendi
 select* from thanhvien
+select * from thuchi
 select* from hinhanh
 SELECT CD.*,TV.HOTEN FROM CHUYENDI AS CD JOIN THANHVIEN AS TV ON CD.MACD = TV.MACD WHERE CD.TRANGTHAI=1 AND TV.TRANGTHAI=1
 SELECT TC.*,TV.HOTEN FROM THUCHI AS TC JOIN THANHVIEN AS TV ON TC.MATV = TV.MATV AND TC.MACD = TV.MACD WHERE TC.MACD =1
