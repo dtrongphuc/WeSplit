@@ -93,8 +93,10 @@ namespace WeSplit.Models
         public void Add()
         {
             sql = $"SELECT IDENT_CURRENT('CHUYENDI') AS SOLUONG";
-            _TripID = Connection.GetCount_Data(sql).ToString();
-             sql = $"INSERT INTO THANHVIEN VALUES ( MACD = {_TripID}, HOTEN =N'{_MemberName}', NHATKY =N'{_Diary}', SDT='{_Telephone}', TRANGTHAI={_Status})";
+           
+            _TripID = Connection.GetCount_Data(sql);
+            sql = $"INSERT INTO THANHVIEN VALUES ({_TripID}, N'{_MemberName}', N'{_Diary}', '{_Telephone}', {_Status})";
+           
             Connection.Execute_SQL(sql);
         }
 

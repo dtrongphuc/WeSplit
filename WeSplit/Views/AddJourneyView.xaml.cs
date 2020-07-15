@@ -152,33 +152,33 @@ namespace WeSplit.Views
 
             Trip trip = new Trip();
             int LeaderIndex = -1;
-           
-            //kiểm tra đã nhập đầy đủ thông tin 
-            //if (ConditionCheck(childrenOfMember, childrenOfTel, childrenOfExpendituresName, childrenOfExpendituresMoney))
-            //{
-            //    //tên chuyến đi
-            //    if (JourneyName.Text.Trim() != "")
-            //    {
-            //        trip.TripName = JourneyName.Text;
-            //    }
 
-            //    //số km
-            //    if (Kilometer.Text.Trim() != "")
-            //    {
-            //        trip.Lenght = Kilometer.Text;
-            //    }
+            ///kiểm tra đã nhập đầy đủ thông tin
+            if (ConditionCheck(childrenOfMember, childrenOfTel, childrenOfExpendituresName, childrenOfExpendituresMoney))
+            {
+                //tên chuyến đi
+                if (JourneyName.Text.Trim() != "")
+                {
+                    trip.TripName = JourneyName.Text;
+                }
 
-            //    //ngày đi
-            //    if (StartDay.Text.Trim() != "")
-            //    {
-            //        trip.StartDate = StartDay.Text;
-            //    }
+                //số km
+                if (Kilometer.Text.Trim() != "")
+                {
+                    trip.Lenght = Kilometer.Text;
+                }
 
-            //    //ngày về
-            //    if (EndDay.Text.Trim() != "")
-            //    {
-            //        trip.EndDate = EndDay.Text;
-            //    }
+                //ngày đi
+                if (StartDay.Text.Trim() != "")
+                {
+                    trip.StartDate = StartDay.Text;
+                }
+
+                //ngày về
+                if (EndDay.Text.Trim() != "")
+                {
+                    trip.EndDate = EndDay.Text;
+                }
 
                 for (int i = 0; i < childrenOfIsLeader.Count; i++)
                 {
@@ -189,7 +189,7 @@ namespace WeSplit.Views
                     }
                 }
                 //them vào database về chuyến đi
-                // trip.Add();
+                 trip.Add();
                 //danh sách tên và số điện thoại thành viên
                 for (int i = 0; i < childrenOfMember.Count; i++)
                 {
@@ -204,7 +204,7 @@ namespace WeSplit.Views
                             member.Status = 1;
                         }
                         //thêm vào database
-                       // member.Add();
+                        member.Add();
                     }
                 }//kết thúc danh sách tên và số điện thoại thành viên
 
@@ -217,13 +217,15 @@ namespace WeSplit.Views
                     if (childrenOfExpendituresMoney[i].Text.Trim() != "" && childrenOfExpendituresName[i].Text.Trim() != "")
                     {
                         ReceiptsAndExpenses receandexpen = new ReceiptsAndExpenses();
-                        receandexpen.ExpensesName = childrenOfExpendituresMoney[i].Text;
-                        receandexpen.Cost = childrenOfExpendituresName[i].Text;
-                        //receandexpen.Add();
+                        receandexpen.Cost = childrenOfExpendituresMoney[i].Text;
+                        receandexpen.ExpensesName = childrenOfExpendituresName[i].Text;
+                        receandexpen.Add();
                     }
                 }//ket thuc lấy danh sach tên và số tiền khoản chi
 
-            //}//kết thúc thêm vào database
+            }//kết thúc thêm vào database
         }//két thúc sự kiện click
+
+       
     }
 }

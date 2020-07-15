@@ -57,11 +57,12 @@ namespace WeSplit.Models
         /// </summary>
         /// <param name="sql"> câu truy vấn query</param>
         /// <returns></returns>
-        public static int GetCount_Data(string sql)
+        public static string GetCount_Data(string sql)
         {
             SqlConnection cn_connection = Get_Connection();
             SqlCommand cmd_Command = new SqlCommand(sql, cn_connection);
-            int id = (int)cmd_Command.ExecuteScalar();
+            var temp = cmd_Command.ExecuteScalar();
+            string id= Convert.ToString(temp);         
             Close_Connection();
             return id;
         }
