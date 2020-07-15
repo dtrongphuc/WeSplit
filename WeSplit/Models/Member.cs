@@ -94,7 +94,7 @@ namespace WeSplit.Models
         {
             sql = $"SELECT IDENT_CURRENT('CHUYENDI') AS SOLUONG";
            
-            _TripID = Connection.GetCount_Data(sql).ToString();
+            _TripID = Connection.GetCount_Data(sql);
             sql = $"INSERT INTO THANHVIEN VALUES ({_TripID}, N'{_MemberName}', N'{_Diary}', '{_Telephone}', {_Status})";
            
             Connection.Execute_SQL(sql);
