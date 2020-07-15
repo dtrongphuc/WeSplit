@@ -31,7 +31,7 @@ namespace WeSplit.Views
             "Đi Hà Giang thì không nên bỏ lỡ cảnh ruộng bậc thang Hoàng Su Phì 😍",
             "Bạn đã đến nơi tận cùng tổ quốc chưa nè",
             "Không lòng vòng em như Hải Phòng, thích anh rồi phải không??",
-            "Checkin con đường đẹp nhất Viết Nam chưa nào, Phan Thiết thẳng tiến!!",
+            "Check in con đường đẹp nhất Viết Nam chưa nào, Phan Thiết thẳng tiến!!",
             "Người ta đồn Đi Đà Lạt với người yêu về là sẽ chia tay đấy 😝 😜",
             "Nên thử cảm giác săn mây ở SaPa một lần trong đời nha 💭"
         };
