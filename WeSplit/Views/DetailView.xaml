@@ -173,7 +173,7 @@
                     <ListView
                         Name="Place"
                         Grid.Row="1"
-                        HorizontalAlignment="Center"
+                        HorizontalAlignment="Stretch"
                         ScrollViewer.CanContentScroll="False"
                         ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                         ScrollViewer.VerticalScrollBarVisibility="Auto">
@@ -326,23 +326,30 @@
                         VerticalAlignment="Top"
                         HorizontalContentAlignment="Center"
                         AutoGenerateColumns="False"
+                        CanUserAddRows="False"
                         ItemsSource="{Binding MemberData}"
                         PreviewMouseWheel="ScrollViewer_PreviewMouseWheel"
-                        ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                        ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                        SelectionMode="Extended"
+                        SelectionUnit="Cell">
                         <DataGrid.Columns>
                             <DataGridTextColumn
+                                Width="*"
                                 Binding="{Binding MemberName}"
                                 Header="Tên thành viên"
                                 IsReadOnly="True" />
                             <DataGridTextColumn
+                                Width="*"
                                 Binding="{Binding Telephone}"
                                 Header="Số điện thoại"
                                 IsReadOnly="True" />
                             <DataGridTextColumn
+                                Width="*"
                                 Binding="{Binding ExpensesName}"
                                 Header="Khoản chi"
                                 IsReadOnly="True" />
                             <DataGridTextColumn
+                                Width="*"
                                 Binding="{Binding Cost}"
                                 Header="Số tiền"
                                 IsReadOnly="True" />
