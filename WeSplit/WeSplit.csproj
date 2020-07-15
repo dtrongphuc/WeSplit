@@ -171,6 +171,7 @@
     <Compile Include="Views\WalkingView.xaml.cs">
       <DependentUpon>WalkingView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="VisualTreeHelpers.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
@@ -321,9 +322,9 @@
     <None Include="Resource\Images\1_9.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resource\Images\1_10.jpg">
+    <Content Include="Resource\Images\1_10.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    </Content>
     <None Include="Resource\Images\2_1.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
