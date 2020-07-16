@@ -223,7 +223,12 @@ namespace WeSplit.Models
                 RAE.MemberName = row["HOTEN"].ToString();
                 RAE.Telephone = row["SDT"].ToString();
                 RAE.ExpensesName = row["TENKHOANCHI"].ToString();
-                RAE.Cost = Double.Parse(row["TIEN"].ToString(), System.Globalization.NumberStyles.Any);
+                string cost = row["TIEN"].ToString();
+                RAE.Cost = 0;
+                if(cost != "")
+                {
+                    RAE.Cost = Double.Parse(cost, System.Globalization.NumberStyles.Any);
+                }
                 ListReceAndExpen.Add(RAE);
             }
             return ListReceAndExpen;
