@@ -25,40 +25,14 @@ namespace WeSplit.Views
     /// </summary>
     public partial class UpdateJourneyView : UserControl
     {
-        GetListObject findmember = new GetListObject();
-        Trip trip = new Trip();
         
         public UpdateJourneyView()
         {
             InitializeComponent();
-            //liệt kê trong comnbobox các thành viên
-            memberlist();
-            //liệt kệ trong combobox các khoản chi
-            expenselist();
+           
         }
 
-        //binding tên các  thành viên trong chuyến đi 
-        public void memberlist()
-        {
-            //chuyến đang đi 
-            trip.TripIsGoing();
-            //danh sách thành viên trong chuyến đang đi 
-            BindableCollection<Member> membergoing = findmember.Get_AllMemberTrip(trip.TripID);
-            //binding
-            MembersComboBox.ItemsSource = membergoing;
-        }
-
-        //binding tên các khoản chi
-        public void expenselist()
-        {
-            //chuyến đang di 
-            trip.TripIsGoing();
-            //khoản chi trong chuyến đang đi 
-            BindableCollection<ReceiptsAndExpenses> expensegoing = findmember.Get_AllReceAndExpenTrip(trip.TripID);
-            //binding
-            ExpendituresComboBox.ItemsSource = expensegoing;
-        }
-
+       
         string absolute = "";
         private void convert(string relative)
         {
@@ -78,8 +52,6 @@ namespace WeSplit.Views
         List<string> ImagesNameList = new List<string>();
         private void AddImgButton_Click(object sender, RoutedEventArgs e)
         {
-
-
             //lấy tên ảnh đưa vào list  ImagesNameList
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Multiselect = true;
