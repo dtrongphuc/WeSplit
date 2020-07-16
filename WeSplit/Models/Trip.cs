@@ -105,7 +105,7 @@ namespace WeSplit.Models
         {
             this._TripID = "";
             this._TripName = "";
-            this._Status = 1;
+            this._Status = 0;
             this._StartDate = "";
             this._Lenght = "";
             this._EndDate = "";

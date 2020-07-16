@@ -67,11 +67,15 @@
                             </Style.Triggers>
                         </Style>
                     </StackPanel.Style>
-                    <StackPanel>
+                    <StackPanel Orientation="Horizontal">
                         <TextBlock
                             FontSize="14"
                             Foreground="#555a64"
-                            Text="{Binding NGAYDI}" />
+                            Text="Ngày bắt đầu: " />
+                        <TextBlock
+                            FontSize="14"
+                            Foreground="#555a64"
+                            Text="{Binding Path=JourneyInfo.StartDate}" />
                     </StackPanel>
                     <TextBlock
                         MaxHeight="160"
