@@ -349,7 +349,7 @@
                         Background="#333E50"
                         FontSize="16"
                         Foreground="#fff"
-                        Padding="0,0,0,5"
+                        Padding="12,0,0,5"
                         IsReadOnly="True"  
                         Style="{StaticResource MaterialDesignFilledComboBox}">
 
@@ -369,7 +369,7 @@
                         Background="#333E50"
                         FontSize="16"
                         Foreground="#fff"
-                        Padding="0,0,0,5"
+                        Padding="12,0,0,5"
                         SelectedIndex="0"
                         Style="{StaticResource MaterialDesignFilledComboBox}"
                         IsReadOnly="True">
@@ -468,13 +468,15 @@
                         VerticalAlignment="Top"
                         Style="{StaticResource RouteBox}" />
                         <Button
+                            x:Name="AddMemberExpenseMoney"
                         Width="80"
                         Height="40"
                         Margin="0,20,125,0"
                         HorizontalAlignment="Right"
                         Background="#333E50"
                         BorderThickness="0"
-                        Content="Add" />
+                        Content="Add"
+                            Click="AddMemberExpenseMoney_Click"/>
                     </StackPanel>
 
                 </Grid>

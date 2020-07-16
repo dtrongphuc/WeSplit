@@ -183,14 +183,18 @@ namespace WeSplit.Views
             //...
         }
 
-        //private void MembersComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        //{
-            
-        //}
+        private void AddMemberExpenseMoney_Click(object sender, RoutedEventArgs e)
+        {
+            //tên chuyến đi nhập vào
+            string local;
+            local = RouteName.Text.Trim();
 
-        //private void MembersComboBox_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
-        //{
-        //    MembersComboBox.Foreground = Brushes.White;
-        //}
+            //thêm vao listview
+            LocationListbox.Items.Add(local);
+
+            //thêm vào database
+            //...
+            //...
+        }
     }
 }
