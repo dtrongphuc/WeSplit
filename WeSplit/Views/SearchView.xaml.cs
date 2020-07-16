@@ -1,6 +1,7 @@
 ﻿using Caliburn.Micro;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,16 +23,21 @@ namespace WeSplit.Views
     /// </summary>
     public partial class SearchView : UserControl
     {
+        public IEnumerable<Member> list1;
         public IEnumerable<Location> list;
         public IEnumerable<Location> subnets;
-        //public IEnumerable<Member> subnets2;
-        //public IEnumerable<Location> locals;
+        public IEnumerable<Member> subnets1;
+        public BindableCollection<Trip> listreuslt;//list chứa kết quả cuối cùng.
         public int _count=0;
+        string keysearchtext = null;
         GetListObject page = new GetListObject();
+        public object CategoryList { get; private set; }
+
         public SearchView()
         {
 
             InitializeComponent();
+
         }
 
         private void BtnProduct_Click(object sender, RoutedEventArgs e)
@@ -39,45 +45,89 @@ namespace WeSplit.Views
 
         }
 
-        string keysearchtext = null;
 
-        public object CategoryList { get; private set; }
 
         //từ tìm kiếm lưu trong "keysearchtext"
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
-        {            
-            keysearchtext = SearchBox.Text.Trim();
-            
-            if (keysearchtext != "")
-            {
-                
-                UpdateQuantity();
-            }
-        }
-
-        //tìm kiếm theo tên chuyến đi 
-        public IEnumerable<Location> search_keyword(string keyword)
         {
-             BindableCollection<Location> local = page.Get_AllLocation();
+            keysearchtext = SearchBox.Text.Trim();
+            list = search_keywordLocation(keysearchtext);
+            list1 = search_keywordMember(keysearchtext);
 
-
-            if (keyword == "")
+            if (list != null)
             {
-                ProductsSearch.ItemsSource = local;
+                foreach (var lo in list)
+                {
+                    Trip trip = new Trip();
+                    trip.Find(lo.TripID);
+                    listreuslt.Add(trip);
+                }
+
+            }
+            else if (list1 != null)
+            {
+                foreach (var lo in list1)
+                {
+                    Trip trip = new Trip();
+                    trip.Find(lo.TripID);
+                    listreuslt.Add(trip);
+                }
+
             }
             else
             {
-                subnets = local.Where(i => i.LocationName.ToLower().Contains(keyword.ToLower()));
-            }            
+                Search.ItemsSource = null;
+            }
+            Search.ItemsSource = listreuslt;
+            _count = listreuslt.Count();
+            Quantity.Text = "Có " + _count + " kết quả được tìm thấy";
+        }
+
+        //tìm kiếm theo dia diem chuyến đi 
+        public IEnumerable<Location> search_keywordLocation(string keyword)
+        {
+            BindableCollection<Location> location = page.Get_AllLocation();
+
+            if (keyword == "")
+            {
+                return subnets;
+            }
+            else
+            {
+                subnets = location.Where(i => i.LocationName.ToLower().Contains(keyword.ToLower()));
+            }
             return subnets;
         }
 
-        //số kết quả 
-        private void UpdateQuantity()
+        //tìm  kiếm teo tên thành viên
+        public IEnumerable<Member> search_keywordMember(string keyword)
         {
-            _count = list.Count();
-            Quantity.Text = "Có " + _count + " kết quả được tìm thấy";
-            ProductsSearch.ItemsSource = list;
+            BindableCollection<Member> member = page.Get_AllMember();
+
+            if (keyword == "")
+            {
+                return subnets1;
+            }
+            else
+            {
+                subnets1 = member.Where(i => i.MemberName.ToLower().Contains(keyword.ToLower()));
+            }
+            return subnets1;
         }
+
+        
+        
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            
+            listreuslt = page.Get_AllTrip();
+            Search.ItemsSource = listreuslt;
+            _count = listreuslt.Count();
+            Quantity.Text = "Có " + _count + " kết quả được tìm thấy";
+
+        }
+
+
     }
 }

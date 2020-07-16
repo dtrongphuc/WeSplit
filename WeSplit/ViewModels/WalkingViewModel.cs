@@ -36,6 +36,9 @@ namespace WeSplit.ViewModels
         {
             JourneyInfo.Status = 0; // Đặt trạng thái thành đã đi
             // Xử lý database chỗ này
+            DateTime now = DateTime.Now;
+            JourneyInfo.EndDate = $"{now.Month}/{now.Day}/{now.Year}";
+            JourneyInfo.EndTrip();
         }
     }
 }
