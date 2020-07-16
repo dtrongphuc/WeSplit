@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Globalization;
 
 namespace WeSplit.Models
 {
@@ -98,8 +99,18 @@ namespace WeSplit.Models
                 trip.TripName = row["TENCD"].ToString();
                 trip.Status = (int)row["TRANGTHAI"];
                 trip.Lenght = row["DODAI"].ToString();
-                trip.StartDate = row["NGAYDI"].ToString();
-                trip.EndDate = row["NGAYKT"].ToString();
+                string dateStart = row["NGAYDI"].ToString();
+                if (dateStart != "")
+                {
+                    var date = DateTime.Parse(dateStart);
+                    trip.StartDate = date.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+                }
+                string dateEnd = row["NGAYKT"].ToString();
+                if (dateEnd != "")
+                {
+                    var date = DateTime.Parse(dateEnd);
+                    trip.EndDate = date.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+                }
                 trip.MemberName = row["HOTEN"].ToString();
                 ListTripWasGone.Add(trip);
             }
@@ -189,7 +200,7 @@ namespace WeSplit.Models
                 ReceiptsAndExpenses RAE = new ReceiptsAndExpenses();
                 RAE.TripID = row["MACD"].ToString();
                 RAE.ExpensesName = row["TENKHOANCHI"].ToString();
-                RAE.Cost = row["TIEN"].ToString();
+                RAE.Cost = Double.Parse(row["TIEN"].ToString(), System.Globalization.NumberStyles.Any);
                 RAE.MemberID = row["MATV"].ToString();
                 RAE.MemberName = row["HOTEN"].ToString();
                 RAE.Telephone = row["SDT"].ToString();

@@ -31,8 +31,8 @@ namespace WeSplit.Models
             }
         }
 
-        private string _Cost;
-        public string Cost
+        private double _Cost;
+        public double Cost
         {
             get { return _Cost; }
             set
@@ -78,7 +78,7 @@ namespace WeSplit.Models
 
         public ReceiptsAndExpenses()
         {
-            this._Cost = "NULL";
+            this._Cost = 0;
             this._TripID = "NULL";
             this._ExpensesName = "NULL";
             this._MemberName = "NULL";

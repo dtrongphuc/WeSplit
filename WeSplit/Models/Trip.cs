@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -122,13 +123,22 @@ namespace WeSplit.Models
             DataTable dt = Connection.GetALL_Data(sql);
             foreach (DataRow row in dt.Rows)
             {
-               
                 this.TripID = row["MACD"].ToString();
                 this.TripName = row["TENCD"].ToString();
                 this.Status = (int)row["TRANGTHAI"];
                 this.Lenght = row["DODAI"].ToString();
-                this.StartDate = row["NGAYDI"].ToString();
-                this.EndDate = row["NGAYKT"].ToString();
+                string dateStart = row["NGAYDI"].ToString();
+                if (dateStart != "")
+                {
+                    var date = DateTime.Parse(dateStart);
+                    this.StartDate = date.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+                }
+                string dateEnd = row["NGAYKT"].ToString();
+                if(dateEnd != "")
+                {
+                    var date = DateTime.Parse(dateEnd);
+                    this.EndDate = date.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+                }
                 this.MemberName = row["HOTEN"].ToString();  
             }
         }

@@ -8,12 +8,14 @@
     xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:system="clr-namespace:System;assembly=mscorlib"
     d:DesignHeight="520"
     d:DesignWidth="886"
     Loaded="UserControl_Loaded"
     mc:Ignorable="d">
     <UserControl.Resources>
         <cv:RelativeToAbsoluteConverter x:Key="pathConverter" />
+        <cv:ToNumberConverter x:Key="unitConverter" />
         <Storyboard x:Key="CarouselStoryboard">
             <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)" Duration="0:0:0.4">
                 <DoubleAnimation.EasingFunction>
@@ -263,13 +265,13 @@
                             TextWrapping="Wrap" />
                         <StackPanel Margin="4,12,0,12" Orientation="Horizontal">
                             <TextBlock Foreground="#000" Text="Ngày Bắt Đầu: " />
-                            <TextBlock Foreground="#000" Text="{Binding Path=HistoryTrip.StartDate, StringFormat='d'}" />
+                            <TextBlock Foreground="#000" Text="{Binding Path=HistoryTrip.StartDate}" />
                             <Border
                                 Margin="20,0"
                                 BorderBrush="#FF787878"
                                 BorderThickness="0,0,0.5,0" />
                             <TextBlock Foreground="#000" Text="Ngày Kết Thúc: " />
-                            <TextBlock Foreground="#000" Text="{Binding Path=HistoryTrip.EndDate, StringFormat={}{0:dd/MM/yyyy}}" />
+                            <TextBlock Foreground="#000" Text="{Binding Path=HistoryTrip.EndDate}" />
                         </StackPanel>
                     </StackPanel>
                     <DockPanel Margin="24,30,24,0" HorizontalAlignment="Center">
@@ -390,7 +392,7 @@
                             </DataGridTextColumn>
                             <DataGridTextColumn
                                 Width="*"
-                                Binding="{Binding Cost}"
+                                Binding="{Binding Cost, Converter={StaticResource unitConverter}}"
                                 Header="Số tiền"
                                 IsReadOnly="True">
                                 <DataGridTextColumn.ElementStyle>
@@ -415,11 +417,11 @@
                         </StackPanel>
                         <StackPanel Margin="12,8,0,0" Orientation="Horizontal">
                             <TextBlock Style="{StaticResource StyleForText}" Text="Tổng thu chi: " />
-                            <TextBlock Style="{StaticResource StyleForText}" Text="{Binding TotalRevenue, StringFormat={}{0:#,#}}" />
+                            <TextBlock Style="{StaticResource StyleForText}" Text="{Binding TotalRevenue, Converter={StaticResource unitConverter}}" />
                         </StackPanel>
                         <StackPanel Margin="12,8,0,0" Orientation="Horizontal">
                             <TextBlock Style="{StaticResource StyleForText}" Text="Số tiền 1 thành viên phải trả: " />
-                            <TextBlock Style="{StaticResource StyleForText}" Text="{Binding TotalRevenueOfMember, StringFormat={}{0:#,#}}" />
+                            <TextBlock Style="{StaticResource StyleForText}" Text="{Binding TotalRevenueOfMember, Converter={StaticResource unitConverter}}" />
                         </StackPanel>
                         <DataGrid
                             x:Name="MoneyrDataGrid"
@@ -451,7 +453,7 @@
                                 </DataGridTextColumn>
                                 <DataGridTextColumn
                                     Width="*"
-                                    Binding="{Binding Cost, StringFormat={}{0:#,#}}"
+                                    Binding="{Binding Cost, Converter={StaticResource unitConverter}}"
                                     Header="Số tiền"
                                     IsReadOnly="True">
                                     <DataGridTextColumn.ElementStyle>
