@@ -53,7 +53,7 @@ namespace WeSplit.ViewModels
             ChartData = new SeriesCollection();
             foreach (ReceiptsAndExpenses element in MemberData)
             {
-                TotalRevenue += Double.Parse(element.Cost, System.Globalization.NumberStyles.Any);
+                TotalRevenue += element.Cost;
 
                 ChartValues<double> cost = new ChartValues<double>();
                 cost.Add(Convert.ToDouble(element.Cost));
@@ -83,12 +83,12 @@ namespace WeSplit.ViewModels
                         var ToalCostCollection = item.Select(i => i.Cost);
                         foreach(var cost in ToalCostCollection)
                         {
-                            TotalCost += Double.Parse(cost, System.Globalization.NumberStyles.Any);
+                            TotalCost += cost;
                         }
                     }
                 }
                 double Cal = TotalCost - TotalRevenueOfMember;
-                obj.Cost = Cal;
+                obj.Cost = String.Format("{0:#,#}", Cal);
                 list.Add(obj);
             }
             return list;

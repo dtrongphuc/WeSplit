@@ -349,14 +349,13 @@
                         Background="#333E50"
                         FontSize="16"
                         Foreground="#fff"
-                        Padding="0,0,0,5"
+                        Padding="12,0,0,5"
                         IsReadOnly="True"  
-                        
                         Style="{StaticResource MaterialDesignFilledComboBox}">
-                        
+
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
-                                <TextBlock x:Name="MemberName_changecolor"  Text="{Binding MemberName}" Foreground="#000" Padding="0,10,0,0"/>
+                                <TextBlock Text ="{Binding MemberName}" Foreground="#000" Padding="0,10,0,0"/>
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
 
@@ -370,11 +369,11 @@
                         Background="#333E50"
                         FontSize="16"
                         Foreground="#fff"
-                        Padding="0,0,0,5"
+                        Padding="12,0,0,5"
                         SelectedIndex="0"
                         Style="{StaticResource MaterialDesignFilledComboBox}"
-                        IsReadOnly="True" >
-                        
+                        IsReadOnly="True">
+
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding ExpensesName}" Foreground="#000" Padding="0,10,0,0"/>
@@ -421,135 +420,65 @@
                         <ColumnDefinition Width="4*" />
                         <ColumnDefinition Width="4*" />
                     </Grid.ColumnDefinitions>
-                    <ListBox Grid.Column="0" MaxHeight="200">
-                        <StackPanel Margin="0,6" Orientation="Horizontal">
-                            <TextBlock
-                                FontSize="16"
-                                Foreground="#000"
-                                Text="1" />
-                            <TextBlock
-                                FontSize="16"
-                                Foreground="#000"
-                                Text=". " />
-                            <TextBlock
-                                FontSize="16"
-                                Foreground="#000"
-                                Text="Nha Trang" />
-                        </StackPanel>
-                        <StackPanel Margin="0,6" Orientation="Horizontal">
-                            <TextBlock
-                                FontSize="16"
-                                Foreground="#000"
-                                Text="1" />
-                            <TextBlock
-                                FontSize="16"
-                                Foreground="#000"
-                                Text=". " />
-                            <TextBlock
-                                FontSize="16"
-                                Foreground="#000"
-                                Text="Nha Trang" />
-                        </StackPanel>
-                        <StackPanel Margin="0,6" Orientation="Horizontal">
-                            <TextBlock
-                                FontSize="16"
-                                Foreground="#000"
-                                Text="1" />
-                            <TextBlock
-                                FontSize="16"
-                                Foreground="#000"
-                                Text=". " />
-                            <TextBlock
-                                FontSize="16"
-                                Foreground="#000"
-                                Text="Nha Trang" />
-                        </StackPanel>
-                        <StackPanel Margin="0,6" Orientation="Horizontal">
-                            <TextBlock
-                                FontSize="16"
-                                Foreground="#000"
-                                Text="1" />
-                            <TextBlock
-                                FontSize="16"
-                                Foreground="#000"
-                                Text=". " />
-                            <TextBlock
-                                FontSize="16"
-                                Foreground="#000"
-                                Text="Nha Trang" />
-                        </StackPanel>
-                        <StackPanel Margin="0,6" Orientation="Horizontal">
-                            <TextBlock
-                                FontSize="16"
-                                Foreground="#000"
-                                Text="1" />
-                            <TextBlock
-                                FontSize="16"
-                                Foreground="#000"
-                                Text=". " />
-                            <TextBlock
-                                FontSize="16"
-                                Foreground="#000"
-                                Text="Nha Trang" />
-                        </StackPanel>
-                        <StackPanel Margin="0,6" Orientation="Horizontal">
-                            <TextBlock
-                                FontSize="16"
-                                Foreground="#000"
-                                Text="1" />
-                            <TextBlock
-                                FontSize="16"
-                                Foreground="#000"
-                                Text=". " />
-                            <TextBlock
-                                FontSize="16"
-                                Foreground="#000"
-                                Text="Nha Trang" />
-                        </StackPanel>
-                        <StackPanel Margin="0,6" Orientation="Horizontal">
-                            <TextBlock
-                                FontSize="16"
-                                Foreground="#000"
-                                Text="1" />
-                            <TextBlock
-                                FontSize="16"
-                                Foreground="#000"
-                                Text=". " />
-                            <TextBlock
-                                FontSize="16"
-                                Foreground="#000"
-                                Text="Nha Trang" />
-                        </StackPanel>
-                        <StackPanel Margin="0,6" Orientation="Horizontal">
-                            <TextBlock
-                                FontSize="16"
-                                Foreground="#000"
-                                Text="1" />
-                            <TextBlock
-                                FontSize="16"
-                                Foreground="#000"
-                                Text=". " />
-                            <TextBlock
-                                FontSize="16"
-                                Foreground="#000"
-                                Text="Nha Trang" />
-                        </StackPanel>
-                    </ListBox>
-                    <TextBox
+                    <ListView 
+                        x:Name="LocationListbox"
+                        Grid.Column="0" 
+                        HorizontalAlignment="Stretch"
+                        ScrollViewer.CanContentScroll="False"
+                        ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                        ScrollViewer.VerticalScrollBarVisibility="Auto">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Margin="16,0" />
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                        <ListView.Template>
+                            <ControlTemplate>
+                                <ItemsPresenter />
+                            </ControlTemplate>
+                        </ListView.Template>
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="{x:Type ListViewItem}">
+                                <Setter Property="Background" Value="Transparent" />
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                            <ContentPresenter />
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="0,6" Orientation="Horizontal">
+                                    <TextBlock FontSize="16" Text="{Binding Number}" />
+                                    <TextBlock FontSize="16" Text=". " />
+                                    <TextBlock FontSize="16" Text="{Binding LocationName}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                       
+                    </ListView>
+                    <StackPanel Grid.Column="1">
+                        <TextBox
                         x:Name="RouteName"
                         Grid.Column="1"
                         Margin="12,0"
                         VerticalAlignment="Top"
                         Style="{StaticResource RouteBox}" />
-                    <Button
-                        Grid.Column="1"
+                        <Button
+                            x:Name="AddMemberExpenseMoney"
                         Width="80"
                         Height="40"
-                        Margin="12,0"
+                        Margin="0,20,125,0"
                         HorizontalAlignment="Right"
                         Background="#333E50"
                         BorderThickness="0"
-                        Content="Add" />
+                        Content="Add"
+                            Click="AddMemberExpenseMoney_Click"/>
+                    </StackPanel>
+
                 </Grid>
                 <!--  Cho nay add hinh  -->
 

@@ -217,7 +217,7 @@ namespace WeSplit.Views
                     if (childrenOfExpendituresMoney[i].Text.Trim() != "" && childrenOfExpendituresName[i].Text.Trim() != "")
                     {
                         ReceiptsAndExpenses receandexpen = new ReceiptsAndExpenses();
-                        receandexpen.Cost = childrenOfExpendituresMoney[i].Text;
+                        receandexpen.Cost = Double.Parse(childrenOfExpendituresMoney[i].Text, System.Globalization.NumberStyles.Any);
                         receandexpen.ExpensesName = childrenOfExpendituresName[i].Text;
                         receandexpen.Add();
                     }

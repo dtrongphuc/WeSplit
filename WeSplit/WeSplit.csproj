@@ -133,6 +133,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Converter\RelativeToAbsoluteConverter.cs" />
+    <Compile Include="Converter\ToNumberConverter.cs" />
     <Compile Include="Models\Connection.cs" />
     <Compile Include="Models\GetListObject.cs" />
     <Compile Include="Models\Images.cs" />

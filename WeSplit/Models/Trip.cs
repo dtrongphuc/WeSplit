@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,72 +11,71 @@ namespace WeSplit.Models
 {
     public class Trip: INotifyPropertyChanged
     {
-       
-            private string _TripID;
-            public string TripID
+        private string _TripID;
+        public string TripID
+        {
+            get { return _TripID; }
+            set
             {
-                get { return _TripID; }
-                set
-                {
-                    _TripID = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TripID"));
-                }
+                _TripID = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TripID"));
             }
+        }
 
-            private string _TripName;
-            public string TripName
+        private string _TripName;
+        public string TripName
+        {
+            get { return _TripName; }
+            set
             {
-                get { return _TripName; }
-                set
-                {
-                    _TripName = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TripName"));
-                }
+                _TripName = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TripName"));
             }
+        }
 
-            private int _Status;
-            public int Status
+        private int _Status;
+        public int Status
+        {
+            get { return _Status; }
+            set
             {
-                get { return _Status; }
-                set
-                {
-                    _Status = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Status"));
-                }
+                _Status = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Status"));
             }
+        }
 
-            private string _StartDate;
-            public string StartDate
+        private string _StartDate;
+        public string StartDate
+        {
+            get { return _StartDate; }
+            set
             {
-                get { return _StartDate; }
-                set
-                {
-                    _StartDate = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("StartDate"));
-                }
+                _StartDate = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("StartDate"));
             }
+        }
 
-            private string _EndDate;
-            public string EndDate
+        private string _EndDate;
+        public string EndDate
+        {
+            get { return _EndDate; }
+            set
             {
-                get { return _EndDate; }
-                set
-                {
-                    _EndDate = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("EndDate"));
-                }
+                _EndDate = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("EndDate"));
             }
+        }
 
-            private string _Lenght;
-            public string Lenght
+        private string _Lenght;
+        public string Lenght
+        {
+            get { return _Lenght; }
+            set
             {
-                get { return _Lenght; }
-                set
-                {
-                    _Lenght = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lenght"));
-                }
+                _Lenght = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lenght"));
             }
+        }
 
         private string _MemberName;
         public string MemberName
@@ -134,13 +134,22 @@ namespace WeSplit.Models
             DataTable dt = Connection.GetALL_Data(sql);
             foreach (DataRow row in dt.Rows)
             {
-               
                 this.TripID = row["MACD"].ToString();
                 this.TripName = row["TENCD"].ToString();
                 this.Status = (int)row["TRANGTHAI"];
                 this.Lenght = row["DODAI"].ToString();
-                this.StartDate = row["NGAYDI"].ToString();
-                this.EndDate = row["NGAYKT"].ToString();
+                string dateStart = row["NGAYDI"].ToString();
+                if (dateStart != "")
+                {
+                    var date = DateTime.Parse(dateStart);
+                    this.StartDate = date.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+                }
+                string dateEnd = row["NGAYKT"].ToString();
+                if(dateEnd != "")
+                {
+                    var date = DateTime.Parse(dateEnd);
+                    this.EndDate = date.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+                }
                 this.MemberName = row["HOTEN"].ToString();  
             }
         }

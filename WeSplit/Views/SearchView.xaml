@@ -72,7 +72,6 @@
                 FontSize="20"
                 FontWeight="Medium"
                 Foreground="#000"
-                Text="{Binding}"
                 TextAlignment="center" />
         </materialDesign:Card>
 

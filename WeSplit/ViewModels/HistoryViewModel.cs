@@ -16,7 +16,7 @@ namespace WeSplit.ViewModels
         private int _historywidth = 0;
         private int _canvasheight = 520;
 
-        GetListObject list = new GetListObject();
+        public static GetListObject list = new GetListObject();
 
         public BindableCollection<Trip> JourneyHistory { get; set; }
 
