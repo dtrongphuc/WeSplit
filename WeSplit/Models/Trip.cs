@@ -124,10 +124,15 @@ namespace WeSplit.Models
 
         public void Edit()
         {
-          sql = $"UPDATE CHUYENDI SET  TENCD =N'{_TripName}', TRANGTHAI ={_Status}, NGAYDI=N'{_StartDate}', NGAYKT=N'{_EndDate}', DODAI={_Lenght} WHERE MACD ={_TripID} ";
+          sql = $"UPDATE CHUYENDI SET  TENCD =N'{_TripName}', TRANGTHAI ={_Status}, NGAYDI='{_StartDate}', NGAYKT='{_EndDate}', DODAI={_Lenght} WHERE MACD ={_TripID} ";
             Connection.Execute_SQL(sql);
         }
 
+        public void EndTrip()
+        {
+            sql = $"UPDATE CHUYENDI SET TRANGTHAI = {_Status} , NGAYKT = '{EndDate}' WHERE MACD = {_TripID} ";
+            Connection.Execute_SQL(sql);
+        }
         public void TripIsGoing()
         {
             sql = $"SELECT CD.*,TV.HOTEN FROM CHUYENDI AS CD JOIN THANHVIEN AS TV ON CD.MACD = TV.MACD WHERE CD.TRANGTHAI=1 AND TV.TRANGTHAI=1";
