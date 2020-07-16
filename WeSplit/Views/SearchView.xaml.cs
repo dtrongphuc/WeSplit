@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,40 +28,33 @@ namespace WeSplit.Views
         public IEnumerable<Location> list;
         public IEnumerable<Location> subnets;
         public IEnumerable<Member> subnets1;
-        public BindableCollection<Trip> listreuslt = new BindableCollection<Trip>();//list chứa kết quả cuối cùng.
-        public int _count=0;
+        public BindableCollection<ExpandoObject> ListResult = new BindableCollection<ExpandoObject>(); //list chứa kết quả cuối cùng.
+        public int _count = 0;
         string keysearchtext = null;
         GetListObject page = new GetListObject();
         public object CategoryList { get; private set; }
 
         public SearchView()
         {
-
             InitializeComponent();
-
         }
-
-        private void BtnProduct_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-
 
         //từ tìm kiếm lưu trong "keysearchtext"
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
+            var l = new GetListObject();
             keysearchtext = SearchBox.Text.Trim();
             list = search_keywordLocation(keysearchtext);
             list1 = search_keywordMember(keysearchtext);
 
-            if (list.Count() !=0)
+            if (list.Count() != 0)
             {
                 foreach (var lo in list)
                 {
-                    Trip trip = new Trip();
-                    trip.Find(lo.TripID);
-                    listreuslt.Add(trip);
+                    dynamic trip = new ExpandoObject();
+                    //trip.Find(lo.TripID);
+                    trip = l.Get_JourneyCustom(lo.TripID);
+                    ListResult.Add(trip);
                 }
 
             }
@@ -68,18 +62,18 @@ namespace WeSplit.Views
             {
                 foreach (var lo in list1)
                 {
-                    Trip trip = new Trip();
-                    trip.Find(lo.TripID);
-                    listreuslt.Add(trip);
+                    dynamic trip = new ExpandoObject();
+                    trip = l.Get_JourneyCustom(lo.TripID);
+                    //trip.Find(lo.TripID);
+                    ListResult.Add(trip);
                 }
-
             }
             else
             {
                 Search.ItemsSource = null;
             }
-            Search.ItemsSource = listreuslt;
-            _count = listreuslt.Count();
+            Search.ItemsSource = ListResult;
+            _count = ListResult.Count();
             Quantity.Text = "Có " + _count + " kết quả được tìm thấy";
         }
 
@@ -115,9 +109,6 @@ namespace WeSplit.Views
             return subnets1;
         }
 
-        
-        
-
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             
@@ -128,6 +119,9 @@ namespace WeSplit.Views
 
         }
 
+        private void BtnJourney_Click(object sender, RoutedEventArgs e)
+        {
 
+        }
     }
 }

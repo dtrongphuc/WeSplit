@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Globalization;
+using System.Dynamic;
 
 namespace WeSplit.Models
 {
@@ -25,6 +26,20 @@ namespace WeSplit.Models
                 _ListTripWasGone = value;
                 PropertyChanged?.Invoke(
                     this, new PropertyChangedEventArgs("ListTripWasGone"));
+            }
+        }
+
+        private dynamic _customJourney = new ExpandoObject();
+        public dynamic CustomJourney
+        {
+            get
+            {
+                return _customJourney;
+            }
+            set
+            {
+                _customJourney = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("CustomJourney"));
             }
         }
 
@@ -86,6 +101,41 @@ namespace WeSplit.Models
         }
         public event PropertyChangedEventHandler PropertyChanged;
 
+
+        public ExpandoObject Get_JourneyCustom(string id)
+        {
+            sql = $"SELECT * FROM CHUYENDI WHERE MACD = {id}";
+            DataTable dt = Connection.GetALL_Data(sql);
+            DataRow row = dt.Rows[0];
+            CustomJourney.TripID = row["MACD"].ToString();
+            CustomJourney.TripName = row["TENCD"].ToString();
+            CustomJourney.Status = (int)row["TRANGTHAI"];
+            CustomJourney.Lenght = row["DODAI"].ToString();
+            string dateStart = row["NGAYDI"].ToString();
+            if (dateStart != "")
+            {
+                var date = DateTime.Parse(dateStart);
+                CustomJourney.StartDate = date.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+            }
+            string dateEnd = row["NGAYKT"].ToString();
+            if (dateEnd != "")
+            {
+                var date = DateTime.Parse(dateEnd);
+                CustomJourney.EndDate = date.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+            }
+
+            sql = $"SELECT * FROM HINHANH WHERE MACD = {id}";
+            dt = Connection.GetALL_Data(sql);
+            Random r = new Random();
+            int index = r.Next(0, dt.Rows.Count);
+            row = dt.Rows[index];
+            CustomJourney.Image = row["HINHANH"].ToString();
+
+            sql = $"SELECT * FROM THANHVIEN WHERE MACD = {id}";
+            dt = Connection.GetALL_Data(sql);
+            CustomJourney.Amount = dt.Rows.Count;
+            return CustomJourney;
+        }
 
         public BindableCollection<Trip> Get_AllTripWasGone()
         {
