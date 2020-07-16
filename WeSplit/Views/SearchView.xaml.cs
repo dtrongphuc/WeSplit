@@ -22,8 +22,10 @@ namespace WeSplit.Views
     /// </summary>
     public partial class SearchView : UserControl
     {
-        public IEnumerable<Trip> list;
-        public IEnumerable<Trip> subnets;
+        public IEnumerable<Location> list;
+        public IEnumerable<Location> subnets;
+        //public IEnumerable<Member> subnets2;
+        //public IEnumerable<Location> locals;
         public int _count=0;
         GetListObject page = new GetListObject();
         public SearchView()
@@ -48,24 +50,25 @@ namespace WeSplit.Views
             
             if (keysearchtext != "")
             {
-                list = search_keyword(keysearchtext);
+                
                 UpdateQuantity();
             }
         }
 
         //tìm kiếm theo tên chuyến đi 
-        public IEnumerable<Trip> search_keyword(string keyword)
+        public IEnumerable<Location> search_keyword(string keyword)
         {
-            BindableCollection<Trip> trip = page.Get_AllTripWasGone();
+             BindableCollection<Location> local = page.Get_AllLocation();
+
 
             if (keyword == "")
             {
-                ProductsSearch.ItemsSource = trip;
+                ProductsSearch.ItemsSource = local;
             }
             else
             {
-                subnets = trip.Where(i => i.TripName.ToLower().Contains(keyword.ToLower()));
-            }
+                subnets = local.Where(i => i.LocationName.ToLower().Contains(keyword.ToLower()));
+            }            
             return subnets;
         }
 
