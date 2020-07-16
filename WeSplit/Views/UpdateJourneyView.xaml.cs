@@ -196,5 +196,10 @@ namespace WeSplit.Views
             //...
             //...
         }
+
+        private void AddExpense_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
