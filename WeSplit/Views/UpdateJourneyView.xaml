@@ -409,12 +409,12 @@
                     </ComboBox>
                     <TextBox
                         x:Name="UpdateExpenseMoney"
-                        Grid.Row="1"
+                        Grid.Row="2"
                         Grid.Column="0"
                         Style="{StaticResource MoneyBox}" />
                     <Button
                         x:Name="AddUpdateExpenses"
-                        Grid.Row="1"
+                        Grid.Row="2"
                         Grid.Column="2"
                         Width="120"
                         Height="60"

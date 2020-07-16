@@ -151,6 +151,7 @@ namespace WeSplit.Views
             List<CheckBox> childrenOfIsLeader = AllChildrenCheckBox(IsLeader);
 
             Trip trip = new Trip();
+            trip.Status = 1;
             int LeaderIndex = -1;
 
             ///kiểm tra đã nhập đầy đủ thông tin
