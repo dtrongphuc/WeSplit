@@ -27,7 +27,7 @@ namespace WeSplit.Views
         public IEnumerable<Location> list;
         public IEnumerable<Location> subnets;
         public IEnumerable<Member> subnets1;
-        public BindableCollection<Trip> listreuslt;//list chứa kết quả cuối cùng.
+        public BindableCollection<Trip> listreuslt = new BindableCollection<Trip>();//list chứa kết quả cuối cùng.
         public int _count=0;
         string keysearchtext = null;
         GetListObject page = new GetListObject();
@@ -54,7 +54,7 @@ namespace WeSplit.Views
             list = search_keywordLocation(keysearchtext);
             list1 = search_keywordMember(keysearchtext);
 
-            if (list != null)
+            if (list.Count() !=0)
             {
                 foreach (var lo in list)
                 {
@@ -64,7 +64,7 @@ namespace WeSplit.Views
                 }
 
             }
-            else if (list1 != null)
+            else if (list1.Count() != 0)
             {
                 foreach (var lo in list1)
                 {
@@ -121,9 +121,9 @@ namespace WeSplit.Views
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             
-            listreuslt = page.Get_AllTrip();
-            Search.ItemsSource = listreuslt;
-            _count = listreuslt.Count();
+            //listreuslt = page.Get_AllTrip();
+            Search.ItemsSource = null;
+           // _count = listreuslt.Count();
             Quantity.Text = "Có " + _count + " kết quả được tìm thấy";
 
         }
