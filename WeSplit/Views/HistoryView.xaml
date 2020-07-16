@@ -24,17 +24,6 @@
                 </DoubleAnimation.EasingFunction>
             </DoubleAnimation>
         </Storyboard>
-
-        <Storyboard x:Key="SbHideHistory">
-            <DoubleAnimation
-                Storyboard.TargetName="InfoCanvas"
-                Storyboard.TargetProperty="Canvas.Right"
-                Duration="0:0:0.4">
-                <DoubleAnimation.EasingFunction>
-                    <CubicEase EasingMode="EaseOut" />
-                </DoubleAnimation.EasingFunction>
-            </DoubleAnimation>
-        </Storyboard>
     </UserControl.Resources>
     <UserControl.Triggers>
         <EventTrigger RoutedEvent="UserControl.Loaded">

@@ -29,13 +29,10 @@ namespace WeSplit.Views
             InitializeComponent();
         }
 
-        public static Storyboard storyboard;
-        public static DoubleAnimation animation;
-
         public void Animate(double unit)
         {
-            storyboard = (this.Resources["SbShowHistory"] as Storyboard);
-            animation = storyboard.Children.First() as DoubleAnimation;
+            Storyboard storyboard = (this.Resources["SbShowHistory"] as Storyboard);
+            DoubleAnimation animation = storyboard.Children.First() as DoubleAnimation;
             Storyboard.SetTarget(animation, InfoCanvas);
             animation.To = unit;
             storyboard.Begin();
@@ -58,7 +55,7 @@ namespace WeSplit.Views
             }
             else if (isLocatedDetail)
             {
-                Animate(-14);
+                Animate(0);
                 BtnShow.HorizontalAlignment = HorizontalAlignment.Right;
                 BtnShowBorder.CornerRadius = new CornerRadius(0, 14, 14, 0);
                 BtnHide.Visibility = Visibility.Hidden;
@@ -76,6 +73,12 @@ namespace WeSplit.Views
         {
             BtnHide.Visibility = Visibility.Visible;
             BtnShow.Visibility = Visibility.Hidden;
+            isLocatedDetail = true;
+            Animate(0);
+            BtnShow.HorizontalAlignment = HorizontalAlignment.Right;
+            BtnShowBorder.CornerRadius = new CornerRadius(0, 14, 14, 0);
+            BtnHide.Visibility = Visibility.Hidden;
+            BtnShow.Visibility = Visibility.Visible;
         }
     }
 }

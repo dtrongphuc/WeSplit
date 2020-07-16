@@ -145,6 +145,11 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style x:Key="StyleForText" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontWeight" Value="Medium" />
+            <Setter Property="Foreground" Value="#000" />
+        </Style>
     </UserControl.Resources>
     <Grid Background="#F9F9FF">
         <Grid.ColumnDefinitions>
@@ -397,6 +402,68 @@
                             </DataGridTextColumn>
                         </DataGrid.Columns>
                     </DataGrid>
+                    <StackPanel Margin="0,20">
+                        <TextBlock
+                            Margin="12,0,0,0"
+                            FontSize="20"
+                            FontWeight="DemiBold"
+                            Text="Chia tiền" />
+                        <Separator Margin="10,0" Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+                        <StackPanel Margin="12,20,0,0" Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource StyleForText}" Text="Số thành viên: " />
+                            <TextBlock Style="{StaticResource StyleForText}" Text="{Binding MemberCount}" />
+                        </StackPanel>
+                        <StackPanel Margin="12,8,0,0" Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource StyleForText}" Text="Tổng thu chi: " />
+                            <TextBlock Style="{StaticResource StyleForText}" Text="{Binding TotalRevenue, StringFormat={}{0:#.#}}" />
+                        </StackPanel>
+                        <StackPanel Margin="12,8,0,0" Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource StyleForText}" Text="Số tiền 1 thành viên phải trả: " />
+                            <TextBlock Style="{StaticResource StyleForText}" Text="{Binding TotalRevenueOfMember, StringFormat={}{0:#.#}}" />
+                        </StackPanel>
+                        <DataGrid
+                            x:Name="MoneyrDataGrid"
+                            Grid.Column="0"
+                            Margin="0,20"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Top"
+                            HorizontalContentAlignment="Center"
+                            AutoGenerateColumns="False"
+                            CanUserAddRows="False"
+                            ItemsSource="{Binding MoneySplit}"
+                            PreviewMouseWheel="MemberDataGrid_PreviewMouseWheel"
+                            ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                            ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                            SelectionMode="Extended"
+                            SelectionUnit="Cell">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn
+                                    Width="*"
+                                    Binding="{Binding MemberName}"
+                                    Header="Tên thành viên"
+                                    IsReadOnly="True">
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style>
+                                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                            <Setter Property="TextBlock.TextAlignment" Value="Left" />
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+                                <DataGridTextColumn
+                                    Width="*"
+                                    Binding="{Binding Cost, StringFormat={}{0:#.#}}"
+                                    Header="Số tiền"
+                                    IsReadOnly="True">
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style>
+                                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                            <Setter Property="TextBlock.TextAlignment" Value="Left" />
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </StackPanel>
                 </StackPanel>
             </materialDesign:Card>
         </ScrollViewer>
