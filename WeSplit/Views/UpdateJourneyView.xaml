@@ -215,7 +215,7 @@
                     FontWeight="Bold"
                     Foreground="#000"
                     Text="Cập nhật chuyến đi" />
-                <!--<TextBox
+                <TextBox
                     x:Name="JourneyName"
                     Margin="90,10,90,0"
                     Style="{StaticResource TitleBox}" />
@@ -360,7 +360,7 @@
                             Foreground="Black"
                             Text="Thêm khoản chi" />
                     </StackPanel>
-                </Button>-->
+                </Button>
                 <StackPanel
                     Margin="90,20,90,0"
                     VerticalAlignment="Center"
