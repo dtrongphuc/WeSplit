@@ -263,13 +263,13 @@
                             TextWrapping="Wrap" />
                         <StackPanel Margin="4,12,0,12" Orientation="Horizontal">
                             <TextBlock Foreground="#000" Text="Ngày Bắt Đầu: " />
-                            <TextBlock Foreground="#000" Text="{Binding Path=HistoryTrip.StartDate}" />
+                            <TextBlock Foreground="#000" Text="{Binding Path=HistoryTrip.StartDate, StringFormat='d'}" />
                             <Border
                                 Margin="20,0"
                                 BorderBrush="#FF787878"
                                 BorderThickness="0,0,0.5,0" />
                             <TextBlock Foreground="#000" Text="Ngày Kết Thúc: " />
-                            <TextBlock Foreground="#000" Text="{Binding Path=HistoryTrip.EndDate}" />
+                            <TextBlock Foreground="#000" Text="{Binding Path=HistoryTrip.EndDate, StringFormat={}{0:dd/MM/yyyy}}" />
                         </StackPanel>
                     </StackPanel>
                     <DockPanel Margin="24,30,24,0" HorizontalAlignment="Center">
@@ -307,14 +307,14 @@
                                 <DataTemplate>
                                     <Border
                                         Width="550"
-                                        Height="300"
+                                        Height="340"
                                         BorderBrush="#FF666666"
                                         BorderThickness="0.5">
                                         <Border.Background>
                                             <ImageBrush
                                                 ImageSource="{Binding Image, Converter={StaticResource pathConverter}}"
                                                 RenderOptions.BitmapScalingMode="HighQuality"
-                                                Stretch="Fill" />
+                                                Stretch="UniformToFill" />
                                         </Border.Background>
                                     </Border>
                                 </DataTemplate>
@@ -415,11 +415,11 @@
                         </StackPanel>
                         <StackPanel Margin="12,8,0,0" Orientation="Horizontal">
                             <TextBlock Style="{StaticResource StyleForText}" Text="Tổng thu chi: " />
-                            <TextBlock Style="{StaticResource StyleForText}" Text="{Binding TotalRevenue, StringFormat={}{0:#.#}}" />
+                            <TextBlock Style="{StaticResource StyleForText}" Text="{Binding TotalRevenue, StringFormat={}{0:#,#}}" />
                         </StackPanel>
                         <StackPanel Margin="12,8,0,0" Orientation="Horizontal">
                             <TextBlock Style="{StaticResource StyleForText}" Text="Số tiền 1 thành viên phải trả: " />
-                            <TextBlock Style="{StaticResource StyleForText}" Text="{Binding TotalRevenueOfMember, StringFormat={}{0:#.#}}" />
+                            <TextBlock Style="{StaticResource StyleForText}" Text="{Binding TotalRevenueOfMember, StringFormat={}{0:#,#}}" />
                         </StackPanel>
                         <DataGrid
                             x:Name="MoneyrDataGrid"
@@ -451,7 +451,7 @@
                                 </DataGridTextColumn>
                                 <DataGridTextColumn
                                     Width="*"
-                                    Binding="{Binding Cost, StringFormat={}{0:#.#}}"
+                                    Binding="{Binding Cost, StringFormat={}{0:#,#}}"
                                     Header="Số tiền"
                                     IsReadOnly="True">
                                     <DataGridTextColumn.ElementStyle>
