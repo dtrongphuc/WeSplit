@@ -292,6 +292,10 @@
     <Resource Include="Resource\Icons\add.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="SQL\QLChuyenDi_log.ldf">
+      <DependentUpon>QLChuyenDi.mdf</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Resource\Images\Background.jpg" />
     <Resource Include="Resource\Images\AddBackground.jpg" />
     <Resource Include="Resource\Icons\edit.png" />
@@ -323,19 +327,12 @@
     <None Include="Resource\Images\1_9.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <Resource Include="Resource\Images\1_1.png" />
     <Content Include="Resource\Images\1_10.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Resource\Images\2_1.jpg">
+    <None Include="Resource\Images\2_1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Resource\Images\2_10.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Resource\Images\2_11.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    </None>  
     <None Include="Resource\Images\2_2.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -360,23 +357,10 @@
     <None Include="Resource\Images\2_9.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+	    <None Include="Resource\Images\2_10.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <Resource Include="Resource\Images\Avatar.png" />
-    <Resource Include="Resource\Images\1_2.jpg" />
-    <Resource Include="Resource\Images\1_3.jpg" />
-    <Resource Include="Resource\Images\1_4.jpg" />
-    <Resource Include="Resource\Images\1_5.jpg" />
-    <Resource Include="Resource\Images\1_6.jpg" />
-    <Resource Include="Resource\Images\1_7.jpg" />
-    <Resource Include="Resource\Images\1_8.jpg" />
-    <Resource Include="Resource\Images\2_1.jpg" />
-    <Resource Include="Resource\Images\2_2.jpg" />
-    <Resource Include="Resource\Images\2_3.jpg" />
-    <Resource Include="Resource\Images\2_4.jpg" />
-    <Resource Include="Resource\Images\2_5.jpg" />
-    <Resource Include="Resource\Images\2_6.jpg" />
-    <Resource Include="Resource\Images\2_7.jpg" />
-    <Resource Include="Resource\Images\2_8.jpg" />
-    <Resource Include="Resource\Images\2_9.jpg" />
     <Content Include="SQL\QLChuyenDi.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
