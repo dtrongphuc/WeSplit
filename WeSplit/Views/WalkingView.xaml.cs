@@ -29,8 +29,8 @@ namespace WeSplit.Views
 
         private void ShowDetail_Click(object sender, MouseButtonEventArgs e)
         {
-            HistoryView.Instance.Animate(0);
             HistoryView.isLocatedDetail = true;
+            HistoryView.Instance.Animate(0);
             HistoryView.Instance.BtnShow.HorizontalAlignment = HorizontalAlignment.Right;
             HistoryView.Instance.BtnShowBorder.CornerRadius = new CornerRadius(0, 14, 14, 0);
             HistoryView.Instance.BtnHide.Visibility = Visibility.Hidden;
