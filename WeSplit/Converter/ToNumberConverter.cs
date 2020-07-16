@@ -12,6 +12,10 @@ namespace WeSplit.Converter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            if( value is double && (double)value == 0)
+            {
+                return "0 vnđ";
+            }
             return String.Format("{0:#,#} vnđ", value);
         }
 
