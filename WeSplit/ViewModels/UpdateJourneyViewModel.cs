@@ -14,9 +14,9 @@ namespace WeSplit.ViewModels
     {
         GetListObject findmember = new GetListObject();
         Trip trip = new Trip();
-         public BindableCollection<Member> MembersComboBox { get; set; }
-         public BindableCollection<ReceiptsAndExpenses> ExpendituresComboBox { get; set; }
-         public BindableCollection<Location> LocationListbox { get; set; }
+        public BindableCollection<Member> MembersComboBox { get; set; }
+        public BindableCollection<ReceiptsAndExpenses> ExpendituresComboBox { get; set; }
+        public BindableCollection<Location> LocationListbox { get; set; }
 
         public UpdateJourneyViewModel() 
         {

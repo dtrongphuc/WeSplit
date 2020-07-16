@@ -29,17 +29,15 @@ namespace WeSplit.ViewModels
         public WalkingViewModel()
         {
             JourneyInfo.TripIsGoing();
-            HistoryViewModel.list.Get_AllTripWasGone();
         }
 
         public void EndJourneyClick()
         {
             JourneyInfo.Status = 0; // Đặt trạng thái thành đã đi
-            // Xử lý database chỗ này
             DateTime now = DateTime.Now;
             JourneyInfo.EndDate = $"{now.Month}/{now.Day}/{now.Year}";
             JourneyInfo.EndTrip();
-            JourneyInfo = null;
+            HistoryViewModel.list.Get_AllTripWasGone();
         }
     }
 }

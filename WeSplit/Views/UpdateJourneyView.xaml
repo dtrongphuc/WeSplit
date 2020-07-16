@@ -340,43 +340,69 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="100" />
                         <RowDefinition Height="100" />
+                        <RowDefinition Height="100" />
                     </Grid.RowDefinitions>
+
+                    <TextBox
+                        x:Name="ExpendituresName"
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        VerticalAlignment="Center"
+                        Style="{StaticResource ExpendituresName}" />
+                    <Button
+                        x:Name="AddExpense"
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        Width="80"
+                        Height="40"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Background="#333E50"
+                        BorderThickness="0"
+                        Click="AddExpense_Click"
+                        Content="Add" />
                     <ComboBox
                         x:Name="MembersComboBox"
-                        Grid.Row="0"
+                        Grid.Row="1"
+                        Grid.Column="0"
                         Height="60"
+                        Padding="12,0,0,5"
                         materialDesign:HintAssist.Hint="Thành viên"
                         Background="#333E50"
                         FontSize="16"
                         Foreground="#fff"
-                        Padding="12,0,0,5"
-                        IsReadOnly="True"  
+                        IsReadOnly="True"
                         Style="{StaticResource MaterialDesignFilledComboBox}">
-
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
-                                <TextBlock Text ="{Binding MemberName}" Foreground="#000" Padding="0,10,0,0"/>
+                                <TextBlock
+                                    Padding="0,10,0,0"
+                                    Foreground="#000"
+                                    Text="{Binding MemberName}" />
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
 
                     </ComboBox>
                     <ComboBox
                         x:Name="ExpendituresComboBox"
-                        Grid.Row="0"
+                        Grid.Row="1"
                         Grid.Column="2"
                         Height="60"
+                        Padding="12,0,0,5"
                         materialDesign:HintAssist.Hint="Khoản thu chi"
                         Background="#333E50"
                         FontSize="16"
                         Foreground="#fff"
-                        Padding="12,0,0,5"
-                        SelectedIndex="0"
+                        IsReadOnly="False"
                         Style="{StaticResource MaterialDesignFilledComboBox}"
-                        IsReadOnly="True">
+                        Text="Thêm">
 
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding ExpensesName}" Foreground="#000" Padding="0,10,0,0"/>
+                                <TextBlock
+                                    Padding="0,10,0,0"
+                                    Foreground="#000"
+                                    Text="{Binding ExpensesName}" />
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
 
@@ -394,9 +420,9 @@
                         Height="60"
                         HorizontalAlignment="Left"
                         Background="#333E50"
-                        BorderThickness="0"                        
-                        Content="OK"
-                        Click="AddUpdateExpenses_Click"/>
+                        BorderThickness="0"
+                        Click="AddUpdateExpenses_Click"
+                        Content="OK" />
                 </Grid>
                 <StackPanel
                     Margin="90,20,90,0"
@@ -420,9 +446,9 @@
                         <ColumnDefinition Width="4*" />
                         <ColumnDefinition Width="4*" />
                     </Grid.ColumnDefinitions>
-                    <ListView 
+                    <ListView
                         x:Name="LocationListbox"
-                        Grid.Column="0" 
+                        Grid.Column="0"
                         HorizontalAlignment="Stretch"
                         ScrollViewer.CanContentScroll="False"
                         ScrollViewer.HorizontalScrollBarVisibility="Disabled"
@@ -458,25 +484,25 @@
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
-                       
+
                     </ListView>
                     <StackPanel Grid.Column="1">
                         <TextBox
-                        x:Name="RouteName"
-                        Grid.Column="1"
-                        Margin="12,0"
-                        VerticalAlignment="Top"
-                        Style="{StaticResource RouteBox}" />
+                            x:Name="RouteName"
+                            Grid.Column="1"
+                            Margin="12,0"
+                            VerticalAlignment="Top"
+                            Style="{StaticResource RouteBox}" />
                         <Button
                             x:Name="AddMemberExpenseMoney"
-                        Width="80"
-                        Height="40"
-                        Margin="0,20,125,0"
-                        HorizontalAlignment="Right"
-                        Background="#333E50"
-                        BorderThickness="0"
-                        Content="Add"
-                            Click="AddMemberExpenseMoney_Click"/>
+                            Width="80"
+                            Height="40"
+                            Margin="0,20,125,0"
+                            HorizontalAlignment="Right"
+                            Background="#333E50"
+                            BorderThickness="0"
+                            Click="AddMemberExpenseMoney_Click"
+                            Content="Add" />
                     </StackPanel>
 
                 </Grid>
