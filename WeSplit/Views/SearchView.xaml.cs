@@ -1,6 +1,7 @@
 ﻿using Caliburn.Micro;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +27,7 @@ namespace WeSplit.Views
         public IEnumerable<Location> list;
         public IEnumerable<Location> subnets;
         public IEnumerable<Member> subnets1;
+        public BindableCollection<Trip> listreuslt;//list chứa kết quả cuối cùng.
         public int _count=0;
         string keysearchtext = null;
         GetListObject page = new GetListObject();
@@ -47,8 +49,38 @@ namespace WeSplit.Views
 
         //từ tìm kiếm lưu trong "keysearchtext"
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
-        {            
-           
+        {
+            keysearchtext = SearchBox.Text.Trim();
+            list = search_keywordLocation(keysearchtext);
+            list1 = search_keywordMember(keysearchtext);
+
+            if (list != null)
+            {
+                foreach (var lo in list)
+                {
+                    Trip trip = new Trip();
+                    trip.Find(lo.TripID);
+                    listreuslt.Add(trip);
+                }
+
+            }
+            else if (list1 != null)
+            {
+                foreach (var lo in list1)
+                {
+                    Trip trip = new Trip();
+                    trip.Find(lo.TripID);
+                    listreuslt.Add(trip);
+                }
+
+            }
+            else
+            {
+                Search.ItemsSource = null;
+            }
+            Search.ItemsSource = listreuslt;
+            _count = listreuslt.Count();
+            Quantity.Text = "Có " + _count + " kết quả được tìm thấy";
         }
 
         //tìm kiếm theo dia diem chuyến đi 
@@ -88,26 +120,14 @@ namespace WeSplit.Views
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            keysearchtext = SearchBox.Text.Trim();
-
-            list = search_keywordLocation(keysearchtext);
-            list1 = search_keywordMember(keysearchtext);
-            if (list.Count() > 0)
-            {
-                Search.ItemsSource = list;
-                _count = list.Count();
-            }
-            else if (list1.Count() > 0)
-            {
-                Search.ItemsSource = list1;
-                _count = list1.Count();
-            }
-            else
-            {
-                Search.ItemsSource = page.Get_AllLocation();
-            }
+            
+            listreuslt = page.Get_AllTrip();
+            Search.ItemsSource = listreuslt;
+            _count = listreuslt.Count();
             Quantity.Text = "Có " + _count + " kết quả được tìm thấy";
 
         }
+
+
     }
 }

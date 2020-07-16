@@ -106,6 +106,26 @@ namespace WeSplit.Models
             return ListTripWasGone;
         }
 
+        public BindableCollection<Trip> Get_AllTrip()
+        {
+            ListTripWasGone.Clear();
+            sql = $"SELECT * FROM CHUYENDI AS CD ";
+            DataTable dt = Connection.GetALL_Data(sql);
+            foreach (DataRow row in dt.Rows)
+            {
+                Trip trip = new Trip();
+                trip.Amount++;
+                trip.TripID = row["MACD"].ToString();
+                trip.TripName = row["TENCD"].ToString();
+                trip.Status = (int)row["TRANGTHAI"];
+                trip.Lenght = row["DODAI"].ToString();
+                trip.StartDate = row["NGAYDI"].ToString();
+                trip.EndDate = row["NGAYKT"].ToString();
+                ListTripWasGone.Add(trip);
+            }
+            return ListTripWasGone;
+        }
+
         public BindableCollection<Location> Get_AllLocationTrip(string id)
         {
             ListLocation.Clear();

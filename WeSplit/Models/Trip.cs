@@ -87,6 +87,17 @@ namespace WeSplit.Models
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("MemberName"));
             }
         }
+
+        private int _Amount;
+        public int Amount
+        {
+            get { return _Amount; }
+            set
+            {
+                _Amount = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Amount"));
+            }
+        }
         public event PropertyChangedEventHandler PropertyChanged;
 
             
@@ -99,6 +110,7 @@ namespace WeSplit.Models
             this._Lenght = "";
             this._EndDate = "";
             _MemberName = "";
+            _Amount = 0;
         }
 
         string sql;
@@ -130,6 +142,24 @@ namespace WeSplit.Models
                 this.StartDate = row["NGAYDI"].ToString();
                 this.EndDate = row["NGAYKT"].ToString();
                 this.MemberName = row["HOTEN"].ToString();  
+            }
+        }
+
+        public void Find( string ID)
+        {
+            sql = $"SELECT CD.*,TV.HOTEN  FROM CHUYENDI AS CD JOIN THANHVIEN AS TV ON CD.MACD = TV.MACD WHERE CD.MACD={ID}";
+            DataTable dt = Connection.GetALL_Data(sql);
+            
+            foreach (DataRow row in dt.Rows)
+            {
+                _Amount++;
+                this.TripID = row["MACD"].ToString();
+                this.TripName = row["TENCD"].ToString();
+                this.Status = (int)row["TRANGTHAI"];
+                this.Lenght = row["DODAI"].ToString();
+                this.StartDate = row["NGAYDI"].ToString();
+                this.EndDate = row["NGAYKT"].ToString();
+                this.MemberName = row["HOTEN"].ToString();
             }
         }
     }

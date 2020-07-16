@@ -55,6 +55,8 @@
                 Background="#fff"
                 FontSize="14"
                 Foreground="#000"
+               
+               
                 Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" />
         </DockPanel>
 
@@ -166,17 +168,7 @@
                                             TextTrimming="CharacterEllipsis"
                                             TextWrapping="NoWrap" />
 
-                                                    <TextBlock
-                                            Width="220"
-                                            Height="16"
-                                            Padding="8,0,0,0"
-                                            HorizontalAlignment="Left"
-                                            VerticalAlignment="Center"
-                                            FontSize="9"
-                                            Foreground="#a3a3a3"
-                                            Text="Chi tiêt ngắn chuyến đi hoặc cảm nghĩ ........."
-                                            TextTrimming="CharacterEllipsis"
-                                            TextWrapping="NoWrap" />
+                                                   
 
                                                 </StackPanel>
                                                 <Grid Grid.Row="2">
