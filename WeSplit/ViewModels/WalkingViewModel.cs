@@ -39,6 +39,7 @@ namespace WeSplit.ViewModels
             DateTime now = DateTime.Now;
             JourneyInfo.EndDate = $"{now.Month}/{now.Day}/{now.Year}";
             JourneyInfo.EndTrip();
+            JourneyInfo = null;
         }
     }
 }
