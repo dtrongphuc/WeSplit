@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WeSplit.Models;
+using WeSplit.Views;
 
 namespace WeSplit.Views
 {
@@ -24,6 +25,16 @@ namespace WeSplit.Views
         public WalkingView()
         {
             InitializeComponent();
+        }
+
+        private void ShowDetail_Click(object sender, MouseButtonEventArgs e)
+        {
+            HistoryView.Instance.Animate(0);
+            HistoryView.isLocatedDetail = true;
+            HistoryView.Instance.BtnShow.HorizontalAlignment = HorizontalAlignment.Right;
+            HistoryView.Instance.BtnShowBorder.CornerRadius = new CornerRadius(0, 14, 14, 0);
+            HistoryView.Instance.BtnHide.Visibility = Visibility.Hidden;
+            HistoryView.Instance.BtnShow.Visibility = Visibility.Visible;
         }
     }
 }

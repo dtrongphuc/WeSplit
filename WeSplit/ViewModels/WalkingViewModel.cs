@@ -39,5 +39,11 @@ namespace WeSplit.ViewModels
             JourneyInfo.EndTrip();
             HistoryViewModel.list.Get_AllTripWasGone();
         }
+
+        public void ShowDetail()
+        {
+            var parentConductor = (Conductor<IScreen>.Collection.OneActive)(this.Parent);
+            parentConductor.ActivateItem(new DetailViewModel(JourneyInfo));
+        }
     }
 }

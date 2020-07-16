@@ -24,9 +24,12 @@ namespace WeSplit.Views
     /// </summary>
     public partial class HistoryView : UserControl
     {
+        public static HistoryView Instance { get; set; }
+
         public HistoryView()
         {
             InitializeComponent();
+            Instance = this;
         }
 
         public void Animate(double unit)
