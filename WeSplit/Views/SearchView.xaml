@@ -8,7 +8,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="520"
     d:DesignWidth="886"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    Loaded="UserControl_Loaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60" />
@@ -69,7 +70,7 @@
                 FontSize="20"
                 FontWeight="Medium"
                 Foreground="#000"
-                Text="Có bao nhiêu kết quả được tìm thấy"
+                Text="{Binding}"
                 TextAlignment="center" />
         </materialDesign:Card>
 
@@ -86,39 +87,141 @@
                     Padding="0,10"
                     Background="#dadfed"
                     UniformCornerRadius="4">
-                    <!--<ListView
-                            Name="ProductsSearch"
+                    <ListView
+                            Name="Search"
                             Grid.Row="1"
                             HorizontalAlignment="Center"
                             ScrollViewer.CanContentScroll="False"
                             ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                             ScrollViewer.VerticalScrollBarVisibility="Disabled">
-                            <ListView.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <WrapPanel />
-                                </ItemsPanelTemplate>
-                            </ListView.ItemsPanel>
-                            <ListView.Template>
-                                <ControlTemplate>
-                                    <ItemsPresenter />
-                                </ControlTemplate>
-                            </ListView.Template>
-                            <ListView.ItemContainerStyle>
-                                <Style TargetType="{x:Type ListViewItem}">
-                                    <Setter Property="Background" Value="Transparent" />
-                                    <Setter Property="Template">
-                                        <Setter.Value>
-                                            <ControlTemplate TargetType="{x:Type ListViewItem}">
-                                                <ContentPresenter />
-                                            </ControlTemplate>
-                                        </Setter.Value>
-                                    </Setter>
-                                </Style>
-                            </ListView.ItemContainerStyle>
-                            <ListView.ItemTemplate>
-                                <DataTemplate>-->
-                    <WrapPanel HorizontalAlignment="Center">
-                        <Button
+                            
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel />
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                        <ListView.Template>
+                            <ControlTemplate>
+                                <ItemsPresenter />
+                            </ControlTemplate>
+                        </ListView.Template>
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="{x:Type ListViewItem}">
+                                <Setter Property="Background" Value="Transparent" />
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                            <ContentPresenter />
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <WrapPanel HorizontalAlignment="Center">
+                                    <Button
+                            Width="240"
+                            Height="320"
+                            Padding="0"
+                            Panel.ZIndex="99"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Click="BtnProduct_Click"
+                            ClipToBounds="True"
+                            Style="{StaticResource MaterialDesignRaisedAccentButton}">
+                                        <materialDesign:Card
+                                Width="220"
+                                Height="312"
+                                Padding="-1,0"
+                                materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                                materialDesign:ShadowAssist.ShadowEdges="Bottom, Right, Left"
+                                UniformCornerRadius="4">
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="220" />
+                                                    <RowDefinition Height="52" />
+                                                    <RowDefinition Height="32" />
+
+                                                </Grid.RowDefinitions>
+                                                <Image
+                                        Grid.Row="0"
+                                        Width="220"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        RenderOptions.BitmapScalingMode="HighQuality"
+                                        RenderTransformOrigin="0.5 0.5"
+                                        Source="/Resource/Images/dulichvietnam.jpg"
+                                        Stretch="UniformToFill" />
+
+                                                <StackPanel Grid.Row="1" VerticalAlignment="Top">
+                                                    <TextBlock
+                                            Width="220"
+                                            Height="35"
+                                            Padding="8"
+                                            FontSize="15"
+                                            FontWeight="Bold"
+                                            Foreground="#FF3E3E3E"
+                                            Text="{Binding TripName}"
+                                            TextTrimming="CharacterEllipsis"
+                                            TextWrapping="NoWrap" />
+
+                                                    <TextBlock
+                                            Width="220"
+                                            Height="16"
+                                            Padding="8,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            VerticalAlignment="Center"
+                                            FontSize="9"
+                                            Foreground="#a3a3a3"
+                                            Text="Chi tiêt ngắn chuyến đi hoặc cảm nghĩ ........."
+                                            TextTrimming="CharacterEllipsis"
+                                            TextWrapping="NoWrap" />
+
+                                                </StackPanel>
+                                                <Grid Grid.Row="2">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition />
+                                                        <ColumnDefinition Width="75" />
+                                                        <ColumnDefinition />
+                                                    </Grid.ColumnDefinitions>
+                                                    <StackPanel Margin="5,0,0,0" Orientation="Horizontal">
+                                                        <Image Width="15" Source="/Resource/Icons/team.png" />
+                                                        <TextBlock
+                                                Padding="5,0,0,0"
+                                                VerticalAlignment="Center"
+                                                FontSize="10"
+                                                Text="Số người" />
+                                                    </StackPanel>
+
+                                                    <StackPanel
+                                            Grid.Column="1"
+                                            Margin="5,0,0,0"
+                                            Orientation="Horizontal">
+                                                        <Image Width="15" Source="/Resource/Icons/kilometer.png" />
+                                                        <TextBlock
+                                                Padding="5,0,0,0"
+                                                VerticalAlignment="Center"
+                                                FontSize="10"
+                                                Text="{Binding Lenght}" />
+                                                    </StackPanel>
+
+                                                    <StackPanel
+                                            Grid.Column="2"
+                                            Margin="5,0,0,0"
+                                            Orientation="Horizontal">
+                                                        <Image Width="15" Source="/Resource/Icons/route.png" />
+                                                        <TextBlock
+                                                Padding="5,0,0,0"
+                                                VerticalAlignment="Center"
+                                                FontSize="10"
+                                                Text="Đích đến" />
+                                                    </StackPanel>
+                                                </Grid>
+                                            </Grid>
+                                        </materialDesign:Card>
+                                    </Button>
+                                    <!--<Button
                             Width="240"
                             Height="320"
                             Padding="0"
@@ -521,110 +624,12 @@
                                     </Grid>
                                 </Grid>
                             </materialDesign:Card>
-                        </Button>
-                        <Button
-                            Width="240"
-                            Height="320"
-                            Padding="0"
-                            Panel.ZIndex="99"
-                            Background="Transparent"
-                            BorderThickness="0"
-                            Click="BtnProduct_Click"
-                            ClipToBounds="True"
-                            Style="{StaticResource MaterialDesignRaisedAccentButton}">
-                            <materialDesign:Card
-                                Width="220"
-                                Height="312"
-                                Padding="-1,0"
-                                materialDesign:ShadowAssist.ShadowDepth="Depth2"
-                                materialDesign:ShadowAssist.ShadowEdges="Bottom, Right, Left"
-                                UniformCornerRadius="4">
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="220" />
-                                        <RowDefinition Height="52" />
-                                        <RowDefinition Height="32" />
+                        </Button>-->
 
-                                    </Grid.RowDefinitions>
-                                    <Image
-                                        Grid.Row="0"
-                                        Width="220"
-                                        HorizontalAlignment="Center"
-                                        VerticalAlignment="Center"
-                                        RenderOptions.BitmapScalingMode="HighQuality"
-                                        RenderTransformOrigin="0.5 0.5"
-                                        Source="/Resource/Images/dulichvietnam.jpg"
-                                        Stretch="UniformToFill" />
-
-                                    <StackPanel Grid.Row="1" VerticalAlignment="Top">
-                                        <TextBlock
-                                            Width="220"
-                                            Height="35"
-                                            Padding="8"
-                                            FontSize="15"
-                                            FontWeight="Bold"
-                                            Foreground="#FF3E3E3E"
-                                            Text="Chuyến đi Đà Lạt 3N2"
-                                            TextTrimming="CharacterEllipsis"
-                                            TextWrapping="NoWrap" />
-
-                                        <TextBlock
-                                            Width="220"
-                                            Height="16"
-                                            Padding="8,0,0,0"
-                                            HorizontalAlignment="Left"
-                                            VerticalAlignment="Center"
-                                            FontSize="9"
-                                            Foreground="#a3a3a3"
-                                            Text="Chi tiêt ngắn chuyến đi hoặc cảm nghĩ ........."
-                                            TextTrimming="CharacterEllipsis"
-                                            TextWrapping="NoWrap" />
-
-                                    </StackPanel>
-                                    <Grid Grid.Row="2">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition />
-                                            <ColumnDefinition Width="75" />
-                                            <ColumnDefinition />
-                                        </Grid.ColumnDefinitions>
-                                        <StackPanel Margin="5,0,0,0" Orientation="Horizontal">
-                                            <Image Width="15" Source="/Resource/Icons/team.png" />
-                                            <TextBlock
-                                                Padding="5,0,0,0"
-                                                VerticalAlignment="Center"
-                                                FontSize="10"
-                                                Text="Số người" />
-                                        </StackPanel>
-
-                                        <StackPanel
-                                            Grid.Column="1"
-                                            Margin="5,0,0,0"
-                                            Orientation="Horizontal">
-                                            <Image Width="15" Source="/Resource/Icons/kilometer.png" />
-                                            <TextBlock
-                                                Padding="5,0,0,0"
-                                                VerticalAlignment="Center"
-                                                FontSize="10"
-                                                Text="Số Km" />
-                                        </StackPanel>
-
-                                        <StackPanel
-                                            Grid.Column="2"
-                                            Margin="5,0,0,0"
-                                            Orientation="Horizontal">
-                                            <Image Width="15" Source="/Resource/Icons/route.png" />
-                                            <TextBlock
-                                                Padding="5,0,0,0"
-                                                VerticalAlignment="Center"
-                                                FontSize="10"
-                                                Text="Đích đến" />
-                                        </StackPanel>
-                                    </Grid>
-                                </Grid>
-                            </materialDesign:Card>
-                        </Button>
-
-                    </WrapPanel>
+                                </WrapPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </materialDesign:Card>
             </Grid>
         </ScrollViewer>

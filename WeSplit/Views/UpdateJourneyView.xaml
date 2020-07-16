@@ -331,53 +331,6 @@
                         Foreground="#000"
                         Text="Cập nhật khoản thu chi" />
                 </StackPanel>
-                <Grid x:Name="Expenditures" Margin="90,10,90,0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="6*" />
-                        <ColumnDefinition Width="1*" />
-                        <ColumnDefinition Width="3*" />
-                    </Grid.ColumnDefinitions>
-                    <StackPanel x:Name="ExpendituresNameStack" Grid.Column="0">
-                        <TextBox Style="{StaticResource ExpendituresName}" />
-                    </StackPanel>
-                    <StackPanel x:Name="ExpendituresMoneyStack" Grid.Column="2">
-                        <TextBox Style="{StaticResource MoneyBox}" />
-                    </StackPanel>
-                </Grid>
-                <Button
-                    Width="240"
-                    Height="44"
-                    Margin="90,20,90,0"
-                    HorizontalAlignment="Left"
-                    Background="#d6e1ff"
-                    BorderThickness="0"
-                    Click="BtnAddInfoExpenses_Click">
-                    <StackPanel Orientation="Horizontal">
-                        <Image Width="25" Source="/Resource/Icons/add.png" />
-                        <TextBlock
-                            Padding="15,0,0,0"
-                            FontSize="18"
-                            Foreground="Black"
-                            Text="Thêm khoản chi" />
-                    </StackPanel>
-                </Button>
-                <StackPanel
-                    Margin="90,20,90,0"
-                    VerticalAlignment="Center"
-                    Orientation="Horizontal">
-                    <Image
-                        Width="24"
-                        Height="24"
-                        Margin="0,0,8,0"
-                        VerticalAlignment="Center"
-                        Source="/Resource/Icons/edit.png" />
-                    <TextBlock
-                        HorizontalAlignment="Left"
-                        FontSize="20"
-                        FontWeight="DemiBold"
-                        Foreground="#000"
-                        Text="Thành viên ứng trước" />
-                </StackPanel>
                 <Grid Margin="90,20,90,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="4*" />
@@ -389,37 +342,62 @@
                         <RowDefinition Height="100" />
                     </Grid.RowDefinitions>
                     <ComboBox
-                        x:Name="MemberComboBox"
+                        x:Name="MembersComboBox"
                         Grid.Row="0"
                         Height="60"
                         materialDesign:HintAssist.Hint="Thành viên"
                         Background="#333E50"
                         FontSize="16"
                         Foreground="#fff"
+                        Padding="0,0,0,5"
+                        IsReadOnly="True"  
+                        
                         Style="{StaticResource MaterialDesignFilledComboBox}">
-                        <ComboBoxItem Content="Thành viên 1" Foreground="#000" />
-                        <ComboBoxItem Content="Thành viên 2" Foreground="#000" />
-                        <ComboBoxItem Content="Thành viên 3" Foreground="#000" />
+                        
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock x:Name="MemberName_changecolor"  Text="{Binding MemberName}" Foreground="#000" Padding="0,10,0,0"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+
                     </ComboBox>
-                    <TextBox
-                        x:Name="ExpenseNameOfMember"
+                    <ComboBox
+                        x:Name="ExpendituresComboBox"
                         Grid.Row="0"
                         Grid.Column="2"
-                        Style="{StaticResource ExpendituresName}" />
+                        Height="60"
+                        materialDesign:HintAssist.Hint="Khoản thu chi"
+                        Background="#333E50"
+                        FontSize="16"
+                        Foreground="#fff"
+                        Padding="0,0,0,5"
+                        SelectedIndex="0"
+                        Style="{StaticResource MaterialDesignFilledComboBox}"
+                        IsReadOnly="True" >
+                        
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding ExpensesName}" Foreground="#000" Padding="0,10,0,0"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+
+                    </ComboBox>
                     <TextBox
-                        x:Name="ExpenseMoneyOfMember"
+                        x:Name="UpdateExpenseMoney"
                         Grid.Row="1"
                         Grid.Column="0"
                         Style="{StaticResource MoneyBox}" />
                     <Button
+                        x:Name="AddUpdateExpenses"
                         Grid.Row="1"
                         Grid.Column="2"
                         Width="120"
                         Height="60"
                         HorizontalAlignment="Left"
                         Background="#333E50"
-                        BorderThickness="0"
-                        Content="OK" />
+                        BorderThickness="0"                        
+                        Content="OK"
+                        Click="AddUpdateExpenses_Click"/>
                 </Grid>
                 <StackPanel
                     Margin="90,20,90,0"
@@ -458,20 +436,6 @@
                                 Foreground="#000"
                                 Text="Nha Trang" />
                         </StackPanel>
-                        <!--<StackPanel Margin="0,6" Orientation="Horizontal">
-                            <TextBlock
-                                FontSize="16"
-                                Foreground="#000"
-                                Text="1" />
-                            <TextBlock
-                                FontSize="16"
-                                Foreground="#000"
-                                Text=". " />
-                            <TextBlock
-                                FontSize="16"
-                                Foreground="#000"
-                                Text="Nha Trang" />
-                        </StackPanel>
                         <StackPanel Margin="0,6" Orientation="Horizontal">
                             <TextBlock
                                 FontSize="16"
@@ -555,7 +519,21 @@
                                 FontSize="16"
                                 Foreground="#000"
                                 Text="Nha Trang" />
-                        </StackPanel>-->
+                        </StackPanel>
+                        <StackPanel Margin="0,6" Orientation="Horizontal">
+                            <TextBlock
+                                FontSize="16"
+                                Foreground="#000"
+                                Text="1" />
+                            <TextBlock
+                                FontSize="16"
+                                Foreground="#000"
+                                Text=". " />
+                            <TextBlock
+                                FontSize="16"
+                                Foreground="#000"
+                                Text="Nha Trang" />
+                        </StackPanel>
                     </ListBox>
                     <TextBox
                         x:Name="RouteName"

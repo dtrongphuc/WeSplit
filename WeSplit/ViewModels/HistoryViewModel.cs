@@ -6,7 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using WeSplit.Views;
 using WeSplit.Models;
-using static WeSplit.Views.HistoryView;
 using System.ComponentModel.Composition;
 using System.Windows.Data;
 
@@ -16,7 +15,6 @@ namespace WeSplit.ViewModels
     {
         private int _historywidth = 0;
         private int _canvasheight = 520;
-        private bool _isLocatedDetail = false;
 
         GetListObject list = new GetListObject();
 
@@ -48,16 +46,6 @@ namespace WeSplit.ViewModels
             }
         }
 
-        public bool IsLocatedDetail
-        {
-            get { return _isLocatedDetail; }
-            set
-            {
-                _isLocatedDetail = value;
-                NotifyOfPropertyChange(() => IsLocatedDetail);
-            }
-        }
-
         public HistoryViewModel()
         {
             JourneyHistory = list.Get_AllTripWasGone();
@@ -70,8 +58,6 @@ namespace WeSplit.ViewModels
 
         public void ShowDetail(Trip tripSelected)
         {
-            IsLocatedDetail = true;
-            isLocatedDetail = IsLocatedDetail;
             var parentConductor = (Conductor<IScreen>.Collection.OneActive)(this.Parent);
             parentConductor.ActivateItem(new DetailViewModel(tripSelected));
         }
