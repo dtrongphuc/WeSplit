@@ -358,6 +358,7 @@
     <None Include="Resource\Images\2_9.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Resource Include="Resource\Images\Avatar.png" />
     <Content Include="SQL\QLChuyenDi.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

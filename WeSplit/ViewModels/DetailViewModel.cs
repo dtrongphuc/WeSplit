@@ -25,6 +25,7 @@ namespace WeSplit.ViewModels
         public SeriesCollection ChartData { get; set; }
         public BindableCollection<Images> ImageCarousel { get; set; }
         public BindableCollection<ReceiptsAndExpenses> MemberData { get; set; }
+        public BindableCollection<Member> MemberOfTrip { get; set; }
         public BindableCollection<ExpandoObject> MoneySplit { get; set; }
 
         GetListObject list = new GetListObject();
@@ -38,10 +39,11 @@ namespace WeSplit.ViewModels
             //hình ảnh của chuyển đi đó
             ImageCarousel = list.Get_AllImagesTrip(trip.TripID);
             CarouselItemCount = ImageCarousel.Count.ToString();
-            MemberCount = list.Get_AllMemberTrip(trip.TripID).Count;
+            MemberOfTrip = list.Get_AllMemberTrip(trip.TripID);
+            MemberCount = MemberOfTrip.Count;
             GetListMemberData(trip.TripID);
             TotalRevenueOfMember = 1.0*TotalRevenue / MemberCount;
-            MoneySplit = CreateMoneySplitObject(MemberData);
+            MoneySplit = CreateMoneySplitObject(MemberOfTrip, MemberData);
         }
 
         public void GetListMemberData(string id)
@@ -64,15 +66,29 @@ namespace WeSplit.ViewModels
             }
         }
 
-        public BindableCollection<ExpandoObject> CreateMoneySplitObject(BindableCollection<ReceiptsAndExpenses> data)
+        public BindableCollection<ExpandoObject> CreateMoneySplitObject(BindableCollection<Member> members, BindableCollection<ReceiptsAndExpenses> moneydata)
         {
             BindableCollection<ExpandoObject> list = new BindableCollection<ExpandoObject>();
-            foreach(var member in data)
+            var moneyDataGroup = moneydata.GroupBy(i => i.MemberID);
+
+            foreach (var member in members)
             {
                 dynamic obj = new ExpandoObject();
                 obj.MemberName = member.MemberName;
-                double cal = Double.Parse(member.Cost, System.Globalization.NumberStyles.Any) - TotalRevenueOfMember;
-                obj.Cost = cal;
+                double TotalCost = 0;
+                foreach (var item in moneyDataGroup)
+                {
+                    if(item.Any(i => i.MemberID == member.MemberID))
+                    {
+                        var ToalCostCollection = item.Select(i => i.Cost);
+                        foreach(var cost in ToalCostCollection)
+                        {
+                            TotalCost += Double.Parse(cost, System.Globalization.NumberStyles.Any);
+                        }
+                    }
+                }
+                double Cal = TotalCost - TotalRevenueOfMember;
+                obj.Cost = Cal;
                 list.Add(obj);
             }
             return list;

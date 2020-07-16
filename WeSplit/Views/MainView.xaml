@@ -112,7 +112,10 @@
                     VerticalAlignment="Top"
                     Cursor="Hand">
                     <Ellipse.Fill>
-                        <SolidColorBrush Color="White" />
+                        <ImageBrush
+                            ImageSource="/Resource/Images/Avatar.png"
+                            RenderOptions.BitmapScalingMode="HighQuality"
+                            Stretch="UniformToFill" />
                     </Ellipse.Fill>
                 </Ellipse>
                 <Grid
