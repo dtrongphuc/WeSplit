@@ -211,14 +211,14 @@ namespace WeSplit.Views
             //...
         }
 
-        private void MembersComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+        //private void MembersComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
             
-        }
+        //}
 
-        private void MembersComboBox_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            MembersComboBox.Foreground = Brushes.White;
-        }
+        //private void MembersComboBox_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        //{
+        //    MembersComboBox.Foreground = Brushes.White;
+        //}
     }
 }
