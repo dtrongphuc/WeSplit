@@ -48,7 +48,10 @@
             <Grid
                 x:Name="JourneyInfo"
                 Grid.Row="1"
-                ClipToBounds="True">
+                cal:Message.Attach="[Event MouseLeftButtonDown] = [ShowDetail]"
+                ClipToBounds="True"
+                Cursor="Hand"
+                MouseLeftButtonDown="ShowDetail_Click">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="0.5*" />
                     <ColumnDefinition Width="0.5*" />
