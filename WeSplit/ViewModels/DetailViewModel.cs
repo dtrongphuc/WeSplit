@@ -56,13 +56,16 @@ namespace WeSplit.ViewModels
                 TotalRevenue += element.Cost;
 
                 ChartValues<double> cost = new ChartValues<double>();
-                cost.Add(Convert.ToDouble(element.Cost));
-                PieSeries series = new PieSeries
+                if(element.Cost > 0)
                 {
-                    Values = cost,
-                    Title = element.ExpensesName
-                };
-                ChartData.Add(series);
+                    cost.Add(Convert.ToDouble(element.Cost));
+                    PieSeries series = new PieSeries
+                    {
+                        Values = cost,
+                        Title = element.ExpensesName
+                    };
+                    ChartData.Add(series);
+                }
             }
         }
 
