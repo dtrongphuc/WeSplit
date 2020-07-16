@@ -133,10 +133,13 @@ namespace WeSplit.Models
             sql = $"UPDATE CHUYENDI SET TRANGTHAI = {_Status} , NGAYKT = '{EndDate}' WHERE MACD = {_TripID} ";
             Connection.Execute_SQL(sql);
         }
-        public void TripIsGoing()
+
+
+        public bool TripIsGoing()
         {
             sql = $"SELECT CD.*,TV.HOTEN FROM CHUYENDI AS CD JOIN THANHVIEN AS TV ON CD.MACD = TV.MACD WHERE CD.TRANGTHAI=1 AND TV.TRANGTHAI=1";
             DataTable dt = Connection.GetALL_Data(sql);
+            _TripID = "";
             foreach (DataRow row in dt.Rows)
             {
                 this.TripID = row["MACD"].ToString();
@@ -157,6 +160,9 @@ namespace WeSplit.Models
                 }
                 this.MemberName = row["HOTEN"].ToString();  
             }
+            if (_TripID != "")
+                return true;
+            return false;
         }
 
         public void Find( string ID)

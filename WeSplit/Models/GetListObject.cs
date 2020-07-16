@@ -213,17 +213,17 @@ namespace WeSplit.Models
         public BindableCollection<ReceiptsAndExpenses> Get_AllReceAndExpenTrip(string ID)
         {
             ListReceAndExpen.Clear();
-            sql = $"SELECT TC.*,TV.HOTEN,TV.SDT FROM THUCHI AS TC JOIN THANHVIEN AS TV ON TC.MATV = TV.MATV AND TC.MACD = TV.MACD WHERE TC.MACD ={ID} ";
+            sql = $"SELECT TV.MACD,TV.MATV,TV.HOTEN,TV.SDT,TC.TENKHOANCHI,TC.TIEN FROM THANHVIEN AS TV LEFT JOIN THUCHI AS TC ON TV.MATV=TC.MATV AND TV.MACD = TC.MACD WHERE TV.MACD={ID} ";
             DataTable dt = Connection.GetALL_Data(sql);
             foreach(DataRow row in dt.Rows)
             {
                 ReceiptsAndExpenses RAE = new ReceiptsAndExpenses();
                 RAE.TripID = row["MACD"].ToString();
-                RAE.ExpensesName = row["TENKHOANCHI"].ToString();
-                RAE.Cost = Double.Parse(row["TIEN"].ToString(), System.Globalization.NumberStyles.Any);
                 RAE.MemberID = row["MATV"].ToString();
                 RAE.MemberName = row["HOTEN"].ToString();
                 RAE.Telephone = row["SDT"].ToString();
+                RAE.ExpensesName = row["TENKHOANCHI"].ToString();
+                RAE.Cost = Double.Parse(row["TIEN"].ToString(), System.Globalization.NumberStyles.Any);
                 ListReceAndExpen.Add(RAE);
             }
             return ListReceAndExpen;
