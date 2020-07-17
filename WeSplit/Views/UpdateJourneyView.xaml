@@ -373,22 +373,15 @@
                         Grid.ColumnSpan="3"
                         Height="60"
                         Padding="12,0"
+                        VerticalContentAlignment="Center"
                         materialDesign:HintAssist.Hint="Thành viên"
-                        Background="#333E50"
+                        Background="#fff"
+                        DisplayMemberPath="MemberName"
                         FontSize="16"
-                        Foreground="#fff"
+                        Foreground="#000"
                         IsReadOnly="True"
-                        Style="{StaticResource MaterialDesignFilledComboBox}">
-                        <ComboBox.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock
-                                    Padding="0,10,0,0"
-                                    Foreground="#000"
-                                    Text="{Binding MemberName}" />
-                            </DataTemplate>
-                        </ComboBox.ItemTemplate>
-
-                    </ComboBox>
+                        ItemsSource="{Binding MembersInComboBox}"
+                        Style="{StaticResource MaterialDesignFloatingHintComboBox}" />
                     <ComboBox
                         x:Name="ExpendituresComboBox"
                         Grid.Row="2"
@@ -396,22 +389,16 @@
                         Grid.ColumnSpan="1"
                         Height="60"
                         Padding="12,0"
+                        VerticalContentAlignment="Center"
                         materialDesign:HintAssist.Hint="Khoản thu chi"
-                        Background="#333E50"
+                        Background="#fff"
+                        DisplayMemberPath="ExpensesName"
                         FontSize="16"
-                        Foreground="#fff"
+                        Foreground="#000"
                         IsReadOnly="True"
-                        Style="{StaticResource MaterialDesignFilledComboBox}">
-                        <ComboBox.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock
-                                    Padding="0,10,0,0"
-                                    Foreground="#000"
-                                    Text="{Binding ExpensesName}" />
-                            </DataTemplate>
-                        </ComboBox.ItemTemplate>
+                        ItemsSource="{Binding ExpendituresInComboBox}"
+                        Style="{StaticResource MaterialDesignFloatingHintComboBox}" />
 
-                    </ComboBox>
                     <TextBox
                         x:Name="UpdateExpenseMoney"
                         Grid.Row="2"
