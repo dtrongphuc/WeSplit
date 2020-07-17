@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using WeSplit.Models;
 using WeSplit.Views;
 using static WeSplit.Views.HistoryView;
@@ -50,7 +51,7 @@ namespace WeSplit.ViewModels
 
         public void HomeClick()
         {
-            if(ActiveItem == null)
+            if (ActiveItem == null)
             {
                 return;
             }
@@ -78,18 +79,27 @@ namespace WeSplit.ViewModels
             DisplayName = "Tạo chuyến đi";
         }
 
-        public void check()
+        public bool check()
         {
-            GetListObject _object = new GetListObject();
-
+            Trip tripgoing = new Trip();
+            if (tripgoing.TripIsGoing() == false)
+                return false;
+            return true;
         }
-        
+
         public void UpdateClick()
         {
             WhoActived = "Update";
-            CloseCurrentView();
-            ActivateItem(new UpdateJourneyViewModel());
-            DisplayName = "Cập nhật chuyến đi";
+            if (check() == true)
+            {
+                CloseCurrentView();
+                ActivateItem(new UpdateJourneyViewModel());
+                DisplayName = "Cập nhật chuyến đi";
+            }
+            else
+            {
+                MessageBox.Show("Không có chuyến đang đi, không thể cập nhật", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
 
         public void ShowHistoryView()
@@ -101,7 +111,7 @@ namespace WeSplit.ViewModels
 
         public void CloseCurrentView()
         {
-            if(Items.Count > 0)
+            if (Items.Count > 0)
             {
                 DeactivateItem(Items[0], true);
             }

@@ -121,7 +121,7 @@ namespace WeSplit.Views
 
         private void BtnJourney_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
     }
 }
