@@ -95,6 +95,14 @@ namespace WeSplit.Models
             Connection.Execute_SQL(sql);
         }
 
+
+
+        public void EditExpen()
+        {
+            sql = $"UPDATE THUCHI SET  TENKHOANCHI=N'{_ExpensesName}', TIEN=N'{_Cost}'  WHERE MACD ={_TripID}";
+            Connection.Execute_SQL(sql);
+        }
+
         public void Edit()
         {
             sql = $"UPDATE THUCHI SET  TENKHOANCHI=N'{_ExpensesName}', TIEN=N'{_Cost}',  MATV = {_MemberID}  WHERE MACD ={_TripID}";

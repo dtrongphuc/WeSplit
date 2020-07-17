@@ -118,42 +118,25 @@ namespace WeSplit.Models
 
         public ExpandoObject Get_JourneyCustom(string id)
         {
-            sql = $"SELECT * FROM CHUYENDI WHERE MACD = {id}";
-            DataTable dt = Connection.GetALL_Data(sql);
-            DataRow row = dt.Rows[0];
-            CustomJourney.TripID = row["MACD"].ToString();
-            CustomJourney.TripName = row["TENCD"].ToString();
-            CustomJourney.Status = (int)row["TRANGTHAI"];
-            CustomJourney.Lenght = row["DODAI"].ToString();
-            string dateStart = row["NGAYDI"].ToString();
-            if (dateStart != "")
-            {
-                var date = DateTime.Parse(dateStart);
-                CustomJourney.StartDate = date.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
-            }
-            string dateEnd = row["NGAYKT"].ToString();
-            if (dateEnd != "")
-            {
-                var date = DateTime.Parse(dateEnd);
-                CustomJourney.EndDate = date.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
-            }
-
-            sql = $"SELECT * FROM HINHANH WHERE MACD = {id}";
-            dt = Connection.GetALL_Data(sql);
             Random r = new Random();
-            int index = r.Next(0, dt.Rows.Count);
-            row = dt.Rows[index];
-            CustomJourney.Image = row["HINHANH"].ToString();
-
-            sql = $"SELECT * FROM THANHVIEN WHERE MACD = {id}";
-            dt = Connection.GetALL_Data(sql);
-            CustomJourney.Amount = dt.Rows.Count;
+            Get_AllImagesTrip(id);
+            Trip trip = new Trip();
+            trip.Find(id);
+            CustomJourney.TripID = trip.TripID;
+            CustomJourney.TripName = trip.TripName;
+            CustomJourney.Status = trip.Status;
+            CustomJourney.StartDate = trip.StartDate;
+            CustomJourney.MemberName = trip.MemberName;
+            CustomJourney.Lenght = trip.Lenght;
+            CustomJourney.EndDate = trip.EndDate;
+            CustomJourney.Amount = trip.Amount;
+            CustomJourney.Image = _ListImages[r.Next(0, _ListImages.Count())].Image;
             return CustomJourney;
         }
 
         public BindableCollection<Trip> Get_AllTripWasGone()
         {
-            ListTripWasGone.Clear();
+            _ListTripWasGone.Clear();
             sql = $"SELECT CD.*,TV.HOTEN FROM CHUYENDI AS CD JOIN THANHVIEN AS TV ON CD.MACD = TV.MACD WHERE CD.TRANGTHAI=0 AND TV.TRANGTHAI=1 ";
             DataTable dt = Connection.GetALL_Data(sql);
             foreach(DataRow row in dt.Rows)
@@ -176,14 +159,14 @@ namespace WeSplit.Models
                     trip.EndDate = date.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
                 }
                 trip.MemberName = row["HOTEN"].ToString();
-                ListTripWasGone.Add(trip);
+                _ListTripWasGone.Add(trip);
             }
-            return ListTripWasGone;
+            return _ListTripWasGone;
         }
 
         public BindableCollection<Trip> Get_AllTrip()
         {
-            ListTripWasGone.Clear();
+            _ListTripWasGone.Clear();
             sql = $"SELECT * FROM CHUYENDI AS CD ";
             DataTable dt = Connection.GetALL_Data(sql);
             foreach (DataRow row in dt.Rows)
@@ -196,14 +179,14 @@ namespace WeSplit.Models
                 trip.Lenght = row["DODAI"].ToString();
                 trip.StartDate = row["NGAYDI"].ToString();
                 trip.EndDate = row["NGAYKT"].ToString();
-                ListTripWasGone.Add(trip);
+                _ListTripWasGone.Add(trip);
             }
-            return ListTripWasGone;
+            return _ListTripWasGone;
         }
 
         public BindableCollection<Location> Get_AllLocationTrip(string id)
         {
-            ListLocation.Clear();
+            _ListLocation.Clear();
             sql = $"SELECT * FROM DIADIEM WHERE MACD = {id}";
             DataTable dt = Connection.GetALL_Data(sql);
             foreach(DataRow row in dt.Rows)
@@ -213,14 +196,14 @@ namespace WeSplit.Models
                 location.TripID = row["MACD"].ToString();
                 location.Number = row["STT"].ToString();
                 location.LocationName = row["TENDD"].ToString();
-                ListLocation.Add(location);
+                _ListLocation.Add(location);
             }
-            return ListLocation;
+            return _ListLocation;
         }
 
         public BindableCollection<Location> Get_AllLocation()
         {
-            ListLocation.Clear();
+            _ListLocation.Clear();
             sql = $"SELECT * FROM DIADIEM";
             DataTable dt = Connection.GetALL_Data(sql);
             foreach (DataRow row in dt.Rows)
@@ -230,14 +213,14 @@ namespace WeSplit.Models
                 location.TripID = row["MACD"].ToString();
                 location.Number = row["STT"].ToString();
                 location.LocationName = row["TENDD"].ToString();
-                ListLocation.Add(location);
+                _ListLocation.Add(location);
             }
-            return ListLocation;
+            return _ListLocation;
         }
 
         public BindableCollection<Member> Get_AllMemberTrip(string id)
         {
-            ListMemberTrip.Clear();
+            _ListMemberTrip.Clear();
             sql = $"SELECT * FROM THANHVIEN where MACD ={id}";
             DataTable dt = Connection.GetALL_Data(sql);
             foreach(DataRow row in dt.Rows)
@@ -249,14 +232,14 @@ namespace WeSplit.Models
                 member.Diary = row["NHATKY"].ToString();
                 member.Telephone = row["SDT"].ToString();
                 member.Status = (int)row["TRANGTHAI"];
-                ListMemberTrip.Add(member);
+                _ListMemberTrip.Add(member);
             }
-            return ListMemberTrip;
+            return _ListMemberTrip;
         }
 
         public BindableCollection<Member> Get_AllMember()
         {
-            ListMemberTrip.Clear();
+            _ListMemberTrip.Clear();
             sql = $"SELECT * FROM THANHVIEN";
             DataTable dt = Connection.GetALL_Data(sql);
             foreach (DataRow row in dt.Rows)
@@ -268,15 +251,15 @@ namespace WeSplit.Models
                 member.Diary = row["NHATKY"].ToString();
                 member.Telephone = row["SDT"].ToString();
                 member.Status = (int)row["TRANGTHAI"];
-               
-                ListMemberTrip.Add(member);
+
+                _ListMemberTrip.Add(member);
             }
-            return ListMemberTrip;
+            return _ListMemberTrip;
         }
 
         public BindableCollection<ReceiptsAndExpenses> Get_AllReceAndExpenTrip(string ID)
         {
-            ListReceAndExpen.Clear();
+            _ListReceAndExpen.Clear();
             sql = $"SELECT TV.MACD,TV.MATV,TV.HOTEN,TV.SDT,TC.TENKHOANCHI,TC.TIEN FROM THANHVIEN AS TV LEFT JOIN THUCHI AS TC ON TV.MATV=TC.MATV AND TV.MACD = TC.MACD WHERE TV.MACD={ID} ";
             DataTable dt = Connection.GetALL_Data(sql);
             foreach(DataRow row in dt.Rows)
@@ -293,14 +276,14 @@ namespace WeSplit.Models
                 {
                     RAE.Cost = Double.Parse(cost, System.Globalization.NumberStyles.Any);
                 }
-                ListReceAndExpen.Add(RAE);
+                _ListReceAndExpen.Add(RAE);
             }
-            return ListReceAndExpen;
+            return _ListReceAndExpen;
         }
 
         public BindableCollection<ReceiptsAndExpenses> Get_AllReceName(string ID)
         {
-            ListReceName.Clear();
+            _listReceName.Clear();
             sql = $"SELECT * FROM THUCHI WHERE MACD={ID} ";
             DataTable dt = Connection.GetALL_Data(sql);
             foreach (DataRow row in dt.Rows)
@@ -314,14 +297,14 @@ namespace WeSplit.Models
                 {
                     RAE.Cost = Double.Parse(cost, System.Globalization.NumberStyles.Any);
                 }
-                ListReceName.Add(RAE);
+                _listReceName.Add(RAE);
             }
-            return ListReceName;
+            return _listReceName;
         }
 
         public BindableCollection<Images> Get_AllImagesTrip(string ID)
         {
-            ListImages.Clear();
+            _ListImages.Clear();
             sql=$"SELECT * FROM HINHANH WHERE MACD = {ID}";
             DataTable dt = Connection.GetALL_Data(sql);
             foreach(DataRow row in dt.Rows)
@@ -329,9 +312,9 @@ namespace WeSplit.Models
                 Images image = new Images();
                 image.TripID = row["MACD"].ToString();
                 image.Image = row["HINHANH"].ToString();
-                ListImages.Add(image);
+                _ListImages.Add(image);
             }
-            return ListImages;
+            return _ListImages;
         }
 
     }
