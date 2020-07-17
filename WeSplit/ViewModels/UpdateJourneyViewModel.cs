@@ -18,8 +18,8 @@ namespace WeSplit.ViewModels
         GetListObject GetList = new GetListObject();
         Trip trip = new Trip();
 
-        public BindableCollection<Member> MembersComboBox { get; set; }
-        public BindableCollection<ReceiptsAndExpenses> ExpendituresComboBox { get; set; }
+        public BindableCollection<Member> MembersInComboBox { get; set; }
+        public BindableCollection<ReceiptsAndExpenses> ExpendituresInComboBox { get; set; }
         public BindableCollection<Location> LocationListbox { get; set; }
 
         //tên chuyến đi 
@@ -34,9 +34,9 @@ namespace WeSplit.ViewModels
         {
             trip.TripIsGoing();
             //liệt kê trong comnbobox các thành viên
-            MembersComboBox = memberlist(trip.TripID);
+            MembersInComboBox = memberlist(trip.TripID);
             //liệt kệ trong combobox các khoản chi
-            ExpendituresComboBox = expenselist(trip.TripID);
+            ExpendituresInComboBox = expenselist(trip.TripID);
             //liệt kệ trong listview các địa điểm 
             LocationListbox = GetList.Get_AllLocationTrip(trip.TripID);
             //ten chuyến đi
@@ -88,15 +88,19 @@ namespace WeSplit.ViewModels
         public void AddExpense()
         {
             string newExpenditures = UpdateJourneyView.Instance.ExpendituresName.Text.Trim();
-            //string newCost = UpdateJourneyView.Instance.UpdateExpenseMoney
-            //ReceiptsAndExpenses temp = new ReceiptsAndExpenses()
-            //{
-            //    TripID = trip.TripID,
-            //    ExpensesName = newExpenditures
-            //};
+            string newCost = UpdateJourneyView.Instance.NewExpenseMoney.Text.Trim();
+            if(newExpenditures == "" && newCost == "")
+            {
 
-            //ExpendituresComboBox.Insert(0, temp);
-            //UpdateJourneyView.Instance.ExpendituresName.Text = "";
+            }
+            ReceiptsAndExpenses temp = new ReceiptsAndExpenses()
+            {
+                TripID = trip.TripID,
+                ExpensesName = newExpenditures
+            };
+
+            ExpendituresInComboBox.Insert(0, temp);
+            UpdateJourneyView.Instance.ExpendituresName.Text = "";
         }
     }
 }
