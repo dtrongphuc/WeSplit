@@ -87,7 +87,7 @@ namespace WeSplit.Views
         private bool ConditionCheck(List<TextBox> member, List<TextBox> tel)
         {
             if (JourneyName.Text.Trim() == "" | Kilometer.Text.Trim() == "" | StartDay.Text.Trim().Length <= 8 |
-              EndDay.Text.Trim().Length <= 8 | member.Count < 1 | tel.Count < 1 )
+              EndDay.Text.Trim().Length <= 8 | member.Count < 1 | tel.Count < 1)
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin cho chuyến đi!", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Information);
                 return false;
@@ -97,7 +97,7 @@ namespace WeSplit.Views
                 MessageBox.Show("Ngày về phải lớn hơn ngày bắt đầu!", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Information);
                 return false;
             }
-            else if(ImagesNameList.Count < 1)
+            else if (ImagesNameList.Count < 1)
             {
                 MessageBox.Show("Bạn chưa thêm ảnh cho chuyến đi!", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Information);
                 return false;
@@ -232,7 +232,5 @@ namespace WeSplit.Views
             //sau khi nhấn add làm trống lại textbox
             ExpendituresName.Clear();
         }
-
-
     }
 }

@@ -197,6 +197,21 @@
             <Setter Property="materialDesign:HintAssist.Hint" Value="Tên khoản chi" />
         </Style>
 
+        <Style
+            x:Key="IsLeaderRadioButton"
+            BasedOn="{StaticResource MaterialDesignUserForegroundRadioButton}"
+            TargetType="RadioButton">
+            <Setter Property="GroupName" Value="Leader" />
+            <Setter Property="Height" Value="60" />
+            <Setter Property="Content" Value="Trưởng nhóm" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="IsChecked" Value="False" />
+            <Setter Property="Margin" Value="0,16" />
+            <Style.Triggers>
+                <DataTrigger />
+            </Style.Triggers>
+        </Style>
+
     </UserControl.Resources>
 
     <Grid>
@@ -315,10 +330,7 @@
                         <TextBox Style="{StaticResource TelBox}" />
                     </StackPanel>
                     <StackPanel x:Name="IsLeader" Grid.Column="6">
-                        <CheckBox
-                            Content="Trưởng nhóm"
-                            Foreground="#000"
-                            IsChecked="False" />
+                        <RadioButton Style="{StaticResource IsLeaderRadioButton}" />
                     </StackPanel>
                 </Grid>
                 <Button
