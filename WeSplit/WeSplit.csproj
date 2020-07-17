@@ -306,10 +306,6 @@
       <DependentUpon>QLChuyenDi.mdf</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="SQL\QLChuyenDi_log.ldf">
-      <DependentUpon>QLChuyenDi.mdf</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Resource Include="Resource\Images\Background.jpg" />
     <Resource Include="Resource\Images\AddBackground.jpg" />
     <Resource Include="Resource\Icons\edit.png" />
