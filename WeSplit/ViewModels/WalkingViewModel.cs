@@ -43,7 +43,7 @@ namespace WeSplit.ViewModels
         public void ShowDetail()
         {
             var parentConductor = (Conductor<IScreen>.Collection.OneActive)(this.Parent);
-            parentConductor.ActivateItem(new DetailViewModel(JourneyInfo));
+            parentConductor.ActivateItem(new DetailViewModel(JourneyInfo.TripID));
         }
     }
 }
