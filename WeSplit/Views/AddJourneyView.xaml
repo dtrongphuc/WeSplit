@@ -197,6 +197,16 @@
             <Setter Property="materialDesign:HintAssist.Hint" Value="Tên khoản chi" />
         </Style>
 
+        <Style
+            x:Key="IsLeaderCheckbox"
+            BasedOn="{StaticResource MaterialDesignFilterChipCheckBox}"
+            TargetType="CheckBox">
+            <Setter Property="Content" Value="Trưởng nhóm" />
+            <Setter Property="IsChecked" Value="False" />
+            <Setter Property="Margin" Value="0,32" />
+            <Setter Property="Background" Value="#fff" />
+        </Style>
+
     </UserControl.Resources>
 
     <Grid>
@@ -315,10 +325,7 @@
                         <TextBox Style="{StaticResource TelBox}" />
                     </StackPanel>
                     <StackPanel x:Name="IsLeader" Grid.Column="6">
-                        <CheckBox
-                            Content="Trưởng nhóm"
-                            Foreground="#000"
-                            IsChecked="False" />
+                        <CheckBox Style="{StaticResource IsLeaderCheckbox}" />
                     </StackPanel>
                 </Grid>
                 <Button

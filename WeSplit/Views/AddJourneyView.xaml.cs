@@ -37,6 +37,7 @@ namespace WeSplit.Views
             Style style_tel = this.FindResource("TelBox") as Style;
             Style style_ellipse = this.FindResource("EllipseNumber") as Style;
             Style style_Ordinalnum = this.FindResource("NumberTextBlock") as Style;
+            Style style_IsLeaderCheckBox = this.FindResource("IsLeaderCheckbox") as Style;
 
             var newTextbox = new TextBox();
             newTextbox.Style = style_user;
@@ -61,8 +62,7 @@ namespace WeSplit.Views
             newCountStack.Children.Add(newTextbox_Ordinalnum);
 
             var newCheckBox = new CheckBox();
-            newCheckBox.Content = "Trưởng nhóm";
-            newCheckBox.IsChecked = false;
+            newCheckBox.Style = style_IsLeaderCheckBox;
             IsLeader.Children.Add(newCheckBox);
 
             MemberCount.Children.Add(newCountStack);
