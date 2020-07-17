@@ -307,7 +307,7 @@
                             BorderThickness="0"
                             PreviewMouseWheel="ScrollViewer_PreviewMouseWheel"
                             ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                            ScrollViewer.VerticalScrollBarVisibility="Auto"
+                            ScrollViewer.VerticalScrollBarVisibility="Disabled"
                             Style="{StaticResource ListViewStyle}">
                             <ListView.ItemContainerStyle>
                                 <Style TargetType="{x:Type ListViewItem}">
@@ -332,7 +332,7 @@
                                             <ImageBrush
                                                 ImageSource="{Binding Image, Converter={StaticResource pathConverter}}"
                                                 RenderOptions.BitmapScalingMode="HighQuality"
-                                                Stretch="UniformToFill" />
+                                                Stretch="Fill" />
                                         </Border.Background>
                                     </Border>
                                 </DataTemplate>
@@ -362,6 +362,8 @@
                         VerticalAlignment="Top"
                         HorizontalContentAlignment="Center"
                         AutoGenerateColumns="False"
+                        BorderBrush="#252D36"
+                        BorderThickness="0.5"
                         CanUserAddRows="False"
                         ItemsSource="{Binding MemberData}"
                         PreviewMouseWheel="MemberDataGrid_PreviewMouseWheel"
@@ -447,6 +449,8 @@
                             VerticalAlignment="Top"
                             HorizontalContentAlignment="Center"
                             AutoGenerateColumns="False"
+                            BorderBrush="#252D36"
+                            BorderThickness="0.5"
                             CanUserAddRows="False"
                             ItemsSource="{Binding MoneySplit}"
                             PreviewMouseWheel="MemberDataGrid_PreviewMouseWheel"

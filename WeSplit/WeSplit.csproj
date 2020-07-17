@@ -367,7 +367,9 @@
     <None Include="Resource\Images\MocChau-NinhBinh_1.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <Resource Include="Resource\Images\MocChau-NinhBinh_10.jpg" />
+    <None Include="Resource\Images\MocChau-NinhBinh_10.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Resource\Images\MocChau-NinhBinh_2.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -383,8 +385,12 @@
     <None Include="Resource\Images\MocChau-NinhBinh_6.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <Resource Include="Resource\Images\MocChau-NinhBinh_7.jpg" />
-    <Resource Include="Resource\Images\MocChau-NinhBinh_8.jpg" />
+    <None Include="Resource\Images\MocChau-NinhBinh_7.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resource\Images\MocChau-NinhBinh_8.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Resource\Images\MocChau-NinhBinh_9.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

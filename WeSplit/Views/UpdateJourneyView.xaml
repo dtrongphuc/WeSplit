@@ -143,16 +143,16 @@
             x:Key="CommonBox"
             BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}"
             TargetType="TextBox">
-            <Setter Property="Background" Value="#333E50" />
+            <Setter Property="Background" Value="#252D36" />
             <Setter Property="Padding" Value="6,0,6,6" />
             <Setter Property="Height" Value="60" />
             <Setter Property="BorderThickness" Value="0" />
             <Setter Property="FontSize" Value="16" />
             <Setter Property="FontWeight" Value="Regular" />
             <Setter Property="Foreground" Value="White" />
-            <Setter Property="materialDesign:HintAssist.Foreground" Value="#FF32AEAC" />
+            <Setter Property="materialDesign:HintAssist.Foreground" Value="#D82A02" />
             <Setter Property="materialDesign:TextFieldAssist.TextFieldCornerRadius" Value="4" />
-            <Setter Property="materialDesign:TextFieldAssist.UnderlineBrush" Value="#FF32AEAC" />
+            <Setter Property="materialDesign:TextFieldAssist.UnderlineBrush" Value="#BB2201" />
         </Style>
         <Style
             x:Key="BoxTrigger"
@@ -203,7 +203,7 @@
     </UserControl.Resources>
     <Grid>
         <ScrollViewer
-            Background="White"
+            Background="#F5F4F2"
             ScrollViewer.HorizontalScrollBarVisibility="Disabled"
             ScrollViewer.VerticalScrollBarVisibility="Auto">
             <StackPanel>
@@ -296,19 +296,29 @@
                     </StackPanel>
                 </Grid>
                 <Button
-                    Width="240"
+                    Width="220"
                     Height="44"
                     Margin="90,20,90,0"
                     HorizontalAlignment="Left"
-                    Background="#d6e1ff"
+                    HorizontalContentAlignment="Left"
+                    materialDesign:ButtonAssist.CornerRadius="4"
+                    Background="#252D36"
                     BorderThickness="0"
                     Click="BtnAddListInfoUser_Click">
-                    <StackPanel Orientation="Horizontal">
-                        <Image Width="25" Source="/Resource/Icons/add.png" />
+                    <StackPanel
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Orientation="Horizontal">
+                        <materialDesign:PackIcon
+                            Width="24"
+                            Height="24"
+                            VerticalAlignment="Center"
+                            Foreground="#F2F2F1"
+                            Kind="PlusCircleOutline" />
                         <TextBlock
                             Padding="15,0,0,0"
                             FontSize="18"
-                            Foreground="Black"
+                            Foreground="#F2F2F1"
                             Text="Thêm thành viên" />
                     </StackPanel>
                 </Button>
@@ -329,7 +339,8 @@
                         Foreground="#000"
                         Text="Cập nhật khoản thu chi" />
                 </StackPanel>
-                <Grid Margin="90,20,90,0">
+                <Separator Margin="90,12,90,8" Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+                <Grid Margin="90,0,90,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="4*" />
                         <ColumnDefinition Width="0.5*" />
@@ -357,10 +368,12 @@
                         Height="60"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
-                        Background="#333E50"
+                        materialDesign:ButtonAssist.CornerRadius="4"
+                        Background="#252D36"
                         BorderThickness="0"
                         Click="AddExpense_Click"
-                        Content="Add" />
+                        Content="Thêm"
+                        Foreground="#fff" />
                     <TextBox
                         x:Name="NewExpenseMoney"
                         Grid.Row="0"
@@ -375,7 +388,7 @@
                         Padding="12,0"
                         VerticalContentAlignment="Center"
                         materialDesign:HintAssist.Hint="Thành viên"
-                        Background="#fff"
+                        Background="#F5F4F2"
                         DisplayMemberPath="MemberName"
                         FontSize="16"
                         Foreground="#000"
@@ -392,7 +405,7 @@
                         Padding="12,0"
                         VerticalContentAlignment="Center"
                         materialDesign:HintAssist.Hint="Khoản thu chi"
-                        Background="#fff"
+                        Background="#F5F4F2"
                         DisplayMemberPath="ExpensesName"
                         FontSize="16"
                         Foreground="#000"
@@ -429,7 +442,8 @@
                         Width="120"
                         Height="60"
                         HorizontalAlignment="Left"
-                        Background="#333E50"
+                        materialDesign:ButtonAssist.CornerRadius="4"
+                        Background="#252D36"
                         BorderThickness="0"
                         Click="AddUpdateExpenses_Click"
                         Content="OK" />
@@ -451,6 +465,7 @@
                         Foreground="#000"
                         Text="Lộ trình" />
                 </StackPanel>
+                <Separator Margin="90,12,90,8" Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
                 <Grid Margin="90,20,90,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="4*" />
@@ -461,6 +476,8 @@
                         Grid.Column="0"
                         MaxHeight="250"
                         HorizontalAlignment="Stretch"
+                        BorderBrush="#7B7D7D"
+                        BorderThickness="0,0,1,0"
                         ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                         ScrollViewer.VerticalScrollBarVisibility="Auto">
                         <ListBox.ItemTemplate>
@@ -483,13 +500,14 @@
                             Style="{StaticResource RouteBox}" />
                         <Button
                             x:Name="AddPlace"
-                            Width="80"
-                            Height="40"
+                            Width="100"
+                            Height="60"
                             Margin="0,20,125,0"
                             HorizontalAlignment="Right"
-                            Background="#333E50"
+                            materialDesign:ButtonAssist.CornerRadius="4"
+                            Background="#252D36"
                             BorderThickness="0"
-                            Content="Add" />
+                            Content="Thêm" />
                     </StackPanel>
 
                 </Grid>
@@ -524,7 +542,7 @@
                         Grid.Column="1"
                         Height="265"
                         Padding="0"
-                        Background="#333E50"
+                        Background="#252D36"
                         BorderThickness="0"
                         Click="AddImgButton_Click">
                         <Border Padding="40,50">
@@ -561,7 +579,8 @@
                     Height="40"
                     Margin="0,30"
                     HorizontalAlignment="Center"
-                    Background="#333E50"
+                    materialDesign:ButtonAssist.CornerRadius="4"
+                    Background="#252D36"
                     BorderThickness="0"
                     Click="Submit_Click"
                     Content="Hoàn thành" />

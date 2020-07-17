@@ -131,17 +131,17 @@
         </Grid.RowDefinitions>
         <DockPanel
             Grid.Row="0"
-            Background="#333E50"
+            Background="#252D36"
             LastChildFill="True">
             <Grid Margin="0,0,26,0" DockPanel.Dock="Right">
                 <Button
                     x:Name="BtnSearch"
                     Width="56"
-                    Height="48"
+                    Height="44"
                     materialDesign:ButtonAssist.CornerRadius="4"
-                    Background="#fff"
+                    Background="#F5F4F2"
                     BorderBrush="#000"
-                    BorderThickness="1"
+                    BorderThickness="0"
                     Foreground="#000"
                     IsDefault="True"
                     Style="{StaticResource MaterialDesignRaisedDarkButton}"
@@ -156,16 +156,15 @@
 
             <TextBox
                 x:Name="SearchBox"
-                Height="48"
+                Height="44"
                 Margin="26,0,16,0"
-                Padding="0,-2,0,0"
                 VerticalContentAlignment="Bottom"
-                materialDesign:HintAssist.Background="#fff"
+                materialDesign:HintAssist.Background="#F5F4F2"
                 materialDesign:HintAssist.Foreground="#000"
                 materialDesign:HintAssist.Hint="Search"
                 materialDesign:TextFieldAssist.TextFieldCornerRadius="16"
                 materialDesign:TextFieldAssist.UnderlineBrush="#000"
-                Background="#fff"
+                Background="#F5F4F2"
                 FontSize="14"
                 Foreground="#000"
                 Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" />
@@ -176,7 +175,8 @@
             Panel.ZIndex="10"
             materialDesign:ShadowAssist.ShadowDepth="Depth2"
             materialDesign:ShadowAssist.ShadowEdges="Bottom"
-            Background="#e8f2fc">
+            Background="#F5F4F2"
+            UniformCornerRadius="0">
             <TextBlock
                 Name="Quantity"
                 VerticalAlignment="Center"
@@ -189,7 +189,7 @@
         <!--</ScrollViewer>-->
         <ScrollViewer
             Grid.Row="2"
-            Background="Black"
+            Background="#F5F4F2"
             VerticalScrollBarVisibility="Auto">
             <Grid x:Name="GridMain" Margin="0,16,0,0">
                 <materialDesign:Card
@@ -197,7 +197,8 @@
                     Grid.Column="0"
                     Margin="26,0,26,30"
                     Padding="0,10"
-                    Background="#e8f2fc"
+                    materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                    Background="#fff"
                     UniformCornerRadius="4">
                     <ListView
                         x:Name="Search"

@@ -31,7 +31,10 @@ namespace WeSplit.ViewModels
             keysearchtext = SearchView.Instance.SearchBox.Text.Trim();
             list = search_keywordLocation(keysearchtext);
             list1 = search_keywordMember(keysearchtext);
-
+            if(keysearchtext == "")
+            {
+                return;
+            }
             if (list.Count() != 0)
             {
                 foreach (var lo in list)
