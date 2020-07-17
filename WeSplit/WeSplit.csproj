@@ -141,6 +141,11 @@
     <Compile Include="Models\Member.cs" />
     <Compile Include="Models\ReceiptsAndExpenses.cs" />
     <Compile Include="Models\Trip.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\AddJourneyViewModel.cs" />
     <Compile Include="ViewModels\DetailViewModel.cs" />
     <Compile Include="ViewModels\HistoryViewModel.cs" />
@@ -183,11 +188,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -296,6 +296,10 @@
       <DependentUpon>QLChuyenDi.mdf</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="SQL\QLChuyenDi_log.ldf">
+      <DependentUpon>QLChuyenDi.mdf</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Resource\Images\Background.jpg" />
     <Resource Include="Resource\Images\AddBackground.jpg" />
     <Resource Include="Resource\Icons\edit.png" />
@@ -332,7 +336,7 @@
     </Content>
     <None Include="Resource\Images\2_1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>  
+    </None>
     <None Include="Resource\Images\2_2.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -357,7 +361,7 @@
     <None Include="Resource\Images\2_9.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-	    <None Include="Resource\Images\2_10.png">
+    <None Include="Resource\Images\2_10.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Resource Include="Resource\Images\Avatar.png" />
@@ -365,10 +369,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="SQL\QLChuyenDi.sql" />
-    <Content Include="SQL\QLChuyenDi_log.ldf">
-      <DependentUpon>QLChuyenDi.mdf</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">

@@ -144,13 +144,12 @@
             BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}"
             TargetType="TextBox">
             <Setter Property="Background" Value="#333E50" />
-            <Setter Property="Padding" Value="6,0" />
+            <Setter Property="Padding" Value="6,0,6,6" />
             <Setter Property="Height" Value="60" />
             <Setter Property="BorderThickness" Value="0" />
-            <Setter Property="FontSize" Value="18" />
+            <Setter Property="FontSize" Value="16" />
             <Setter Property="FontWeight" Value="Regular" />
             <Setter Property="Foreground" Value="White" />
-            <Setter Property="VerticalContentAlignment" Value="Center" />
             <Setter Property="materialDesign:HintAssist.Foreground" Value="#FF32AEAC" />
             <Setter Property="materialDesign:TextFieldAssist.TextFieldCornerRadius" Value="4" />
             <Setter Property="materialDesign:TextFieldAssist.UnderlineBrush" Value="#FF32AEAC" />
@@ -243,10 +242,9 @@
                             VerticalContentAlignment="Bottom"
                             FontSize="16"
                             Foreground="#000" />
-                        <!--<TextBox
-                            Name="StartDayTextbox"
-                            Text="01/02/2020"
-                            />-->
+
+                        <TextBox Name="StartDayTextbox" Text="01/02/2020" />
+
                     </StackPanel>
                     <StackPanel Grid.Column="1" Orientation="Horizontal">
                         <TextBlock
@@ -357,8 +355,8 @@
                         x:Name="AddExpense"
                         Grid.Row="0"
                         Grid.Column="2"
-                        Width="80"
-                        Height="40"
+                        Width="100"
+                        Height="60"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
                         Background="#333E50"
@@ -370,7 +368,7 @@
                         Grid.Row="1"
                         Grid.Column="0"
                         Height="60"
-                        Padding="12,0,0,5"
+                        Padding="12,0"
                         materialDesign:HintAssist.Hint="Thành viên"
                         Background="#333E50"
                         FontSize="16"
@@ -392,15 +390,13 @@
                         Grid.Row="1"
                         Grid.Column="2"
                         Height="60"
-                        Padding="12,0,0,5"
+                        Padding="12,0"
                         materialDesign:HintAssist.Hint="Khoản thu chi"
                         Background="#333E50"
                         FontSize="16"
                         Foreground="#fff"
-                        IsReadOnly="False"
-                        Style="{StaticResource MaterialDesignFilledComboBox}"
-                        Text="Thêm">
-
+                        IsReadOnly="True"
+                        Style="{StaticResource MaterialDesignFilledComboBox}">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <TextBlock
