@@ -37,7 +37,7 @@ namespace WeSplit.Views
             Style style_tel = this.FindResource("TelBox") as Style;
             Style style_ellipse = this.FindResource("EllipseNumber") as Style;
             Style style_Ordinalnum = this.FindResource("NumberTextBlock") as Style;
-            Style style_IsLeaderCheckBox = this.FindResource("IsLeaderCheckbox") as Style;
+            Style style_IsLeaderRadioButton = this.FindResource("IsLeaderRadioButton") as Style;
 
             var newTextbox = new TextBox();
             newTextbox.Style = style_user;
@@ -61,9 +61,9 @@ namespace WeSplit.Views
             newTextbox_Ordinalnum.Text = (++_memberCount).ToString();
             newCountStack.Children.Add(newTextbox_Ordinalnum);
 
-            var newCheckBox = new CheckBox();
-            newCheckBox.Style = style_IsLeaderCheckBox;
-            IsLeader.Children.Add(newCheckBox);
+            var newRadioButton = new RadioButton();
+            newRadioButton.Style = style_IsLeaderRadioButton;
+            IsLeader.Children.Add(newRadioButton);
 
             MemberCount.Children.Add(newCountStack);
         }
@@ -106,7 +106,7 @@ namespace WeSplit.Views
             if (JourneyName.Text.Trim() == "" | Kilometer.Text.Trim() == "" | StartDay.Text.Trim().Length <= 8 |
               EndDay.Text.Trim().Length <= 8 | member.Count < 1 | tel.Count < 1 | expensesname.Count < 1 | expensesmoney.Count < 1)
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin cho món ăn!", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin cho chuyến đi!", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Information);
                 return false;
             }
             return true;
@@ -127,17 +127,17 @@ namespace WeSplit.Views
             return list;
         }
 
-        private List<CheckBox> AllChildrenCheckBox(DependencyObject parent)
+        private List<RadioButton> AllChildrenRadioButton(DependencyObject parent)
         {
-            var list = new List<CheckBox> { };
+            var list = new List<RadioButton> { };
             for (int count = 0; count < VisualTreeHelper.GetChildrenCount(parent); count++)
             {
                 var child = VisualTreeHelper.GetChild(parent, count);
-                if (child is CheckBox)
+                if (child is RadioButton)
                 {
-                    list.Add(child as CheckBox);
+                    list.Add(child as RadioButton);
                 }
-                list.AddRange(AllChildrenCheckBox(child));
+                list.AddRange(AllChildrenRadioButton(child));
             }
             return list;
         }
@@ -148,7 +148,7 @@ namespace WeSplit.Views
             List<TextBox> childrenOfTel = AllChildren(TelStack);
             List<TextBox> childrenOfExpendituresName = AllChildren(ExpendituresNameStack);
             List<TextBox> childrenOfExpendituresMoney = AllChildren(ExpendituresMoneyStack);
-            List<CheckBox> childrenOfIsLeader = AllChildrenCheckBox(IsLeader);
+            List<RadioButton> childrenOfIsLeader = AllChildrenRadioButton(IsLeader);
 
             Trip trip = new Trip();
             trip.Status = 1;
@@ -209,9 +209,6 @@ namespace WeSplit.Views
                     }
                 }//kết thúc danh sách tên và số điện thoại thành viên
 
-
-                
-
                 //danh sach tên và số tiền khoản chi 
                 for (int i = 0; i < childrenOfExpendituresMoney.Count; i++)
                 {
@@ -226,7 +223,5 @@ namespace WeSplit.Views
 
             }//kết thúc thêm vào database
         }//két thúc sự kiện click
-
-       
     }
 }
