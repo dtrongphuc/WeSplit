@@ -204,7 +204,7 @@
     </UserControl.Resources>
     <Grid>
         <ScrollViewer
-            Background="#dadfed"
+            Background="White"
             ScrollViewer.HorizontalScrollBarVisibility="Disabled"
             ScrollViewer.VerticalScrollBarVisibility="Auto">
             <StackPanel>

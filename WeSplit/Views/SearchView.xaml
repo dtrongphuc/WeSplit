@@ -176,7 +176,7 @@
             Panel.ZIndex="10"
             materialDesign:ShadowAssist.ShadowDepth="Depth2"
             materialDesign:ShadowAssist.ShadowEdges="Bottom"
-            Background="#dadfed">
+            Background="#e8f2fc">
             <TextBlock
                 Name="Quantity"
                 VerticalAlignment="Center"
@@ -197,7 +197,7 @@
                     Grid.Column="0"
                     Margin="26,0,26,30"
                     Padding="0,10"
-                    Background="#dadfed"
+                    Background="#e8f2fc"
                     UniformCornerRadius="4">
                     <ListView
                         Name="Search"
