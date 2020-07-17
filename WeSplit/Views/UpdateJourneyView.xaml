@@ -243,6 +243,10 @@
                             VerticalContentAlignment="Bottom"
                             FontSize="16"
                             Foreground="#000" />
+                        <!--<TextBox
+                            Name="StartDayTextbox"
+                            Text="01/02/2020"
+                            />-->
                     </StackPanel>
                     <StackPanel Grid.Column="1" Orientation="Horizontal">
                         <TextBlock
@@ -578,6 +582,7 @@
                     HorizontalAlignment="Center"
                     Background="#333E50"
                     BorderThickness="0"
+                    Click="Submit_Click"
                     Content="Hoàn thành" />
             </StackPanel>
         </ScrollViewer>

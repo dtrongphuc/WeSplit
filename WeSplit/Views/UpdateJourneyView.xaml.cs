@@ -25,14 +25,14 @@ namespace WeSplit.Views
     /// </summary>
     public partial class UpdateJourneyView : UserControl
     {
-        
+
         public UpdateJourneyView()
         {
             InitializeComponent();
-           
+
         }
 
-       
+
         string absolute = "";
         private void convert(string relative)
         {
@@ -89,12 +89,27 @@ namespace WeSplit.Views
             if (JourneyName.Text.Trim() == "" | Kilometer.Text.Trim() == "" | StartDay.Text.Trim().Length <= 8 |
               EndDay.Text.Trim().Length <= 8 | member.Count < 1 | tel.Count < 1)
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin cho món ăn!", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin cho chuyến đi!", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                return false;
+            }
+            else if (datecheck(StartDay.Text.Trim(), EndDay.Text.Trim()) == false)
+            {
+                MessageBox.Show("Ngày về phải lớn hơn ngày bắt đầu!", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Information);
                 return false;
             }
             return true;
         }
 
+        private bool datecheck(string start, string end)
+        {
+            DateTime _start = DateTime.Parse(start);
+            DateTime _end = DateTime.Parse(end);
+            DateTime startday = new DateTime(_start.Year, _start.Month, _start.Day);
+            DateTime endday = new DateTime(_end.Year, _end.Month, _end.Day);
+            if (startday < endday)
+                return true;
+            return false;
+        }
 
         private List<TextBox> AllChildren(DependencyObject parent)
         {
@@ -114,7 +129,7 @@ namespace WeSplit.Views
         {
             List<TextBox> childrenOfMember = AllChildren(MemberNameStack);
             List<TextBox> childrenOfTel = AllChildren(TelStack);
-            
+
 
             //kiểm tra đã nhập đầy đủ thông tin 
             if (ConditionCheck(childrenOfMember, childrenOfTel))
@@ -150,11 +165,11 @@ namespace WeSplit.Views
                 {
                     if (childrenOfMember[i].Text.Trim() != "" && childrenOfTel[i].Text.Trim() != "")
                     {
-                        
+
                     }
                 }//kết thúc danh sách tên và số điện thoại thành viên
 
-                
+
 
                 //lấy ra tên thành viên ứng tiền trước
                 if (MembersComboBox.Text.Trim() != "")
@@ -162,7 +177,7 @@ namespace WeSplit.Views
 
                 }
 
-               
+
                 //lấy ra tên các lộ trình
                 if (RouteName.Text.Trim() != "")
                 {
@@ -201,5 +216,7 @@ namespace WeSplit.Views
         {
 
         }
+
+
     }
 }
