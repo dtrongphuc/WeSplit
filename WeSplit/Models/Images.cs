@@ -57,5 +57,7 @@ namespace WeSplit.Models
             sql = $"DELETE FROM HINHANH WHERE MACD = {_TripID} ";
             Connection.Execute_SQL(sql);
         }
+
+       
     }
 }

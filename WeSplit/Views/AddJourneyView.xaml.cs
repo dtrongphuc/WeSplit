@@ -191,13 +191,14 @@ namespace WeSplit.Views
                 }
                 //them vào database về chuyến đi
                  trip.Add();
+                trip.TripIsGoing();
                 //danh sách tên và số điện thoại thành viên
                 for (int i = 0; i < childrenOfMember.Count; i++)
                 {
                     if (childrenOfMember[i].Text.Trim() != "" && childrenOfTel[i].Text.Trim() != "")
                     {
                         Member member = new Member();
-                        
+                        member.TripID = trip.TripID;
                         member.MemberName = childrenOfMember[i].Text;
                         member.Telephone = childrenOfTel[i].Text;
                         if(LeaderIndex == i)
@@ -209,12 +210,16 @@ namespace WeSplit.Views
                     }
                 }//kết thúc danh sách tên và số điện thoại thành viên
 
+                Member member1 = new Member();
                 //danh sach tên và số tiền khoản chi 
                 for (int i = 0; i < childrenOfExpendituresMoney.Count; i++)
                 {
                     if (childrenOfExpendituresMoney[i].Text.Trim() != "" && childrenOfExpendituresName[i].Text.Trim() != "")
                     {
                         ReceiptsAndExpenses receandexpen = new ReceiptsAndExpenses();
+                        member1.Leader(trip.TripID);
+                        receandexpen.MemberID = member1.MemberID;
+                        receandexpen.TripID = trip.TripID;
                         receandexpen.Cost = Double.Parse(childrenOfExpendituresMoney[i].Text, System.Globalization.NumberStyles.Any);
                         receandexpen.ExpensesName = childrenOfExpendituresName[i].Text;
                         receandexpen.Add();

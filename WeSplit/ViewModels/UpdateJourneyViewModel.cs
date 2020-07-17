@@ -9,12 +9,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using WeSplit.Models;
+using WeSplit.Views;
 
 namespace WeSplit.ViewModels
 {
     class UpdateJourneyViewModel : Screen
     {
-        GetListObject findmember = new GetListObject();
+        GetListObject GetList = new GetListObject();
         Trip trip = new Trip();
 
         public BindableCollection<Member> MembersComboBox { get; set; }
@@ -37,7 +38,7 @@ namespace WeSplit.ViewModels
             //liệt kệ trong combobox các khoản chi
             ExpendituresComboBox = expenselist(trip.TripID);
             //liệt kệ trong listview các địa điểm 
-            LocationListbox = findmember.Get_AllLocationTrip(trip.TripID);
+            LocationListbox = GetList.Get_AllLocationTrip(trip.TripID);
             //ten chuyến đi
             JourneyName = trip.TripName;
             //số km
@@ -47,21 +48,20 @@ namespace WeSplit.ViewModels
             //ngày kết thúc
             
             EndDay = convertdate(trip.EndDate);
-
         }
 
         //binding tên các  thành viên trong chuyến đi 
         public BindableCollection<Member> memberlist(string id)
         {
             //binding
-            return findmember.Get_AllMemberTrip(id);
+            return GetList.Get_AllMemberTrip(id);
         }
 
         //binding tên các khoản chi
         public BindableCollection<ReceiptsAndExpenses> expenselist(string id)
         {
             //binding
-            return findmember.Get_AllReceAndExpenTrip(id);
+            return GetList.Get_AllReceName(id);
         }
 
         //convert dd/mm/yyyy --> mm/dd/yyyy
@@ -83,6 +83,20 @@ namespace WeSplit.ViewModels
             converted += day[8];
             converted += day[9];
             return converted;
+        }
+
+        public void AddExpense()
+        {
+            string newExpenditures = UpdateJourneyView.Instance.ExpendituresName.Text.Trim();
+            //string newCost = UpdateJourneyView.Instance.UpdateExpenseMoney
+            //ReceiptsAndExpenses temp = new ReceiptsAndExpenses()
+            //{
+            //    TripID = trip.TripID,
+            //    ExpensesName = newExpenditures
+            //};
+
+            //ExpendituresComboBox.Insert(0, temp);
+            //UpdateJourneyView.Instance.ExpendituresName.Text = "";
         }
     }
 }
