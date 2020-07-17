@@ -86,6 +86,20 @@ namespace WeSplit.Models
             }
         }
 
+        private BindableCollection<ReceiptsAndExpenses> _listReceName { get; set; } = new BindableCollection<ReceiptsAndExpenses>();
+        public BindableCollection<ReceiptsAndExpenses> ListReceName
+        {
+            get
+            {
+                return _listReceName;
+            }
+            set
+            {
+                _listReceName = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ListReceName"));
+            }
+        }
+
         private BindableCollection<Images> _ListImages { get; set; } = new BindableCollection<Images>();
         public BindableCollection<Images> ListImages
         {
@@ -282,6 +296,27 @@ namespace WeSplit.Models
                 ListReceAndExpen.Add(RAE);
             }
             return ListReceAndExpen;
+        }
+
+        public BindableCollection<ReceiptsAndExpenses> Get_AllReceName(string ID)
+        {
+            ListReceName.Clear();
+            sql = $"SELECT * FROM THUCHI WHERE MACD={ID} ";
+            DataTable dt = Connection.GetALL_Data(sql);
+            foreach (DataRow row in dt.Rows)
+            {
+                ReceiptsAndExpenses RAE = new ReceiptsAndExpenses();
+                RAE.TripID = row["MACD"].ToString();
+                RAE.ExpensesName = row["TENKHOANCHI"].ToString();
+                string cost = row["TIEN"].ToString();
+                RAE.Cost = 0;
+                if (cost != "")
+                {
+                    RAE.Cost = Double.Parse(cost, System.Globalization.NumberStyles.Any);
+                }
+                ListReceName.Add(RAE);
+            }
+            return ListReceName;
         }
 
         public BindableCollection<Images> Get_AllImagesTrip(string ID)
