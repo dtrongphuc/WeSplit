@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WeSplit.Models;
 using WeSplit.Views;
 using static WeSplit.Views.HistoryView;
 
@@ -77,6 +78,12 @@ namespace WeSplit.ViewModels
             DisplayName = "Tạo chuyến đi";
         }
 
+        public void check()
+        {
+            GetListObject _object = new GetListObject();
+
+        }
+        
         public void UpdateClick()
         {
             WhoActived = "Update";
