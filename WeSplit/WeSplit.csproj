@@ -81,7 +81,7 @@
       <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.19\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
     </Reference>
     <Reference Include="System">
-      <HintPath>..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Configuration" />
@@ -327,10 +327,6 @@
     <Resource Include="Resource\Images\MocChau-NinhBinh_7.jpg" />
     <Resource Include="Resource\Images\MocChau-NinhBinh_8.jpg" />
     <Resource Include="Resource\Images\MocChau-NinhBinh_9.jpg" />
-    <Content Include="SQL\QLChuyenDi_log.ldf">
-      <DependentUpon>QLChuyenDi.mdf</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="SQL\QLChuyenDi_log.ldf">
       <DependentUpon>QLChuyenDi.mdf</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

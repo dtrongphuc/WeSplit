@@ -381,6 +381,7 @@
                         Foreground="#000"
                         IsReadOnly="True"
                         ItemsSource="{Binding MembersInComboBox}"
+                        SelectedIndex="{Binding LeaderIndex}"
                         Style="{StaticResource MaterialDesignFloatingHintComboBox}" />
                     <ComboBox
                         x:Name="ExpendituresComboBox"
@@ -402,7 +403,8 @@
                     <TextBox
                         x:Name="UpdateExpenseMoney"
                         Grid.Row="2"
-                        Grid.Column="2">
+                        Grid.Column="2"
+                        Text="">
                         <TextBox.Style>
                             <Style BasedOn="{StaticResource MoneyBox}" TargetType="TextBox">
                                 <Style.Triggers>
@@ -454,36 +456,14 @@
                         <ColumnDefinition Width="4*" />
                         <ColumnDefinition Width="4*" />
                     </Grid.ColumnDefinitions>
-                    <ListView
+                    <ListBox
                         x:Name="LocationListbox"
                         Grid.Column="0"
+                        MaxHeight="250"
                         HorizontalAlignment="Stretch"
-                        ScrollViewer.CanContentScroll="False"
                         ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                         ScrollViewer.VerticalScrollBarVisibility="Auto">
-                        <ListView.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <StackPanel Margin="16,0" />
-                            </ItemsPanelTemplate>
-                        </ListView.ItemsPanel>
-                        <ListView.Template>
-                            <ControlTemplate>
-                                <ItemsPresenter />
-                            </ControlTemplate>
-                        </ListView.Template>
-                        <ListView.ItemContainerStyle>
-                            <Style TargetType="{x:Type ListViewItem}">
-                                <Setter Property="Background" Value="Transparent" />
-                                <Setter Property="Template">
-                                    <Setter.Value>
-                                        <ControlTemplate TargetType="{x:Type ListViewItem}">
-                                            <ContentPresenter />
-                                        </ControlTemplate>
-                                    </Setter.Value>
-                                </Setter>
-                            </Style>
-                        </ListView.ItemContainerStyle>
-                        <ListView.ItemTemplate>
+                        <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Margin="0,6" Orientation="Horizontal">
                                     <TextBlock FontSize="16" Text="{Binding Number}" />
@@ -491,9 +471,9 @@
                                     <TextBlock FontSize="16" Text="{Binding LocationName}" />
                                 </StackPanel>
                             </DataTemplate>
-                        </ListView.ItemTemplate>
+                        </ListBox.ItemTemplate>
 
-                    </ListView>
+                    </ListBox>
                     <StackPanel Grid.Column="1">
                         <TextBox
                             x:Name="RouteName"
@@ -502,20 +482,17 @@
                             VerticalAlignment="Top"
                             Style="{StaticResource RouteBox}" />
                         <Button
-                            x:Name="AddMemberExpenseMoney"
+                            x:Name="AddPlace"
                             Width="80"
                             Height="40"
                             Margin="0,20,125,0"
                             HorizontalAlignment="Right"
                             Background="#333E50"
                             BorderThickness="0"
-                            Click="AddMemberExpenseMoney_Click"
                             Content="Add" />
                     </StackPanel>
 
                 </Grid>
-                <!--  Cho nay add hinh  -->
-
                 <Grid Height="230" Margin="0,25,0,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*" />
