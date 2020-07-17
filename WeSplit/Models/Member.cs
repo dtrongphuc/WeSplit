@@ -86,7 +86,7 @@ namespace WeSplit.Models
             this._Status=0;
             this._MemberName = "";
             this._MemberID = "";
-            this._Diary = "";
+            this._Diary = " ";
         }
 
         string sql;

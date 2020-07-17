@@ -283,7 +283,7 @@ namespace WeSplit.Models
 
         public BindableCollection<ReceiptsAndExpenses> Get_AllReceName(string ID)
         {
-            ListReceName.Clear();
+            _listReceName.Clear();
             sql = $"SELECT * FROM THUCHI WHERE MACD={ID} ";
             DataTable dt = Connection.GetALL_Data(sql);
             foreach (DataRow row in dt.Rows)
@@ -297,9 +297,9 @@ namespace WeSplit.Models
                 {
                     RAE.Cost = Double.Parse(cost, System.Globalization.NumberStyles.Any);
                 }
-                ListReceName.Add(RAE);
+                _listReceName.Add(RAE);
             }
-            return ListReceName;
+            return _listReceName;
         }
 
         public BindableCollection<Images> Get_AllImagesTrip(string ID)
