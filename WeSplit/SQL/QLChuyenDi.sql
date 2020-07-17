@@ -204,6 +204,187 @@ VALUES
 --(3, 2, N'Uống cafe', 300000),
 (6, 2, N'Thuê xe', 240000)
 GO
+
+
+
+
+
+
+
+
+
+
+
+-- CHUYENDI
+INSERT INTO CHUYENDI
+VALUES
+(N'Thành phố Hồ Chí Minh phượt Hà Giang, những ngọn núi hùng vĩ', 0, '10/12/2019', '10/20/2019', 2010),
+(N'Du lịch Phú Yên theo một cách hoàn toàn mới!', 0, '03/11/2020', '03/15/2020', 573),
+(N'Mộc Châu - Tà Xùa - Yên Bái - Sapa - Hà Giang - Ninh Bình: đi xong về lấy chồng', 0, '08/03/2019', '08/10/2019', 275)
+GO
+SELECT IDENT_CURRENT('CHUYENDI') AS SOLUONG
+-- THANHVIEN
+INSERT INTO THANHVIEN
+VALUES
+(   4, N'Nguyễn Bảo Nam',
+    N'Mình đã có lịch trình chi tiết và cung đường rồi. Bạn nào thích thì tham gia team ạ. Hiện có vé máy bay giá ok ạ.',
+    '0255986589', 1),
+(   4, N'Trần Quang Khải', '', '09065225685', 0),
+(   4, N'Trần Trung Quốc', '', '09065225685', 0),
+(   4, N'Trần Quang Cao', '', '09025595685', 0),
+(   4, N'Cao Khải Hoàng', '', '09062546685', 0),
+
+(   5, N'Nguyễn Hùng Ngọc Trung Kiên',
+    N'Mình vượt qua đèo Cả để đến với địa phận Phú Yên. Có thể nói, view nhìn từ đèo Cả thật là tuyệt vời, khung cảnh hùng vĩ từ ngọn đèo cả nhìn xuống vùng biển Vũng Rô, mới thấy quang cảnh thật đẹp làm sao. Từ đây, bạn có thể thấy được đường tàu lửa chạy qua đèo Cả, trông đẹp mắt làm sao.',
+    '0935625589', 1),
+(   5, N'Bùi Lê Quang', '', '09065222256', 0),
+(   5, N'Trần Trung Trực', '', '0236288915', 0),
+(   5, N'Cao Tây Nguyên', '', '0125688958', 0),
+(   5, N'Khải Mã Hoàng', '', '090625685', 0),
+
+(   6, N'Châu Ngọc Ngọc',
+    N'Nói về sông Đà, hồi học cấp 3 mình bị ám ảnh lắm, vì suốt ngày phải phân tích bài "người lái đò sông Đà" của ông Nguyễn Tuân "Bờ sông hoang dại như đôi bờ tiền sử, bở sông hồn nhiên như một nỗi niềm cổ tích tuổi xưa". Mấy đoạn chèo thuyền vượt thác thì đúng xuất sắc rồi, nhưng mình chẳng nhớ gì về đoạn này.
+Ngày mình đi sông Đà phẳng lặng như mặt gương, trong xanh màu nước, bên trên là mây trời, bình yên lắm',
+    '0935644458', 1),
+(   6, N'Hà Thị Mỹ Châu', '', '0906335688', 0),
+(   6, N'Nguyễn Thị Anh Thư', '', '0236214458', 0),
+(   6, N'Tô Quách Hiếu', '', '0255958993', 0),
+(   6, N'Trần Thị Bảo Yến', '', '0956808956', 0)
+GO
+
+-- DIA DIEM
+INSERT INTO DIADIEM
+VALUES
+--Get Start
+(
+	4, 1, N'Tp Nha Trang'
+),
+(
+	4, 2, N'Tp Quy Nhơn'
+),
+(
+	4, 3, N'Tp Huế'
+),
+(
+	4, 4, N'Đà Nẵng'
+),
+(
+	4, 5, N'Tp Hải Phòng'
+),
+(
+	4, 6, N'Thủ đô Hà Nội'
+),
+
+(
+	5, 1, N'Biển Mũi Né'
+),
+(
+	5, 2, N'Phan Rang - Tháp Chàm'
+),
+(
+	5, 3, N'Tp Cam Ranh'
+),
+(
+	5, 4, N'Phú Yên'
+),
+
+(
+	6, 1, N'SG-HN-Hòa Bình-Mộc Châu'
+),
+(
+	6, 2, N'Mộc Châu - Tà Xùa'
+),
+(
+	6, 3, N'Tà Xùa - Yên Bái'
+),
+(
+	6, 4, N'Yên Bái - Sapa'
+),
+(
+	6, 5, N'Sapa - Hà Giang'
+),
+(
+	6, 6, N'Hà Giang - Đồng Văn'
+),
+(
+	6, 7, N'Đồng Văn - Hà Giang - Hà Nội'
+),
+(
+	6, 8, N'Hà Nội - Ninh Bình - SG'
+)
+GO
+
+-- HINH ANH
+INSERT INTO HINHANH
+VALUES
+
+( 4, '/Resource/Images/HCM-HaGiang_1.jpg' ),
+( 4, '/Resource/Images/HCM-HaGiang_2.jpg' ),
+( 4, '/Resource/Images/HCM-HaGiang_3.jpg' ),
+( 4, '/Resource/Images/HCM-HaGiang_4.jpg' ),
+( 4, '/Resource/Images/HCM-HaGiang_5.jpg' ),
+( 4, '/Resource/Images/HCM-HaGiang_6.jpg' ),
+( 4, '/Resource/Images/HCM-HaGiang_7.jpg' ),
+( 4, '/Resource/Images/HCM-HaGiang_8.jpg' ),
+( 4, '/Resource/Images/HCM-HaGiang_9.jpg' ),
+
+
+( 5, '/Resource/Images/HCM-PhuYen_1.jpg' ),
+( 5, '/Resource/Images/HCM-PhuYen_2.jpg' ),
+( 5, '/Resource/Images/HCM-PhuYen_3.jpg' ),
+( 5, '/Resource/Images/HCM-PhuYen_4.jpg' ),
+( 5, '/Resource/Images/HCM-PhuYen_5.jpg' ),
+( 5, '/Resource/Images/HCM-PhuYen_6.jpg' ),
+( 5, '/Resource/Images/HCM-PhuYen_7.jpg' ),
+( 5, '/Resource/Images/HCM-PhuYen_8.jpg' ),
+
+( 6, '/Resource/Images/MocChau-NinhBinh_1.jpg' ),
+( 6, '/Resource/Images/MocChau-NinhBinh_2.jpg' ),
+( 6, '/Resource/Images/MocChau-NinhBinh_3.jpg' ),
+( 6, '/Resource/Images/MocChau-NinhBinh_4.jpg' ),
+( 6, '/Resource/Images/MocChau-NinhBinh_5.jpg' ),
+( 6, '/Resource/Images/MocChau-NinhBinh_6.jpg' ),
+( 6, '/Resource/Images/MocChau-NinhBinh_7.jpg' ),
+( 6, '/Resource/Images/MocChau-NinhBinh_8.jpg' ),
+( 6, '/Resource/Images/MocChau-NinhBinh_9.jpg' ),
+( 6, '/Resource/Images/MocChau-NinhBinh_10.jpg' )
+GO
+
+-- THU CHI
+INSERT INTO THUCHI
+VALUES
+
+(12, 4, N'Ăn Vặt', 200000),
+(12, 4, N'Ăn sáng', 500000),
+(12, 4, N'Ăn trưa', 480000),
+(12, 4, N'Ăn tối', 400000),
+(13, 4, N'Dụng cụ đi phượt', 500000),
+
+(17, 5, N'Ăn Vặt', 200000),
+(17, 5, N'Ăn sáng', 500000),
+(17, 5, N'Ăn trưa', 480000),
+(17, 5, N'Ăn tối', 400000),
+(18, 5, N'Phụ Kiện đi biển', 200000),
+(16, 5, N'Kem chống nắng, dưỡng da', 200000),
+(16, 5, N'Thuê Khách Sạn', 200000),
+
+(21, 6, N'Ăn Vặt', 200000),
+(21, 6, N'Ăn sáng', 500000),
+(25, 6, N'Ăn trưa', 480000),
+(21, 6, N'Ăn tối', 400000),
+(22, 6, N'Phụ Kiện đi biển', 200000),
+(22, 6, N'Nước uống dọc đường, đổ xăng', 200000),
+(21, 6, N'Kem chống nắng, dưỡng da', 200000),
+(21, 6, N'Thuê Khách sạn', 200000)
+GO
+
+
+
+
+
+
+
+
 SELECT*FROM THUCHI
 
 DELETE FROM THUCHI WHERE MACD =2
