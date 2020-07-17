@@ -206,20 +206,6 @@ namespace WeSplit.Views
             UpdateExpenseMoney.Clear();
         }
 
-        private void AddMemberExpenseMoney_Click(object sender, RoutedEventArgs e)
-        {
-            //tên các lộ trình
-            string local = RouteName.Text.Trim();
-
-            //thêm vao listview
-            //LocationListbox.Items.Add(local);
-
-            //thêm vào database
-            //...
-            //...
-
-            RouteName.Clear();
-        }
 
         private void AddExpense_Click(object sender, RoutedEventArgs e)
         {

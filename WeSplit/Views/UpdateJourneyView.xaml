@@ -381,6 +381,7 @@
                         Foreground="#000"
                         IsReadOnly="True"
                         ItemsSource="{Binding MembersInComboBox}"
+                        SelectedIndex="{Binding LeaderIndex}"
                         Style="{StaticResource MaterialDesignFloatingHintComboBox}" />
                     <ComboBox
                         x:Name="ExpendituresComboBox"
@@ -402,7 +403,8 @@
                     <TextBox
                         x:Name="UpdateExpenseMoney"
                         Grid.Row="2"
-                        Grid.Column="2">
+                        Grid.Column="2"
+                        Text="">
                         <TextBox.Style>
                             <Style BasedOn="{StaticResource MoneyBox}" TargetType="TextBox">
                                 <Style.Triggers>
@@ -502,20 +504,17 @@
                             VerticalAlignment="Top"
                             Style="{StaticResource RouteBox}" />
                         <Button
-                            x:Name="AddMemberExpenseMoney"
+                            x:Name="AddPlace"
                             Width="80"
                             Height="40"
                             Margin="0,20,125,0"
                             HorizontalAlignment="Right"
                             Background="#333E50"
                             BorderThickness="0"
-                            Click="AddMemberExpenseMoney_Click"
                             Content="Add" />
                     </StackPanel>
 
                 </Grid>
-                <!--  Cho nay add hinh  -->
-
                 <Grid Height="230" Margin="0,25,0,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*" />
