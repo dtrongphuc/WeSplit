@@ -121,8 +121,7 @@ namespace WeSplit.Views
 
         private void BtnJourney_Click(object sender, RoutedEventArgs e)
         {
-            //var parentConductor = (Conductor<IScreen>.Collection.OneActive)(this.Parent);
-            //var parentConductor = (Conductor<IScreen>.Collection.OneActive)(this.Parent);
+            
         }
     }
 }
