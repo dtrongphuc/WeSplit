@@ -26,12 +26,13 @@ namespace WeSplit.Views
     public partial class UpdateJourneyView : UserControl
     {
 
+        public static UpdateJourneyView Instance { get; set; }
+
         public UpdateJourneyView()
         {
             InitializeComponent();
-
+            Instance = this;
         }
-
 
         string absolute = "";
         private void convert(string relative)
@@ -223,14 +224,14 @@ namespace WeSplit.Views
         private void AddExpense_Click(object sender, RoutedEventArgs e)
         {
             //lấy tên khoản chi
-            string expensename = ExpendituresName.Text.Trim();
+           // string expensename = ExpendituresName.Text.Trim();
 
             //thêm tên khoản chi vào database
 
             //...
 
             //sau khi nhấn add làm trống lại textbox
-            ExpendituresName.Clear();
+           // ExpendituresName.Clear();
         }
     }
 }

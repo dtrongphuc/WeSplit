@@ -292,6 +292,16 @@
     <Resource Include="Resource\Icons\add.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resource\Images\HCM-HaGiang_1.jpg" />
+    <Resource Include="Resource\Images\HCM-HaGiang_2.jpg" />
+    <Resource Include="Resource\Images\HCM-HaGiang_3.jpg" />
+    <Resource Include="Resource\Images\HCM-HaGiang_4.jpg" />
+    <Resource Include="Resource\Images\HCM-HaGiang_5.jpg" />
+    <Resource Include="Resource\Images\HCM-PhuYen_1.jpg" />
+    <Resource Include="Resource\Images\HCM-PhuYen_2.jpg" />
+    <Resource Include="Resource\Images\HCM-PhuYen_3.jpg" />
+    <Resource Include="Resource\Images\HCM-PhuYen_4.jpg" />
+    <Resource Include="Resource\Images\HCM-PhuYen_5.jpg" />
     <Content Include="SQL\QLChuyenDi_log.ldf">
       <DependentUpon>QLChuyenDi.mdf</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

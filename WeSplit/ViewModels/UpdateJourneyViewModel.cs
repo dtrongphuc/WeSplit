@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using WeSplit.Models;
+using WeSplit.Views;
 
 namespace WeSplit.ViewModels
 {
@@ -47,7 +48,6 @@ namespace WeSplit.ViewModels
             //ngày kết thúc
             
             EndDay = convertdate(trip.EndDate);
-
         }
 
         //binding tên các  thành viên trong chuyến đi 
@@ -83,6 +83,20 @@ namespace WeSplit.ViewModels
             converted += day[8];
             converted += day[9];
             return converted;
+        }
+
+        public void AddExpense()
+        {
+            string newExpenditures = UpdateJourneyView.Instance.ExpendituresName.Text.Trim();
+            //string newCost = UpdateJourneyView.Instance.UpdateExpenseMoney
+            //ReceiptsAndExpenses temp = new ReceiptsAndExpenses()
+            //{
+            //    TripID = trip.TripID,
+            //    ExpensesName = newExpenditures
+            //};
+
+            //ExpendituresComboBox.Insert(0, temp);
+            //UpdateJourneyView.Instance.ExpendituresName.Text = "";
         }
     }
 }
