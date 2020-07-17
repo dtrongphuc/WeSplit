@@ -302,6 +302,31 @@
     <Resource Include="Resource\Images\HCM-PhuYen_3.jpg" />
     <Resource Include="Resource\Images\HCM-PhuYen_4.jpg" />
     <Resource Include="Resource\Images\HCM-PhuYen_5.jpg" />
+    <Resource Include="Resource\Images\HCM-HaGiang_6.jpg" />
+    <Resource Include="Resource\Images\HCM-HaGiang_7.jpg" />
+    <Resource Include="Resource\Images\HCM-HaGiang_8.jpg" />
+    <Resource Include="Resource\Images\HCM-HaGiang_9.jpg" />
+    <Resource Include="Resource\Images\HCM-PhuYen_6.jpg" />
+    <Resource Include="Resource\Images\HCM-PhuYen_7.jpg" />
+    <Resource Include="Resource\Images\HCM-PhuYen_8.jpg" />
+    <Resource Include="Resource\Images\CanGio-CanDuoc_1.jpg" />
+    <Resource Include="Resource\Images\CanGio-CanDuoc_2.jpg" />
+    <Resource Include="Resource\Images\CanGio-CanDuoc_3.jpg" />
+    <Resource Include="Resource\Images\CanGio-CanDuoc_4.jpg" />
+    <Resource Include="Resource\Images\CanGio-CanDuoc_5.jpg" />
+    <Resource Include="Resource\Images\CanGio-CanDuoc_6.jpg" />
+    <Resource Include="Resource\Images\CanGio-CanDuoc_7.jpg" />
+    <Resource Include="Resource\Images\CanGio-CanDuoc_8.jpg" />
+    <Resource Include="Resource\Images\MocChau-NinhBinh_1.jpg" />
+    <Resource Include="Resource\Images\MocChau-NinhBinh_10.jpg" />
+    <Resource Include="Resource\Images\MocChau-NinhBinh_2.jpg" />
+    <Resource Include="Resource\Images\MocChau-NinhBinh_3.jpg" />
+    <Resource Include="Resource\Images\MocChau-NinhBinh_4.jpg" />
+    <Resource Include="Resource\Images\MocChau-NinhBinh_5.jpg" />
+    <Resource Include="Resource\Images\MocChau-NinhBinh_6.jpg" />
+    <Resource Include="Resource\Images\MocChau-NinhBinh_7.jpg" />
+    <Resource Include="Resource\Images\MocChau-NinhBinh_8.jpg" />
+    <Resource Include="Resource\Images\MocChau-NinhBinh_9.jpg" />
     <Content Include="SQL\QLChuyenDi_log.ldf">
       <DependentUpon>QLChuyenDi.mdf</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
