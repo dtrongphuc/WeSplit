@@ -65,7 +65,7 @@ namespace WeSplit.Models
         string sql;
         public void Add()
         {
-            sql = $"INSER INTO DIADIEM VALUES (MADD = {_LocationID}, MACD={_TripID}, STT ={_Number}, TENDD=N'{_LocationName}')";
+            sql = $"INSER INTO DIADIEM VALUES ( {_TripID}, {_Number}, N'{_LocationName}')";
             Connection.Execute_SQL(sql);
         }
 
@@ -79,6 +79,14 @@ namespace WeSplit.Models
         {
             sql = $"DELETE FROM DIADIEM WHERE MATV ={_LocationID}";
             Connection.Execute_SQL(sql);
+        }
+
+        public int STT(string ID)
+        {
+            sql = $"SELECT COUNT(*) FROM DIADIEM WHERE MACD ={ID}";
+            string temp = Connection.GetCount_Data(sql);
+            int result = int.Parse(temp);
+            return result;
         }
     }
 }

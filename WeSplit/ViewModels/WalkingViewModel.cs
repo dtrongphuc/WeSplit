@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Data;
 using WeSplit.Models;
 using WeSplit.ViewModels;
-
+using System.Windows.Controls;
 namespace WeSplit.ViewModels
 {
     public class WalkingViewModel:Screen

@@ -507,7 +507,8 @@
                             materialDesign:ButtonAssist.CornerRadius="4"
                             Background="#252D36"
                             BorderThickness="0"
-                            Content="Thêm" />
+                            Content="Add"
+                            Click="AddPalce_Click"/>
                     </StackPanel>
 
                 </Grid>

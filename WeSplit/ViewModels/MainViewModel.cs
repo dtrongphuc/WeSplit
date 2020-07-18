@@ -12,8 +12,10 @@ using static WeSplit.Views.HistoryView;
 
 namespace WeSplit.ViewModels
 {
+   
     public class MainViewModel : Conductor<IScreen>.Collection.OneActive, INotifyPropertyChanged
     {
+       
         private HistoryViewModel _historyViewModel;
         public HistoryViewModel HistoryViewModel
         {
