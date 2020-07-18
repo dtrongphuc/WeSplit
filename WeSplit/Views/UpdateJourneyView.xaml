@@ -288,14 +288,17 @@
                         <ColumnDefinition Width="0.5*" />
                         <ColumnDefinition Width="4*" />
                     </Grid.ColumnDefinitions>
-                    <StackPanel x:Name="MemberNameStack" Grid.Column="0">
-                        <TextBox Style="{StaticResource MemberNameBox}" />
-                    </StackPanel>
-                    <StackPanel x:Name="TelStack" Grid.Column="2">
-                        <TextBox Style="{StaticResource TelBox}" />
-                    </StackPanel>
+                    <TextBox
+                        x:Name="MemberNameBox"
+                        Grid.Column="0"
+                        Style="{StaticResource MemberNameBox}" />
+                    <TextBox
+                        x:Name="TelBox"
+                        Grid.Column="2"
+                        Style="{StaticResource TelBox}" />
                 </Grid>
                 <Button
+                    x:Name="AddMember"
                     Width="220"
                     Height="44"
                     Margin="90,20,90,0"
@@ -303,8 +306,7 @@
                     HorizontalContentAlignment="Left"
                     materialDesign:ButtonAssist.CornerRadius="4"
                     Background="#252D36"
-                    BorderThickness="0"
-                    Click="BtnAddListInfoUser_Click">
+                    BorderThickness="0">
                     <StackPanel
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
