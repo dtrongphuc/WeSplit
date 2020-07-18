@@ -31,6 +31,8 @@ namespace WeSplit.Views
         private Trip trip = new Trip();
         public static UpdateJourneyView Instance { get; set; }
         private BindableCollection<Location> locationlist = new BindableCollection<Location>();
+        private BindableCollection<ReceiptsAndExpenses> ReceAndExpenlist = new BindableCollection<ReceiptsAndExpenses>();
+        private BindableCollection<ReceiptsAndExpenses> UpdateReceAndExpenlist = new BindableCollection<ReceiptsAndExpenses>();
         private int number=0;
         public UpdateJourneyView()
         {
@@ -186,39 +188,83 @@ namespace WeSplit.Views
                     }
                 }//kết thúc danh sách tên và số điện thoại thành viên
 
-
+                foreach(ReceiptsAndExpenses expen in ReceAndExpenlist)
+                {
+                    expen.Add();
+                }
                
+                foreach(ReceiptsAndExpenses updateExpen in UpdateReceAndExpenlist)
+                {
+                    updateExpen.Add();
+                }
+
+                Location numberlocation = new Location();
+                int STT = numberlocation.STT(trip.TripID);
+
+                foreach (Location location in locationlist)
+                {
+                    location.Number = location.Number + STT;
+                    location.Add();
+                }
             }
         }
 
         private void AddUpdateExpenses_Click(object sender, RoutedEventArgs e)
         {
-            //tiền cần update
-            UpdateExpenseMoney.Text.Trim();
             //tên thành viên
             var membername = MembersComboBox.SelectedItem.ToString();
-            //tên khoản chi
+            ///tên khoản chi
             var expensename = ExpendituresComboBox.SelectedItem.ToString();
+            ///tiền cần update
+            string cost = UpdateExpenseMoney.Text.Trim();
+            if (membername != "" && expensename != "" && cost != "")
+            {
+                trip.TripIsGoing();
+                ReceiptsAndExpenses receandexpen = new ReceiptsAndExpenses();
+                Member member = new Member();
+                receandexpen.TripID = trip.TripID;
 
-            //thêm vào database 
-            //...
+                member.Find(trip.TripID, membername);
+                receandexpen.MemberID = member.MemberID;
 
 
-            UpdateExpenseMoney.Clear();
+                receandexpen.ExpensesName = expensename;
+
+                receandexpen.Cost = double.Parse(cost);
+                //thêm tên khoản chi vào bo nhớ tạm
+                UpdateReceAndExpenlist.Add(receandexpen);
+                ///sau khi nhấn add làm trống lại textbox
+                UpdateExpenseMoney.Clear();
+            }
         }
 
 
         private void AddExpense_Click(object sender, RoutedEventArgs e)
         {
-            //lấy tên khoản chi
-           // string expensename = ExpendituresName.Text.Trim();
+           
+            //lấy giá tiền
+            string cost = NewExpenseMoney.Text.Trim();
+            ///lấy tên khoản chi
+            string expensename = ExpendituresName.Text.Trim();
+            if (cost != "" && expensename != "")
+            {
+                trip.TripIsGoing();
+                Member member = new Member();
+                member.Leader(trip.TripID);
+                ReceiptsAndExpenses receandexpen = new ReceiptsAndExpenses();
+                receandexpen.TripID = trip.TripID;
+                receandexpen.MemberID = member.MemberID;
 
-            //thêm tên khoản chi vào database
 
-            //...
+                receandexpen.ExpensesName = expensename;
 
-            //sau khi nhấn add làm trống lại textbox
-           // ExpendituresName.Clear();
+
+                receandexpen.Cost = double.Parse(cost);
+                ///sau khi nhấn add làm trống lại textbox
+                ExpendituresName.Clear();
+                //thêm tên khoản chi vào bo nhớ tạm
+                ReceAndExpenlist.Add(receandexpen);
+            }
         }
 
         private void AddPalce_Click(object sender, RoutedEventArgs e)

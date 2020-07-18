@@ -127,5 +127,26 @@ namespace WeSplit.Models
               
             }
         }
+
+        public bool Find(string id, string NameMember)
+        {
+            sql = $"SELECT * FROM THANHVIEN WHERE MACD={id} AND HOTEN=N'{NameMember}'";
+            DataTable dt = Connection.GetALL_Data(sql);
+            bool check = false;
+            foreach (DataRow row in dt.Rows)
+            {
+                check = true;
+                _MemberID = row["MATV"].ToString();
+                _TripID = row["MACD"].ToString();
+                _MemberName = row["HOTEN"].ToString();
+                _Diary = row["NHATKY"].ToString();
+                _Telephone = row["SDT"].ToString();
+                _Status = (int)row["TRANGTHAI"];
+
+            }
+            if (check == false)
+                return false;
+            return true;
+        }
     }
 }
