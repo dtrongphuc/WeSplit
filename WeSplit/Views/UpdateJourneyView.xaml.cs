@@ -27,7 +27,7 @@ namespace WeSplit.Views
     /// </summary>
     public partial class UpdateJourneyView : UserControl
     {
-
+        private int number = 0;
         private Trip trip = new Trip();
         public static UpdateJourneyView Instance { get; set; }
         private BindableCollection<Location> locationlist = new BindableCollection<Location>();
