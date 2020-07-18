@@ -33,7 +33,7 @@ namespace WeSplit.Views
         private BindableCollection<Location> locationlist = new BindableCollection<Location>();
         private BindableCollection<ReceiptsAndExpenses> ReceAndExpenlist = new BindableCollection<ReceiptsAndExpenses>();
         private BindableCollection<ReceiptsAndExpenses> UpdateReceAndExpenlist = new BindableCollection<ReceiptsAndExpenses>();
-        private int number = 0;
+        //private int number = 0;
         public UpdateJourneyView()
         {
             InitializeComponent();
