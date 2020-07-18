@@ -76,25 +76,11 @@ namespace WeSplit.Views
             //đưa ảnh dô file bin
         }
 
-        private void BtnAddListInfoUser_Click(object sender, RoutedEventArgs e)
-        {
-            Style style_user = this.FindResource("MemberNameBox") as Style;
-            Style style_tel = this.FindResource("TelBox") as Style;
-
-            var newTextbox = new TextBox();
-            newTextbox.Style = style_user;
-            MemberNameStack.Children.Add(newTextbox);
-
-            var newTextbox_tel = new TextBox();
-            newTextbox_tel.Style = style_tel;
-            TelStack.Children.Add(newTextbox_tel);
-        }
-
         //kiem tra hợp lệ 
-        private bool ConditionCheck(List<TextBox> member, List<TextBox> tel)
+        private bool ConditionCheck()
         {
             if (JourneyName.Text.Trim() == "" | Kilometer.Text.Trim() == "" | StartDay.Text.Trim().Length <= 8 |
-              EndDay.Text.Trim().Length <= 8 | member.Count < 1 | tel.Count < 1)
+              EndDay.Text.Trim().Length <= 8)
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin cho chuyến đi!", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Information);
                 return false;
@@ -125,28 +111,11 @@ namespace WeSplit.Views
             return false;
         }
 
-        private List<TextBox> AllChildren(DependencyObject parent)
-        {
-            var list = new List<TextBox> { };
-            for (int count = 0; count < VisualTreeHelper.GetChildrenCount(parent); count++)
-            {
-                var child = VisualTreeHelper.GetChild(parent, count);
-                if (child is TextBox)
-                {
-                    list.Add(child as TextBox);
-                }
-                list.AddRange(AllChildren(child));
-            }
-            return list;
-        }
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
-            List<TextBox> childrenOfMember = AllChildren(MemberNameStack);
-            List<TextBox> childrenOfTel = AllChildren(TelStack);
-
             trip.TripIsGoing();
             //kiểm tra đã nhập đầy đủ thông tin 
-            if (ConditionCheck(childrenOfMember, childrenOfTel))
+            if (ConditionCheck())
             {
                 //tên chuyến đi
                 if (JourneyName.Text.Trim() != "")
@@ -176,18 +145,6 @@ namespace WeSplit.Views
                 trip.Edit();
 
                 //danh sách tên và số điện thoại thành viên
-                for (int i = 0; i < childrenOfMember.Count; i++)
-                {
-                    if (childrenOfMember[i].Text.Trim() != "" && childrenOfTel[i].Text.Trim() != "")
-                    {
-                        Member member = new Member();
-                        member.TripID = trip.TripID;
-                        member.MemberName = childrenOfMember[i].Text;
-                        member.Telephone = childrenOfTel[i].Text;
-                        member.Status = 0;
-                        member.Add();
-                    }
-                }//kết thúc danh sách tên và số điện thoại thành viên
 
                 foreach (ReceiptsAndExpenses expen in ReceAndExpenlist)
                 {
@@ -213,9 +170,11 @@ namespace WeSplit.Views
         private void AddUpdateExpenses_Click(object sender, RoutedEventArgs e)
         {
             //tên thành viên
-            var membername = MembersComboBox.SelectedItem.ToString();
+            Member MemberSelected = MembersComboBox.SelectedItem as Member;
+            string membername = MemberSelected.MemberName;
             ///tên khoản chi
-            var expensename = ExpendituresComboBox.SelectedItem.ToString();
+            ReceiptsAndExpenses Expense = ExpendituresComboBox.SelectedItem as ReceiptsAndExpenses;
+            string expensename = Expense.ExpensesName;
             ///tiền cần update
             string cost = UpdateExpenseMoney.Text.Trim();
             if (membername != "" && expensename != "" && cost != "")
@@ -236,47 +195,5 @@ namespace WeSplit.Views
                 UpdateReceAndExpenlist.Add(receandexpen);
             }
         }
-
-        private void AddExpense_Click(object sender, RoutedEventArgs e)
-        {
-
-            //lấy giá tiền
-            string cost = NewExpenseMoney.Text.Trim();
-            ///lấy tên khoản chi
-            string expensename = ExpendituresName.Text.Trim();
-            if (cost != "" && expensename != "")
-            {
-                trip.TripIsGoing();
-                Member member = new Member();
-                member.Leader(trip.TripID);
-                ReceiptsAndExpenses receandexpen = new ReceiptsAndExpenses();
-                receandexpen.TripID = trip.TripID;
-                receandexpen.MemberID = member.MemberID;
-
-
-                receandexpen.ExpensesName = expensename;
-
-
-
-                receandexpen.Cost = double.Parse(cost);
-                //thêm tên khoản chi vào bo nhớ tạm
-                ReceAndExpenlist.Add(receandexpen);
-            }
-        }
-
-private void AddPalce_Click(object sender, RoutedEventArgs e)
-{
-    trip.TripIsGoing();
-    //lấy ra tên các lộ trình
-    if (RouteName.Text.Trim() != "")
-    {
-
-        Location location = new Location();
-        location.TripID = trip.TripID;
-        location.Number = (++number).ToString();
-        location.LocationName = RouteName.Text;
-        locationlist.Add(location);
-    }
-}
     }
 }

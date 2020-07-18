@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using WeSplit.Models;
 using WeSplit.Views;
 
@@ -96,6 +97,26 @@ namespace WeSplit.ViewModels
             converted += day[8];
             converted += day[9];
             return converted;
+        }
+
+        public void AddMember()
+        {
+            string memberName = UpdateJourneyView.Instance.MemberNameBox.Text.Trim();
+            string memberTel = UpdateJourneyView.Instance.TelBox.Text.Trim();
+            if(memberName != "" && memberTel != "")
+            {
+                Member member = new Member
+                {
+                    TripID = trip.TripID,
+                    MemberName = memberName,
+                    Telephone = memberTel,
+                    Status = 0
+                };
+                MembersInComboBox.Add(member);
+            }
+
+            UpdateJourneyView.Instance.MemberNameBox.Text = "";
+            UpdateJourneyView.Instance.TelBox.Text = "";
         }
 
         public void AddExpense()
