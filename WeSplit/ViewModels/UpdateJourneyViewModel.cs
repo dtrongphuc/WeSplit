@@ -118,11 +118,10 @@ namespace WeSplit.ViewModels
                     Telephone = memberTel,
                     Status = 0
                 };
-                MembersInComboBox.Add(member);
+                MembersInComboBox.Insert(0, member);
             }
-
-            UpdateJourneyView.Instance.MemberNameBox.Text = "";
-            UpdateJourneyView.Instance.TelBox.Text = "";
+            UpdateJourneyView.Instance.MemberNameBox.Text = string.Empty;
+            UpdateJourneyView.Instance.TelBox.Text = string.Empty;
         }
 
         public void AddExpense()
@@ -142,8 +141,8 @@ namespace WeSplit.ViewModels
             };
 
             ExpendituresInComboBox.Insert(0, temp);
-            UpdateJourneyView.Instance.ExpendituresName.Text = "";
-            UpdateJourneyView.Instance.NewExpenseMoney.Text = "";
+            UpdateJourneyView.Instance.ExpendituresName.Text = string.Empty;
+            UpdateJourneyView.Instance.NewExpenseMoney.Text = string.Empty;
 
             UpdateJourneyView.Instance.ExpendituresComboBox.SelectedIndex = 0;
             UpdateJourneyView.Instance.UpdateExpenseMoney.Text = newCost;
@@ -162,7 +161,7 @@ namespace WeSplit.ViewModels
                 };
                 LocationListbox.Add(temp);
             }
-            UpdateJourneyView.Instance.RouteName.Text = "";
+            UpdateJourneyView.Instance.RouteName.Text = string.Empty;
         }
     }
 }
