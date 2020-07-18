@@ -171,30 +171,27 @@
                 materialDesign:ShadowAssist.ShadowDepth="Depth2"
                 Background="#fff"
                 UniformCornerRadius="6">
-                <DockPanel LastChildFill="True">
+                <Grid x:Name="LocationWrapper">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="28" />
+                        <RowDefinition Height="1*" />
+                    </Grid.RowDefinitions>
                     <Label
+                        Grid.Row="0"
                         Margin="12,0,0,0"
                         Content="Địa điểm"
-                        DockPanel.Dock="Top"
                         FontSize="16"
                         FontWeight="DemiBold" />
                     <ListView
                         Name="Place"
                         Grid.Row="1"
-                        HorizontalAlignment="Stretch"
-                        ScrollViewer.CanContentScroll="False"
                         ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                        ScrollViewer.VerticalScrollBarVisibility="Auto">
+                        ScrollViewer.VerticalScrollBarVisibility="Visible">
                         <ListView.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <StackPanel Margin="16,0" />
                             </ItemsPanelTemplate>
                         </ListView.ItemsPanel>
-                        <ListView.Template>
-                            <ControlTemplate>
-                                <ItemsPresenter />
-                            </ControlTemplate>
-                        </ListView.Template>
                         <ListView.ItemContainerStyle>
                             <Style TargetType="{x:Type ListViewItem}">
                                 <Setter Property="Background" Value="Transparent" />
@@ -209,15 +206,34 @@
                         </ListView.ItemContainerStyle>
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Margin="0,6" Orientation="Horizontal">
-                                    <TextBlock FontSize="16" Text="{Binding Number}" />
-                                    <TextBlock FontSize="16" Text=". " />
-                                    <TextBlock FontSize="16" Text="{Binding LocationName}" />
+                                <StackPanel Margin="0,6">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="10" />
+                                            <ColumnDefinition Width="4" />
+                                            <ColumnDefinition Width="7*" />
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock
+                                            Grid.Column="0"
+                                            FontSize="16"
+                                            Text="{Binding Number}" />
+                                        <TextBlock
+                                            Grid.Column="1"
+                                            HorizontalAlignment="Left"
+                                            FontSize="16"
+                                            Text=". " />
+                                        <TextBlock
+                                            Grid.Column="2"
+                                            Margin="8,0,0,0"
+                                            FontSize="16"
+                                            Text="{Binding LocationName}"
+                                            TextWrapping="Wrap" />
+                                    </Grid>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-                </DockPanel>
+                </Grid>
             </materialDesign:Card>
         </Grid>
 
@@ -291,7 +307,7 @@
                             BorderThickness="0"
                             PreviewMouseWheel="ScrollViewer_PreviewMouseWheel"
                             ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                            ScrollViewer.VerticalScrollBarVisibility="Auto"
+                            ScrollViewer.VerticalScrollBarVisibility="Disabled"
                             Style="{StaticResource ListViewStyle}">
                             <ListView.ItemContainerStyle>
                                 <Style TargetType="{x:Type ListViewItem}">
@@ -316,7 +332,7 @@
                                             <ImageBrush
                                                 ImageSource="{Binding Image, Converter={StaticResource pathConverter}}"
                                                 RenderOptions.BitmapScalingMode="HighQuality"
-                                                Stretch="UniformToFill" />
+                                                Stretch="Fill" />
                                         </Border.Background>
                                     </Border>
                                 </DataTemplate>
@@ -336,7 +352,7 @@
                             x:Name="CarouselCount"
                             DockPanel.Dock="Bottom"
                             Text="{Binding CarouselItemCount}"
-                            Visibility="Hidden" />
+                            Visibility="Collapsed" />
                     </DockPanel>
                     <DataGrid
                         x:Name="MemberDataGrid"
@@ -346,6 +362,8 @@
                         VerticalAlignment="Top"
                         HorizontalContentAlignment="Center"
                         AutoGenerateColumns="False"
+                        BorderBrush="#252D36"
+                        BorderThickness="0.5"
                         CanUserAddRows="False"
                         ItemsSource="{Binding MemberData}"
                         PreviewMouseWheel="MemberDataGrid_PreviewMouseWheel"
@@ -431,6 +449,8 @@
                             VerticalAlignment="Top"
                             HorizontalContentAlignment="Center"
                             AutoGenerateColumns="False"
+                            BorderBrush="#252D36"
+                            BorderThickness="0.5"
                             CanUserAddRows="False"
                             ItemsSource="{Binding MoneySplit}"
                             PreviewMouseWheel="MemberDataGrid_PreviewMouseWheel"

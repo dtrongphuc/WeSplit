@@ -51,7 +51,7 @@
             Canvas.Top="0"
             Width="{Binding HistoryWidth}"
             Panel.ZIndex="100"
-            Background="#F9F9FF">
+            Background="#F5F4F2">
             <Canvas.Style>
                 <Style TargetType="Canvas">
                     <Style.Triggers>

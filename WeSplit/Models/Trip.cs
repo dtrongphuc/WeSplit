@@ -177,8 +177,18 @@ namespace WeSplit.Models
                 this.TripName = row["TENCD"].ToString();
                 this.Status = (int)row["TRANGTHAI"];
                 this.Lenght = row["DODAI"].ToString();
-                this.StartDate = row["NGAYDI"].ToString();
-                this.EndDate = row["NGAYKT"].ToString();
+                string dateStart = row["NGAYDI"].ToString();
+                if (dateStart != "")
+                {
+                    var date = DateTime.Parse(dateStart);
+                    this.StartDate = date.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+                }
+                string dateEnd = row["NGAYKT"].ToString();
+                if (dateEnd != "")
+                {
+                    var date = DateTime.Parse(dateEnd);
+                    this.EndDate = date.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+                }
                 this.MemberName = row["HOTEN"].ToString();
             }
         }

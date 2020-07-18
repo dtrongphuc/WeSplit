@@ -144,17 +144,17 @@
             x:Key="CommonBox"
             BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}"
             TargetType="TextBox">
-            <Setter Property="Background" Value="#333E50" />
-            <Setter Property="Padding" Value="6,0" />
+            <Setter Property="Background" Value="#252D36" />
+            <Setter Property="Padding" Value="6,0,6,6" />
             <Setter Property="Height" Value="60" />
             <Setter Property="BorderThickness" Value="0" />
             <Setter Property="FontSize" Value="18" />
             <Setter Property="FontWeight" Value="Regular" />
-            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Foreground" Value="#fff" />
             <Setter Property="VerticalContentAlignment" Value="Center" />
-            <Setter Property="materialDesign:HintAssist.Foreground" Value="#FF32AEAC" />
+            <Setter Property="materialDesign:HintAssist.Foreground" Value="#D82A02" />
             <Setter Property="materialDesign:TextFieldAssist.TextFieldCornerRadius" Value="4" />
-            <Setter Property="materialDesign:TextFieldAssist.UnderlineBrush" Value="#FF32AEAC" />
+            <Setter Property="materialDesign:TextFieldAssist.UnderlineBrush" Value="#BB2201" />
         </Style>
 
         <Style
@@ -216,16 +216,16 @@
 
     <Grid>
         <ScrollViewer
-            Background="#dadfed"
+            Background="#F5F4F2"
             ScrollViewer.HorizontalScrollBarVisibility="Disabled"
             ScrollViewer.VerticalScrollBarVisibility="Auto">
             <StackPanel>
-                <StackPanel.Background>
+                <!--<StackPanel.Background>
                     <ImageBrush
                         ImageSource="/Resource/Images/AddBackground.jpg"
                         Opacity="0.945"
                         Stretch="UniformToFill" />
-                </StackPanel.Background>
+                </StackPanel.Background>-->
                 <TextBlock
                     Margin="0,20,0,0"
                     HorizontalAlignment="Center"
@@ -297,7 +297,7 @@
                             TextAlignment="Center" />
                         <TextBox
                             x:Name="Kilometer"
-                            Height="44"
+                            Height="60"
                             Margin="20,5,0,0"
                             materialDesign:HintAssist.Hint="Km"
                             FontSize="14"
@@ -307,8 +307,8 @@
                 <!--  Members  -->
                 <Grid x:Name="Members" Margin="90,30,90,0">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="0.5*" />
-                        <ColumnDefinition Width="0.25*" />
+                        <ColumnDefinition Width="0.6*" />
+                        <ColumnDefinition Width="0.2*" />
                         <ColumnDefinition Width="3*" />
                         <ColumnDefinition Width="0.25*" />
                         <ColumnDefinition Width="3*" />
@@ -334,19 +334,29 @@
                     </StackPanel>
                 </Grid>
                 <Button
-                    Width="240"
+                    Width="220"
                     Height="44"
                     Margin="90,20,90,0"
                     HorizontalAlignment="Left"
-                    Background="#d6e1ff"
+                    HorizontalContentAlignment="Left"
+                    materialDesign:ButtonAssist.CornerRadius="4"
+                    Background="#252D36"
                     BorderThickness="0"
                     Click="BtnAddListInfoUser_Click">
-                    <StackPanel Orientation="Horizontal">
-                        <Image Width="25" Source="/Resource/Icons/add.png" />
+                    <StackPanel
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Orientation="Horizontal">
+                        <materialDesign:PackIcon
+                            Width="24"
+                            Height="24"
+                            VerticalAlignment="Center"
+                            Foreground="#F2F2F1"
+                            Kind="PlusCircleOutline" />
                         <TextBlock
                             Padding="15,0,0,0"
                             FontSize="18"
-                            Foreground="Black"
+                            Foreground="#F2F2F1"
                             Text="Thêm thành viên" />
                     </StackPanel>
                 </Button>
@@ -375,19 +385,29 @@
                 </Grid>
 
                 <Button
-                    Width="240"
+                    Width="220"
                     Height="44"
                     Margin="90,20,90,0"
                     HorizontalAlignment="Left"
-                    Background="#d6e1ff"
+                    HorizontalContentAlignment="Left"
+                    materialDesign:ButtonAssist.CornerRadius="4"
+                    Background="#252D36"
                     BorderThickness="0"
                     Click="BtnAddInfoExpenses_Click">
-                    <StackPanel Orientation="Horizontal">
-                        <Image Width="25" Source="/Resource/Icons/add.png" />
+                    <StackPanel
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Orientation="Horizontal">
+                        <materialDesign:PackIcon
+                            Width="24"
+                            Height="24"
+                            VerticalAlignment="Center"
+                            Foreground="#F2F2F1"
+                            Kind="PlusCircleOutline" />
                         <TextBlock
                             Padding="15,0,0,0"
                             FontSize="18"
-                            Foreground="Black"
+                            Foreground="#F2F2F1"
                             Text="Thêm khoản chi" />
 
                     </StackPanel>
@@ -398,7 +418,8 @@
                     Width="140"
                     Height="40"
                     Margin="0,30"
-                    Background="#333E50"
+                    materialDesign:ButtonAssist.CornerRadius="4"
+                    Background="#252D36"
                     BorderThickness="0"
                     Click="Submit_Click"
                     Content="Hoàn thành" />

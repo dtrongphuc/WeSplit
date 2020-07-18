@@ -59,7 +59,7 @@ namespace WeSplit.ViewModels
         public void ShowDetail(Trip tripSelected)
         {
             var parentConductor = (Conductor<IScreen>.Collection.OneActive)(this.Parent);
-            parentConductor.ActivateItem(new DetailViewModel(tripSelected));
+            parentConductor.ActivateItem(new DetailViewModel(tripSelected.TripID));
         }
     }
 }

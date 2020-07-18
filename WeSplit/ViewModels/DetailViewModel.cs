@@ -30,9 +30,11 @@ namespace WeSplit.ViewModels
 
         GetListObject list = new GetListObject();
 
-        public DetailViewModel(Trip trip)
+        public DetailViewModel(string id)
         {
-           //danh sách các chuyển đã đi
+            Trip trip = new Trip();
+            trip.Find(id);
+            //danh sách các chuyển đã đi
             HistoryTrip = trip;
             //các địa điểm của chuyến đi đó
             Place = list.Get_AllLocationTrip(trip.TripID);

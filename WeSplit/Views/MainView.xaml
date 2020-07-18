@@ -26,7 +26,7 @@
                     </BeginStoryboard>
                 </EventTrigger>-->
                 <DataTrigger Binding="{Binding WhoActived}" Value="Home">
-                    <Setter Property="Background" Value="#253042" />
+                    <Setter Property="Background" Value="#3E4952" />
                 </DataTrigger>
             </Style.Triggers>
         </Style>
@@ -43,7 +43,7 @@
                 </EventTrigger>-->
 
                 <DataTrigger Binding="{Binding WhoActived}" Value="Search">
-                    <Setter Property="Background" Value="#253042" />
+                    <Setter Property="Background" Value="#3E4952" />
                 </DataTrigger>
             </Style.Triggers>
         </Style>
@@ -60,7 +60,7 @@
                 </EventTrigger>-->
 
                 <DataTrigger Binding="{Binding WhoActived}" Value="Add">
-                    <Setter Property="Background" Value="#253042" />
+                    <Setter Property="Background" Value="#3E4952" />
                 </DataTrigger>
             </Style.Triggers>
         </Style>
@@ -77,12 +77,12 @@
                 </EventTrigger>-->
 
                 <DataTrigger Binding="{Binding WhoActived}" Value="Update">
-                    <Setter Property="Background" Value="#253042" />
+                    <Setter Property="Background" Value="#3E4952" />
                 </DataTrigger>
             </Style.Triggers>
         </Style>
     </Window.Resources>
-    <Grid x:Name="Main">
+    <Grid x:Name="Main" Background="#F5F4F2">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="74" />
             <ColumnDefinition Width="280" />
@@ -91,12 +91,14 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <materialDesign:Card
+        <Border
             Grid.Row="0"
             materialDesign:ShadowAssist.ShadowDepth="Depth3"
             materialDesign:ShadowAssist.ShadowEdges="Right"
-            UniformCornerRadius="0">
-            <Grid Grid.Column="0" Background="#333E50">
+            BorderBrush="#3E4952"
+            BorderThickness="0,0,1,0"
+            CornerRadius="0">
+            <Grid Background="#252D36">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="100" />
                     <RowDefinition Height="80" />
@@ -136,7 +138,7 @@
                                 <Setter Property="Foreground" Value="#8195B8" />
                                 <Style.Triggers>
                                     <DataTrigger Binding="{Binding WhoActived}" Value="Home">
-                                        <Setter Property="Foreground" Value="#2C6665" />
+                                        <Setter Property="Foreground" Value="#F63A0A" />
                                     </DataTrigger>
                                 </Style.Triggers>
                             </Style>
@@ -161,7 +163,7 @@
                                 <Setter Property="Foreground" Value="#8195B8" />
                                 <Style.Triggers>
                                     <DataTrigger Binding="{Binding WhoActived}" Value="Search">
-                                        <Setter Property="Foreground" Value="#2C6665" />
+                                        <Setter Property="Foreground" Value="#F63A0A" />
                                     </DataTrigger>
                                 </Style.Triggers>
                             </Style>
@@ -186,7 +188,7 @@
                                 <Setter Property="Foreground" Value="#8195B8" />
                                 <Style.Triggers>
                                     <DataTrigger Binding="{Binding WhoActived}" Value="Add">
-                                        <Setter Property="Foreground" Value="#2C6665" />
+                                        <Setter Property="Foreground" Value="#F63A0A" />
                                     </DataTrigger>
                                 </Style.Triggers>
                             </Style>
@@ -211,7 +213,7 @@
                                 <Setter Property="Foreground" Value="#8195B8" />
                                 <Style.Triggers>
                                     <DataTrigger Binding="{Binding WhoActived}" Value="Update">
-                                        <Setter Property="Foreground" Value="#2C6665" />
+                                        <Setter Property="Foreground" Value="#F63A0A" />
                                     </DataTrigger>
                                 </Style.Triggers>
                             </Style>
@@ -219,7 +221,7 @@
                     </materialDesign:PackIcon>
                 </Grid>
             </Grid>
-        </materialDesign:Card>
+        </Border>
         <ContentControl
             x:Name="HistoryViewModel"
             Grid.Row="0"
