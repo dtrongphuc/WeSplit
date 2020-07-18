@@ -118,7 +118,7 @@ namespace WeSplit.Models
         {
             sql = $"UPDATE CHUYENDI SET TRANGTHAI = 0 ";
             Connection.Execute_SQL(sql);
-            sql = $"INSERT INTO CHUYENDI VALUES ( N'{_TripName}', {_Status}, N'{_StartDate}', N'{_EndDate}', {_Lenght})";
+            sql = $"INSERT INTO CHUYENDI VALUES ( N'{_TripName}', {_Status}, '{_StartDate}', '{_EndDate}', {_Lenght})";
             Connection.Execute_SQL(sql);
         }
 
@@ -139,7 +139,7 @@ namespace WeSplit.Models
         {
             sql = $"SELECT CD.*,TV.HOTEN FROM CHUYENDI AS CD JOIN THANHVIEN AS TV ON CD.MACD = TV.MACD WHERE CD.TRANGTHAI=1 AND TV.TRANGTHAI=1";
             DataTable dt = Connection.GetALL_Data(sql);
-            _TripID = "";
+            _TripID = " ";
             foreach (DataRow row in dt.Rows)
             {
                 this.TripID = row["MACD"].ToString();
@@ -160,8 +160,10 @@ namespace WeSplit.Models
                 }
                 this.MemberName = row["HOTEN"].ToString();  
             }
-            if (_TripID != "")
+            if (_TripID != " ")
+            {
                 return true;
+            }
             return false;
         }
 
@@ -191,6 +193,13 @@ namespace WeSplit.Models
                 }
                 this.MemberName = row["HOTEN"].ToString();
             }
+        }
+
+        public string Identyti()
+        {
+            sql = $"SELECT IDENT_CURRENT('CHUYENDI') AS SOLUONG";
+
+            return Connection.GetCount_Data(sql);
         }
     }
 }

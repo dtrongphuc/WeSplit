@@ -20,6 +20,7 @@ using WeSplit.Models;
 using WeSplit.ViewModels;
 
 
+
 namespace WeSplit.Views
 {
     /// <summary>
@@ -27,7 +28,7 @@ namespace WeSplit.Views
     /// </summary>
     public partial class UpdateJourneyView : UserControl
     {
-        private int number = 0;
+        //private int number = 0;
         private Trip trip = new Trip();
         public static UpdateJourneyView Instance { get; set; }
         private BindableCollection<Location> locationlist = new BindableCollection<Location>();
@@ -145,6 +146,11 @@ namespace WeSplit.Views
                 trip.Edit();
 
                 //danh sách tên và số điện thoại thành viên
+                //foreach (Member menber in )
+                //{
+                //    expen.Add();
+                //}
+
 
                 foreach (ReceiptsAndExpenses expen in ReceAndExpenlist)
                 {
