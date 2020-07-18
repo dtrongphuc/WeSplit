@@ -65,7 +65,7 @@ namespace WeSplit.Models
         string sql;
         public void Add()
         {
-            sql = $"INSER INTO DIADIEM VALUES ( {_TripID}, {_Number}, N'{_LocationName}')";
+            sql = $"INSERT INTO DIADIEM VALUES ( {_TripID}, {_Number}, N'{_LocationName}')";
             Connection.Execute_SQL(sql);
         }
 
