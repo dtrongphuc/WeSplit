@@ -199,7 +199,7 @@ namespace WeSplit.Views
                     if (childrenOfMember[i].Text.Trim() != "" && childrenOfTel[i].Text.Trim() != "")
                     {
                         Member member = new Member();
-                        //member.TripID = identity;
+                        member.TripID = identity;
                         member.MemberName = childrenOfMember[i].Text;
                         member.Telephone = childrenOfTel[i].Text;
                         if(LeaderIndex == i)
@@ -220,7 +220,7 @@ namespace WeSplit.Views
                         ReceiptsAndExpenses receandexpen = new ReceiptsAndExpenses();
                         member1.Leader(identity);
                         receandexpen.MemberID = member1.MemberID;
-                       
+                        receandexpen.TripID = identity;
                         receandexpen.Cost = Double.Parse(childrenOfExpendituresMoney[i].Text, System.Globalization.NumberStyles.Any);
                         receandexpen.ExpensesName = childrenOfExpendituresName[i].Text;
                         receandexpen.Add();
