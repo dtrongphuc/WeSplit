@@ -27,13 +27,13 @@ namespace WeSplit.Views
     /// </summary>
     public partial class UpdateJourneyView : UserControl
     {
-        
+
         private Trip trip = new Trip();
         public static UpdateJourneyView Instance { get; set; }
         private BindableCollection<Location> locationlist = new BindableCollection<Location>();
         private BindableCollection<ReceiptsAndExpenses> ReceAndExpenlist = new BindableCollection<ReceiptsAndExpenses>();
         private BindableCollection<ReceiptsAndExpenses> UpdateReceAndExpenlist = new BindableCollection<ReceiptsAndExpenses>();
-        private int number=0;
+        private int number = 0;
         public UpdateJourneyView()
         {
             InitializeComponent();
@@ -111,8 +111,8 @@ namespace WeSplit.Views
             }
             return true;
         }
-        
-       
+
+
         //kiểm tra ngày về phải > ngày đi 
         private bool datecheck(string start, string end)
         {
@@ -173,8 +173,8 @@ namespace WeSplit.Views
                 }
 
                 //them vào database về chuyến đi
-                 trip.Edit();
-                
+                trip.Edit();
+
                 //danh sách tên và số điện thoại thành viên
                 for (int i = 0; i < childrenOfMember.Count; i++)
                 {
@@ -189,14 +189,14 @@ namespace WeSplit.Views
                     }
                 }//kết thúc danh sách tên và số điện thoại thành viên
 
-                foreach(ReceiptsAndExpenses expen in ReceAndExpenlist)
+                foreach (ReceiptsAndExpenses expen in ReceAndExpenlist)
                 {
                     expen.Add();
                 }
-               
-                foreach(ReceiptsAndExpenses updateExpen in UpdateReceAndExpenlist)
+
+                foreach (ReceiptsAndExpenses updateExpen in UpdateReceAndExpenlist)
                 {
-                    updateExpen.Edit();
+                    updateExpen.Add();
                 }
 
                 Location numberlocation = new Location();
@@ -228,40 +228,58 @@ namespace WeSplit.Views
                 member.Find(trip.TripID, membername);
                 receandexpen.MemberID = member.MemberID;
 
-            //if(expensemoney_update == "")
-            //    MessageBox.Show("Vui lòng nhập số tiền cập nhật!", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Information);
-            //else if(membername == "" | expensename == "")
-            //    MessageBox.Show("Vui lòng chọn thành viên và tên khoản chi!", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Information);
-            //else
-            //{
-            //    //thêm vào database 
-            //    //...
 
                 receandexpen.ExpensesName = expensename;
 
+                receandexpen.Cost = double.Parse(cost);
+                //thêm tên khoản chi vào bo nhớ tạm
+                UpdateReceAndExpenlist.Add(receandexpen);
+                ///sau khi nhấn add làm trống lại textbox
                 UpdateExpenseMoney.Clear();
             }
         }
 
-        
+
         private void AddExpense_Click(object sender, RoutedEventArgs e)
         {
-           
+
             //lấy giá tiền
             string cost = NewExpenseMoney.Text.Trim();
             ///lấy tên khoản chi
             string expensename = ExpendituresName.Text.Trim();
-            string expensemoney = NewExpenseMoney.Text.Trim();
-            if (expensename == "" | expensemoney == "")
-                MessageBox.Show("Vui lòng nhập tên khoản chi hoặc tiền chi!", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Information);
-            else
+            if (cost != "" && expensename != "")
             {
-                //thêm tên khoản chi vào database
+                trip.TripIsGoing();
+                Member member = new Member();
+                member.Leader(trip.TripID);
+                ReceiptsAndExpenses receandexpen = new ReceiptsAndExpenses();
+                receandexpen.TripID = trip.TripID;
+                receandexpen.MemberID = member.MemberID;
 
-                //...
 
-                //sau khi nhấn add làm trống lại textbox
-                // ExpendituresName.Clear();
+                receandexpen.ExpensesName = expensename;
+
+
+                receandexpen.Cost = double.Parse(cost);
+                ///sau khi nhấn add làm trống lại textbox
+                ExpendituresName.Clear();
+                //thêm tên khoản chi vào bo nhớ tạm
+                ReceAndExpenlist.Add(receandexpen);
+            }
+        }
+
+        private void AddPalce_Click(object sender, RoutedEventArgs e)
+        {
+            trip.TripIsGoing();
+            //lấy ra tên các lộ trình
+            if (RouteName.Text.Trim() != "")
+            {
+
+                Location location = new Location();
+                location.TripID = trip.TripID;
+                location.Number = (++number).ToString();
+                location.LocationName = RouteName.Text;
+                locationlist.Add(location);
             }
         }
     }
