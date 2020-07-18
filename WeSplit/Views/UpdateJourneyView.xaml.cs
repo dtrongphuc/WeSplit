@@ -200,18 +200,18 @@ namespace WeSplit.Views
             //tên khoản chi
             var expensename = ExpendituresComboBox.SelectedItem.ToString();
 
-            if(expensemoney_update == "")
-                MessageBox.Show("Vui lòng nhập số tiền cập nhật!", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Information);
-            else if(membername == "" | expensename == "")
-                MessageBox.Show("Vui lòng chọn thành viên và tên khoản chi!", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Information);
-            else
-            {
-                //thêm vào database 
-                //...
+            //if(expensemoney_update == "")
+            //    MessageBox.Show("Vui lòng nhập số tiền cập nhật!", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Information);
+            //else if(membername == "" | expensename == "")
+            //    MessageBox.Show("Vui lòng chọn thành viên và tên khoản chi!", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Information);
+            //else
+            //{
+            //    //thêm vào database 
+            //    //...
 
 
-                UpdateExpenseMoney.Clear();
-            }
+            //    UpdateExpenseMoney.Clear();
+            //}
         }
 
         
@@ -220,17 +220,17 @@ namespace WeSplit.Views
             //lấy tên khoản chi
             string expensename = ExpendituresName.Text.Trim();
             string expensemoney = NewExpenseMoney.Text.Trim();
-            if (expensename == "" | expensemoney == "")
-                MessageBox.Show("Vui lòng nhập tên khoản chi hoặc tiền chi!", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Information);
-            else
-            {
-                //thêm tên khoản chi vào database
+            //if (expensename == "" | expensemoney == "")
+            //    MessageBox.Show("Vui lòng nhập tên khoản chi hoặc tiền chi!", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Information);
+            //else
+            //{
+            //    //thêm tên khoản chi vào database
 
-                //...
+            //    //...
 
-                //sau khi nhấn add làm trống lại textbox
-                // ExpendituresName.Clear();
-            }
+            //    //sau khi nhấn add làm trống lại textbox
+            //    // ExpendituresName.Clear();
+            //}
         }
     }
 }
