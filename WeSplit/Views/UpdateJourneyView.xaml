@@ -203,6 +203,7 @@
     </UserControl.Resources>
     <Grid>
         <ScrollViewer
+            x:Name="Main"
             Background="#F5F4F2"
             ScrollViewer.HorizontalScrollBarVisibility="Disabled"
             ScrollViewer.VerticalScrollBarVisibility="Auto">

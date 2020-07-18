@@ -21,8 +21,10 @@ namespace WeSplit.ViewModels
         Trip trip = new Trip();
 
         public BindableCollection<Member> MembersInComboBox { get; set; }
+        public static int LastIDOfMembers { get; private set; } = 0;
         public BindableCollection<ReceiptsAndExpenses> ExpendituresInComboBox { get; set; }
         public BindableCollection<Location> LocationListbox { get; set; }
+        public static int LastOfLocation { get; private set; } = 0;
         public int LeaderIndex { get; set; } = -1;
         //tên chuyến đi 
         public string JourneyName { get; set; }
@@ -37,11 +39,13 @@ namespace WeSplit.ViewModels
             trip.TripIsGoing();
             //liệt kê trong comnbobox các thành viên
             MembersInComboBox = memberlist(trip.TripID);
+            LastIDOfMembers = int.Parse(MembersInComboBox.ElementAt(MembersInComboBox.Count - 1).MemberID);
             LeaderIndex = FindLeaderIndex(MembersInComboBox);
             //liệt kệ trong combobox các khoản chi
             ExpendituresInComboBox = expenselist(trip.TripID);
             //liệt kệ trong listview các địa điểm 
             LocationListbox = GetList.Get_AllLocationTrip(trip.TripID);
+            LastOfLocation = (LocationListbox.Count);
             //ten chuyến đi
             JourneyName = trip.TripName;
             //số km
@@ -105,8 +109,10 @@ namespace WeSplit.ViewModels
             string memberTel = UpdateJourneyView.Instance.TelBox.Text.Trim();
             if(memberName != "" && memberTel != "")
             {
+                int LastIndexMember = int.Parse(MembersInComboBox.ElementAt(MembersInComboBox.Count - 1).MemberID);
                 Member member = new Member
                 {
+                    MemberID = (LastIndexMember + 1).ToString(),
                     TripID = trip.TripID,
                     MemberName = memberName,
                     Telephone = memberTel,

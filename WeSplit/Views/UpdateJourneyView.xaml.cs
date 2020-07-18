@@ -29,12 +29,14 @@ namespace WeSplit.Views
     public partial class UpdateJourneyView : UserControl
     {
         //private int number = 0;
+        UpdateJourneyViewModel Data = null;
         private Trip trip = new Trip();
         public static UpdateJourneyView Instance { get; set; }
-        private BindableCollection<Location> locationlist = new BindableCollection<Location>();
         private BindableCollection<ReceiptsAndExpenses> ReceAndExpenlist = new BindableCollection<ReceiptsAndExpenses>();
         private BindableCollection<ReceiptsAndExpenses> UpdateReceAndExpenlist = new BindableCollection<ReceiptsAndExpenses>();
         //private int number = 0;
+        private int LastID { get; set; } = 0;
+        private int LastLocationCount { get; set; } = 0;
         public UpdateJourneyView()
         {
             InitializeComponent();
@@ -115,6 +117,29 @@ namespace WeSplit.Views
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
             trip.TripIsGoing();
+            Data = Main.DataContext as UpdateJourneyViewModel;
+            BindableCollection<Member> Members = new BindableCollection<Member>();
+            BindableCollection<Location> Locations = new BindableCollection<Location>();
+            //BindableCollection<ReceiptsAndExpenses> Expenditures = new BindableCollection<ReceiptsAndExpenses>();
+            Members = Data.MembersInComboBox;
+            Locations = Data.LocationListbox;
+            LastID = UpdateJourneyViewModel.LastIDOfMembers;
+            LastLocationCount = UpdateJourneyViewModel.LastOfLocation;
+            //Expenditures = Data.ExpendituresInComboBox; // cai nay lay list khoan chi, nhung t nghi m nen xu ly luc ngta nhan ok 
+            //không được vì người ta nhấn sai thì sao, phải cho người ta thao tác lại bằng cách nhấp vào chức năng khác rồi qyau lại, thì lúc đó reset r
+
+            IEnumerable<Member> NewMembers = Members.Where(
+                    i => int.Parse(i.MemberID) > LastID
+                );
+            IEnumerable<Location> NewLocations = Locations.Where(
+                    i => int.Parse(i.Number) > LastLocationCount
+                );
+
+            //danh sách thanh viên thêm mới.
+            List<Member> ListMember = NewMembers.ToList();
+            //danh sách dia diem them moi
+            List<Location> ListLocation = NewLocations.ToList();
+
             //kiểm tra đã nhập đầy đủ thông tin 
             if (ConditionCheck())
             {
@@ -151,7 +176,7 @@ namespace WeSplit.Views
                 //    expen.Add();
                 //}
 
-
+                //thêm khoan chi
                 foreach (ReceiptsAndExpenses expen in ReceAndExpenlist)
                 {
                     expen.Add();
@@ -162,17 +187,12 @@ namespace WeSplit.Views
                     updateExpen.Add();
                 }
 
-                Location numberlocation = new Location();
-                int STT = numberlocation.STT(trip.TripID);
-
-                foreach (Location location in locationlist)
-                {
-                    location.Number = location.Number + STT;
-                    location.Add();
-                }
+                
             }
         }
 
+        //cái này là update cái khoản thu chi phải k
+        // để chạy lên cho dễ hiểu
         private void AddUpdateExpenses_Click(object sender, RoutedEventArgs e)
         {
             //tên thành viên
@@ -183,15 +203,22 @@ namespace WeSplit.Views
             string expensename = Expense.ExpensesName;
             ///tiền cần update
             string cost = UpdateExpenseMoney.Text.Trim();
-            if (membername != "" && expensename != "" && cost != "")
+            Data = Main.DataContext as UpdateJourneyViewModel;
+            if (membername != "" && expensename != "" && cost != "" && Data != null)
             {
                 trip.TripIsGoing();
                 ReceiptsAndExpenses receandexpen = new ReceiptsAndExpenses();
-                Member member = new Member();
+                IEnumerable<Member> NewMember;
                 receandexpen.TripID = trip.TripID;
 
-                member.Find(trip.TripID, membername);
-                receandexpen.MemberID = member.MemberID;
+               
+                //BindableCollection<ReceiptsAndExpenses> Expenditures = new BindableCollection<ReceiptsAndExpenses>();
+                NewMember = Data.MembersInComboBox.Where(i => i.MemberName.Contains(membername));
+                //member.Find(trip.TripID, membername); // cho nay se k tim thay thanh vien moi, vấn đề lớn, chứ kiểu add hay ok lun thấy nó sai, nó chỉ lưu khi submit mới đúng
+                // m lưu vô list tạm mà, um để lưu thao tác sau khi người ta nhấn submit thì t mới lưu vào database
+                // đúng r, sửa chỗ member này lại mới lấy dc thành viên mới
+
+                receandexpen.MemberID = NewMember.ElementAt(0).MemberID;
 
 
                 receandexpen.ExpensesName = expensename;
