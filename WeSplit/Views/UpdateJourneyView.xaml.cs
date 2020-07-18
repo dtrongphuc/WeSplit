@@ -111,7 +111,8 @@ namespace WeSplit.Views
             }
             return true;
         }
-
+        
+       
         //kiểm tra ngày về phải > ngày đi 
         private bool datecheck(string start, string end)
         {
@@ -238,7 +239,7 @@ namespace WeSplit.Views
             }
         }
 
-
+        
         private void AddExpense_Click(object sender, RoutedEventArgs e)
         {
            

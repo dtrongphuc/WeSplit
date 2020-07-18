@@ -36,5 +36,10 @@ namespace WeSplit.Views
             HistoryView.Instance.BtnHide.Visibility = Visibility.Hidden;
             HistoryView.Instance.BtnShow.Visibility = Visibility.Visible;
         }
+
+        private void UserControl_Initialized(object sender, EventArgs e)
+        {
+
+        }
     }
 }
