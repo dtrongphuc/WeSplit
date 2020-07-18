@@ -143,25 +143,25 @@ namespace WeSplit.Views
             if (ConditionCheck())
             {
                 //tên chuyến đi
-                if (JourneyName.Text.Trim() != "")
+                if (JourneyName.Text.Trim() != string.Empty)
                 {
                     trip.TripName = JourneyName.Text;
                 }
 
                 //số km
-                if (Kilometer.Text.Trim() != "")
+                if (Kilometer.Text.Trim() != string.Empty)
                 {
                     trip.Lenght = Kilometer.Text;
                 }
 
                 //ngày đi
-                if (StartDay.Text.Trim() != "")
+                if (StartDay.Text.Trim() != string.Empty)
                 {
                     trip.StartDate = StartDay.Text;
                 }
 
                 //ngày về
-                if (EndDay.Text.Trim() != "")
+                if (EndDay.Text.Trim() != string.Empty)
                 {
                     trip.EndDate = EndDay.Text;
                 }
@@ -210,7 +210,7 @@ namespace WeSplit.Views
             ///tiền cần update
             string cost = UpdateExpenseMoney.Text.Trim();
             Data = Main.DataContext as UpdateJourneyViewModel;
-            if (membername != "" && expensename != "" && cost != "" && Data != null)
+            if (membername != string.Empty && expensename != string.Empty && cost != string.Empty && Data != null)
             {
                 trip.TripIsGoing();
                 ReceiptsAndExpenses receandexpen = new ReceiptsAndExpenses();
@@ -229,6 +229,11 @@ namespace WeSplit.Views
                 //thêm tên khoản chi vào bo nhớ tạm
                 UpdateReceAndExpenlist.Add(receandexpen);
             }
+        }
+
+        private void ExpendituresComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            UpdateExpenseMoney.Text = string.Empty;
         }
     }
 }
