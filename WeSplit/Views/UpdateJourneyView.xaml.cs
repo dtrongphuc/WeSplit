@@ -239,48 +239,47 @@ namespace WeSplit.Views
             }
         }
 
+        //private void AddExpense_Click(object sender, RoutedEventArgs e)
+        //{
 
-        private void AddExpense_Click(object sender, RoutedEventArgs e)
-        {
-
-            //lấy giá tiền
-            string cost = NewExpenseMoney.Text.Trim();
-            ///lấy tên khoản chi
-            string expensename = ExpendituresName.Text.Trim();
-            if (cost != "" && expensename != "")
-            {
-                trip.TripIsGoing();
-                Member member = new Member();
-                member.Leader(trip.TripID);
-                ReceiptsAndExpenses receandexpen = new ReceiptsAndExpenses();
-                receandexpen.TripID = trip.TripID;
-                receandexpen.MemberID = member.MemberID;
-
-
-                receandexpen.ExpensesName = expensename;
+        //    //lấy giá tiền
+        //    string cost = NewExpenseMoney.Text.Trim();
+        //    ///lấy tên khoản chi
+        //    string expensename = ExpendituresName.Text.Trim();
+        //    if (cost != "" && expensename != "")
+        //    {
+        //        trip.TripIsGoing();
+        //        Member member = new Member();
+        //        member.Leader(trip.TripID);
+        //        ReceiptsAndExpenses receandexpen = new ReceiptsAndExpenses();
+        //        receandexpen.TripID = trip.TripID;
+        //        receandexpen.MemberID = member.MemberID;
 
 
-                receandexpen.Cost = double.Parse(cost);
-                ///sau khi nhấn add làm trống lại textbox
-                ExpendituresName.Clear();
-                //thêm tên khoản chi vào bo nhớ tạm
-                ReceAndExpenlist.Add(receandexpen);
-            }
-        }
+        //        receandexpen.ExpensesName = expensename;
 
-        private void AddPalce_Click(object sender, RoutedEventArgs e)
-        {
-            trip.TripIsGoing();
-            //lấy ra tên các lộ trình
-            if (RouteName.Text.Trim() != "")
-            {
 
-                Location location = new Location();
-                location.TripID = trip.TripID;
-                location.Number = (++number).ToString();
-                location.LocationName = RouteName.Text;
-                locationlist.Add(location);
-            }
-        }
+        //        receandexpen.Cost = double.Parse(cost);
+        //        ///sau khi nhấn add làm trống lại textbox
+        //        ExpendituresName.Clear();
+        //        //thêm tên khoản chi vào bo nhớ tạm
+        //        ReceAndExpenlist.Add(receandexpen);
+        //    }
+        //}
+
+        //private void AddPalce_Click(object sender, RoutedEventArgs e)
+        //{
+        //    trip.TripIsGoing();
+        //    //lấy ra tên các lộ trình
+        //    if (RouteName.Text.Trim() != "")
+        //    {
+
+        //        Location location = new Location();
+        //        location.TripID = trip.TripID;
+        //        location.Number = (++number).ToString();
+        //        location.LocationName = RouteName.Text;
+        //        locationlist.Add(location);
+        //    }
+        //}
     }
 }
