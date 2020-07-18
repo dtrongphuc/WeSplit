@@ -33,7 +33,7 @@ namespace WeSplit.Views
         private BindableCollection<Location> locationlist = new BindableCollection<Location>();
         private BindableCollection<ReceiptsAndExpenses> ReceAndExpenlist = new BindableCollection<ReceiptsAndExpenses>();
         private BindableCollection<ReceiptsAndExpenses> UpdateReceAndExpenlist = new BindableCollection<ReceiptsAndExpenses>();
-        private int number = 0;
+        //private int number = 0;
         public UpdateJourneyView()
         {
             InitializeComponent();
@@ -239,25 +239,25 @@ namespace WeSplit.Views
             }
         }
 
+        //private void AddExpense_Click(object sender, RoutedEventArgs e)
+        //{
 
-        private void AddExpense_Click(object sender, RoutedEventArgs e)
-        {
-
-            //lấy giá tiền
-            string cost = NewExpenseMoney.Text.Trim();
-            ///lấy tên khoản chi
-            string expensename = ExpendituresName.Text.Trim();
-            if (cost != "" && expensename != "")
-            {
-                trip.TripIsGoing();
-                Member member = new Member();
-                member.Leader(trip.TripID);
-                ReceiptsAndExpenses receandexpen = new ReceiptsAndExpenses();
-                receandexpen.TripID = trip.TripID;
-                receandexpen.MemberID = member.MemberID;
+        //    //lấy giá tiền
+        //    string cost = NewExpenseMoney.Text.Trim();
+        //    ///lấy tên khoản chi
+        //    string expensename = ExpendituresName.Text.Trim();
+        //    if (cost != "" && expensename != "")
+        //    {
+        //        trip.TripIsGoing();
+        //        Member member = new Member();
+        //        member.Leader(trip.TripID);
+        //        ReceiptsAndExpenses receandexpen = new ReceiptsAndExpenses();
+        //        receandexpen.TripID = trip.TripID;
+        //        receandexpen.MemberID = member.MemberID;
 
 
-                receandexpen.ExpensesName = expensename;
+        //        receandexpen.ExpensesName = expensename;
+
 
 
                 receandexpen.Cost = double.Parse(cost);
@@ -268,19 +268,19 @@ namespace WeSplit.Views
             }
         }
 
-        private void AddPalce_Click(object sender, RoutedEventArgs e)
-        {
-            trip.TripIsGoing();
-            //lấy ra tên các lộ trình
-            if (RouteName.Text.Trim() != "")
-            {
+        //private void AddPalce_Click(object sender, RoutedEventArgs e)
+        //{
+        //    trip.TripIsGoing();
+        //    //lấy ra tên các lộ trình
+        //    if (RouteName.Text.Trim() != "")
+        //    {
 
-                Location location = new Location();
-                location.TripID = trip.TripID;
-                location.Number = (++number).ToString();
-                location.LocationName = RouteName.Text;
-                locationlist.Add(location);
-            }
-        }
+        //        Location location = new Location();
+        //        location.TripID = trip.TripID;
+        //        location.Number = (++number).ToString();
+        //        location.LocationName = RouteName.Text;
+        //        locationlist.Add(location);
+        //    }
+        //}
     }
 }
