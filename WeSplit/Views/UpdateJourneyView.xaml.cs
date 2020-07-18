@@ -235,7 +235,7 @@ namespace WeSplit.Views
                 //thêm tên khoản chi vào bo nhớ tạm
                 UpdateReceAndExpenlist.Add(receandexpen);
                 ///sau khi nhấn add làm trống lại textbox
-                UpdateExpenseMoney.Clear();
+                //UpdateExpenseMoney.Clear();
             }
         }
 
@@ -262,7 +262,7 @@ namespace WeSplit.Views
 
                 receandexpen.Cost = double.Parse(cost);
                 ///sau khi nhấn add làm trống lại textbox
-                ExpendituresName.Clear();
+                //ExpendituresName.Clear();
                 //thêm tên khoản chi vào bo nhớ tạm
                 ReceAndExpenlist.Add(receandexpen);
             }

@@ -29,19 +29,19 @@ namespace WeSplit.Models
             }
         }
 
-        private dynamic _customJourney = new ExpandoObject();
-        public dynamic CustomJourney
-        {
-            get
-            {
-                return _customJourney;
-            }
-            set
-            {
-                _customJourney = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("CustomJourney"));
-            }
-        }
+        //private dynamic _customJourney = new ExpandoObject();
+        //public dynamic CustomJourney
+        //{
+        //    get
+        //    {
+        //        return _customJourney;
+        //    }
+        //    set
+        //    {
+        //        _customJourney = value;
+        //        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("CustomJourney"));
+        //    }
+        //}
 
         private BindableCollection<Member> _ListMemberTrip { get; set; } = new BindableCollection<Member>();
         public BindableCollection<Member> ListMemberTrip
@@ -118,6 +118,7 @@ namespace WeSplit.Models
 
         public ExpandoObject Get_JourneyCustom(string id)
         {
+            dynamic CustomJourney = new ExpandoObject();
             Random r = new Random();
             Get_AllImagesTrip(id);
             Trip trip = new Trip();

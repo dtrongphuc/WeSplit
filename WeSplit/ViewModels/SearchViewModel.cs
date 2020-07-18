@@ -25,40 +25,68 @@ namespace WeSplit.ViewModels
         string keysearchtext = null;
         GetListObject GetList = new GetListObject();
 
+        private bool checkList(BindableCollection<ExpandoObject> list, dynamic trip)
+        {
+            foreach(ExpandoObject temp in list)
+            {
+                if (temp.GetValueOrDefault("TripID") == trip.TripID)
+                    return true;
+            }
+            return false;
+        }
+
         //từ tìm kiếm lưu trong "keysearchtext"
         public void BtnSearch()
         {
+            
             keysearchtext = SearchView.Instance.SearchBox.Text.Trim();
             list = search_keywordLocation(keysearchtext);
             list1 = search_keywordMember(keysearchtext);
-            if(keysearchtext == "")
+            for (int i=0;i<list.Count();i++)
+            {
+                var temp = list.ElementAt(i);
+            }
+            for (int i = 0; i < list1.Count(); i++)
+            {
+                var temp = list1.ElementAt(i);
+            }
+            if (keysearchtext == "")
             {
                 return;
             }
             if (list.Count() != 0)
             {
-                foreach (var lo in list)
+                List<string> TripsID = new List<string>();
+                foreach (var item in list1)
                 {
-                    dynamic trip = new ExpandoObject();
-                    trip = GetList.Get_JourneyCustom(lo.TripID);
-                    Search.Add(trip);
+                    if (!TripsID.Contains(item.TripID))
+                    {
+                        TripsID.Add(item.TripID);
+                        dynamic trip = GetList.Get_JourneyCustom(item.TripID);
+                        Search.Add(trip);
+                    }
                 }
-
+                _count = Search.Count();
             }
             else if (list1.Count() != 0)
             {
-                foreach (var lo in list1)
+                
+                List<string> TripsID = new List<string>();
+                foreach(var item in list1)
                 {
-                    dynamic trip = new ExpandoObject();
-                    trip = GetList.Get_JourneyCustom(lo.TripID);
-                    Search.Add(trip);
+                   if(!TripsID.Contains(item.TripID))
+                    {
+                        TripsID.Add(item.TripID);
+                        dynamic trip = GetList.Get_JourneyCustom(item.TripID);
+                        Search.Add(trip);
+                    }
                 }
+                _count = Search.Count();
             }
             else
             {
                 Search = null;
             }
-            _count = Search.Count();
             SearchView.Instance.Quantity.Text = "Có " + _count + " kết quả được tìm thấy";
         }
 
