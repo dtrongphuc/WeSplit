@@ -17,6 +17,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WeSplit.Models;
+using WeSplit.ViewModels;
+
 
 namespace WeSplit.Views
 {
@@ -25,9 +27,11 @@ namespace WeSplit.Views
     /// </summary>
     public partial class UpdateJourneyView : UserControl
     {
-
+        
+        private Trip trip = new Trip();
         public static UpdateJourneyView Instance { get; set; }
-
+        private BindableCollection<Location> locationlist = new BindableCollection<Location>();
+        private int number=0;
         public UpdateJourneyView()
         {
             InitializeComponent();
@@ -137,56 +141,53 @@ namespace WeSplit.Views
             List<TextBox> childrenOfMember = AllChildren(MemberNameStack);
             List<TextBox> childrenOfTel = AllChildren(TelStack);
 
-
+            trip.TripIsGoing();
             //kiểm tra đã nhập đầy đủ thông tin 
             if (ConditionCheck(childrenOfMember, childrenOfTel))
             {
                 //tên chuyến đi
                 if (JourneyName.Text.Trim() != "")
                 {
-                    //trip.TripName = JourneyName.Text;
+                    trip.TripName = JourneyName.Text;
                 }
 
                 //số km
                 if (Kilometer.Text.Trim() != "")
                 {
-                    //trip.Lenght = Kilometer.Text;
+                    trip.Lenght = Kilometer.Text;
                 }
 
                 //ngày đi
                 if (StartDay.Text.Trim() != "")
                 {
-                    //trip.StartDate = StartDay.Text;
+                    trip.StartDate = StartDay.Text;
                 }
 
                 //ngày về
                 if (EndDay.Text.Trim() != "")
                 {
-                    //trip.EndDate = EndDay.Text;
+                    trip.EndDate = EndDay.Text;
                 }
 
                 //them vào database về chuyến đi
-                // trip.Add();
+                 trip.Edit();
+                
                 //danh sách tên và số điện thoại thành viên
                 for (int i = 0; i < childrenOfMember.Count; i++)
                 {
                     if (childrenOfMember[i].Text.Trim() != "" && childrenOfTel[i].Text.Trim() != "")
                     {
-
+                        Member member = new Member();
+                        member.TripID = trip.TripID;
+                        member.MemberName = childrenOfMember[i].Text;
+                        member.Telephone = childrenOfTel[i].Text;
+                        member.Status = 0;
+                        member.Add();
                     }
                 }//kết thúc danh sách tên và số điện thoại thành viên
 
-                //lấy ra tên thành viên ứng tiền trước
-                if (MembersComboBox.Text.Trim() != "")
-                {
 
-                }
-
-                //lấy ra tên các lộ trình
-                if (RouteName.Text.Trim() != "")
-                {
-
-                }
+               
             }
         }
 
@@ -218,6 +219,21 @@ namespace WeSplit.Views
 
             //sau khi nhấn add làm trống lại textbox
            // ExpendituresName.Clear();
+        }
+
+        private void AddPalce_Click(object sender, RoutedEventArgs e)
+        {
+            trip.TripIsGoing();
+            //lấy ra tên các lộ trình
+            if (RouteName.Text.Trim() != "")
+            {
+               
+                Location location = new Location();
+                location.TripID = trip.TripID;
+                location.Number = (++number).ToString();
+                location.LocationName = RouteName.Text;
+                locationlist.Add(location);
+            }
         }
     }
 }

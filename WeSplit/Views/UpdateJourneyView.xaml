@@ -489,7 +489,8 @@
                             HorizontalAlignment="Right"
                             Background="#333E50"
                             BorderThickness="0"
-                            Content="Add" />
+                            Content="Add"
+                            Click="AddPalce_Click"/>
                     </StackPanel>
 
                 </Grid>

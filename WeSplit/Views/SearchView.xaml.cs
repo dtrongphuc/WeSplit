@@ -70,7 +70,7 @@ namespace WeSplit.Views
             }
             else
             {
-                Search.ItemsSource = null;
+                ListResult = null;
             }
             Search.ItemsSource = ListResult;
             _count = ListResult.Count();
