@@ -196,7 +196,7 @@ namespace WeSplit.Views
                
                 foreach(ReceiptsAndExpenses updateExpen in UpdateReceAndExpenlist)
                 {
-                    updateExpen.Add();
+                    updateExpen.Edit();
                 }
 
                 Location numberlocation = new Location();
