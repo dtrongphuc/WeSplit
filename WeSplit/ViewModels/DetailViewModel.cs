@@ -93,7 +93,7 @@ namespace WeSplit.ViewModels
                     }
                 }
                 double Cal = TotalCost - TotalRevenueOfMember;
-                obj.Cost = String.Format("{0:#,#}", Cal);
+                obj.Cost = Cal;
                 list.Add(obj);
             }
             return list;

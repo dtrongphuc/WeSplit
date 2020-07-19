@@ -188,8 +188,8 @@ namespace WeSplit.Views
                     info.CopyTo($"{folderfile}Resource\\Images\\{newname}");
                     imagetrip.Add();
                 }
+                MessageBox.Show("Cập nhật thành công !", "Thành công");
             }
-            MessageBox.Show("Cập nhật thành công !", "Thành công");
         }
 
         private void AddUpdateExpenses_Click(object sender, RoutedEventArgs e)

@@ -105,7 +105,8 @@ namespace WeSplit.Views
         private bool ConditionCheck(List<TextBox> member, List<TextBox> tel, List<TextBox> expensesname, List<TextBox> expensesmoney)
         {
             if (JourneyName.Text.Trim() == "" | Kilometer.Text.Trim() == "" | StartDay.Text.Trim().Length <= 8 |
-              EndDay.Text.Trim().Length <= 8 | member.Count < 1 | tel.Count < 1 | expensesname.Count < 1 | expensesmoney.Count < 1)
+              EndDay.Text.Trim().Length <= 8 | member.ElementAt(0).Text == string.Empty | tel.ElementAt(0).Text == string.Empty |
+              expensesname.ElementAt(0).Text == string.Empty | expensesmoney.ElementAt(0).Text == string.Empty)
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin cho chuyến đi!", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Information);
                 return false;
@@ -228,8 +229,8 @@ namespace WeSplit.Views
                     }
                 }//ket thuc lấy danh sach tên và số tiền khoản chi
 
+                MessageBox.Show("Thêm chuyến đi thành công!", "Thành công");
             }//kết thúc thêm vào database
-            MessageBox.Show("Thêm chuyến đi thành công!", "Thành công");
         }//két thúc sự kiện click
     }
 }
