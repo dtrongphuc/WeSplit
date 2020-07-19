@@ -130,6 +130,8 @@ namespace WeSplit.Models
 
         public void EndTrip()
         {
+            //sql = "SELECT IDENT_CURRENT('chuyendi') as LastID";
+            //_TripID = Connection.GetCount_Data(sql);
             sql = $"UPDATE CHUYENDI SET TRANGTHAI = {_Status} , NGAYKT = '{EndDate}' WHERE MACD = {_TripID} ";
             Connection.Execute_SQL(sql);
         }
