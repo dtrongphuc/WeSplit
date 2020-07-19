@@ -43,23 +43,9 @@ namespace WeSplit.Views
             Instance = this;
         }
 
-        string absolute = "";
-        private void convert(string relative)
-        {
-            absolute = null;
-            for (int i = relative.Length - 1; i > 0; i--)
-            {
+        
 
-                if (relative[i] == '\\')
-                {
-                    for (int run = i + 1; run < relative.Length; run++)
-                        absolute += relative[run];
-                    break;
-                }
-            }
-        }
-
-        List<string> ImagesNameList = new List<string>();
+        List<FileInfo> ImagesNameList = new List<FileInfo>();
         private void AddImgButton_Click(object sender, RoutedEventArgs e)
         {
             //lấy tên ảnh đưa vào list  ImagesNameList
@@ -71,8 +57,8 @@ namespace WeSplit.Views
             {
                 foreach (string filename in openFileDialog.FileNames)
                 {
-                    convert(filename);
-                    ImagesNameList.Add(absolute);
+                    var info = new FileInfo(filename);
+                    ImagesNameList.Add(info);
                 }
             }
             if(ImagesNameList.Count > 0)
@@ -120,6 +106,8 @@ namespace WeSplit.Views
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
             trip.TripIsGoing();
+            var folderfile = AppDomain.CurrentDomain.BaseDirectory;
+            var newname = "";
             Data = Main.DataContext as UpdateJourneyViewModel;
             BindableCollection<Member> Members = new BindableCollection<Member>();
             BindableCollection<Location> Locations = new BindableCollection<Location>();
@@ -195,6 +183,16 @@ namespace WeSplit.Views
                 foreach(Location location in ListLocation)
                 {
                     location.Add();
+                }
+
+                foreach(FileInfo info in ImagesNameList)
+                {
+                    Images imagetrip = new Images();
+                    newname = $"{Guid.NewGuid()}{info.Extension}";
+                    imagetrip.TripID = trip.TripID;
+                    imagetrip.Image = $"Resource/Image/{newname}";
+                    info.CopyTo($"{folderfile}Resource\\Images\\{newname}");
+                    imagetrip.Add();
                 }
             }
         }

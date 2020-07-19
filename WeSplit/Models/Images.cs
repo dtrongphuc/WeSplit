@@ -42,7 +42,7 @@ namespace WeSplit.Models
         string sql;
         public void Add()
         {
-            sql = $"INSERT INTO HINHANH VALUES(MACD = {_TripID}, HINHANH='{_Image}')";
+            sql = $"INSERT INTO HINHANH VALUES( {_TripID}, '{_Image}')";
             Connection.Execute_SQL(sql);
         }
 
