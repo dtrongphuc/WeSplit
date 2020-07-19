@@ -263,7 +263,8 @@
             <materialDesign:Card
                 x:Name="HistoryTrip"
                 Margin="32,10,10,10"
-                materialDesign:ShadowAssist.ShadowDepth="Depth2">
+                materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                UniformCornerRadius="4">
                 <StackPanel Margin="30,0">
                     <StackPanel>
                         <TextBlock
