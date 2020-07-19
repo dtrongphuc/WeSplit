@@ -240,11 +240,5 @@
             Grid.Column="1"
             Grid.ColumnSpan="2"
             Background="#F9F9FF" />
-        <ContentControl
-            x:Name="SearchViewModel"
-            Grid.Row="0"
-            Grid.Column="1"
-            Grid.ColumnSpan="2"
-            Background="#F9F9FF" />
     </Grid>
 </Window>

@@ -22,9 +22,11 @@ namespace WeSplit.Views
     /// </summary>
     public partial class MainView : Window
     {
+        public static MainView Instance { get; set; }
         public MainView()
         {
             InitializeComponent();
+            Instance = this;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

@@ -10,7 +10,6 @@
     xmlns:sys="clr-namespace:System;assembly=mscorlib"
     d:DesignHeight="520"
     d:DesignWidth="886"
-   
     mc:Ignorable="d">
     <Grid Background="#F5F4F2">
         <Grid.ColumnDefinitions>

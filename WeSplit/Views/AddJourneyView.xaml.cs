@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WeSplit.Models;
+using WeSplit.ViewModels;
 
 namespace WeSplit.Views
 {
@@ -228,6 +229,7 @@ namespace WeSplit.Views
                 }//ket thuc lấy danh sach tên và số tiền khoản chi
 
             }//kết thúc thêm vào database
+            MessageBox.Show("Thêm chuyến đi thành công!", "Thành công");
         }//két thúc sự kiện click
     }
 }

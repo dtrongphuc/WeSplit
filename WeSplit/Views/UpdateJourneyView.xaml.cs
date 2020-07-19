@@ -63,8 +63,7 @@ namespace WeSplit.Views
             }
             if(ImagesNameList.Count > 0)
             {
-                ContentImg.Text = "Đã chọn ảnh";
-                AddImages.Opacity = 0.8;
+                ContentImg.Text = "Đã chọn " + ImagesNameList.Count + " ảnh";
             }
         }
 

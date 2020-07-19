@@ -12,7 +12,7 @@ namespace WeSplit.ViewModels
 {
     public class WalkingViewModel:Screen
     {
-        private Trip _journeyInfo = new Trip();
+        private Trip _journeyInfo;
         public Trip JourneyInfo
         {
             get
@@ -28,7 +28,8 @@ namespace WeSplit.ViewModels
 
         public WalkingViewModel()
         {
-            JourneyInfo.TripIsGoing();
+            Trip trip = new Trip();
+            JourneyInfo = trip.GetTripGoing();
         }
 
         public void EndJourneyClick()

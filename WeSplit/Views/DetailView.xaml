@@ -209,19 +209,14 @@
                                 <StackPanel Margin="0,6">
                                     <Grid>
                                         <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="10" />
-                                            <ColumnDefinition Width="4" />
+                                            <ColumnDefinition Width="26" />
                                             <ColumnDefinition Width="7*" />
                                         </Grid.ColumnDefinitions>
                                         <TextBlock
                                             Grid.Column="0"
                                             FontSize="16"
-                                            Text="{Binding Number}" />
-                                        <TextBlock
-                                            Grid.Column="1"
-                                            HorizontalAlignment="Left"
-                                            FontSize="16"
-                                            Text=". " />
+                                            Text="{Binding Number, StringFormat={}{0}.}" />
+
                                         <TextBlock
                                             Grid.Column="2"
                                             Margin="8,0,0,0"
@@ -290,7 +285,10 @@
                             <TextBlock Foreground="#000" Text="{Binding Path=HistoryTrip.EndDate}" />
                         </StackPanel>
                     </StackPanel>
-                    <DockPanel Margin="24,30,24,0" HorizontalAlignment="Center">
+                    <DockPanel
+                        x:Name="ImagesDetail"
+                        Margin="24,30,24,0"
+                        HorizontalAlignment="Center">
                         <Button
                             Margin="0,0,-58,0"
                             Panel.ZIndex="10"
