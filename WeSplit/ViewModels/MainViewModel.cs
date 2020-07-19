@@ -15,7 +15,7 @@ namespace WeSplit.ViewModels
    
     public class MainViewModel : Conductor<IScreen>.Collection.OneActive, INotifyPropertyChanged
     {
-       
+        private Trip TripGoing = new Trip();
         private HistoryViewModel _historyViewModel;
         public HistoryViewModel HistoryViewModel
         {
@@ -27,9 +27,15 @@ namespace WeSplit.ViewModels
             }
         }
 
+        private WalkingViewModel _walkingViewModel;
         public WalkingViewModel WalkingViewModel
         {
-            get; set;
+            get { return _walkingViewModel; }
+            set
+            {
+                _walkingViewModel = value;
+                NotifyOfPropertyChange(() => WalkingViewModel);
+            }
         }
 
         private string _whoActived;
@@ -75,6 +81,13 @@ namespace WeSplit.ViewModels
 
         public void AddClick()
         {
+            if(TripGoing.TripIsGoing())
+            {
+                MessageBox.Show("Đang có chuyến đang đi, không thể tạo mới", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                HomeClick();
+                MainView.Instance.HistoryViewModel.Visibility = Visibility.Visible;
+                return;
+            }
             WhoActived = "Add";
             CloseCurrentView();
             ActivateItem(new AddJourneyViewModel());
@@ -83,17 +96,16 @@ namespace WeSplit.ViewModels
 
         public bool check()
         {
-            Trip tripgoing = new Trip();
-            if (tripgoing.TripIsGoing() == false)
+            if (TripGoing.TripIsGoing() == false)
                 return false;
             return true;
         }
 
         public void UpdateClick()
         {
-            WhoActived = "Update";
             if (check() == true)
             {
+                WhoActived = "Update";
                 CloseCurrentView();
                 ActivateItem(new UpdateJourneyViewModel());
                 DisplayName = "Cập nhật chuyến đi";
@@ -101,6 +113,8 @@ namespace WeSplit.ViewModels
             else
             {
                 MessageBox.Show("Không có chuyến đang đi, không thể cập nhật", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                HomeClick();
+                MainView.Instance.HistoryViewModel.Visibility = Visibility.Visible;
             }
         }
 

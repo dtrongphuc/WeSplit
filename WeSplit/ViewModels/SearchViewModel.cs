@@ -21,6 +21,19 @@ namespace WeSplit.ViewModels
         public IEnumerable<Location> subnets;
         public IEnumerable<Member> subnets1;
         public BindableCollection<ExpandoObject> Search { get; set; } = new BindableCollection<ExpandoObject>(); //list chứa kết quả cuối cùng.
+        private string _info = "Tìm kiếm theo tên thành viên, tên địa điểm";
+        public string Info
+        {
+            get
+            {
+                return _info;
+            }
+            set
+            {
+                _info = value;
+                NotifyOfPropertyChange(() => Info);
+            }
+        }
         public int _count = 0;
         string keysearchtext = null;
         GetListObject GetList = new GetListObject();
@@ -87,7 +100,7 @@ namespace WeSplit.ViewModels
             {
                 Search = null;
             }
-            SearchView.Instance.Quantity.Text = "Có " + _count + " kết quả được tìm thấy";
+            Info = "Có " + _count + " kết quả được tìm thấy";
         }
 
         //tìm kiếm theo dia diem chuyến đi 

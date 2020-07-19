@@ -139,7 +139,7 @@ namespace WeSplit.Models
         {
             sql = $"SELECT CD.*,TV.HOTEN FROM CHUYENDI AS CD JOIN THANHVIEN AS TV ON CD.MACD = TV.MACD WHERE CD.TRANGTHAI=1 AND TV.TRANGTHAI=1";
             DataTable dt = Connection.GetALL_Data(sql);
-            _TripID = " ";
+            TripID = " ";
             foreach (DataRow row in dt.Rows)
             {
                 this.TripID = row["MACD"].ToString();
@@ -160,11 +160,38 @@ namespace WeSplit.Models
                 }
                 this.MemberName = row["HOTEN"].ToString();  
             }
-            if (_TripID != " ")
+            if (TripID != " ")
             {
                 return true;
             }
             return false;
+        }
+
+        public Trip GetTripGoing()
+        {
+            sql = $"SELECT CD.*,TV.HOTEN FROM CHUYENDI AS CD JOIN THANHVIEN AS TV ON CD.MACD = TV.MACD WHERE CD.TRANGTHAI=1 AND TV.TRANGTHAI=1";
+            DataTable dt = Connection.GetALL_Data(sql);
+            foreach (DataRow row in dt.Rows)
+            {
+                this.TripID = row["MACD"].ToString();
+                this.TripName = row["TENCD"].ToString();
+                this.Status = (int)row["TRANGTHAI"];
+                this.Lenght = row["DODAI"].ToString();
+                string dateStart = row["NGAYDI"].ToString();
+                if (dateStart != "")
+                {
+                    var date = DateTime.Parse(dateStart);
+                    this.StartDate = date.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+                }
+                string dateEnd = row["NGAYKT"].ToString();
+                if (dateEnd != "")
+                {
+                    var date = DateTime.Parse(dateEnd);
+                    this.EndDate = date.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+                }
+                this.MemberName = row["HOTEN"].ToString();
+            }
+            return this;
         }
 
         public void Find( string ID)
@@ -174,7 +201,7 @@ namespace WeSplit.Models
             
             foreach (DataRow row in dt.Rows)
             {
-                _Amount++;
+                Amount++;
                 this.TripID = row["MACD"].ToString();
                 this.TripName = row["TENCD"].ToString();
                 this.Status = (int)row["TRANGTHAI"];

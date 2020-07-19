@@ -330,7 +330,7 @@
                         <TextBox Style="{StaticResource TelBox}" />
                     </StackPanel>
                     <StackPanel x:Name="IsLeader" Grid.Column="6">
-                        <RadioButton Style="{StaticResource IsLeaderRadioButton}" />
+                        <RadioButton IsChecked="True" Style="{StaticResource IsLeaderRadioButton}" />
                     </StackPanel>
                 </Grid>
                 <Button
