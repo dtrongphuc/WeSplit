@@ -184,7 +184,7 @@ namespace WeSplit.Views
                     Images imagetrip = new Images();
                     newname = $"{Guid.NewGuid()}{info.Extension}";
                     imagetrip.TripID = trip.TripID;
-                    imagetrip.Image = $"Resource/Image/{newname}";
+                    imagetrip.Image = $"/Resource/Image/{newname}";
                     info.CopyTo($"{folderfile}Resource\\Images\\{newname}");
                     imagetrip.Add();
                 }
