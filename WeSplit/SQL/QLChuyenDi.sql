@@ -472,3 +472,4 @@ update chuyendi set trangthai=0 where macd=2
 update chuyendi set trangthai=0 where macd=6
 
 SELECT CD.*,TV.HOTEN FROM CHUYENDI AS CD JOIN THANHVIEN AS TV ON CD.MACD = TV.MACD WHERE CD.TRANGTHAI=1 AND TV.TRANGTHAI=1
+Alter table THUCHI drop constraint PK_THUCHI
