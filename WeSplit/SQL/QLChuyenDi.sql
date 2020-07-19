@@ -383,53 +383,53 @@ GO
 
 INSERT INTO CHUYENDI
 VALUES
-(N'Về miền sông nước Cửu Long , về với tuổi thơ tắm sông bắt óc & 1 vòng An Giang - Đi qua vùng Thất Sơn huyền bí', 1, '07/18/2020', '', 771)
+(N'Về miền sông nước Cửu Long, 1 vòng An Giang - Đi qua vùng Thất Sơn huyền bí', 1, '07/18/2020', '', 771)
 
 INSERT INTO THANHVIEN
 VALUES
-(7, N'Tiêu Tuấn Minh', '', '0555511083', 0),
-(7, N'Mai Ðức Thành', '', '0955561456', 1),
-(7, N'Quách Diệu Linh', '', '0955581547', 0),
-(7, N'Ngô Tuệ Nhi', '', '0855567792', 0),
-(7, N'Giang Chấn Phong', '', '0855551069', 0),
-(7, N'Nguyễn Ðức Bảo', '', '0355540270', 0),
-(7, N'Nguyễn Hồng Hạnh', '', '0355521815', 0)
+(8, N'Tiêu Tuấn Minh', '', '0555511083', 0),
+(8, N'Mai Ðức Thành', '', '0955561456', 1),
+(8, N'Quách Diệu Linh', '', '0955581547', 0),
+(8, N'Ngô Tuệ Nhi', '', '0855567792', 0),
+(8, N'Giang Chấn Phong', '', '0855551069', 0),
+(8, N'Nguyễn Ðức Bảo', '', '0355540270', 0),
+(8, N'Nguyễn Hồng Hạnh', '', '0355521815', 0)
 
 INSERT INTO DIADIEM
 VALUES
-(7, 1, N'TP Thủ Dầu Một'),
-(7, 2, N'Cầu Phú Cường'),
-(7, 3, N'Tỉnh Lộ 8'),
-(7, 4, N'Tt Củ Chi'),
-(7, 5, N'Tỉnh Lộ 823'),
-(7, 6, N'Tỉnh Lộ 823'),
-(7, 7, N'Tt Hậu Nghĩa'),
-(7, 8, N'Tỉnh Lộ 842'),
-(7, 9, N'Phà Châu Giang'),
-(7, 10, N'TP Châu Đốc'),
+(8, 1, N'TP Thủ Dầu Một'),
+(8, 2, N'Cầu Phú Cường'),
+(8, 3, N'Tỉnh Lộ 8'),
+(8, 4, N'Tt Củ Chi'),
+(8, 5, N'Tỉnh Lộ 823'),
+(8, 6, N'Tỉnh Lộ 823'),
+(8, 7, N'Tt Hậu Nghĩa'),
+(8, 8, N'Tỉnh Lộ 842'),
+(8, 9, N'Phà Châu Giang'),
+(8, 10, N'TP Châu Đốc')
 
 INSERT INTO HINHANH
 VALUES
-(7, '/Resource/Images/7_1.jpg'),
-(7, '/Resource/Images/7_2.jpg'),
-(7, '/Resource/Images/7_3.jpg'),
-(7, '/Resource/Images/7_4.jpg'),
-(7, '/Resource/Images/7_5.jpg'),
-(7, '/Resource/Images/7_6.jpg'),
-(7, '/Resource/Images/7_7.jpg'),
-(7, '/Resource/Images/7_8.jpg'),
-(7, '/Resource/Images/7_9.jpg'),
-(7, '/Resource/Images/7_10.jpg'),
-(7, '/Resource/Images/7_11.jpg'),
-(7, '/Resource/Images/7_12.jpg')
+(8, '/Resource/Images/7_1.jpg'),
+(8, '/Resource/Images/7_2.jpg'),
+(8, '/Resource/Images/7_3.jpg'),
+(8, '/Resource/Images/7_4.jpg'),
+(8, '/Resource/Images/7_5.jpg'),
+(8, '/Resource/Images/7_6.jpg'),
+(8, '/Resource/Images/7_7.jpg'),
+(8, '/Resource/Images/7_8.jpg'),
+(8, '/Resource/Images/7_9.jpg'),
+(8, '/Resource/Images/7_10.jpg'),
+(8, '/Resource/Images/7_11.jpg'),
+(8, '/Resource/Images/7_12.jpg')
 
 INSERT INTO THUCHI
 VALUES
-(25, N'Ăn sáng', 400000),
-(26, N'Ăn trưa', 520000),
-(25, N'Ăn tối', 670000),
-(28, N'Đổ xăng', 33000),
-(26, N'Câu cá', 200000)
+(27, 8, N'Ăn sáng', 400000),
+(28, 8, N'Ăn trưa', 520000),
+(28, 8, N'Ăn tối', 670000),
+(28, 8, N'Đổ xăng', 33000),
+(30, 8, N'Câu cá', 200000)
 
 
 
@@ -469,5 +469,6 @@ SELECT * FROM THANHVIEN
 SELECT * FROM THANHVIEN WHERE MACD=1 AND HOTEN=N'Quyền Thiên Ân'
 
 update chuyendi set trangthai=0 where macd=2
+update chuyendi set trangthai=0 where macd=6
 
 SELECT CD.*,TV.HOTEN FROM CHUYENDI AS CD JOIN THANHVIEN AS TV ON CD.MACD = TV.MACD WHERE CD.TRANGTHAI=1 AND TV.TRANGTHAI=1
