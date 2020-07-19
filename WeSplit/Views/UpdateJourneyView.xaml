@@ -520,6 +520,7 @@
                         <ColumnDefinition Width="1*" />
                     </Grid.ColumnDefinitions>
                     <Button
+                        x:Name="AddImages"
                         Grid.Column="1"
                         Height="265"
                         Padding="0"

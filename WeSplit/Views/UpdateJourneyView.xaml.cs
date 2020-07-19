@@ -3,6 +3,7 @@ using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -19,8 +20,6 @@ using System.Windows.Shapes;
 using WeSplit.Models;
 using WeSplit.ViewModels;
 
-
-
 namespace WeSplit.Views
 {
     /// <summary>
@@ -35,9 +34,9 @@ namespace WeSplit.Views
         public static UpdateJourneyView Instance { get; set; }
         private BindableCollection<ReceiptsAndExpenses> ReceAndExpenlist = new BindableCollection<ReceiptsAndExpenses>();
         private BindableCollection<ReceiptsAndExpenses> UpdateReceAndExpenlist = new BindableCollection<ReceiptsAndExpenses>();
-        //private int number = 0;
         private int LastID { get; set; } = 0;
         private int LastLocationCount { get; set; } = 0;
+
         public UpdateJourneyView()
         {
             InitializeComponent();
@@ -76,8 +75,11 @@ namespace WeSplit.Views
                     ImagesNameList.Add(absolute);
                 }
             }
-
-            //đưa ảnh dô file bin
+            if(ImagesNameList.Count > 0)
+            {
+                ContentImg.Text = "Đã chọn ảnh";
+                AddImages.Opacity = 0.8;
+            }
         }
 
         //kiem tra hợp lệ 
@@ -197,8 +199,6 @@ namespace WeSplit.Views
             }
         }
 
-        //cái này là update cái khoản thu chi phải k
-        // để chạy lên cho dễ hiểu
         private void AddUpdateExpenses_Click(object sender, RoutedEventArgs e)
         {
             //tên thành viên
