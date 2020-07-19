@@ -81,11 +81,6 @@ namespace WeSplit.Views
                 MessageBox.Show("Ngày về phải lớn hơn ngày bắt đầu!", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Information);
                 return false;
             }
-            else if (ImagesNameList.Count < 1)
-            {
-                MessageBox.Show("Bạn chưa thêm ảnh cho chuyến đi!", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Information);
-                return false;
-            }
             return true;
         }
 
@@ -194,6 +189,7 @@ namespace WeSplit.Views
                     imagetrip.Add();
                 }
             }
+            MessageBox.Show("Cập nhật thành công !", "Thành công");
         }
 
         private void AddUpdateExpenses_Click(object sender, RoutedEventArgs e)
@@ -223,6 +219,7 @@ namespace WeSplit.Views
                 receandexpen.ExpensesName = expensename;
 
                 receandexpen.Cost = double.Parse(cost);
+                UpdateExpenseMoney.Text = string.Empty;
                 //thêm tên khoản chi vào bo nhớ tạm
                 UpdateReceAndExpenlist.Add(receandexpen);
             }
