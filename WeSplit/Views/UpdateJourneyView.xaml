@@ -553,8 +553,6 @@
                     </Button>
                 </Grid>
 
-
-                <!--  Cho nay add hinh  -->
                 <Button
                     x:Name="Submit"
                     Width="140"
