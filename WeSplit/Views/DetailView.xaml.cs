@@ -90,6 +90,13 @@ namespace WeSplit.Views
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             CarouselItemCount = int.Parse(CarouselCount.Text);
+            if(CarouselItemCount < 1)
+            {
+                ImagesDetail.Visibility = Visibility.Collapsed;
+            } else
+            {
+                ImagesDetail.Visibility = Visibility.Visible;
+            }
         }
     }
 }
