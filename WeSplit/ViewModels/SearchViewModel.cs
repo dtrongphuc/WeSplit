@@ -51,26 +51,18 @@ namespace WeSplit.ViewModels
         //từ tìm kiếm lưu trong "keysearchtext"
         public void BtnSearch()
         {
-            
             keysearchtext = SearchView.Instance.SearchBox.Text.Trim();
-            list = search_keywordLocation(keysearchtext);
-            list1 = search_keywordMember(keysearchtext);
-            for (int i=0;i<list.Count();i++)
-            {
-                var temp = list.ElementAt(i);
-            }
-            for (int i = 0; i < list1.Count(); i++)
-            {
-                var temp = list1.ElementAt(i);
-            }
             if (keysearchtext == "")
             {
                 return;
             }
+            list = search_keywordLocation(keysearchtext);
+            list1 = search_keywordMember(keysearchtext);
+
             if (list.Count() != 0)
             {
                 List<string> TripsID = new List<string>();
-                foreach (var item in list1)
+                foreach (var item in list)
                 {
                     if (!TripsID.Contains(item.TripID))
                     {
