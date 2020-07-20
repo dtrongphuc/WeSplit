@@ -63,6 +63,7 @@ namespace WeSplit.ViewModels
             {
                 return;
             }
+            CloseCurrentView();
             ActiveItem.TryClose();
             isLocatedDetail = false;
             WhoActived = "Home";
