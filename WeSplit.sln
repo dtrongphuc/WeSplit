@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeSplit", "WeSplit\WeSplit.csproj", "{53A40F9E-1D0E-497E-AC03-3AB6D0850759}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup1", "Setup1\Setup1.vdproj", "{20AE0A23-4AB7-42DB-BF32-2ADDFF21F0B1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{53A40F9E-1D0E-497E-AC03-3AB6D0850759}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{53A40F9E-1D0E-497E-AC03-3AB6D0850759}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{53A40F9E-1D0E-497E-AC03-3AB6D0850759}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20AE0A23-4AB7-42DB-BF32-2ADDFF21F0B1}.Debug|Any CPU.ActiveCfg = Debug
+		{20AE0A23-4AB7-42DB-BF32-2ADDFF21F0B1}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

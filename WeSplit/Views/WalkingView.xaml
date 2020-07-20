@@ -113,7 +113,7 @@
                     CornerRadius="220 0 0 220"
                     DockPanel.Dock="Right">
                     <Border.Background>
-                        <ImageBrush ImageSource="/Resource/Images/test.jpg" />
+                        <ImageBrush ImageSource="/Resource/Images/walking.jpg" />
                     </Border.Background>
                 </Border>
             </Grid>

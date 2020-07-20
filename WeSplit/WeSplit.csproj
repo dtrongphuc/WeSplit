@@ -261,7 +261,7 @@
     <Resource Include="Resource\Icons\right-chevron.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resource\Images\test.jpg" />
+    <Resource Include="Resource\Images\walking.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resource\Icons\user.png" />
@@ -434,8 +434,6 @@
       <DependentUpon>QLChuyenDi.mdf</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Resource\Images\Background.jpg" />
-    <Resource Include="Resource\Images\AddBackground.jpg" />
     <Resource Include="Resource\Icons\edit.png" />
     <Resource Include="Resource\Icons\add_2.png" />
     <None Include="Resource\Images\1_1.png">
