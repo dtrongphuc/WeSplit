@@ -64,7 +64,6 @@ namespace WeSplit.ViewModels
                 return;
             }
             CloseCurrentView();
-            ActiveItem.TryClose();
             isLocatedDetail = false;
             WhoActived = "Home";
             ShowHistoryView();
@@ -128,7 +127,7 @@ namespace WeSplit.ViewModels
 
         public void CloseCurrentView()
         {
-            if (Items.Count > 0)
+            while (Items.Count > 0)
             {
                 DeactivateItem(Items[0], true);
             }

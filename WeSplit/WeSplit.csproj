@@ -289,6 +289,10 @@
     <Resource Include="Resource\Icons\add.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="SQL\QLChuyenDi_log.ldf">
+      <DependentUpon>QLChuyenDi.mdf</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Resource\Images\HCM-HaGiang_1.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

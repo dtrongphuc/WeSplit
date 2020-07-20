@@ -10,7 +10,6 @@ namespace WeSplit.Models
 {
     public static class Connection
     {
-
         static string cn_string= @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DaTaDirectory|\SQL\QLChuyenDi.mdf;Integrated Security=True";
         /// <summary>
         /// tạo kết nối với database
